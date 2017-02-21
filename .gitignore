@@ -22,3 +22,10 @@
 /launch-service.osx.sh
 /launch-service.sh
 /PhantomBot.jar
+/web/panel/js/panelConfig.js
+/botlogin.txt
+/phantombot.db
+/phantombot.db-journal
+/logs/core-error/
+/logs/core-warnings/
+/logs/event/
