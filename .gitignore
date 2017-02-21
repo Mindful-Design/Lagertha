@@ -1,0 +1,24 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+
+# Unchanged
+/addons/**
+/lib/**
+/scripts/core/**
+/scripts/games/**
+/scripts/handlers/**
+/scripts/lang/**
+/scripts/init.js
+/web/alerts/**
+/web/common/**
+/web/playlist/**
+/web/ytplayer/**
+/web/panel/js/flot/**
+/web/panel/js/footable/**
+/web/panel/js/ion-sound/**
+/web/panel/js/jquery-ui/**
+/launch.bat
+/launch.osx.sh
+/launch.sh
+/launch-service.osx.sh
+/launch-service.sh
+/PhantomBot.jar
