@@ -29,3 +29,5 @@
 /logs/core-error/
 /logs/core-warnings/
 /logs/event/
+
+stacktrace\.txt

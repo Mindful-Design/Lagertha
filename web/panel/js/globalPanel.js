@@ -59,9 +59,9 @@
             if (panelCheckQuery(msgObject, 'global_streamOnline')) {
                 streamOnline = (panelMatch(msgObject['results']['streamOnline'], 'true'));
                 if (streamOnline) {
-                    $('#streamOnline').html('<span class="greenPill" data-toggle="tooltip" title="Stream Online"><i class="fa fa-twitch fa-lg" /></span>');
+                    $('#streamOnline').html('<span class="greenPill" data-toggle="tooltip" title="Stream Online" data-placement="bottom"><i class="fa fa-twitch fa-lg" /></span>');
                   } else {
-                    $('#streamOnline').html('');
+                    $('#streamOnline').html('<span class="redPill" data-toggle="tooltip" title="Stream Offline" data-placement="bottom"><i class="fa fa-twitch fa-lg" /></span>');
                 }
             }
 
@@ -79,37 +79,37 @@
             }
 
             if (whisperMode) {
-                $('#whisperModeStatus').html('<span class="purplePill" data-toggle="tooltip" title="Whisper Mode"><i class="fa fa-user-secret fa-lg" /></span>');
+                $('#whisperModeStatus').html('<span class="purplePill" data-toggle="tooltip" data-placement="bottom" title="Whisper Mode"><i class="fa fa-user-secret fa-lg" /></span>');
             } else {
                 $('#whisperModeStatus').html('');
             }
 
             if (meMode) {
-                $("#meModeStatus").html('<span class="purplePill" data-toggle="tooltip" title="Action (/me) Mode"><i class="fa fa-hand-o-right fa-lg" /></span>');
+                $("#meModeStatus").html('<span class="purplePill" data-toggle="tooltip" data-placement="bottom" title="Action (/me) Mode"><i class="fa fa-hand-o-right fa-lg" /></span>');
             } else {
                 $("#meModeStatus").html('');
             }
             if (!responseMode) {
-                $("#muteModeStatus").html('<span class="redPill" data-toggle="tooltip" title="Mute Mode"><i class="fa fa-microphone-slash fa-lg" /></span>');
+                $("#muteModeStatus").html('<span class="redPill" data-toggle="tooltip" data-placement="bottom" title="Mute Mode"><i class="fa fa-microphone-slash fa-lg" /></span>');
             } else {
                 $("#muteModeStatus").html('');
             }
 
             if ($.globalPauseMode) {
-                $("#commandPauseStatus").html("<span class=\"redPill\" data-toggle=\"tooltip\" title=\"Commands Paused\"><i class=\"fa fa-pause-circle-o fa-lg\" /></span>");
+                $("#commandPauseStatus").html("<span class=\"redPill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Commands Paused\"><i class=\"fa fa-pause-circle-o fa-lg\" /></span>");
             } else {
                 $("#commandPauseStatus").html("");
             }
 
             if (streamOnline) {
                 if (panelCheckQuery(msgObject, 'global_streamUptime')) {
-                    $("#streamUptime").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Uptime\"><i class=\"fa fa-clock-o fa-lg\" /> " + msgObject['results']['streamUptime'] + "</span>");
+                    $("#streamUptime").html("<span class=\"purplePill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Uptime\"><i class=\"fa fa-clock-o fa-lg\" /> " + msgObject['results']['streamUptime'] + "</span>");
                 }
                 if (panelCheckQuery(msgObject, 'global_playTime')) {
-                    $("#timePlayed").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Time Played\"><i class=\"fa fa-gamepad fa-lg\" /> " + msgObject['results']['playTime'] + "</span>");
+                    $("#timePlayed").html("<span class=\"purplePill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Time Played\"><i class=\"fa fa-gamepad fa-lg\" /> " + msgObject['results']['playTime'] + "</span>");
                 }
                 if (panelCheckQuery(msgObject, 'global_viewerCount')) {
-                    $("#viewerCount").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Viewers\"><i class=\"fa fa-users fa-lg\" /> " + msgObject['results']['viewerCount'] + "</span>");
+                    $("#viewerCount").html("<span class=\"purplePill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Viewers\"><i class=\"fa fa-users fa-lg\" /> " + msgObject['results']['viewerCount'] + "</span>");
                 }
             } else {
                 $("#streamUptime").html('');
@@ -120,7 +120,7 @@
             if (panelCheckQuery(msgObject, 'global_dsToggle')) {
                 if (msgObject['results']['timerToggle'] !== undefined && msgObject['results']['timerToggle'] !== null) {
                     if (panelMatch(msgObject['results']['timerToggle'], 'true')) {
-                        $('#multiStatus').html('<span class="purplePill" data-toggle="tooltip" title="Multi-Link Enabled"><i class="fa fa-link fa-lg" /></span>');
+                        $('#multiStatus').html('<span class="purplePill" data-toggle="tooltip" data-placement=\"bottom\" title="Multi-Link Enabled"><i class="fa fa-link fa-lg" /></span>');
                     } else {
                         $('#multiStatus').html('');
                     }
@@ -135,7 +135,7 @@
                     $('#newVersionDialog').html('Version <b>' + newVersionData[0] + '</b> of PhantomBot is now available for download! Review the changelog for details!<br><br>' +
                                                 '<b>Release Changelog:</b><br><a target="_blank" href="' + changeLog + '">' + changeLog + '</a><br><br>' +
                                                 '<b>Download Link:</b><br><a target="_blank" href="' + newVersionData[1] + '">' + newVersionData[1] + '</a><br><br>');
-                    $('#newVersionAvailable').html('<span class="yellowPill" data-toggle="tooltip" title="New Version Available! Click for more information."' +
+                    $('#newVersionAvailable').html('<span class="yellowPill" data-toggle="tooltip" data-placement=\"bottom\" title="New Version Available! Click for more information."' +
                                                    'onclick="$(\'#newVersionDialog\').dialog(\'open\')">New Version!</span>');
 
                 } else {

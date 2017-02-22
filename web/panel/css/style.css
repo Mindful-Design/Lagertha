@@ -7,8 +7,8 @@
 }
 
 .container {
-    position:relative;
-    padding:0 0 0 25px;
+    position: relative;
+    padding: 0 0 0 25px;
 }
 
 #container {
@@ -22,8 +22,8 @@
     max-width: 100%;
     height: 85px;
     -webkit-box-shadow: 0px 3px 5px #000;
-    -moz-box-shadow:    0px 3px 5px #000;
-    box-shadow:         0px 3px 5px #000;
+    -moz-box-shadow: 0px 3px 5px #000;
+    box-shadow: 0px 3px 5px #000;
     overflow: hidden;
 }
 
@@ -75,7 +75,7 @@ h1 {
 }
 
 option:hover {
-    background-color:#cd201f;
+    background-color: #cd201f;
     cursor: pointer;
 }
 
@@ -83,21 +83,25 @@ table {
     border: 0px;
     width: 100%;
 }
+
 tr:nth-child(even) {
     font-family: "Roboto", Sans-serif;
     background: rgba(30, 30, 30, 0.3);
     color: #aaaaaa;
     font-size: 14px;
 }
+
 tr:nth-child(odd) {
     font-family: "Roboto", Sans-serif;
     background: rgba(0, 0, 0, 0.3);
     color: #aaaaaa;
     font-size: 14px;
 }
+
 th {
     padding: 4px;
 }
+
 td {
     padding: 4px;
 }
@@ -108,9 +112,11 @@ td {
     margin-bottom: 10px;
     background: rgb(28, 28, 36);
 }
+
 .panelStatus tr {
     background: transparent;
 }
+
 .panelStatus td {
     vertical-align: middle;
     text-align: center;
@@ -327,7 +333,7 @@ td {
     text-align: center;
     vertical-align: middle;
 }
-    
+
 #iframeLoader {
     font-family: "Roboto", arial;
     position: absolute;
@@ -339,6 +345,7 @@ td {
     text-align: center;
     vertical-align: middle;
 }
+
 #chatsidebar {
     position: absolute;
     top: 82px;
@@ -350,10 +357,12 @@ td {
     outline: none !important;
     background: transparent;
 }
+
 #chat {
     height: 95%;
     width: 100%;
 }
+
 #chatsidebar-header {
     margin: 0;
     text-align: right;
@@ -368,9 +377,10 @@ td {
     outline: none !important;
 }
 
+
 /* Bootstrap and JQuery Section */
 
-.ui-slider .ui-slider-handle { 
+.ui-slider .ui-slider-handle {
     visibility: hidden;
 }
 
@@ -406,7 +416,7 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-} 
+}
 
 .alert-info {
     clear: left;
@@ -439,6 +449,7 @@ td {
     border-radius: 0px;
     border: none;
 }
+
 .tab-pane {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -451,12 +462,15 @@ td {
     padding-bottom: 5px;
     padding-left: 5px;
 }
+
 .ui-state-focus {
     outline: none;
 }
-.ui-tabs-vertical { 
+
+.ui-tabs-vertical {
     width: 55em;
 }
+
 .ui-tabs-vertical .ui-tabs-nav {
     padding: .2em .1em .2em .2em;
     float: left;
@@ -464,6 +478,7 @@ td {
     border-style: none;
     background: none;
 }
+
 .ui-tabs-vertical .ui-tabs-nav li {
     clear: left;
     width: 100%;
@@ -475,10 +490,12 @@ td {
     border-radius: 0px;
     background: rgb(28, 28, 36);
 }
+
 .ui-tabs-vertical .ui-tabs-nav li a {
-    display:block;
+    display: block;
     background: none;
 }
+
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
     clear: left;
     width: 100%;
@@ -490,17 +507,22 @@ td {
     border-radius: 0px;
     background: #6136b1;
 }
+
 .ui-tabs-vertical .ui-tabs-panel {
     padding: 1em;
     float: left;
     width: 55em;
 }
-.ui-tabs-vertical .ui-tabs-nav .ui-state-hover, .ui-state-focus {
+
+.ui-tabs-vertical .ui-tabs-nav .ui-state-hover,
+.ui-state-focus {
     border-color: #6136b1;
     background: rgb(56, 56, 56);
 }
-.ui-tabs-anchor:active, .ui-tabs-anchor:focus {
-    outline:none;
+
+.ui-tabs-anchor:active,
+.ui-tabs-anchor:focus {
+    outline: none;
     background: rgb(28, 28, 36);
 }
 
@@ -511,15 +533,18 @@ td {
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
+
 .ui-widget-content {
-        border: 1px solid #6136b1;
+    border: 1px solid #6136b1;
 }
+
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
     border: 1px solid #444444;
     background: rgb(28, 28, 36);
 }
+
 .ui-state-hover,
 .ui-widget-content .ui-state-hover,
 .ui-widget-header .ui-state-hover,
@@ -529,12 +554,14 @@ td {
     border: 1px solid #6136b1;
     background: rgb(36, 36, 36);
 }
+
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
     border: 1px solid #6136b1;
     background: #6136b1;
 }
+
 .ui-widget-header .ui-state-error {
     background: #ffc73d;
 }
@@ -543,6 +570,7 @@ td {
     background-color: #444488;
     color: #eee;
 }
+
 .tooltip.top .tooltip-arrow {
     border-top-color: #444488;
 }
@@ -559,12 +587,15 @@ td {
     border-left-color: #444488;
 }
 
-input, textarea {
+input,
+textarea {
     background-color: rgba(50, 50, 50, 0.3) !important;
     color: #aaaaaa !important;
 }
 
+
 /* Buttons */
+
 
 /* Default Button Class */
 
@@ -586,7 +617,8 @@ input, textarea {
     outline: none !important;
 }
 
-.btn:active, .btn.active {
+.btn:active,
+.btn.active {
     font-color: #cccccc;
     color: #cccccc;
     background: rgba(100, 100, 100, 0.5) !important;
@@ -595,14 +627,19 @@ input, textarea {
     box-shadow: none !important;
 }
 
-.btn.active.focus, .btn.active:focus, .btn.focus,
-.btn:active.focus, .btn:active:focus, .btn:focus {
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
     font-color: #cccccc;
     color: #cccccc;
     background: rgba(100, 100, 100, 0.5) !important;
     border: none !important;
     outline: none !important;
 }
+
 
 /* Bootstrap Primary Button */
 
@@ -618,19 +655,25 @@ input, textarea {
     outline: none !important;
 }
 
-.btn-primary:active, .btn-primary.active {
+.btn-primary:active,
+.btn-primary.active {
     background: rgba(100, 100, 100, 0.5) !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
 
-.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.focus,
-.btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:focus {
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.focus,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:focus {
     background: rgba(100, 100, 100, 0.5) !important;
     border: none !important;
     outline: none !important;
 }
+
 
 /* Bootstrap Default Button */
 
@@ -646,19 +689,25 @@ input, textarea {
     outline: none !important;
 }
 
-.btn-default:active, .btn-default.active {
+.btn-default:active,
+.btn-default.active {
     background: rgba(100, 100, 100, 0.5) !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
 
-.btn-default.active.focus, .btn-default.active:focus, .btn-default.focus,
-.btn-default:active.focus, .btn-default:active:focus, .btn-default:focus {
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.focus,
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:focus {
     background: rgba(100, 100, 100, 0.5) !important;
     border: none !important;
     outline: none !important;
 }
+
 
 /* Bootstrap Warning Button */
 
@@ -682,72 +731,89 @@ input, textarea {
     outline: none !important;
 }
 
-.btn-warning:active, .btn-warning.active {
+.btn-warning:active,
+.btn-warning.active {
     background: rgba(255, 69, 0, 0.5) !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
 
-.btn-warning.active.focus, .btn-warning.active:focus, .btn-warning.focus,
-.btn-warning:active.focus, .btn-warning:active:focus, .btn-warning:focus {
+.btn-warning.active.focus,
+.btn-warning.active:focus,
+.btn-warning.focus,
+.btn-warning:active.focus,
+.btn-warning:active:focus,
+.btn-warning:focus {
     background: rgba(255, 69, 0, 0.5) !important;
     border: none !important;
     outline: none !important;
 }
 
+
 /* Bootstrap Success Button */
 
 .btn-success {
-    background: rgba(0, 255, 0, 0.5) !important;
+    background: #5BA664 !important;
     border: none !important;
     outline: none !important;
 }
 
 .btn-success:hover {
-    background: rgba(20, 255, 20, 0.5) !important;
+    background: #5BA664 !important;
     border: none !important;
     outline: none !important;
 }
 
-.btn-success:active, .btn-success.active {
-    background: rgba(0, 255, 0, 0.5) !important;
+.btn-success:active,
+.btn-success.active {
+    background: #5BA664 !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
 
-.btn-success.active.focus, .btn-success.active:focus, .btn-success.focus,
-.btn-success:active.focus, .btn-success:active:focus, .btn-success:focus {
-    background: rgba(0, 255, 0, 0.5) !important;
+.btn-success.active.focus,
+.btn-success.active:focus,
+.btn-success.focus,
+.btn-success:active.focus,
+.btn-success:active:focus,
+.btn-success:focus {
+    background: #5BA664 !important;
     border: none !important;
     outline: none !important;
 }
 
+
 /* Bootstrap Danger Button */
 
 .btn-danger {
-    background: rgba(255, 0, 0, 0.5) !important;
+    background: #C9513E !important;
     border: none !important;
     outline: none !important;
 }
 
 .btn-danger:hover {
-    background: rgba(255, 20, 20, 0.5) !important;
+    background: #C9513E !important;
     border: none !important;
     outline: none !important;
 }
 
-.btn-danger:active, .btn-danger.active {
-    background: rgba(255, 0, 0, 0.5) !important;
+.btn-danger:active,
+.btn-danger.active {
+    background: #C9513E !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
 
-.btn-danger.active.focus, .btn-danger.active:focus, .btn-danger.focus,
-.btn-danger:active.focus, .btn-danger:active:focus, .btn-danger:focus {
-    background: rgba(255, 0, 0, 0.5) !important;
+.btn-danger.active.focus,
+.btn-danger.active:focus,
+.btn-danger.focus,
+.btn-danger:active.focus,
+.btn-danger:active:focus,
+.btn-danger:focus {
+    background: #C9513E !important;
     border: none !important;
     outline: none !important;
 }
@@ -757,9 +823,11 @@ input, textarea {
     overflow-y: scroll;
     overflow-x: hidden;
     padding-right: 20px;
-} 
+}
+
 
 /* Overrides for FooTable */
+
 .footable .pagination > li > a,
 .footable .pagination > li > span {
     position: relative;
@@ -773,6 +841,7 @@ input, textarea {
     border: 1px solid;
     border-color: grey;
 }
+
 .footable .pagination > li > a:hover,
 .footable .pagination > li > span:hover,
 .footable .pagination > li > a:focus,
@@ -781,6 +850,7 @@ input, textarea {
     background-color: #eee;
     border-color: grey;
 }
+
 .footable .pagination > .active > a,
 .footable .pagination > .active > span,
 .footable .pagination > .active > a:hover,
@@ -793,6 +863,7 @@ input, textarea {
     background-color: rgb(100, 66, 166);
     border-color: grey;
 }
+
 .footable .pagination > .disabled > span,
 .footable .pagination > .disabled > span:hover,
 .footable .pagination > .disabled > span:focus,
@@ -805,3 +876,242 @@ input, textarea {
     border-color: grey;
 }
 
+
+/* MINDFULS ADDITIONS */
+
+
+/* bakgrunder & borders */
+
+.header {
+    display: none;
+}
+
+.panelStatus {
+    margin-top: 10px;
+    background: #dedede;
+}
+
+body {
+    background-color: #dedede;
+    color: #fff;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li {
+    background: #262e3d;
+    border: none;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+    background: #02c1c1;
+    border: none;
+}
+
+.ui-tabs-anchor:active,
+.ui-tabs-anchor:focus {
+    background: #dedede;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    background: #262e3d;
+}
+
+.ui-widget-content {
+    background: #dedede;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    border: none;
+    background: #02c1c1;
+}
+
+.ui-tabs-vertical .ui-tabs-nav .ui-state-hover,
+.ui-state-focus {
+    border: none;
+    background: #02c1c1;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+    border: none;
+}
+
+.ui-widget-content {
+    border: none;
+    color: #262e3d;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: none;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    color: #fff;
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+    border-top-right-radius: 0px;
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+    border-top-left-radius: 0px;
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+    border-bottom-right-radius: 0px;
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+    border-bottom-left-radius: 0px;
+}
+
+
+/* FORMER */
+
+tr:nth-child(odd) {
+    color: #262e3d;
+}
+
+tr:nth-child(even) {
+    color: #262e3d;
+}
+
+input,
+textarea {
+    color: #262e3d !important;
+}
+
+.form-control ui-autocomplete-input {
+    color: #262e3d;
+}
+
+
+/* knappar */
+
+.btn-primary {
+    background: #645BA6 !important;
+}
+
+.btn-primary:hover {
+    background: #645BA6 !important;
+}
+
+.btn-alert {
+    background: #C9513E !important;
+}
+
+.btn-warning {
+    background: #5BA664 !important;
+}
+
+.btn-alert:hover {
+    background: #C9513E !important;
+}
+
+.btn-warning:hover {
+    background: #5BA664 !important;
+}
+
+
+/* pillergrafik */
+
+.yellowPill {
+    background-color: #bab035;
+}
+
+.purplePill {
+    background-color: #645BA6;
+}
+
+.redPill {
+    background-color: #C9513E;
+}
+
+.greenPill {
+    background-color: #5BA664;
+}
+
+.bluePill {
+    background-color: #02c1c1;
+}
+
+.purplePill-sm {
+    background-color: #645BA6;
+}
+
+.redPill-sm {
+    background-color: #C9513E;
+}
+
+.greenPill-sm {
+    background-color: #5BA664;
+}
+
+.bluePill-sm {
+    background-color: #02c1c1;
+}
+
+#copyright {
+    content: "PhantomBot and LagerthaBot, copyright PhantomBot and Mindful";
+}
+
+::-webkit-input-placeholder {
+    color: #262e3d;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #262e3d;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #262e3d;
+}
+
+:-ms-input-placeholder {
+    color: #262e3d;
+}
+
+tr:nth-child(odd) {
+    background-color: #dedede;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+input {
+    border: none;
+}
+
+#chatsidebar-header {
+    color: #02c1c1;
+}
+
+
+/* ENDING */

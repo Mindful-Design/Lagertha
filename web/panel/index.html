@@ -23,7 +23,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>PhantomBot Control Panel</title>
+        <title>Lagertha</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="panel/js/jquery-ui/jquery-ui.min.css">
@@ -61,14 +61,11 @@
             <div id="newPanelAlert" class="alert" style="display:none"></div>
         </div>
              
-        <span id="panelLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading PhantomBot Control Panel</span>
-
-        <div id="newVersionDialog" title="New Version Available" style="font-size: 90%"> </div>
-        <script>$("#newVersionDialog").dialog({ autoOpen: false, height: 200, width: 600 });</script>
+        <span id="panelLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Lagertha</span>
 
         <div>
             <table class="panelStatus">
-                <tr>
+                <tr style="height: 24px">
                     <td class="block"> <span id="streamOnline" /> </td>
                     <td class="block"> <span id="streamUptime" /> </td>
                     <td class="block"> <span id="timePlayed" /> </td>
@@ -243,10 +240,11 @@
         <br>
         <br>
         
-        <div id="copyright">
-            Control Panel by: 
-            <a href="https://phantombot.tv">phantombot.tv</a>
-        </div>
+    <div id="copyright">
+        Control Panel by:
+        <a href="https://phantombot.tv">phantombot.tv</a> &amp;
+        <a href="http://bit.ly/MindfulG">Mindful Design</a>
+    </div>
 
         <script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
     </body>
