@@ -92,9 +92,9 @@
             var html = '<table>';
             for (var idx in msgObject['results']) {
                  var name = msgObject['results'][idx]['key'];
-                html += '<tr style="textList">' +
-                        '    <td style="vertical-align: middle: width: 50%">' + name + '</td>' +
-                        '    <td style="width: 1%">' +
+                html += '<tr >' +
+                        '    <td>' + name + '</td>' +
+                        '    <td>' +
                         '        <button type="button" class="btn btn-default btn-xs" id="deleteBSong_' + name + '" onclick="$.deleteBSong(\'' + name + '\')"><i class="fa fa-trash" /> </button>' +
                         '    </td>' +
                         '</tr>';
@@ -169,9 +169,9 @@
             html = '<table>';
             for (var idx in msgObject['results']) {
                  var name = msgObject['results'][idx]['key'];
-                html += '<tr style="textList">' +
-                        '    <td style="vertical-align: middle: width: 50%">' + name + '</td>' +
-                        '    <td style="width: 1%">' +
+                html += '<tr >' +
+                        '    <td>' + name + '</td>' +
+                        '    <td>' +
                         '        <button type="button" class="btn btn-default btn-xs" id="deleteUser_' + name + '" onclick="$.deleteUser(\'' + name + '\')"><i class="fa fa-trash" /> </button>' +
                         '    </td>' +
                         '</tr>';
@@ -211,7 +211,7 @@
      * @param {String} song
      */
     function deleteBSong(song) {
-        $("#deleteBSong_" + song).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteBSong_" + song).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("audio_bsong_" + song, "ytpBlacklistedSong", song);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     };
@@ -233,7 +233,7 @@
      * @param {String} user
      */
     function deleteUser(user) {
-        $("#deleteBUser_" + user).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteBUser_" + user).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("audio_user_" + user, "ytpBlacklist", user);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     };

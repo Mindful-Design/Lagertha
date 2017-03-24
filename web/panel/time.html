@@ -22,31 +22,31 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="timeAccordion">
-    <h3>Time Configuration</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Time Configuration
     <div>
-        <table>
-            <tr class="textList">
+        <table class="table table-hover table-striped">
+            <tr >
                 <td>Stream Offline Time Accumulation</td>
-                <td style="width: 25px"><div id="keepTimeWhenOffline" /></td>
-                <td style="width: 25px">
+                <td><div id="keepTimeWhenOffline" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Toggle" class="button"
                          onclick="$.toggleTimeMode('keepTimeWhenOffline', 'keepTimeWhenOffline');"><i class="fa fa-refresh" />
                      </div>
                 </td>
             </tr>
-            <tr class="textList">
+            <tr >
                 <td>Automatic Time Promotion to Regular</td>
-                <td style="width: 25px"><div id="timeLevel" /></td>
-                <td style="width: 25px">
+                <td><div id="timeLevel" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Toggle" class="button"
                          onclick="$.toggleTimeMode('timeLevel', 'timeLevel');"><i class="fa fa-refresh" />
                      </div>
                 </td>
             </tr>
-            <tr class="textList">
+            <tr >
                 <td>Chat Announcement for Promotion to Regular</td>
-                <td style="width: 25px"><div id="timeLevelWarning" /></td>
-                <td style="width: 25px">
+                <td><div id="timeLevelWarning" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Toggle" class="button"
                          onclick="$.toggleTimeMode('timeLevelWarning', 'timeLevelWarning');"><i class="fa fa-refresh" />
                      </div>
@@ -57,13 +57,13 @@
         <br>
         <div class="form-group" onkeypress="return event.keyCode != 13">
             <label for="topListAmountTime">Top Time List Amount</label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.topListTime()">Update</button>
+            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.topListTime()">Update</button>
             <input type="number" min="0" class="form-control" id="topListAmountTime" placeholder="Amount" />
         </div>
 
         <div class="form-group" onkeypress="return event.keyCode != 13">
             <label for="setTimePromotion">Hours to Regular Promotion</label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.setTimePromotion()">Update</button>
+            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setTimePromotion()">Update</button>
             <input type="number" min="0" class="form-control" id="setTimePromotionInput" placeholder="Hours" />
         </div>
 
@@ -71,18 +71,18 @@
             <label for="setTimeZone">Configure Time Zone (see list
                 <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>)
             </label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.setTimeZone()">Update</button>
+            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setTimeZone()">Update</button>
             <input type="text" class="form-control" id="setTimeZoneInput" placeholder="Timezone" />
         </div>
     </div>
 
-    <h3>Modify User Time</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Modify User Time
     <div>
         <div class="form-group" onkeypress="return event.keyCode != 13">
             <label for="adjustUserTime">Adjust User Time (Seconds)</label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserTime('take')">Take</button>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserTime('add')">Add</button>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserTime('set')">Set</button>
+            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.modifyUserTime('take')">Take</button>
+            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.modifyUserTime('add')">Add</button>
+            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.modifyUserTime('set')">Set</button>
             <input type="text" class="form-control" id="adjustUserTimeNameInput" placeholder="Username or click a row below" />
             <input type="number" min="0" class="form-control" id="adjustUserTimeSecsInput" placeholder="Seconds" />
         </div>

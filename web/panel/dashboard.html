@@ -22,248 +22,393 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="dashboardAccordion">
-    <h3>Twitch</h3>
-    <div>
-        <table>
-            <tr style="background-color: transparent">
-                <td style="width: 130px">
-                   <span align="char" id="lastFollow" placeholder="-" />
-                   <span align="char" id="lastSub" placeholder="-" />
-                   <span align="char" id="lastReSub" placeholder="-" />
-                   <span align="char" id="lastDonator" placeholder="-" />
-            </td>
-        </table>
-        <br>
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="streamTitle">Stream Title</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setStreamTitle()">Update</button>
-                <input type="text" class="form-control" id="streamTitleInput" placeholder="Stream Title" />
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Twitch</h4>
+                        </div>
+                        <div class="content">
+
+                            <div class="legend">
+                                <span id="lastFollow" placeholder="-" />
+                                <span id="lastSub" placeholder="-" />
+                                <span id="lastReSub" placeholder="-" />
+                                <span id="lastDonator" placeholder="-" />
+                            </div>
+                            <br>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="streamTitle">Stream Title</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="streamTitleInput" placeholder="Stream Title">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setStreamTitle()">Update</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="gameTitle">Game Title</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="gameTitleInput" placeholder="Game Title">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setGameTitle()">Update</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="legend">
+                                <button type="button" class="btn btn-danger btn-fill btn-fill" onclick="$.disconnect()" data-toggle="tooltip" title="NOTE: This will remove the bot from your channel, you will have to manually rejoin it.">Remove</button>
+
+                                <button type="button" class="btn btn-warning btn-fill" onclick="$.chatReconnect()" data-toggle="tooltip" title="Reconnect Lagertha to your Twitch channel. This does not reconnect if the 'Remove' action was performed.">Reconnect</button>
+
+                                <button type="button" class="btn btn-info btn-fill" onclick="$.toggleTwitchChat()">Toggle Chat</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </form>
-        <br>
-        
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="gameTitle">Game Title</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setGameTitle()">Update</button>
-                <input type="text" class="form-control" id="gameTitleInput" placeholder="Game Title" />
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Logging Configuration
+                                <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse1"><i class="fa fa-bars"></i></div>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="content panel-collapse collapse">
+                            <div>
+                                <table class="table table-hover table-striped">
+                                    <tr>
+                                        <td>Event logging</td>
+                                        <td>
+                                            <div id="logEvent" style="float:right" />
+                                        </td>
+                                        <td>
+                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
+                                            </div>
+                                            <div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Error logging</td>
+                                        <td>
+                                            <div id="logError" style="float:right" />
+                                        </td>
+                                        <td>
+                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
+                                            </div>
+                                            </div>
+                                            <div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>File & chat logging</td>
+                                        <td>
+                                            <div id="logFile" style="float:right" />
+                                        </td>
+                                        <td>
+                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
+                                            </div>
+                                        </td>
+                                        </div>
+                                    </tr>
+                                </table>
+                                <form role="form">
+                                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                                        <label for="logRotate">Number of Days to Keep Logs</label>
+                                        <div class="input-group">
+                                            <input type="number" min="0" class="form-control" id="logRotateInput" placeholder="Days" data-toggle="tooltip" title="Days to keep logs, 0 means do not delete logs.">
+                                            <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setLogRotate()">Submit</button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12" id="_shoutoutPanelDisabled">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Shoutout a Streamer</h4>
+                        </div>
+                        <div class="content">
+                            <div>
+                                <div id="_shoutoutPanel">
+                                    Shoutout a streamer! Will display their Twitch URL in chat along with game being played, or last played.<br><br>
+                                    <form role="form">
+                                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                                            <label for="shoutOut">Twitch Channel to Shoutout</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="shoutOutInput" placeholder="Twitch Channel">
+                                                <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.shoutOut()">Submit</button>
+                                        </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
-
-        <button type="button" class="btn btn-alert inline pull-left" onclick="$.disconnect()" 
-        data-toggle="tooltip" title="NOTE: This will remove the bot from your channel, you will have to manually rejoin it.">Remove</button>
-
-        <button type="button" class="btn btn-warning inline pull-left" onclick="$.chatReconnect()" 
-        data-toggle="tooltip" title="Reconnect Lagertha to your Twitch channel. This does not reconnect if the 'Remove' action was performed.">Reconnect</button>
-
-        <button type="button" class="btn btn-primary inline pull-left" onclick="$.toggleTwitchChat()">Toggle Chat</button>
-    </div>
-
-    <h3>Chat Configuration and Statistics</h3>
-    <div>
-        <div>
-            <strong>Chat Configuration Toggles</strong><br><br>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('pausecommands')">Command Pause</button>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('togglewhispermode')">Whisper Mode</button>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('toggleme')">Action (/me) Mode</button>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('mute')">Mute Mode</button>
         </div>
-        <br>
 
-        <div><strong>Chat Statistics</strong><br><br></div>
-        <div id="panelStatsEnabled" />
-        <table>
-            <tr style="background-color: transparent">
-            <td style="width: 130px">
-                <span id="chatDate-0" /><br><br>
-                <span id="chatDate-1" /><br><br>
-                <span id="chatDate-2" /><br><br>
-                <span id="chatDate-3" /><br><br>
-                <span id="chatDate-4" />
-            </td>
-            <td style="width: 140px">
-                <span id="chatCount-0" /><br><br>
-                <span id="chatCount-1" /><br><br>
-                <span id="chatCount-2" /><br><br>
-                <span id="chatCount-3" /><br><br>
-                <span id="chatCount-4" />
-            </td>
-            <td style="width: 140px">
-                <span id="modCount-0" /><br><br>
-                <span id="modCount-1" /><br><br>
-                <span id="modCount-2" /><br><br>
-                <span id="modCount-3" /><br><br>
-                <span id="modCount-4" />
-             </td>
-             <td>
-                 <div id="panelStatsGraph" style="width:250px; height: 180px" />
-             </td>
-             </tr>
-        </table>
+
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Chat Configuration and Statistics</h4>
+                    <p class="category">Statistics last 5 days</p>
+                </div>
+                <div class="content table-responsive">
+                    <div class="legend">
+                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('pausecommands')">Command Pause</button>
+                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('togglewhispermode')">Whisper Mode</button>
+                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('toggleme')">Action (/me) Mode</button>
+                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('mute')">Mute Mode</button>
+                    </div>
+
+                    <div id="panelStatsEnabled" />
+                    <br>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Chat Count</th>
+                                <th>Timeouts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="chatDate-0" /></td>
+                                <td><span id="chatCount-0" /></td>
+                                <td><span id="modCount-0" /></td>
+
+                            </tr>
+                            <tr>
+                                <td><span id="chatDate-1" /></td>
+                                <td><span id="chatCount-1" /></td>
+                                <td><span id="modCount-1" /></td>
+                            </tr>
+                            <tr>
+                                <td><span id="chatDate-2" /></td>
+                                <td><span id="chatCount-2" /></td>
+                                <td><span id="modCount-2" /></td>
+                            </tr>
+                            <tr>
+                                <td><span id="chatDate-3" /></td>
+                                <td><span id="chatCount-3" /></td>
+                                <td><span id="modCount-3" /></td>
+                            </tr>
+                            <tr>
+                                <td><span id="chatDate-4" /></td>
+                                <td><span id="chatCount-4" /></td>
+                                <td><span id="modCount-4" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="panelStatsGraph" style=" height: 200px" />
+                    <div class="footer">
+                        <div class="legend">
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-history"></i> Updates continuously
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <h3>Logging Configuration</h3>
-    <div>
-        <table>
-            <tr class="textList">
-                <td>Event logging</td>
-                <td style="width: 25px"><div id="logEvent" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
-                     </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Twitch Modules
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse2"><i class="fa fa-bars"></i></div>
+                    </h4>
+                </div>
+                <div id="collapse2" class="content panel-collapse collapse">
                     <div>
-                </td>
-            </tr>
-            <tr class="textlist">
-                <td>Error logging</td>
-                <td style="width: 25px"><div id="logError" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
-                     </div>
-                     </div>
-                <div>
-                    </td>
-                </tr>
-                <tr class="textList">
-                    <td>File & chat logging</td>
-                    <td style="width: 25px"><div id="logFile" /></td>
-                    <td style="width: 25px">
-                        <div data-toggle="tooltip" title="Toggle" class="button"
-                             onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
-                         </div>
-                    </td>
+                        <div id="modulesList" style="height: 270px; overflow-x: hidden;" />
+                    </div>
                 </div>
-            </tr>
-        </table>
-        <br>
-        <form role="form">
-             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="logRotate">Number of Days to Keep Logs</label>
-                <button type="button" class="btn btn-primary pull-right" onclick="$.setLogRotate()">Submit</button>
-                <input type="number" min="0" class="form-control" id="logRotateInput" placeholder="Days" 
-                       data-toggle="tooltip" title="Days to keep logs, 0 means do not delete logs."/>
             </div>
-        </form>
-    </div>
-
-    <h3>Twitch Modules</h3>
-    <div>
-        <div id="modulesList" style="height: 300px; overflow: auto;" />
-    </div>
-
-    <h3>Discord Modules</h3>
-
-    <div>
-        <i>These are modules for our discord integration. If you do not have your bot connected to discord the enable buttons will not work and the modules
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Discord Modules
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse3"><i class="fa fa-bars"></i></div>
+                    </h4>
+                </div>
+                <div id="collapse3" class="content panel-collapse collapse">
+                    <div>
+                        <i>These are modules for our discord integration. If you do not have your bot connected to discord the enable buttons will not work and the modules
             may not show up.</i>
-        <div id="discordModulesList" style="height: 300px; overflow: auto;" />
-    </div>
-
-
-    <h3>Highlights</h3>
-    <div>
-        <div id="_highlightsPanelDisabled" />
-        <div id="_highlightsPanel">
-            Make a note of an event in the broadcast to make creating highlights in Twitch easier later.
-            <br><br>
-            <form role="form">
-                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                    <label for="highlight">Create Highlight</label>
-                    <button type="button" class="btn btn-primary pull-right" onclick="$.setHighlight()">Submit</button>
-                    <input type="text" class="form-control" id="highlightInput" placeholder="Game Highlight" />
+                        <div id="discordModulesList" style="height: 210px; overflow-x: hidden;" />
+                    </div>
                 </div>
-            </form>
-            <br>
-            
-            <button type="button" class="btn btn-danger pull-right" onclick="$.clearHighlights()">Clear Highlights</button>
-            <strong>Current Highlights</strong><br>
-            <span id="showHighlights" />
+            </div>
+
         </div>
-    </div>
-    
-    <h3>Death Counter</h3>
-    <div>
-        <div id="_deathCtrPanelDisabled" />
-        <div id="_deathCtrPanel">
-            <table>
-                <tr class="textList" style="vertical-align: middle">
-                    <td>Deaths: <span id="deathCounterValue">Fetching Game...</span></td>
-                    <td style="width: 30px">
-                        <button type="button" class="btn btn-primary" onclick="$.adjustDeathCounter('add')"><i class="fa fa-plus fa-1x" /></button>
-                    </td>
-                    <td style="width: 30px">
-                        <button type="button" class="btn btn-primary" onclick="$.adjustDeathCounter('sub')"><i class="fa fa-minus fa-1x" /></button>
-                    </td>
-                    <td style="width: 30px">
-                        <button type="button" class="btn btn-primary" onclick="$.adjustDeathCounter('reset')"><i class="fa fa-eraser fa-1x" /></button>
-                    </td>
-                </tr>
-            </table>
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_highlightsPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Highlights</h4>
+                </div>
+                <div class="content">
+                    <div>
+                        <div id="_highlightsPanel">
+                            Make a note of an event in the broadcast to make creating highlights in Twitch easier later.
+                            <br><br>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="highlight">Create Highlight</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="highlightInput" placeholder="Game Highlight">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setHighlight()">Submit</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+
+                            <button type="button" class="btn btn-danger btn-fill pull-right" onclick="$.clearHighlights()">Clear Highlights</button>
+                            <label>Current Highlights</label><br>
+                            <span id="showHighlights" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_deathCtrPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Death Counter</h4>
+                </div>
+                <div class="content">
+                    <div>
+                        <div id="_deathCtrPanel">
+                            <table class="table table-hover table-striped">
+                                <tr style="vertical-align: middle">
+                                    <td>Deaths: <span id="deathCounterValue">Fetching Game...</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-fill" onclick="$.adjustDeathCounter('add')"><i class="fa fa-plus fa-1x" /></button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-fill" onclick="$.adjustDeathCounter('sub')"><i class="fa fa-minus fa-1x" /></button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-fill" onclick="$.adjustDeathCounter('reset')"><i class="fa fa-eraser fa-1x" /></button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Multi-Link</h4>
+                </div>
+                <div class="content">
+
+                    <div>
+                        <div id="_multiLinkPanel">
+                            Multi-Link provides a link to share multiple Twitch channels in one UI. Great for races or other competititions. Provide a space delimited list of channels. Set a timer to let chat know on a regular basis that the Multi-Link is on.
+                            <br><br>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="multi-link">Multi-Link Channels</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="multiLinkInput" placeholder="Channel-1 Channel-2" data-toggle="tooltip" title="Place channels that you want to be in the multi-link, separate them with a space. Do not include your channel in this.">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setMultiLink('#multiLinkInput', 'otherChannels')">Submit</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="multi-link">Timer Interval</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="multiLinkTimerInput" placeholder="Interval" data-toggle="tooltip" title="Set the interval (in minutes) for the multi-link to be said in chat. Minimum is 5 minutes.">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setMultiLinkTimer('#multiLinkTimerInput', 'timerInterval')">Submit</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="multi-link">Required Messages</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="multiLinkReqMsgsInput" placeholder="Amount" data-toggle="tooltip" title="Set the amount of messages required before sending the multi-link.">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setMultiReqMsgs('#multiLinkReqMsgsInput', 'reqMessages')">Submit</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <button type="button" class="btn btn-success btn-fill" onclick="$.multiLinkTimerOn()">Multi-Link Timer On</button>
+                            <button type="button" class="btn btn-danger btn-fill" onclick="$.multiLinkTimerOff()">Multi-Link Timer Off</button>
+                            <button type="button" class="btn btn-danger btn-fill" onclick="$.clearMultiLink()">Clear Multi-Link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <h3>Multi-Link</h3>
-    <div>
-        <div id="_multiLinkPanelDisabled" />
-        <div id="_multiLinkPanel">
-            Multi-Link provides a link to share multiple Twitch channels in one UI.
-            Great for races or other competititions. Provide a space delimited list of channels.
-            Set a timer to let chat know on a regular basis that the Multi-Link is on.
-            <br><br>
-            <form role="form">
-                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                    <label for="multi-link">Multi-Link Channels</label>
-                    <button type="button" class="btn btn-primary pull-right" onclick="$.setMultiLink('#multiLinkInput', 'otherChannels')">Submit</button>
-                    <input type="text" class="form-control" id="multiLinkInput" placeholder="Channel-1 Channel-2"
-                           data-toggle="tooltip" title="Place channels that you want to be in the multi-link, separate them with a space. Do not include your channel in this." />
-                </div>
-            </form>
-    
-            <form role="form">
-                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                    <label for="multi-link">Timer Interval</label>
-                    <button type="button" class="btn btn-primary pull-right" onclick="$.setMultiLinkTimer('#multiLinkTimerInput', 'timerInterval')">Submit</button>
-                    <input type="text" class="form-control" id="multiLinkTimerInput" placeholder="Interval"
-                        data-toggle="tooltip" title="Set the interval (in minutes) for the multi-link to be said in chat. Minimum is 5 minutes." />
-                </div>
-            </form>
-    
-            <form role="form">
-                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                    <label for="multi-link">Required Messages</label>
-                    <button type="button" class="btn btn-primary pull-right" onclick="$.setMultiReqMsgs('#multiLinkReqMsgsInput', 'reqMessages')">Submit</button>
-                    <input type="text" class="form-control" id="multiLinkReqMsgsInput" placeholder="Amount" 
-                        data-toggle="tooltip" title="Set the amount of messages required before sending the multi-link." />
-                </div>
-            </form>
-    
-            <button type="button" class="btn btn-success" onclick="$.multiLinkTimerOn()">Multi-Link Timer On</button>
-            <button type="button" class="btn btn-danger" onclick="$.multiLinkTimerOff()">Multi-Link Timer Off</button>
-            <button type="button" class="btn btn-danger" onclick="$.clearMultiLink()">Clear Multi-Link</button>
-        </div>
-    </div>
 
-    <h3>Shoutout a Streamer</h3>
-    <div>
-        <div id="_shoutoutPanelDisabled" />
-        <div id="_shoutoutPanel">
-            Shoutout a streamer!  Will display their Twitch URL in chat along with game being played, or last played.<br><br>
-            <form role="form">
-                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                    <label for="shoutOut">Twitch Channel to Shoutout</label>
-                    <button type="button" class="btn btn-primary pull-right" onclick="$.shoutOut()">Submit</button>
-                    <input type="text" class="form-control" id="shoutOutInput" placeholder="Twitch Channel" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+    <script type="text/javascript" src="panel/js/jqueryui-bootstrap-adapter.js"></script>
+    <!-- Run the Acordion -->
+    <script>
+        $("#dashboardAccordion").accordion({
+            clearStyle: true,
+            heightStyle: "panel",
+            icons: null
+        });
 
-<!-- Run the Acordion -->
-<script>$("#dashboardAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
-<script>$(function() {var gameList = $.gamesList; $("#gameTitleInput").autocomplete({source: gameList, minLength:4});});</script>
-<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
-<script>handleInputFocus();</script>
+    </script>
+    <script>
+        $(function() {
+            var gameList = $.gamesList;
+            $("#gameTitleInput").autocomplete({
+                source: gameList,
+                minLength: 4
+            });
+        });
+
+    </script>
+    <script>
+        $('[data-toggle="tooltip"]').tooltip({
+            trigger: 'hover'
+        });
+
+    </script>
+    <script>
+        handleInputFocus();
+
+    </script>

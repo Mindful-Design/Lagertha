@@ -23,7 +23,7 @@
  * globalPanel.js
  * Drives queries and presentation on the index page.
  */
-(function() {
+(function () {
 
     var streamOnline = false,
         whisperMode = false,
@@ -59,9 +59,9 @@
             if (panelCheckQuery(msgObject, 'global_streamOnline')) {
                 streamOnline = (panelMatch(msgObject['results']['streamOnline'], 'true'));
                 if (streamOnline) {
-                    $('#streamOnline').html('<span class="greenPill" data-toggle="tooltip" title="Stream Online" data-placement="bottom"><i class="fa fa-twitch fa-lg" /></span>');
-                  } else {
-                    $('#streamOnline').html('<span class="redPill" data-toggle="tooltip" title="Stream Offline" data-placement="bottom"><i class="fa fa-twitch fa-lg" /></span>');
+                    $('#streamOnline').html('<span data-toggle="tooltip" title="Stream Online" data-placement="bottom"><i style="top: -1px;" class="fa fa-wifi fa-rotate-90 live-blink"></i><span style="color: #FF4A55; font-weight: bold;font-variant: normal;">  live</span></span>');
+                } else {
+                    $('#streamOnline').html('<span data-toggle="tooltip" title="Stream Offline" data-placement="bottom"><span style="color: #1DC7EA;font-variant: normal;">offline</span></span>');
                 }
             }
 
@@ -79,37 +79,37 @@
             }
 
             if (whisperMode) {
-                $('#whisperModeStatus').html('<span class="purplePill" data-toggle="tooltip" data-placement="bottom" title="Whisper Mode"><i class="fa fa-user-secret fa-lg" /></span>');
+                $('#whisperModeStatus').html('<span data-toggle="tooltip" data-placement="bottom" title="Whisper Mode"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-user-secret" /></span><sub>whisper mode</sub></span>');
             } else {
                 $('#whisperModeStatus').html('');
             }
 
             if (meMode) {
-                $("#meModeStatus").html('<span class="purplePill" data-toggle="tooltip" data-placement="bottom" title="Action (/me) Mode"><i class="fa fa-hand-o-right fa-lg" /></span>');
+                $("#meModeStatus").html('<span data-toggle="tooltip" data-placement="bottom" title="Action (/me) Mode"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-hand-paper-o" /></span><sub>action mode</sub></span>');
             } else {
                 $("#meModeStatus").html('');
             }
             if (!responseMode) {
-                $("#muteModeStatus").html('<span class="redPill" data-toggle="tooltip" data-placement="bottom" title="Mute Mode"><i class="fa fa-microphone-slash fa-lg" /></span>');
+                $("#muteModeStatus").html('<span data-toggle="tooltip" data-placement="bottom" title="Mute Mode"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-microphone-slash" /></span><sub>lagertha muted</sub></span>');
             } else {
                 $("#muteModeStatus").html('');
             }
 
             if ($.globalPauseMode) {
-                $("#commandPauseStatus").html("<span class=\"redPill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Commands Paused\"><i class=\"fa fa-pause-circle-o fa-lg\" /></span>");
+                $("#commandPauseStatus").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Commands Paused\"><span class=\"notification-modes hidden-sm hidden-xs\"><i style=\"color: #1DC7EA\" class=\"fa fa-pause-circle-o\" /></span><sub>commands paused</sub></span>");
             } else {
                 $("#commandPauseStatus").html("");
             }
 
             if (streamOnline) {
                 if (panelCheckQuery(msgObject, 'global_streamUptime')) {
-                    $("#streamUptime").html("<span class=\"purplePill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Uptime\"><i class=\"fa fa-clock-o fa-lg\" /> " + msgObject['results']['streamUptime'] + "</span>");
+                    $("#streamUptime").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Uptime\"><span><span class=\"notification hidden-sm hidden-xs\">" + msgObject['results']['streamUptime'] + "</span><sub>uptime</sub></span></span>");
                 }
                 if (panelCheckQuery(msgObject, 'global_playTime')) {
-                    $("#timePlayed").html("<span class=\"purplePill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Time Played\"><i class=\"fa fa-gamepad fa-lg\" /> " + msgObject['results']['playTime'] + "</span>");
+                    $("#timePlayed").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Time Played\"><span><span class=\"notification hidden-sm hidden-xs\">" + msgObject['results']['playTime'] + "</span><sub>time played</sub></span></span>");
                 }
                 if (panelCheckQuery(msgObject, 'global_viewerCount')) {
-                    $("#viewerCount").html("<span class=\"purplePill\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Viewers\"><i class=\"fa fa-users fa-lg\" /> " + msgObject['results']['viewerCount'] + "</span>");
+                    $("#viewerCount").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Viewers\"><span><span class=\"notification hidden-sm hidden-xs\">" + msgObject['results']['viewerCount'] + "</span><sub>viewers</sub></span></span>");
                 }
             } else {
                 $("#streamUptime").html('');
@@ -120,7 +120,7 @@
             if (panelCheckQuery(msgObject, 'global_dsToggle')) {
                 if (msgObject['results']['timerToggle'] !== undefined && msgObject['results']['timerToggle'] !== null) {
                     if (panelMatch(msgObject['results']['timerToggle'], 'true')) {
-                        $('#multiStatus').html('<span class="purplePill" data-toggle="tooltip" data-placement=\"bottom\" title="Multi-Link Enabled"><i class="fa fa-link fa-lg" /></span>');
+                        $('#multiStatus').html('<span data-toggle="tooltip" data-placement=\"bottom\" title="Multi-Link Enabled"><i class="fa fa-link" /></span>');
                     } else {
                         $('#multiStatus').html('');
                     }
@@ -133,10 +133,10 @@
                     var newVersionData = msgObject['results']['newrelease_info'].split('|'),
                         changeLog = 'https://github.com/PhantomBot/PhantomBot/releases/' + newVersionData[0];
                     $('#newVersionDialog').html('Version <b>' + newVersionData[0] + '</b> of PhantomBot is now available for download! Review the changelog for details!<br><br>' +
-                                                '<b>Release Changelog:</b><br><a target="_blank" href="' + changeLog + '">' + changeLog + '</a><br><br>' +
-                                                '<b>Download Link:</b><br><a target="_blank" href="' + newVersionData[1] + '">' + newVersionData[1] + '</a><br><br>');
-                    $('#newVersionAvailable').html('<span class="yellowPill" data-toggle="tooltip" data-placement=\"bottom\" title="New Version Available! Click for more information."' +
-                                                   'onclick="$(\'#newVersionDialog\').dialog(\'open\')">New Version!</span>');
+                        '<b>Release Changelog:</b><br><a target="_blank" href="' + changeLog + '">' + changeLog + '</a><br><br>' +
+                        '<b>Download Link:</b><br><a target="_blank" href="' + newVersionData[1] + '">' + newVersionData[1] + '</a><br><br>');
+                    $('#newVersionAvailable').html('<span data-toggle="tooltip" data-placement=\"bottom\" title="New Version Available! Click for more information."' +
+                        'onclick="$(\'#newVersionDialog\').dialog(\'open\')"><span class="notification hidden-sm hidden-xs">new</span><sub>update</sub></span>');
 
                 } else {
                     $('#newVersionAvailable').html('');
@@ -169,7 +169,7 @@
     }
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected) {
             doQuery();
             clearInterval(interval);
@@ -177,7 +177,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 20 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         if (isConnected) {
             doQuery();
         }

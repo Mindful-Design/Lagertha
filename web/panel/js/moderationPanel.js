@@ -113,8 +113,8 @@
                         modSetting = msgObject['results'][idx]['key'];
                         modValue = msgObject['results'][idx]['value'];
 
-                        html += "<tr class=\"textList\">" +
-                            "    <td style=\"width: 3%\">" +
+                        html += "<tr >" +
+                            "    <td>" +
                             "        <div id=\"delete_blackList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-default btn-xs\" " +
                             "             onclick=\"$.deleteBlacklist('" + modSetting + "')\"><i class=\"fa fa-trash\" />" +
                             "        </div>" +
@@ -137,8 +137,8 @@
                         modSetting = msgObject['results'][idx]['key'];
                         modValue = msgObject['results'][idx]['value'];
     
-                        html += "<tr class=\"textList\">" +
-                                "    <td style=\"width: 15px\" padding=\"5px\">" +
+                        html += "<tr >" +
+                                "    <td>" +
                                 "        <div id=\"delete_whiteList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-default btn-xs\"" +
                                 "             onclick=\"$.deleteWhitelist('" + modSetting + "')\"><i class=\"fa fa-trash\" />" +
                                 "        </div>" +
@@ -580,7 +580,7 @@
     function deleteBlacklist(key) {
         /* this was giving errors if it contained a symbol other then _ */
         var newkey = key.replace(/[^a-z1-9]/ig, '_');
-        $("#delete_blackList_" + newkey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#delete_blackList_" + newkey).html("<i  class=\"fa fa-spinner fa-spin\" />");
 
         sendDBDelete("commands_delblacklist_" + key, "blackList", key);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
@@ -593,7 +593,7 @@
      */
     function deleteWhitelist(key) {
         var newkey = key.replace(/[^a-z1-9]/ig, '_');
-        $("#delete_whiteList_" + newkey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#delete_whiteList_" + newkey).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("commands_delwhitelist_" + newkey, "whiteList", key);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
@@ -725,10 +725,10 @@
      * @param {String} newValue
      */
     function updateModSetting(tableKey, newValue) {
-        $("#modSetting_" + tableKey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#modSetting_" + tableKey).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBUpdate("moderation_updateSetting_" + tableKey, "chatModerator", tableKey, newValue);
         setTimeout(function() {
-            $("#modSetting_" + tableKey).html("<strong><font style=\"color: #6136b1\">" + modSettingIcon[newValue] + "</font></strong>");
+            $("#modSetting_" + tableKey).html("<strong><font >" + modSettingIcon[newValue] + "</font></strong>");
         }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
     }

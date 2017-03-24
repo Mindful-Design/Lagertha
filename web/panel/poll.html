@@ -22,16 +22,16 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="pollAccordion">
-    <h3>Poll</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Poll
     <div>
     <div id="_pollPanelDisabled" />
     <div id="_pollPanel">
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="addNotice">Open/Close a Poll</label>
-                <button type="button" class="btn btn-primary inline pull-right"
+                <button type="button" class="btn btn-info btn-fill pull-right"
                         onclick="$.closePoll()">Close Poll</button>
-                <button type="button" class="btn btn-primary inline pull-right"
+                <button type="button" class="btn btn-info btn-fill pull-right"
                         onclick="$.openPoll()">Open Poll</button>
                 <input type="text" class="form-control" id="pollQuestionInput" placeholder="Poll Question" />
                 <input type="text" class="form-control" id="pollOptionsInput" placeholder="Option1, Option2, ..." />
@@ -41,7 +41,7 @@
         </form>
         <br>
         
-        <strong>Results from Last Poll</strong>
+        <label>Results from Last Poll</label>
         <div id="pollLastResults" />
     </div>
     </div>

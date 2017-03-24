@@ -31,8 +31,8 @@
         modTimePermToggle = "",
         commandName = "",
         modeIcon = [];
-        modeIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-        modeIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+        modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+        modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
 
     /*
      * onMessage
@@ -130,10 +130,10 @@
                     timeValue = timeTableData[idx]['value'];
                     hrsValue = (Math.floor(timeValue / 3600));
                 
-                    html += "<tr onclick='$.copyUserTime(\""+username+"\", \""+timeValue+"\")' class=\"textList\">" +
-                            "    <td style='width: 50%'>" + username + "</td>" +
-                            "    <td style='width: 25%'>" + timeValue + "</td>" +
-                            "    <td style='width: 25%'>" + hrsValue + "</td>" +
+                    html += "<tr onclick='$.copyUserTime(\""+username+"\", \""+timeValue+"\")' >" +
+                            "    <td>" + username + "</td>" +
+                            "    <td>" + timeValue + "</td>" +
+                            "    <td>" + hrsValue + "</td>" +
                             "</tr>";
                 }
                 html += "</tbody></table>";
@@ -195,7 +195,7 @@
      * @param {String} setting
      */
     function toggleTimeMode(divId, setting) {
-        $("#" + divId).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#" + divId).html("<i  class=\"fa fa-spinner fa-spin\" />");
         if (setting == "modTimePermToggle") {
             if (modTimePermToggle == "false") {
                 sendDBUpdate("time_toggles", "timeSettings", setting, "true");

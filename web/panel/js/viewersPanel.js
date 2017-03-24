@@ -194,7 +194,7 @@
 
                 for (var user in viewerData) {
                     htmlData[viewerData[user].group.toString()] +=
-                        "<tr class=\"textList\">" +
+                        "<tr >" +
                         "    <td>" + user + "</td>" +
                         "    <td>" + lastseenStr(viewerData[user].lastseen) + "</td>" +
                         "    <td>" + secsToDurationStr(viewerData[user].time) + "</td>" +

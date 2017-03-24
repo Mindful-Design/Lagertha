@@ -22,18 +22,18 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="loggingAccordion">
-    <h3>Enable/Disable Logging</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Enable/Disable Logging
     <div>
-        <table>
-            <tr class="textList">
+        <table class="table table-hover table-striped">
+            <tr >
                 <td>Logging</td>
-                <td style="width: 25px"><div id="loggingMode" /></td>
-                <td style="width: 25px">
+                <td><div id="loggingMode" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Enable" class="button"
                          onclick="$.changeLoggingStatus('enable');"><i class="fa fa-circle" />
                      </div>
                 </td>
-                <td style="width: 25px">
+                <td>
                     <div data-toggle="tooltip" title="Disable" class="button"
                          onclick="$.changeLoggingStatus('disable');"><i class="fa fa-circle-o" />
                      </div>

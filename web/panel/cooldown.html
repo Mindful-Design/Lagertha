@@ -22,31 +22,31 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="cooldownAccordion">
-    <h3>Global Cooldown Settings</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Global Cooldown Settings
     <div style="height: 200px;">
-        <table>
-            <tr class="textList">
+        <table class="table table-hover table-striped">
+            <tr >
                 <td>Global Cooldown</td>
-                <td style="width: 25px"><div id="toggleGlobalCooldown" /></td>
-                <td style="width: 25px">
+                <td><div id="toggleGlobalCooldown" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Toggle" class="button"
                          onclick="$.toggleGlobalCooldown();"><i class="fa fa-refresh" />
                      </div>
                 </td>
             </tr>
-            <tr class="textList">
+            <tr >
                 <td>Per-User Cooldown</td>
-                <td style="width: 25px"><div id="togglePerUserCooldown" /></td>
-                <td style="width: 25px">
+                <td><div id="togglePerUserCooldown" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Toggle" class="button"
                          onclick="$.togglePerUserCooldown();"><i class="fa fa-refresh" />
                      </div>
                 </td>
             </tr>
-            <tr class="textList">
+            <tr >
                 <td>Mod Cooldown</td>
-                <td style="width: 25px"><div id="toggleModCooldown" /></td>
-                <td style="width: 25px">
+                <td><div id="toggleModCooldown" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Toggle" class="button"
                          onclick="$.toggleModCooldown();"><i class="fa fa-refresh" />
                      </div>
@@ -58,23 +58,23 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="globalCooldownTime">Global Cooldown Time</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setGlobalCooldownTime()">Submit</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setGlobalCooldownTime()">Submit</button>
                 <input type="number" min="0" class="form-control" id="globalCooldownTimeInput" placeholder="seconds" />
             </div>
         </form>
     </div>
 
-    <h3>Command Cooldowns</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Command Cooldowns
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="cooldownCmd">Cooldown Command</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.addCooldown()">Submit</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addCooldown()">Submit</button>
                 <input type="text" class="form-control" id="cooldownCmdInput" placeholder="command_name seconds" />
             </div>
         </form>
 
-        <strong>Commands with Cooldowns</strong>
+        <label>Commands with Cooldowns</label>
         <div id="cooldownList" style="height: 300px; overflow: auto;" />
     </div>
 </div>

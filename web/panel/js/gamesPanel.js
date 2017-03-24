@@ -28,8 +28,8 @@
         saveBets = false,
         toggleWarningMessage = false;
 
-        toggleIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-        toggleIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+        toggleIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+        toggleIcon['true'] = "<i  class=\"fa fa-circle\" />";
     /**
      * @function onMessage
      */
@@ -201,7 +201,7 @@
      * @function toggleSaveBets
      */
     function toggleSaveBets() {
-        $("#toggleSaveBets").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#toggleSaveBets").html("<i  class=\"fa fa-spinner fa-spin\" />");
         if (saveBets == 'true') {
             sendDBUpdate('bet_dateformat', 'bettingSettings', 'save', 'false');
             saveBets = 'false';
@@ -217,7 +217,7 @@
      * @function toggleSaveBets
      */
     function toggleWarningMessages() {
-        $("#toggleWarningMessages").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#toggleWarningMessages").html("<i  class=\"fa fa-spinner fa-spin\" />");
         if (toggleWarningMessage == 'true') {
             sendDBUpdate('bet_dateformat', 'bettingSettings', 'warningMessages', 'false');
             toggleWarningMessage = 'false';
@@ -327,7 +327,7 @@
         var value = $('#adventure' + setting + 'Input').val();
 
         if (setting == 'warningMessage') {
-            $("#adventure" + setting).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+            $("#adventure" + setting).html("<i  class=\"fa fa-spinner fa-spin\" />");
             if (l == 'true') {
                 sendDBUpdate('games_adventure', 'adventureSettings', setting, 'true');
             } else {
@@ -339,7 +339,7 @@
         }
 
         if (setting == 'enterMessage') {
-            $("#adventure" + setting).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+            $("#adventure" + setting).html("<i  class=\"fa fa-spinner fa-spin\" />");
             if (l == 'true') {
                 sendDBUpdate('games_adventure', 'adventureSettings', setting, 'true');
             } else {

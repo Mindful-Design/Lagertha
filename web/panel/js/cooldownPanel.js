@@ -23,11 +23,12 @@
  * cooldownPanel.js
  * Drives the Cooldown Panel
  */
-(function() {
+(function () {
 
     var toggleIcon = [];
-        toggleIcon['false'] = "<i class=\"fa fa-circle-o\" />";
-        toggleIcon['true'] = "<i class=\"fa fa-circle\" />";
+    toggleIcon['false'] = "<i class=\"fa fa-circle-o\" />";
+    toggleIcon['true'] = "<i class=\"fa fa-circle\" />";
+
 
     /*
      * onMessage
@@ -37,7 +38,7 @@
         var msgObject;
 
         try {
-           msgObject = JSON.parse(message.data);
+            msgObject = JSON.parse(message.data);
         } catch (ex) {
             return;
         }
@@ -72,19 +73,19 @@
                         continue;
                     }
                     if (panelMatch(command, 'perUserCooldown')) {
-                        perUserCooldown  = msgObject['results'][idx]['value'];
+                        perUserCooldown = msgObject['results'][idx]['value'];
                         continue;
                     }
 
                     foundData = true;
-                    html += "<tr class=\"textList\">" +
-                            "    <td style=\"width: 15px\">" +
-                            "        <div id=\"deleteCooldown_" + command + "\" class=\"button\" " +
-                            "             onclick=\"$.deleteCooldown('" + command + "')\"><i class=\"fa fa-trash\" />" +
-                            "    </td>" + 
-                            "    <td>" + command + "</td>" +
-                            "    <td>" + time + "</td>" +
-                            "</tr>";
+                    html += "<tr >" +
+                        "    <td>" +
+                        "        <div id=\"deleteCooldown_" + command + "\" class=\"button\" " +
+                        "             onclick=\"$.deleteCooldown('" + command + "')\"><i class=\"fa fa-trash\" />" +
+                        "    </td>" +
+                        "    <td>" + command + "</td>" +
+                        "    <td>" + time + "</td>" +
+                        "</tr>";
                 }
                 html += "</table>";
 
@@ -92,7 +93,7 @@
                     html = "<i>No entries in cooldown table.</i>";
                 }
                 $("#cooldownList").html(html);
-    
+
                 $("#toggleGlobalCooldown").html(toggleIcon[globalCooldown]);
                 $("#togglePerUserCooldown").html(toggleIcon[perUserCooldown]);
                 $("#toggleModCooldown").html(toggleIcon[modCooldown]);
@@ -111,27 +112,33 @@
      * @function toggleGlobalCooldown
      */
     function toggleGlobalCooldown() {
-        $("#toggleGlobalCooldown").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#toggleGlobalCooldown").html("<i class=\"fa fa-spinner fa-spin spinMain\" />");
         sendCommand("toggleglobalcooldown");
-        setTimeout(function() { doQuery(); }, 500);
+        setTimeout(function () {
+            doQuery();
+        }, 500);
     }
 
     /**
      * @function toggleModCooldown
      */
     function toggleModCooldown() {
-        $("#toggleModCooldown").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#toggleModCooldown").html("<i  class=\"fa fa-spinner fa-spin spinMain\" />");
         sendCommand("togglemodcooldown");
-        setTimeout(function() { doQuery(); }, 500);
+        setTimeout(function () {
+            doQuery();
+        }, 500);
     }
 
     /**
      * @function togglePerUserCooldown
      */
     function togglePerUserCooldown() {
-        $("#togglePerUserCooldown").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#togglePerUserCooldown").html("<i  class=\"fa fa-spinner fa-spin spinMain\" />");
         sendCommand("toggleperusercooldown");
-        setTimeout(function() { doQuery(); }, 500);
+        setTimeout(function () {
+            doQuery();
+        }, 500);
     }
 
 
@@ -152,9 +159,11 @@
      * @param {String} command
      */
     function deleteCooldown(command) {
-        $("#deleteCooldown_" + command).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteCooldown_" + command).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendCommand("cooldown " + command + " -1");
-        setTimeout(function() { doQuery(); }, 500);
+        setTimeout(function () {
+            doQuery();
+        }, 500);
     }
 
     /**
@@ -165,7 +174,10 @@
         if (input.length > 0) {
             sendCommand("cooldown " + input);
             $("#cooldownCmdInput").val("Submitted");
-            setTimeout(function() { $("#cooldownCmdInput").val(""); doQuery(); }, 1000);
+            setTimeout(function () {
+                $("#cooldownCmdInput").val("");
+                doQuery();
+            }, 1000);
         }
     }
 
@@ -173,16 +185,16 @@
     $("#cooldownPanel").load("/panel/cooldown.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         var active = $("#tabs").tabs("option", "active");
         if (active == 4 && isConnected) {
             doQuery();
-            clearInterval(interval); 
+            clearInterval(interval);
         }
     }, 200);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $("#tabs").tabs("option", "active");
         if (active == 4 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Cooldown Data', 'success', 1000);

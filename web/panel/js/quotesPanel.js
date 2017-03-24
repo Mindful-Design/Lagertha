@@ -25,7 +25,7 @@
 
 (function() {
 
-    var spinIcon = '<i style="color: #6136b1" class="fa fa-spinner fa-spin" />',
+    var spinIcon = '<i  class="fa fa-spinner fa-spin" />',
         isDeleting = false;
 
     /**
@@ -62,8 +62,8 @@
                     quoteData = JSON.parse(msgObject['results'][idx]['value']);
                     quoteDataClean = JSON.parse(msgObject['results'][idx]['value']);
                     quoteDataClean[1] = quoteDataClean[1].replace(/,/g, '%2C').replace(/'/g, '%27');
-                    html += '<tr style="textList">' +
-                            '    <td rowspan="2" style="width: 25px">' +
+                    html += '<tr >' +
+                            '    <td>' +
                             '        <div id="deleteQuote_' + id + '" type=\"button\" class=\"btn btn-default btn-xs\"' +
                             '             onclick="$.deleteQuote(\'' + id + '\')"><i class="fa fa-trash" />' +
                             '        </div>' +
@@ -71,13 +71,13 @@
 
                             // ID and Date
                             '    <td>ID: ' + id + '</td>' +
-                            '    <td style="vertical-align: middle">' + 
+                            '    <td>' + 
                             '        Date: ' + $.format.date(parseInt(quoteData[2]), 'MM.dd.yy') +
                             '    </td>' +
 
 
                             // User
-                            '    <td style="vertical-align: middle">' +
+                            '    <td>' +
                             '        <form onkeypress="return event.keyCode != 13">' +
                             '            <input type="text" id="inlineQuoteEdit_user_' + id + '"' +
                             '                   value="' + quoteData[0] + '" />' +
@@ -89,7 +89,7 @@
                             '    </td>' +
 
                             // Game
-                            '    <td style="vertical-align: middle">' +
+                            '    <td>' +
                             '        <form onkeypress="return event.keyCode != 13">' +
                             '            <input type="text" id="inlineQuoteEdit_game_' + id + '"' +
                             '                   value="' + (quoteData.length == 4 ? quoteData[3] : 'Some Game') + '" />' +
@@ -102,8 +102,8 @@
                             '</tr>' +
 
                             // Quote
-                            '<tr style="textList">' +
-                            '    <td colspan="4" style="vertical-align">' +
+                            '<tr >' +
+                            '    <td>' +
                             '        <form onkeypress="return event.keyCode != 13">' +
                             '            <input style="width: 89%" type="text" id="inlineQuoteEdit_quote_' + id + '"' +
                             '                   value="' + quoteData[1] + '" />' +

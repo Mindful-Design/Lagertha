@@ -23,7 +23,7 @@
  * dashboardPanel.js
  * Drives the Dashboard Panel
  */
-(function() {
+(function () {
 
     var chatHeight = 0,
         streamOnline = false,
@@ -39,15 +39,29 @@
         loggingModeFile = false,
         modeIcon = [],
         settingIcon = [];
-        gameTitle = '__not_loaded__';
+    gameTitle = '__not_loaded__';
 
-        modeIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-        modeIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+    modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
+    modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
 
-        settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
-        settingIcon['true'] = "<i class=\"fa fa-circle\" />";
+    settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
+    settingIcon['true'] = "<i class=\"fa fa-circle\" />";
 
-        var spinIcon = '<i style="color: #6136b1" class="fa fa-spinner fa-spin" />';
+    var spinIcon = '<i  class="fa fa-spinner fa-spin" />';
+    var removeWords = {
+        "./commands/": "",
+        "./games/": "",
+        "./handlers/": "",
+        "./systems/": ""
+
+    };
+    var removeWordsDiscord = {
+        "./discord/commands/": "",
+        "./discord/games/": "",
+        "./discord/handlers/": "",
+        "./discord/systems/": ""
+
+    };
 
     /*
      * @function onMessage
@@ -77,8 +91,8 @@
             }
 
             if (panelCheckQuery(msgObject, 'dashboard_modules')) {
-                var html = "<table>",
-                    discordHtml = "<table>",
+                var html = "<table class=\"table table-hover table-striped\">",
+                    discordHtml = "<table class=\"table table-hover table-striped\">",
                     moduleData = msgObject['results'],
                     module = "",
                     moduleEnabled = "";
@@ -91,45 +105,49 @@
                     moduleEnabled = moduleData[idx]['value'];
                     if (module.indexOf('/core/') === -1 && module.indexOf('/lang/') === -1) {
                         if (module.indexOf('./discord') === -1) {
-                            html += "<tr class=\"textList\">" +
-                                    "    <td>" + module + "</td>" +
-    
-                                    "    <td style=\"width: 25px\">" +
-                                    "        <div id=\"moduleStatus_" + idx + "\">" + modeIcon[moduleEnabled] + "</div>" +
-                                    "    </td>" +
-    
-                                    "    <td style=\"width: 25px\">" +
-                                    "        <div data-toggle=\"tooltip\" title=\"Enable\" class=\"button\"" +
-                                    "             onclick=\"$.enableModule('" + module + "', " + idx + ")\">" + settingIcon['true'] +
-                                    "        </div>" +
-                                    "    </td>" +
-    
-                                    "    <td style=\"width: 25px\">" +
-                                    "        <div data-toggle=\"tooltip\" title=\"Disable\" class=\"button\"" +
-                                    "             onclick=\"$.disableModule('" + module + "', " + idx + ")\">" + settingIcon['false'] +
-                                    "        </div>" +
-                                    "    </td>" +
-                                    "</tr>";
+                            html += "<tr>" +
+                                "    <td>" + module.replace(/.\/commands\/|.\/games\/|.\/handlers\/|.\/systems\//gi, function (matched) {
+                                    return removeWords[matched];
+                                }) + "</td>" +
+
+                                "    <td>" +
+                                "        <div id=\"moduleStatus_" + idx + "\">" + modeIcon[moduleEnabled] + "</div>" +
+                                "    </td>" +
+
+                                "    <td>" +
+                                "        <div data-toggle=\"tooltip\" title=\"Enable\" class=\"button\"" +
+                                "             onclick=\"$.enableModule('" + module + "', " + idx + ")\">" + settingIcon['true'] +
+                                "        </div>" +
+                                "    </td>" +
+
+                                "    <td>" +
+                                "        <div data-toggle=\"tooltip\" title=\"Disable\" class=\"button\"" +
+                                "             onclick=\"$.disableModule('" + module + "', " + idx + ")\">" + settingIcon['false'] +
+                                "        </div>" +
+                                "    </td>" +
+                                "</tr>";
                         } else {
-                            discordHtml += "<tr class=\"textList\">" +
-                                    "    <td>" + module + "</td>" +
-    
-                                    "    <td style=\"width: 25px\">" +
-                                    "        <div id=\"moduleStatus_" + idx + "\">" + modeIcon[moduleEnabled] + "</div>" +
-                                    "    </td>" +
-    
-                                    "    <td style=\"width: 25px\">" +
-                                    "        <div data-toggle=\"tooltip\" title=\"Enable\" class=\"button\"" +
-                                    "             onclick=\"$.enableModule('" + module + "', " + idx + ")\">" + settingIcon['true'] +
-                                    "        </div>" +
-                                    "    </td>" +
-    
-                                    "    <td style=\"width: 25px\">" +
-                                    "        <div data-toggle=\"tooltip\" title=\"Disable\" class=\"button\"" +
-                                    "             onclick=\"$.disableModule('" + module + "', " + idx + ")\">" + settingIcon['false'] +
-                                    "        </div>" +
-                                    "    </td>" +
-                                    "</tr>";
+                            discordHtml += "<tr>" +
+                                "    <td>" + module.replace(/.\/discord\/commands\/|.\/discord\/games\/|.\/discord\/handlers\/|.\/discord\/systems\//gi, function (matched) {
+                                    return removeWordsDiscord[matched];
+                                }) + "</td>" +
+
+                                "    <td>" +
+                                "        <div id=\"moduleStatus_" + idx + "\">" + modeIcon[moduleEnabled] + "</div>" +
+                                "    </td>" +
+
+                                "    <td>" +
+                                "        <div data-toggle=\"tooltip\" title=\"Enable\" class=\"button\"" +
+                                "             onclick=\"$.enableModule('" + module + "', " + idx + ")\">" + settingIcon['true'] +
+                                "        </div>" +
+                                "    </td>" +
+
+                                "    <td>" +
+                                "        <div data-toggle=\"tooltip\" title=\"Disable\" class=\"button\"" +
+                                "             onclick=\"$.disableModule('" + module + "', " + idx + ")\">" + settingIcon['false'] +
+                                "        </div>" +
+                                "    </td>" +
+                                "</tr>";
                         }
                     }
                 }
@@ -137,7 +155,9 @@
                 discordHtml += "</table>";
                 $("#modulesList").html(html);
                 $("#discordModulesList").html(discordHtml);
-                $('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });
+                $('[data-toggle="tooltip"]').tooltip({
+                    trigger: 'hover'
+                });
             }
 
             if (panelCheckQuery(msgObject, 'dashboard_chatCount')) {
@@ -157,9 +177,9 @@
                             break;
                         }
                     }
-                    $("#chatDate-" + i).html("<span class=\"purplePill\">Date: " + chatDate + "</span>");
-                    $("#chatCount-" + i).html("<span class=\"bluePill\">Chat Count: " + chatCount + "</span>");
-                    chatGraphData.push([ j, chatCount ]);
+                    $("#chatDate-" + i).html("<span><i class=\"fa fa-circle text-success\"></i>" + chatDate + "</span>");
+                    $("#chatCount-" + i).html("<spam><i class=\"fa fa-circle text-info\"></i>" + chatCount + "</span>");
+                    chatGraphData.push([j, chatCount]);
                 }
             }
 
@@ -180,19 +200,35 @@
                             break;
                         }
                     }
-                    $("#modCount-" + i).html("<span style=\"width: 120px\" class=\"redPill\">Timeouts: " + modCount + "</span>");
-                    toutGraphData.push([ j, modCount ]);
+                    $("#modCount-" + i).html("<spam><i class=\"fa fa-circle text-danger\"></i>" + modCount + "</span>");
+                    toutGraphData.push([j, modCount]);
                 }
 
             }
             if (toutGraphData.length > 0 && chatGraphData.length > 0) {
-                $.plot($("#panelStatsGraph"),
-                           [
-                               { data: chatGraphData, lines: { show: true }, color: "#4444ff" },
-                               { data: toutGraphData, lines: { show: true }, color: "#ff4444" }
-                           ],
-                           { xaxis: { show: false }, yaxis: { show: false }
-                       });
+                $.plot($("#panelStatsGraph"), [
+                    {
+                        data: chatGraphData,
+                        lines: {
+                            show: true
+                        },
+                        color: "#1DC7EA"
+                    },
+                    {
+                        data: toutGraphData,
+                        lines: {
+                            show: true
+                        },
+                        color: "#FF4A55"
+                    }
+                           ], {
+                    xaxis: {
+                        show: false
+                    },
+                    yaxis: {
+                        show: false
+                    }
+                });
             }
 
             if (panelCheckQuery(msgObject, 'dashboard_panelStatsEnabled')) {
@@ -218,7 +254,7 @@
                 if (msgObject['results']['lastFollow'] == null) {
                     $("#lastFollow").html("");
                 } else {
-                    $("#lastFollow").html("<spam class=\"purplePill\">Latest Follow: " + msgObject['results']['lastFollow'] + "</spam>");
+                    $("#lastFollow").html("<spam><i class=\"fa fa-circle text-info\"></i><strong>Latest Follow:</strong> " + msgObject['results']['lastFollow'] + "</spam>");
                 }
             }
 
@@ -226,7 +262,7 @@
                 if (msgObject['results']['lastReSub'] == null) {
                     $("#lastReSub").html("");
                 } else {
-                    $("#lastReSub").html("<spam class=\"purplePill\">Latest ReSub: " + msgObject['results']['lastReSub'] + "</spam>");
+                    $("#lastReSub").html("<spam><i class=\"fa fa-circle text-success\"></i><strong>Latest ReSub:</strong> " + msgObject['results']['lastReSub'] + "</spam>");
                 }
             }
 
@@ -234,7 +270,7 @@
                 if (msgObject['results']['lastSub'] == null) {
                     $("#lastSub").html("");
                 } else {
-                    $("#lastSub").html("<spam class=\"purplePill\">Latest Sub: " + msgObject['results']['lastSub'] + "</spam>");
+                    $("#lastSub").html("<spam><i class=\"fa fa-circle text-warning\"></i><strong>Latest Sub:</strong> " + msgObject['results']['lastSub'] + "</spam>");
                 }
             }
 
@@ -242,10 +278,10 @@
                 if (msgObject['results']['lastDonator'] == null) {
                     $("#lastDonator").html("");
                 } else {
-                    $("#lastDonator").html("<spam class=\"purplePill\">Latest Donator: " + msgObject['results']['lastDonator'] + "</spam>");
+                    $("#lastDonator").html("<spam><i class=\"fa fa-circle text-danger\"></i><strong>Latest Donator:</strong> " + msgObject['results']['lastDonator'] + "</spam>");
                 }
             }
- 
+
             if (panelCheckQuery(msgObject, 'dashboard_gameTitle')) {
                 gameTitle = msgObject['results']['game'];
                 if (gameTitle === undefined || gameTitle === null) {
@@ -255,7 +291,7 @@
                 $('#gameTitleInput').val(gameTitle);
                 sendDBQuery("dashboard_deathctr", "deaths", gameTitle);
             }
- 
+
             if (panelCheckQuery(msgObject, 'dashboard_loggingModeEvent')) {
                 loggingModeEvent = msgObject['results']['log.event'];
                 $("#logEvent").html(modeIcon[loggingModeEvent]);
@@ -347,7 +383,9 @@
 
         if (value.length > 0) {
             sendDBUpdate('dashboard_updateLogRotate', 'settings', 'log_rotate_days', value);
-            setTimeout(function() { sendDBQuery('dashboard_logRotate', 'settings', 'log_rotate_days'); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendDBQuery('dashboard_logRotate', 'settings', 'log_rotate_days');
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -359,9 +397,11 @@
         if (panelMatch(gameTitle, '__not_loaded__')) {
             return;
         }
-        $('#deathCounterValue').html('<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />');
+        $('#deathCounterValue').html('<i  class=\"fa fa-spinner fa-spin\" />');
         sendCommand('deathctr ' + action);
-        setTimeout(function() { sendDBQuery("dashboard_deathctr", "deaths", gameTitle); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendDBQuery("dashboard_deathctr", "deaths", gameTitle);
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -376,9 +416,11 @@
      * @param {String} module
      */
     function enableModule(module, idx) {
-        $("#moduleStatus_" + idx).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#moduleStatus_" + idx).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendCommand("module enablesilent " + module);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -386,9 +428,11 @@
      * @param {String} module
      */
     function disableModule(module, idx) {
-        $("#moduleStatus_" + idx).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#moduleStatus_" + idx).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendCommand("module disablesilent " + module);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -396,7 +440,7 @@
      * @param {String} mode
      */
     function toggleLog(type) {
-        $('#'+ type).html('<i style="color: #6136b1" class="fa fa-spinner fa-spin" />');
+        $('#' + type).html('<i class="fa fa-spinner fa-spin" />');
         if (type == "logFile") {
             console.log(type)
             if (loggingModeFile == 'true') {
@@ -422,14 +466,15 @@
             }
         }
         sendCommand('reloadlogs');
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
      * @function toggleCommand
      */
-    function toggleCommand(command)
-    {
+    function toggleCommand(command) {
         if (panelMatch(command, 'pausecommands')) {
             if ($.globalPauseMode) {
                 command += " clear";
@@ -438,7 +483,9 @@
             }
         }
         sendCommand(command);
-        setTimeout(function() { $.globalDoQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            $.globalDoQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -482,19 +529,23 @@
      * @function setHighlight
      */
     function setHighlight() {
-        $("#showHighlights").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#showHighlights").html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendCommand("highlightpanel " + $("#highlightInput").val());
         $("#highlightInput").val('');
-        setTimeout(function() { sendDBKeys("dashboard_highlights", "highlights"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendDBKeys("dashboard_highlights", "highlights");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
      * @function clearHighlights
      */
     function clearHighlights() {
-        $("#showHighlightspanel").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#showHighlightspanel").html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendCommand("clearhighlights");
-        setTimeout(function() { sendDBKeys("dashboard_highlights", "highlights"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendDBKeys("dashboard_highlights", "highlights");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -506,11 +557,15 @@
             sendDBUpdate('multiLinkInput', 'dualStreamCommand', tableKey, newValue.replace(/\s+/g, '/'));
             $(tagId).val('')
             $(tagId).attr("placeholder", newValue).blur();
-            setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                sendCommand("reloadmulti");
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
-    
+
     /**
      * @function setMultiLinkTimer
      */
@@ -520,8 +575,12 @@
             sendDBUpdate("multiLinkTimerInput", "dualStreamCommand", tableKey, newValue);
             $(tagId).val('')
             $(tagId).attr("placeholder", newValue).blur();
-            setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                sendCommand("reloadmulti");
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -534,8 +593,12 @@
             sendDBUpdate("multiLinkReqMsgsInput", "dualStreamCommand", tableKey, newValue);
             $(tagId).val('')
             $(tagId).attr("placeholder", newValue).blur();
-            setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                sendCommand("reloadmulti");
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -545,10 +608,14 @@
     function clearMultiLink() {
         sendDBUpdate("multiLinkClear", "dualStreamCommand", "otherChannels", "Channel-1 Channel-2");
         sendDBUpdate("multiLinkClear", "dualStreamCommand", "timerToggle", "false");
-        setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+        setTimeout(function () {
+            sendCommand("reloadmulti");
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME * 2);
     }
- 
+
     /**
      * @function multiLinkTimerOn
      */
@@ -556,18 +623,26 @@
         $('#multiStatus').html('<span class="purplePill" data-toggle="tooltip" title="Multi-Link Enabled"><i class=\"fa fa-link fa-lg\" /></span>');
         $('[data-toggle="tooltip"]').tooltip();
         sendDBUpdate("multiLinkClear", "dualStreamCommand", "timerToggle", "true");
-        setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+        setTimeout(function () {
+            sendCommand("reloadmulti");
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME * 2);
     }
- 
+
     /**
      * @function multiLinkTimerOff
      */
     function multiLinkTimerOff() {
         $('#multiStatus').html('');
         sendDBUpdate("multiLinkClear", "dualStreamCommand", "timerToggle", "false");
-        setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+        setTimeout(function () {
+            sendCommand("reloadmulti");
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME * 2);
     }
 
     /**
@@ -596,14 +671,20 @@
      */
     function toggleTwitchChatRollup() {
         if ($("#chat").is(":visible")) {
-            $(function() { $("#chatsidebar").resizable('disable'); });
+            $(function () {
+                $("#chatsidebar").resizable('disable');
+            });
             chatHeight = $("#chatsidebar").height();
             $("#chat").fadeOut(1000);
-            setTimeout(function() { $("#chatsidebar").height(20); }, 1000);
+            setTimeout(function () {
+                $("#chatsidebar").height(20);
+            }, 1000);
         } else {
             $("#chatsidebar").height(chatHeight);
             $("#chat").fadeIn(1000);
-            $(function() { $("#chatsidebar").resizable('enable'); });
+            $(function () {
+                $("#chatsidebar").resizable('enable');
+            });
         }
     }
 
@@ -622,12 +703,12 @@
         }
         $('#amountQueue').val('');
     }
- 
+
     // Import the HTML file for this panel.
     $("#dashboardPanel").load("/panel/dashboard.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
             if (active == 0) {
@@ -638,7 +719,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $("#tabs").tabs("option", "active");
         if (active == 0 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Dashboard Data', 'success', 1000);

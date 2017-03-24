@@ -53,10 +53,10 @@
 
             		html += '<tr>' +
                         '<td>' + jsonObj.username + '</td>' +
-                        '<td style="padding-left: 50px;">' + (jsonObj.tag === '' ? 'None' : jsonObj.tag.substring(0, 15)) + '</td>' +
-                        '<td style="padding-left: 50px;">' + jsonObj.position + '</td>' +
-                        '<td style="padding-left: 50px;">' + jsonObj.time + '</td>' +
-                        '<td style="float: right;"><button type="button" id="delete_user_' + jsonObj.username + '" class="btn btn-default btn-xs" onclick="$.runCommand(\'remove\', \'' + [jsonObj.username] + '\')"><i class="fa fa-trash"/></button></td>' +
+                        '<td>' + (jsonObj.tag === '' ? 'None' : jsonObj.tag.substring(0, 15)) + '</td>' +
+                        '<td>' + jsonObj.position + '</td>' +
+                        '<td>' + jsonObj.time + '</td>' +
+                        '<td><button type="button" id="delete_user_' + jsonObj.username + '" class="btn btn-default btn-xs" onclick="$.runCommand(\'remove\', \'' + [jsonObj.username] + '\')"><i class="fa fa-trash"/></button></td>' +
                         '</tr>';
             	}
             	html += '</table>';
@@ -84,7 +84,7 @@
     	} else if (command == 'close') {
     		sendWSEvent('queue', './systems/queueSystem.js', null, ['close']);
     	} else if (command == 'remove') {
-    		$('#delete_user_' + args).html('<i style="color: #6136b1" class="fa fa-spinner fa-spin"/>');
+    		$('#delete_user_' + args).html('<i  class="fa fa-spinner fa-spin"/>');
     		sendWSEvent('queue', './systems/queueSystem.js', null, ['remove', args]);
     	} else if (command == 'open') {
     		var title = $('#queue-title').val(),

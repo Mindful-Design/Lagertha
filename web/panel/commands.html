@@ -22,241 +22,411 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="customCommandsAccordion">
-    <h3>Commands</h3>
-    <div>
-        <div id="_editCustomCommandsPanelDisabled" />
-    <div id="_editCustomCommandsPanel">
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12" id="_editCustomCommandsPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Commands</h4>
+                </div>
+                <div class="content" id="_editCustomCommandsPanel">
 
-        <div id="tagHelpDialog" title="Custom Command Tags" style="font-size: 90%">
-            <table>
-                <tr>
-                    <td>(sender) </td><td> User who triggered the command.<td>
-                    </tr><tr>
-                    <td>(@sender) </td><td> User who triggered the command and adds a @ symbol to his name.<td>
-                    </tr><tr>
-                    <td>(baresender) </td><td> User who triggered the command in lower case.<td>
-                    </tr><tr>
-                    <td>(touser) </td><td> Replaces with the argument you say after the command. If nothing is said after its the user who triggered the command.<td>
-                    </tr><tr>
-                    <td>(#) </td><td> Random number<td>
-                    </tr><tr>
-                    <td>(1), (2), (3) etc </td><td> Command arguments.<td>
-                    </tr><tr>
-                    <td>(age) </td><td> Tells you how long you have been on twitch for.<td>
-                    </tr><tr>
-                    <td>(random) </td><td> Random person in chat.<td>
-                    </tr><tr>
-                    <td>(pointname) </td><td> Current point name.<td>
-                    </tr><tr>
-                    <td>(uptime) </td><td> Current stream uptime.<td>
-                    </tr><tr>
-                    <td>(game) </td><td> Current game set on twitch.<td>
-                    </tr><tr>
-                    <td>(status) </td><td> Current title set on twitch.<td>
-                    </tr><tr>
-                    <td>(price) </td><td> Current command price.<td>
-                    </tr><tr>
-                    <td>(pay) </td><td> Payment of the command.<td>
-                    </tr><tr>
-                    <td>(onlineonly) </td><td> Will make the command work when the stream is online.<td>
-                    </tr><tr>
-                    <td>(offlineonly) </td><td> Will make the command work when the stream is offline.<td>
-                    </tr><tr>
-                    <td>(viewers) </td><td> Current viewer count.<td>
-                    </tr><tr>
-                    <td>(count) </td><td> Amount of time the command has been used.<td>
-                    </tr><tr>
-                    <td>(echo) </td><td> Will say any message as the bot.<td>
-                    </tr><tr>
-                    <td>(1=) </td><td> Argument 1. Add a the tag name of your choice after the = for if the argument is empty.<td>
-                    </tr><tr>
-                    <td>(countdown=) </td><td> Add the date you want to count down too. Ex (countdown=July 2 2016 7:00).<td>
-                    </tr><tr>
-                    <td>(downtime) </td><td> Time since the last stream.<td>
-                    </tr><tr>
-                    <td>(readfile filename.txt) </td><td> Reads what is in the file. The file must be in the bots addons folder.<td>
-                    </tr><tr>
-                    <td>(customapijson URL key | {literal string} ...) </td>
-                    <td> Call a remote URL that returns JSON. key or object.key or object.object.key to access JSON data.
-                    </tr><tr>
-                    <td>(command [command_name]) </td><td> Call a command. Must be first item in custom command. Do not include ! before command_name</td>
-                    </tr><tr>
-                    <td>(customapi [requesturl]) </td><td> Call a remote URL<td>
-                </tr>
-            </table>
+                    <button type="button" class="btn btn-info btn-fill" data-toggle="modal" data-target="#commandVar">Command variables</button>
+
+                    <div id="commandVar" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Command variables</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-hover table-striped">
+                                        <tr>
+                                            <td>(sender) </td>
+                                            <td> User who triggered the command.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(@sender) </td>
+                                            <td> User who triggered the command and adds a @ symbol to his name.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(baresender) </td>
+                                            <td> User who triggered the command in lower case.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(touser) </td>
+                                            <td> Replaces with the argument you say after the command. If nothing is said after its the user who triggered the command.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(#) </td>
+                                            <td> Random number
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(1), (2), (3) etc </td>
+                                            <td> Command arguments.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(age) </td>
+                                            <td> Tells you how long you have been on twitch for.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(random) </td>
+                                            <td> Random person in chat.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(pointname) </td>
+                                            <td> Current point name.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(uptime) </td>
+                                            <td> Current stream uptime.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(game) </td>
+                                            <td> Current game set on twitch.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(status) </td>
+                                            <td> Current title set on twitch.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(price) </td>
+                                            <td> Current command price.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(pay) </td>
+                                            <td> Payment of the command.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(onlineonly) </td>
+                                            <td> Will make the command work when the stream is online.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(offlineonly) </td>
+                                            <td> Will make the command work when the stream is offline.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(viewers) </td>
+                                            <td> Current viewer count.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(count) </td>
+                                            <td> Amount of time the command has been used.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(echo) </td>
+                                            <td> Will say any message as the bot.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(1=) </td>
+                                            <td> Argument 1. Add a the tag name of your choice after the = for if the argument is empty.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(countdown=) </td>
+                                            <td> Add the date you want to count down too. Ex (countdown=July 2 2016 7:00).
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(downtime) </td>
+                                            <td> Time since the last stream.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(readfile filename.txt) </td>
+                                            <td> Reads what is in the file. The file must be in the bots addons folder.
+                                                <td>
+                                        </tr>
+                                        <tr>
+                                            <td>(customapijson URL key | {literal string} ...) </td>
+                                            <td> Call a remote URL that returns JSON. key or object.key or object.object.key to access JSON data.
+                                        </tr>
+                                        <tr>
+                                            <td>(command [command_name]) </td>
+                                            <td> Call a command. Must be first item in custom command. Do not include ! before command_name</td>
+                                        </tr>
+                                        <tr>
+                                            <td>(customapi [requesturl]) </td>
+                                            <td> Call a remote URL
+                                                <td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br><br>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="highlight">Run a command</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="commandImput" placeholder="Command name">
+                                <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.runCustomCommand()">Run</button>
+                                        </span>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="addCustomCommand">Add a command</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="addCommandCommand" placeholder="Command name" />
+                                <input type="text" class="form-control" id="addCommandText" placeholder="Command response" />
+                                <span class="input-group-btn input-group-btn-n">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.addCustomCommand()">Add</button>
+                                        </span>
+                            </div>
+                        </div>
+                    </form>
+
+                    <label for="addCustomCommand">Command list</label>
+                    <div id="_viewCustomCommandsPanelDisabled" />
+                    <div id="_viewCustomCommandsPanel">
+                        <div id="customCommandsList" style="max-height: 250px; overflow: auto;" />
+                    </div>
+
+                </div>
+            </div>
         </div>
 
-        <div>
-            <button type="button" class="btn btn-primary btn-xs inline pull-right"
-                     onclick="$('#tagHelpDialog').dialog('open')"><small>Command variables</small></button>
-            <br><br>
+        <div class="col-md-6 col-sm-12 col-xs-12" id="_viewCommandAliasesPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Aliases</h4>
+                </div>
+                <div class="content">
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="addCustomCommand">Add an alias</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="aliasCommandInputAlias" placeholder="Default command name" />
+                                <input type="text" class="form-control" id="aliasCommandInput" placeholder="Alias name" />
+                                <span class="input-group-btn input-group-btn-n">
+                                        <button type="button" class="btn btn-info btn-fill" onclick="$.aliasCommand()">Submit</button>
+                                        </span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="_viewCommandAliasesPanel">
+                        <div id="aliasCommandsList" style="max-height: 200px; overflow: auto;" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12" id="_commandPricesPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Cost</h4>
+                </div>
+                <div class="content" id="_commandPricesPanel">
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="setCommandPrice">Add a new price</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="setCommandPriceInputCommand" placeholder="Command name" />
+                                <input type="text" class="form-control" id="setCommandPriceInput" placeholder="Price" />
+                                <span class="input-group-btn input-group-btn-n">
+                                        <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setCommandPrice()">Submit</button>
+                                        </span>
+                            </div>
+                        </div>
+                    </form>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="runCustomCommand">Run a command</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.runCustomCommand()">Run</button>
-                <input type="text" class="form-control" id="commandImput" placeholder="Command name" />
+                    <label>Current Command Prices</label><br><br>
+                    <div id="priceCommandsList" style="max-height: 200px; overflow: auto;" />
+
+                </div>
             </div>
-        </form>
-        <br>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12" id="_commandPayPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Payment</h4>
+                </div>
+                <div class="content" id="_commandPayPanel">
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="setCommandPay">Add a new payment</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="setCommandPayInputCommand" placeholder="Command name" />
+                                <input type="text" class="form-control" id="setCommandPayInput" placeholder="Payment" />
+                                <span class="input-group-btn input-group-btn-n">
+                                        <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setCommandPay()">Submit</button>
+                                        </span>
+                            </div>
+                        </div>
+                    </form>
+                    <label>Current Command Payments</label><br><br>
+                    <div id="payCommandsList" style="max-height: 200px; overflow: auto;" />
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="addCustomCommand">Add a command</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.addCustomCommand()">Submit</button>
-                <input type="text" class="form-control" id="addCommandCommand" placeholder="Command name" />
-                <input type="text" class="form-control" id="addCommandText" placeholder="Command response" />
+                </div>
             </div>
-        </form>
-        <label for="addCustomCommand">Command list</label>
-    <div id="_viewCustomCommandsPanelDisabled" />
-    <div id="_viewCustomCommandsPanel">
-        <div id="customCommandsList" style="height: 250px; overflow: auto;" />
-    </div>
-    </div>
-
-    <h3>Aliases</h3>
-    <div>
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="addCustomCommand">Add a alias</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.aliasCommand()">Submit</button>
-                <input type="text" class="form-control" id="aliasCommandInputAlias" placeholder="Default command name" />
-                <input type="text" class="form-control" id="aliasCommandInput" placeholder="Alias name" />
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Permissions</h4>
+                </div>
+                <div class="content">
+                    <table class="table table-hover table-striped">
+                        <tr>
+                            <td>No permission warning message</td>
+                            <td>
+                                <div id="permcomMsg" style="float:right" />
+                            </td>
+                            <td>
+                                <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.togglePermcomMsg();"><i class="fa fa-refresh" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <div id="_commandPermissionPanelDisabled" />
+                    <div id="_commandPermissionPanel">
+                        <div id="permCommandsList" style="max-height: 300px; overflow: auto;" />
+                    </div>
+                </div>
             </div>
-        </form>
-    <div id="_viewCommandAliasesPanelDisabled" />
-    <div id="_viewCommandAliasesPanel">
-        <div id="aliasCommandsList" style="height: 200px; overflow: auto;" />
-    </div>
-    </div>
+        </div>
 
-    <h3>Cost</h3>
-    <div>
-    <div id="_commandPricesPanelDisabled" />
-    <div id="_commandPricesPanel">
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="setCommandPrice">Add a new price</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setCommandPrice()">Submit</button>
-                <input type="text" class="form-control" id="setCommandPriceInputCommand" placeholder="Command name" />
-                <input type="text" class="form-control" id="setCommandPriceInput" placeholder="Price" />
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Cooldown</h4>
+                </div>
+                <div class="content">
+                    <table class="table table-hover table-striped">
+                        <tr>
+                            <td>Global cooldown</td>
+                            <td>
+                                <div id="toggleGlobalCooldown" style="float:right" />
+                            </td>
+                            <td>
+                                <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleGlobalCooldown();"><i class="fa fa-refresh" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Per-user cooldown</td>
+                            <td>
+                                <div id="togglePerUserCooldown" style="float:right" />
+                            </td>
+                            <td>
+                                <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.togglePerUserCooldown();"><i class="fa fa-refresh" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mod cooldown</td>
+                            <td>
+                                <div id="toggleModCooldown" style="float:right" />
+                            </td>
+                            <td>
+                                <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleModCooldown();"><i class="fa fa-refresh" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cooldown warning message</td>
+                            <td>
+                                <div id="cooldownMsg" style="float:right" />
+                            </td>
+                            <td>
+                                <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleCooldownMsg();"><i class="fa fa-refresh" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="globalCooldownTime">Global cooldown time</label>
+                            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setGlobalCooldownTime()">Submit</button>
+                            <input type="number" min="0" class="form-control" id="globalCooldownTimeInput" placeholder="Seconds" />
+                        </div>
+                    </form>
+
+                    <br>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="cooldownCmd">Command cooldown</label>
+                            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addCooldown()">Submit</button>
+                            <input type="text" class="form-control" id="cooldownCmdInputCommand" placeholder="Command name" />
+                            <input type="number" min="0" class="form-control" id="cooldownCmdInput" placeholder="Seconds" />
+                        </div>
+                    </form>
+                    <br>
+                    <label>Commands with Cooldowns</label>
+                    <div id="cooldownList" style="max-height: 200px; overflow: auto;" />
+                </div>
             </div>
-        </form>
-
-        <strong>Current Command Prices</strong><br><br>
-        <div id="priceCommandsList" style="height: 200px; overflow: auto;" />
-    </div>
-    </div>
-
-    <h3>Payment</h3>
-    <div>
-    <div id="_commandPayPanelDisabled" />
-    <div id="_commandPayPanel">
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="setCommandPay">Add a new payment</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setCommandPay()">Submit</button>
-                <input type="text" class="form-control" id="setCommandPayInputCommand" placeholder="Command name" />
-                <input type="text" class="form-control" id="setCommandPayInput" placeholder="Payment" />
-            </div>
-        </form>
-
-        <strong>Current Command Payments</strong><br><br>
-        <div id="payCommandsList" style="height: 200px; overflow: auto;" />
-    </div>
-    </div>
-
-    <h3>Permissions</h3>
-    <div>
-        <table>
-            <tr class="textList">
-                <td>No permission warning message</td>
-                <td style="width: 25px"><div id="permcomMsg" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.togglePermcomMsg();"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-        </table>
-        <br>
-    <div id="_commandPermissionPanelDisabled" />
-    <div id="_commandPermissionPanel">
-        <div id="permCommandsList" style="height: 300px; overflow: auto;" />
-    </div>
-    </div>
-
-    <h3>Cooldown</h3>
-    <div>
-        <table>
-            <tr class="textList">
-                <td>Global cooldown</td>
-                <td style="width: 25px"><div id="toggleGlobalCooldown" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.toggleGlobalCooldown();"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-            <tr class="textList">
-                <td>Per-user cooldown</td>
-                <td style="width: 25px"><div id="togglePerUserCooldown" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.togglePerUserCooldown();"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-            <tr class="textList">
-                <td>Mod cooldown</td>
-                <td style="width: 25px"><div id="toggleModCooldown" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.toggleModCooldown();"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-            <tr class="textList">
-                <td>Cooldown warning message</td>
-                <td style="width: 25px"><div id="cooldownMsg" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.toggleCooldownMsg();"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-        </table>
-
-        <br>
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="globalCooldownTime">Global cooldown time</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setGlobalCooldownTime()">Submit</button>
-                <input type="number" min="0" class="form-control" id="globalCooldownTimeInput" placeholder="Seconds" />
-            </div>
-        </form>
-
-        <br>
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="cooldownCmd">Command cooldown</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.addCooldown()">Submit</button>
-                <input type="text" class="form-control" id="cooldownCmdInputCommand" placeholder="Command name" />
-                <input type="number" min="0" class="form-control" id="cooldownCmdInput" placeholder="Seconds" />
-            </div>
-        </form>
-        <br>
-        <strong>Commands with Cooldowns</strong>
-        <div id="cooldownList" style="height: 200px; overflow: auto;" />
+        </div>
     </div>
 </div>
 
+<script type="text/javascript" src="panel/js/jqueryui-bootstrap-adapter.js"></script>
 <!-- Run the Acordion -->
-<script>$("#customCommandsAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
-<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
-<script>$(function() {var command = $.commands; $("#commandImput").autocomplete({source: command});});</script>
-<script>$("#tagHelpDialog").dialog({ autoOpen: false, maxHeight: 500, maxWidth: 500, resizable: false });</script>
-<script>handleInputFocus();</script>
+<script>
+    $("#customCommandsAccordion").accordion({
+        clearStyle: true,
+        heightStyle: "panel",
+        icons: null
+    });
+
+</script>
+<script>
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger: 'hover'
+    });
+
+</script>
+<script>
+    $(function() {
+        var command = $.commands;
+        $("#commandImput").autocomplete({
+            source: command
+        });
+    });
+
+</script>
+<script>
+    $("#tagHelpDialog").dialog({
+        autoOpen: false,
+        maxHeight: 500,
+        maxWidth: 500,
+        resizable: false
+    });
+
+</script>
+<script>
+    handleInputFocus();
+
+</script>

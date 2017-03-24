@@ -22,13 +22,13 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="gamesAccordion">
-    <h3>Betting</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Betting
     <div>
         <div id="_bettingPanelDisabled" />
         <div id="_bettingPanel">
 
-        <button type="button" class="btn btn-primary inline pull-right" data-toggle="modal" data-target="#betClose">Close</button>
-        <button type="button" class="btn btn-primary inline pull-right" data-toggle="modal" data-target="#betOpen">Open</button>
+        <button type="button" class="btn btn-info btn-fill pull-right" data-toggle="modal" data-target="#betClose">Close</button>
+        <button type="button" class="btn btn-info btn-fill pull-right" data-toggle="modal" data-target="#betOpen">Open</button>
 
         <div id="betOpen" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -72,7 +72,7 @@
                     </form>
 
                     <label for="timer">Close Timer</label>
-                    <input id="bet-timer" style="width: 564px; margin-left: 1px;" type="range" min="0" max="120" value="0" step="1" 
+                    <input id="bet-timer" style="margin-left: 1px;" type="range" min="0" max="120" value="0" step="1" 
                         oninput="rangeUpdate(this.value, 'bet-timer2', 'Minutes')" />
                     <span id="bet-timer2" style="margin-left: 1px;">Until closed</span>
                 </div>
@@ -118,20 +118,20 @@
                 </div>
 
                 <div class="modal-body">
-                    <table>
-                        <tr class="textList">
+                    <table class="table table-hover table-striped">
+                        <tr >
                             <td>Save old Bets</td>
-                            <td style="width: 25px"><div id="toggleSaveBets" /></td>
-                            <td style="width: 25px">
+                            <td><div id="toggleSaveBets" /></td>
+                            <td>
                                 <div data-toggle="tooltip" title="Toggle" class="button"
                                     onclick="$.toggleSaveBets();"><i class="fa fa-refresh" />
                                 </div>
                             </td>
                         </tr>
-                        <tr class="textList">
+                        <tr >
                             <td>Warning Messages</td>
-                            <td style="width: 25px"><div id="toggleWarningMessages" /></td>
-                            <td style="width: 25px">
+                            <td><div id="toggleWarningMessages" /></td>
+                            <td>
                                 <div data-toggle="tooltip" title="Toggle" class="button"
                                     onclick="$.toggleWarningMessages();"><i class="fa fa-refresh" />
                                 </div>
@@ -169,14 +169,14 @@
     </div>
     </div>
 
-    <h3>Roulette Configuration</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Roulette Configuration
     <div>
     <div id="_roulettePanelDisabled" />
     <div id="_roulettePanel">
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="rouletteTimeout">Roulette Timeout (Seconds)</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.rouletteTimeout()">Submit</button>
                 <input type="number" min="0" class="form-control" id="rouletteTimeoutInput" placeholder="Seconds">
             </div>
@@ -184,20 +184,20 @@
     </div>
     </div>
 
-    <h3>Adventure Configuration</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Adventure Configuration
     <div>
     <div id="_adventurePanelDisabled" />
     <div id="_adventurePanel">
-        <table>
-            <tr class="textList">
+        <table class="table table-hover table-striped">
+            <tr >
                 <td>Per-user warning message</td>
-                <td style="width: 25px"><div id="adventurewarningMessage" /></td>
-                <td style="width: 25px">
+                <td><div id="adventurewarningMessage" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Enable" class="button"
                          onclick="$.adventureUpdateSetting('warningMessage', 'true');"><i class="fa fa-circle" />
                      </div>
                 </td>
-                <td style="width: 25px">
+                <td>
                     <div data-toggle="tooltip" title="Disable" class="button"
                          onclick="$.adventureUpdateSetting('warningMessage', 'false');"><i class="fa fa-circle-o" />
                      </div>
@@ -205,13 +205,13 @@
             </tr>
             <tr>
                 <td>Per-user entry message</td>
-                <td style="width: 25px"><div id="adventureenterMessage" /></td>
-                <td style="width: 25px">
+                <td><div id="adventureenterMessage" /></td>
+                <td>
                     <div data-toggle="tooltip" title="Enable" class="button"
                          onclick="$.adventureUpdateSetting('enterMessage', 'true');"><i class="fa fa-circle" />
                      </div>
                 </td>
-                <td style="width: 25px">
+                <td>
                     <div data-toggle="tooltip" title="Disable" class="button"
                          onclick="$.adventureUpdateSetting('enterMessage', 'false');"><i class="fa fa-circle-o" />
                      </div>
@@ -223,7 +223,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="adventureStart">Start an Adventure - Provide Points to Start</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.adventureStart()">Start</button>
                 <input type="number" min="0" class="form-control" id="adventureStartInput" placeholder="Points to Start Adventure">
             </div>
@@ -232,7 +232,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="adventureJoinTime">Time to Join an Adventure (Seconds)</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.adventureUpdateSetting('joinTime')">Submit</button>
                 <input type="number" min="0" class="form-control" id="adventurejoinTimeInput" placeholder="Seconds">
             </div>
@@ -241,7 +241,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="adventureCooldown">Cooldown Time Between Adventures (Seconds)</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.adventureUpdateSetting('coolDown')">Submit</button>
                 <input type="number" min="0" class="form-control" id="adventurecoolDownInput" placeholder="Seconds">
             </div>
@@ -250,7 +250,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="adventureGainPct">Gain Percent Applied to Winning an Adventure</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.adventureUpdateSetting('gainPercent')">Submit</button>
                 <input type="number" min="1" class="form-control" id="adventuregainPercentInput" placeholder="Number Value">
             </div>
@@ -259,7 +259,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="adventureMinBet">Minimum Bet to Start an Adventure</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.adventureUpdateSetting('minBet')">Submit</button>
                 <input type="number" min="1" class="form-control" id="adventureminBetInput" placeholder="Number Value">
             </div>
@@ -268,7 +268,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="adventureMaxBet">Maximum Bet to Start an Adventure</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.adventureUpdateSetting('maxBet')">Submit</button>
                 <input type="number" min="1" class="form-control" id="adventuremaxBetInput" placeholder="Number Value">
             </div>
@@ -276,81 +276,81 @@
     </div>    
     </div>    
 
-    <h3>Slot Machine Configuration</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Slot Machine Configuration
     <div>
     <div id="_slotPanelDisabled" />
     <div id="_slotPanel">
-        <div><strong>Slot Rewards</strong></div><br>
+        <div><label>Slot Rewards</label></div><br>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.setSlotRewards()">Submit</button>
-                <input style="width: 10%" type="number" min="0" id="slotRewards0Input" placeholder="Points"
+                <input style="" type="number" min="0" id="slotRewards0Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for First Value">
-                <input style="width: 10%" type="number" min="0" id="slotRewards1Input" placeholder="Points"
+                <input style="" type="number" min="0" id="slotRewards1Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Second Value">
-                <input style="width: 10%" type="number" min="0" id="slotRewards2Input" placeholder="Points"
+                <input style="" type="number" min="0" id="slotRewards2Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Third Value">
-                <input style="width: 10%" type="number" min="0" id="slotRewards3Input" placeholder="Points"
+                <input style="" type="number" min="0" id="slotRewards3Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Fourth Value">
-                <input style="width: 10%" type="number" min="0" id="slotRewards4Input" placeholder="Points"
+                <input style="" type="number" min="0" id="slotRewards4Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Fifth Value">
             </div>
         </form>
-    <div><strong>Slot Emotes</strong></div><br>
+    <div><label>Slot Emotes</label></div><br>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.setSlotEmotes()">Submit</button>
-                <input style="width: auto" type="text" id="slotEmotes0Input" placeholder="Emote"
+                <input style="" type="text" id="slotEmotes0Input" placeholder="Emote"
                        data-toggle="tooltip" title="Emote for First Value">
-                <input style="width: auto" type="text" id="slotEmotes1Input" placeholder="Emote"
+                <input style="" type="text" id="slotEmotes1Input" placeholder="Emote"
                        data-toggle="tooltip" title="Emote for Second Value">
-                <input style="width: auto" type="text" id="slotEmotes2Input" placeholder="Emote"
+                <input style="" type="text" id="slotEmotes2Input" placeholder="Emote"
                        data-toggle="tooltip" title="Emote for Third Value">
-                <input style="width: auto" type="text" id="slotEmotes3Input" placeholder="Emote"
+                <input style="" type="text" id="slotEmotes3Input" placeholder="Emote"
                        data-toggle="tooltip" title="Emote for Fourth Value">
-                <input style="width: auto" type="text" id="slotEmotes4Input" placeholder="Emote"
+                <input style="" type="text" id="slotEmotes4Input" placeholder="Emote"
                        data-toggle="tooltip" title="Emote for Fifth Value">
             </div>
         </form>
     </div>
     </div>
 
-    <h3>Dice Roll Configuration</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Dice Roll Configuration
     <div>
     <div id="_rollPanelDisabled" />
     <div id="_rollPanel">
-        <div><strong>Roll Rewards</strong></div><br>
+        <div><label>Roll Rewards</label></div><br>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.setRollRewards()">Submit</button>
-                <input style="width: 10%" type="number" min="0" id="rollRewards0Input" placeholder="Points"
+                <input style="" type="number" min="0" id="rollRewards0Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Double 1's">
-                <input style="width: 10%" type="number" min="0" id="rollRewards1Input" placeholder="Points"
+                <input style="" type="number" min="0" id="rollRewards1Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Double 2's">
-                <input style="width: 10%" type="number" min="0" id="rollRewards2Input" placeholder="Points"
+                <input style="" type="number" min="0" id="rollRewards2Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Double 3's">
-                <input style="width: 10%" type="number" min="0" id="rollRewards3Input" placeholder="Points"
+                <input style="" type="number" min="0" id="rollRewards3Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Double 4's">
-                <input style="width: 10%" type="number" min="0" id="rollRewards4Input" placeholder="Points"
+                <input style="" type="number" min="0" id="rollRewards4Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Double 5's">
-                <input style="width: 10%" type="number" min="0" id="rollRewards5Input" placeholder="Points"
+                <input style="" type="number" min="0" id="rollRewards5Input" placeholder="Points"
                        data-toggle="tooltip" title="Points for Double 6's">
             </div>
         </form>
     </div>
     </div>
 
-    <h3>Gambling Configuration</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Gambling Configuration
     <div>
     <div id="_gamlbingPanelDisabled" />
     <div id="_gamlbingPanel">
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="gamblingMax2">Maximum Gambling Amount</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('Max')">Submit</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.gambling('Max')">Submit</button>
                 <input type="number" min="1" class="form-control" id="gamblingMax" placeholder="Amount">
             </div>
         </form>
@@ -358,7 +358,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="gamblingMin2">Minimum Gambling Amount</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('Min')">Submit</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.gambling('Min')">Submit</button>
                 <input type="number" min="1" class="form-control" id="gamblingMin" placeholder="Amount">
             </div>
         </form>
@@ -366,7 +366,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="gamblingWinPercent2">Winning Percent</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('WinPercent')">Submit</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.gambling('WinPercent')">Submit</button>
                 <input type="number" min="1" class="form-control" id="gamblingWinPercent" placeholder="Amount" data-toggle="tooltip" 
                         title="The percent of points the winner wins when gambling. Max is 100." >
             </div>
@@ -375,7 +375,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="gamblingWinRange2">Winning Range</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('WinRange')">Submit</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.gambling('WinRange')">Submit</button>
                 <input type="number" min="1" class="form-control" id="gamblingWinRange" placeholder="Amount" data-toggle="tooltip" 
                         title="Range from where people can win, anything under the number you put here will be a lost. Max is 100." >
             </div>

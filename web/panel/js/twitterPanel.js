@@ -29,8 +29,8 @@
         settingIcon = [],
         settingMap = [];
 
-        modeIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-        modeIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+        modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+        modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
 
         settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
         settingIcon['true'] = "<i class=\"fa fa-circle\" />";
@@ -87,20 +87,20 @@
 
                     // Build the poll options table.
                     if (setting.indexOf('poll_') === 0) {
-                        pollhtml += '<tr class="textList">' +
+                        pollhtml += '<tr >' +
                                     '    <td>' + settingMap[setting] + '</td>' +
 
-                                    '    <td style="width: 25px">' +
+                                    '    <td>' +
                                     '        <div id="twitterStatus_"' + idx + '">' + modeIcon[value] + '</div>' +
                                     '    </td>' +
 
-                                    '    <td style="width: 25px">' +
+                                    '    <td>' +
                                     '        <div data-toggle="tooltip" title="Enable" class="button"' +
                                     '             onclick="$.toggleTwitter(\'' + setting + '\', \'true\', \'' + idx + '\')">' + settingIcon['true'] +
                                     '        </div>' +
                                     '    </td>' +
     
-                                    '    <td style="width: 25px">' +
+                                    '    <td>' +
                                     '        <div data-toggle="tooltip" title="Disable" class="button"' +
                                     '             onclick="$.toggleTwitter(\'' + setting + '\', \'false\', \'' + idx + '\')">' + settingIcon['false'] +
                                     '        </div>' +
@@ -111,20 +111,20 @@
 
                     // Build the post options table.
                     if (setting.indexOf('post_') === 0) {
-                        posthtml += '<tr class="textList">' +
+                        posthtml += '<tr >' +
                                     '    <td>' + settingMap[setting] + '</td>' +
 
-                                    '    <td style="width: 25px">' +
+                                    '    <td>' +
                                     '        <div id="twitterStatus_"' + idx + '">' + modeIcon[value] + '</div>' +
                                     '    </td>' +
 
-                                    '    <td style="width: 25px">' +
+                                    '    <td>' +
                                     '        <div data-toggle="tooltip" title="Enable" class="button"' + 
                                     '             onclick="$.toggleTwitter(\'' + setting + '\', \'true\', \'' + idx + '\')">' + settingIcon['true'] +
                                     '        </div>' +
                                     '    </td>' +
 
-                                    '    <td style="width: 25px">' +
+                                    '    <td>' +
                                     '        <div data-toggle="tooltip" title="Disable" class="button"' + 
                                     '             onclick="$.toggleTwitter(\'' + setting + '\', \'false\', \'' + idx + '\')">' + settingIcon['false'] +
                                     '        </div>' +
@@ -155,7 +155,7 @@
      * @param {String} module
      */
     function toggleTwitter(setting, value, idx) {
-        $("#twitterStatus_" + idx).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#twitterStatus_" + idx).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBUpdate('twitter_update', 'twitter', setting, value);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     }

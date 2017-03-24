@@ -18,12 +18,12 @@
 /* 
  * @author ScaniaTV
  */
-(function() {
+(function () {
     var iconToggle = [],
         i;
 
-    iconToggle['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-    iconToggle['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+    iconToggle['false'] = "<i  class=\"fa fa-circle-o\" />";
+    iconToggle['true'] = "<i  class=\"fa fa-circle\" />";
 
     /*
      * @function onMessage
@@ -59,23 +59,29 @@
                 response,
                 command,
                 channel;
-                
+
             for (i in keys) {
                 if (keys[i]['table'] == 'discordPermcom') {
                     if (dataObj[keys[i]['key']] === undefined) {
-                        dataObj[keys[i]['key']] = { permission: keys[i]['value'] };
+                        dataObj[keys[i]['key']] = {
+                            permission: keys[i]['value']
+                        };
                     } else {
                         dataObj[keys[i]['key']].permission = keys[i]['value'];
                     }
                 } else if (keys[i]['table'] == 'discordCooldown') {
                     if (dataObj[keys[i]['key']] === undefined) {
-                        dataObj[keys[i]['key']] = { cooldown: keys[i]['value'] };
+                        dataObj[keys[i]['key']] = {
+                            cooldown: keys[i]['value']
+                        };
                     } else {
                         dataObj[keys[i]['key']].cooldown = keys[i]['value'];
                     }
                 } else if (keys[i]['table'] == 'discordChannelcom') {
                     if (dataObj[keys[i]['key']] === undefined) {
-                        dataObj[keys[i]['key']] = { channel: keys[i]['value'] };
+                        dataObj[keys[i]['key']] = {
+                            channel: keys[i]['value']
+                        };
                     } else {
                         dataObj[keys[i]['key']].channel = keys[i]['value'];
                     }
@@ -91,10 +97,10 @@
                     cooldown = (dataObj[command] !== undefined && dataObj[command].cooldown === undefined ? 0 : dataObj[command].cooldown);
 
                     html += '<tr>' +
-                        '<td>!' + (command.length > 10 ?  command.substring(0, 10) + '...' : command) + '</td>' +
-                        '<td>' + (response.length > 50 ?  response.substring(0, 50) + '...' : response) + '</td>' +
-                        '<td>' + cooldown + ' sec '+ '</td>' +
-                        '<td style="float: right;"><button type="button" class="btn btn-default btn-xs" onclick="$.openCommandModal(\'' + command + '\', \'' + response + '\', \'' + permission + '\', \'' + cooldown + '\', \'' + channel + '\')"><i class="fa fa-pencil" /> </button>' +
+                        '<td>!' + (command.length > 10 ? command.substring(0, 10) + '...' : command) + '</td>' +
+                        '<td>' + (response.length > 50 ? response.substring(0, 50) + '...' : response) + '</td>' +
+                        '<td>' + cooldown + ' sec ' + '</td>' +
+                        '<td><button type="button" class="btn btn-default btn-xs" onclick="$.openCommandModal(\'' + command + '\', \'' + response + '\', \'' + permission + '\', \'' + cooldown + '\', \'' + channel + '\')"><i class="fa fa-pencil" /> </button>' +
                         '<button type="button" id="delete_command_' + command.replace(/[^a-z1-9_]/ig, '_') + '" class="btn btn-default btn-xs" onclick="$.updateDiscordCommand(\'' + command + '\', \'true\')"><i class="fa fa-trash" /> </button></td> ' +
                         '</tr>';
                 }
@@ -111,15 +117,20 @@
         var data = (value !== undefined ? value : $('#' + htmlId).val());
 
         if (value !== undefined) {
-            $('#' + htmlId).html('<i style="color: #6136b1" class="fa fa-spinner fa-spin"/>');
+            $('#' + htmlId).html('<i  class="fa fa-spinner fa-spin"/>');
         }
 
         if ((typeof data === 'string' && data.length > 0) || typeof data === 'number') {
             sendDBUpdate('discord_update', table, key, data.toString());
 
-            setTimeout(function() { sendWSEvent('discord', './discord/' + script); doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendWSEvent('discord', './discord/' + script);
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         } else {
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -144,7 +155,7 @@
      */
     function updateDiscordCommand(cmd, isToRemove) {
         if (isToRemove == 'true') {
-            $('#delete_command_' + cmd.replace(/[^a-z1-9_]/ig, '_')).html('<i style="color: #6136b1" class="fa fa-spinner fa-spin"/>');
+            $('#delete_command_' + cmd.replace(/[^a-z1-9_]/ig, '_')).html('<i  class="fa fa-spinner fa-spin"/>');
             sendDBDelete('discord_command', 'discordCommands', cmd);
             sendDBDelete('discord_command', 'discordPermcom', cmd);
             sendDBDelete('discord_command', 'discordCooldown', cmd);
@@ -152,13 +163,16 @@
             sendWSEvent('discord', './discord/commands/customCommands.js', 'remove', [cmd]);
         } else {
             var command = ($('#command-name-modal').val().length === 0 ? $('#command-add-name-modal').val() : $('#command-name-modal').val()),
-                response = ($('#command-response-modal').val().length === 0 ?  $('#command-add-response-modal').val() : $('#command-response-modal').val()),
-                permission = ($('#command-permission-modal').val().length === 0 ?  $('#command-add-permission-modal').val() : $('#command-permission-modal').val()),
+                response = ($('#command-response-modal').val().length === 0 ? $('#command-add-response-modal').val() : $('#command-response-modal').val()),
+                permission = ($('#command-permission-modal').val().length === 0 ? $('#command-add-permission-modal').val() : $('#command-permission-modal').val()),
                 cooldown = ($('#command-cooldown-modal').val().length === 0 ? $('#command-add-cooldown-modal').val() : $('#command-cooldown-modal').val()),
                 channel = ($('#command-channel-modal').val().length === 0 ? $('#command-add-channel-modal').val() : $('#command-channel-modal').val());
 
             if (command.length === 0 || response.length === 0 || command.match(/[\'\"\s]/ig) || (permission != 1 && permission != 0)) {
-                setTimeout(function() { doQuery(); resetHtmlValues(); }, TIMEOUT_WAIT_TIME);
+                setTimeout(function () {
+                    doQuery();
+                    resetHtmlValues();
+                }, TIMEOUT_WAIT_TIME);
                 newPanelAlert('Could not add command !' + command + '. Either the response was blank, the permission was invalid, or it contained a special symbol.', 'danger', 10000);
                 return;
             }
@@ -173,10 +187,15 @@
             } else {
                 sendDBDelete('discord_command', 'discordChannelcom', command);
             }
-            setTimeout(function() { sendWSEvent('discord', './discord/commands/customCommands.js', null, [command, permission, channel]); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendWSEvent('discord', './discord/commands/customCommands.js', null, [command, permission, channel]);
+            }, TIMEOUT_WAIT_TIME);
         }
 
-        setTimeout(function() { doQuery(); resetHtmlValues(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+            resetHtmlValues();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /*
@@ -204,7 +223,7 @@
     $('#discordPanel').load('/panel/discord.html');
 
     /* Load the DB items for this panel, wait to ensure that we are connected. */
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
             if (active == 18) {
@@ -215,7 +234,7 @@
     }, INITIAL_WAIT_TIME);
 
     /* Query the DB every 30 seconds for updates. */
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 18 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Discord Data', 'success', 1000);

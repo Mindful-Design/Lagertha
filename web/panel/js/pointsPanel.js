@@ -28,8 +28,8 @@
     var sortType = 'alpha_asc',
         priceComMods = false,
         modeIcon = [];
-        modeIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-        modeIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+        modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+        modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
 
     /*
      * onMessage
@@ -99,9 +99,9 @@
                 for (var idx = 0; idx < pointsTableData.length; idx++) {
                     username = pointsTableData[idx]['key'];
                     points = pointsTableData[idx]['value'];
-                    html += "<tr onclick='$.copyUserPoints(\"" + username + "\", \"" + points + "\")' class='textList'>" +
-                            "    <td style='width: 50%; cursor: pointer;'>" + username + "</td>" +
-                            "    <td style='width: 50%'>" + points + "</td>" +
+                    html += "<tr onclick='$.copyUserPoints(\"" + username + "\", \"" + points + "\")' >" +
+                            "    <td>" + username + "</td>" +
+                            "    <td>" + points + "</td>" +
                             "</tr>";
                 }
                 html += "</tbody></table>";
@@ -136,12 +136,12 @@
                     groupName = groupPointKeys[key];
                     groupPoints = groupPointsData[groupName];
 
-                    html += "<tr class=\"textList\">" +
-                            "    <td style=\"width: 15px\">" +
+                    html += "<tr >" +
+                            "    <td>" +
                             "        <div id=\"clearGroupPoints_" + groupName + "\" class=\"button\"" +
                             "             onclick=\"$.updateGroupPoints('" + groupName + "', true, true)\"><i class=\"fa fa-trash\" />" +
                             "        </div>" +
-                            "    <td style=\"width: 8em\">" + groupName + "</td>" +
+                            "    <td>" + groupName + "</td>" +
                             "    <td><form onkeypress=\"return event.keyCode != 13\">" +
                             "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsEdit_" + groupName + "\"" +
                             "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
@@ -151,7 +151,7 @@
                             "    </form></td>";
 
                     if (groupPoints === '-1') {
-                        html += "<td style=\"float: right\"><i>Using Global Value</i></td>";
+                        html += "<td>><i>Using Global Value</i></td>";
                     } else {
                         html += "<td />";
                     }
@@ -176,12 +176,12 @@
                     groupName = groupPointKeys[key];
                     groupPoints = groupPointsData[groupName];
 
-                    html += "<tr class=\"textList\">" +
-                            "    <td style=\"width: 15px\">" +
+                    html += "<tr >" +
+                            "    <td>" +
                             "        <div id=\"clearGroupPointsOffline_" + groupName + "\" class=\"button\"" +
                             "             onclick=\"$.updateGroupPoints('" + groupName + "', false, true)\"><i class=\"fa fa-trash\" />" +
                             "        </div>" +
-                            "    <td style=\"width: 8em\">" + groupName + "</td>" +
+                            "    <td>>" + groupName + "</td>" +
                             "    <td><form onkeypress=\"return event.keyCode != 13\">" +
                             "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsOfflineEdit_" + groupName + "\"" +
                             "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
@@ -191,7 +191,7 @@
                             "    </form></td>";
 
                     if (groupPoints === '-1') {
-                        html += "<td style=\"float: right\"><i>Using Global Value</i></td>";
+                        html += "<td><i>Using Global Value</i></td>";
                     } else {
                         html += "<td />";
                     }
@@ -436,7 +436,7 @@
      * @function toggleModPriceCom
      */
     function toggleModPriceCom() {
-        $("#priceComMods").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#priceComMods").html("<i  class=\"fa fa-spinner fa-spin\" />");
         if (priceComMods == "true") {
             sendDBUpdate("points_modprice", "settings", "pricecomMods", "false");
         } else {

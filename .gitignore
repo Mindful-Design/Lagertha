@@ -31,3 +31,15 @@
 /logs/event/
 
 stacktrace\.txt
+
+logs/core/
+
+logs/core-debug/
+
+web/panel - Copy/
+
+web/panel2/
+
+web/panel/images/
+
+logs/warning/

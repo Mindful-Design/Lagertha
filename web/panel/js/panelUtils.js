@@ -33,7 +33,9 @@ var YOUTUBE_IFRAME = false;
 var url = window.location.host.split(":");
 var addr = 'ws://' + url[0] + ':' + getPanelPort();
 //var connection = new WebSocket(addr, []);
-var connection = new ReconnectingWebSocket(addr, null, {reconnectInterval: 5000});
+var connection = new ReconnectingWebSocket(addr, null, {
+    reconnectInterval: 5000
+});
 var isConnected = false;
 var panelStatsEnabled = false;
 var inputFieldInFocus = false;
@@ -58,23 +60,43 @@ function logMsg(message) {
  * @event connection.onopen
  * Triggered when the WebSocket connection is opened.
  */
-connection.onopen = function(data) {
+connection.onopen = function (data) {
     var jsonObject = {};
     debugMsg('connection.onopen()');
     jsonObject['authenticate'] = getAuth();
     connection.send(JSON.stringify(jsonObject));
-    newPanelAlert('Connecting to WebSocket', 'success', 1000);
     isConnected = true;
+    $(document).ready(function () {
+        $.notify({
+            message: "Connecting to WebSocket"
+        }, {
+            type: "warning",
+            icon: 'pe-7s-bell',
+            placement: {
+                align: "center"
+            }
+        });
+    })
 }
 
 /**
  * @event connection.onclose
  * Triggered when the WebSocket connection is closed by the bot.
  */
-connection.onclose = function(data) {
+connection.onclose = function (data) {
     debugMsg('connection.onclose()');
-    newPanelAlert('WebSocket Disconnected - Retrying Connection Every 5 Seconds', 'danger', 0);
     isConnected = false;
+    $(document).ready(function () {
+        $.notify({
+            message: "<strong>WebSocket Disconnected</strong> - Retrying Connection Every 5 Seconds"
+        }, {
+            type: "danger",
+            icon: 'pe-7s-bell',
+            placement: {
+                align: "center"
+            }
+        });
+    })
 }
 
 /**
@@ -82,14 +104,14 @@ connection.onclose = function(data) {
  * Triggered when a message comes in from the WebSocket. This event is in the other
  * panel JS files as well.
  */
-connection.onmessage = function(e) {
+connection.onmessage = function (e) {
     try {
         var messageObject = JSON.parse(e.data);
     } catch (ex) {
         logMsg('connection.onmessage: badJson(' + e.data + '): ' + ex.message);
         return;
     }
-    debugMsg('connection.onmessage('+ e.data + ')');
+    debugMsg('connection.onmessage(' + e.data + ')');
 
     if (messageObject['authresult'] == false) {
         if (!messageObject['authresult']) {
@@ -135,15 +157,21 @@ connection.onmessage = function(e) {
  * @param {String} type (danger, success)
  * @param {Number} timeout (0 = infinite, else timeout in ms)
  */
+
+
 function newPanelAlert(message, type, timeout) {
     debugMsg("newPanelAlert(" + message + ", " + type + ", " + timeout + ")");
-    $(".alert").fadeIn(1000);
-    $("#newPanelAlert").show().html('<div class="alert alert-' + type + '"><button type="button" '+
-                        'class="close" data-dismiss="alert" aria-hidden="true"></button><span>' + 
-                         message + '</span></div>');
-    if (timeout != 0) {
-        $(".alert-" + type).delay(timeout).fadeOut(1000, function () { $(this).remove(); });
-    }
+    $(document).ready(function () {
+        $.notify({
+            message: message
+        }, {
+            type: type,
+            icon: 'pe-7s-bell',
+            placement: {
+                align: "center"
+            }
+        });
+    });
 }
 
 /**
@@ -179,7 +207,10 @@ function sendCommand(command, username) {
 function sendDBQuery(unique_id, table, key) {
     jsonObject = {};
     jsonObject["dbquery"] = unique_id;
-    jsonObject["query"] = { "table": table, "key": key };
+    jsonObject["query"] = {
+        "table": table,
+        "key": key
+    };
     connection.send(JSON.stringify(jsonObject));
 }
 
@@ -191,7 +222,9 @@ function sendDBQuery(unique_id, table, key) {
 function sendDBKeys(unique_id, table) {
     jsonObject = {};
     jsonObject["dbkeys"] = unique_id;
-    jsonObject["query"] = { "table": table };
+    jsonObject["query"] = {
+        "table": table
+    };
     connection.send(JSON.stringify(jsonObject));
 }
 
@@ -205,7 +238,9 @@ function sendDBKeysList(unique_id, tableList) {
     jsonObject["dbkeyslist"] = unique_id;
     jsonObject["query"] = [];
     for (i in tableList) {
-        jsonObject["query"].push({ "table": tableList[i] });
+        jsonObject["query"].push({
+            "table": tableList[i]
+        });
     }
     connection.send(JSON.stringify(jsonObject));
 }
@@ -220,7 +255,11 @@ function sendDBKeysList(unique_id, tableList) {
 function sendDBUpdate(unique_id, table, key, value) {
     jsonObject = {};
     jsonObject["dbupdate"] = unique_id;
-    jsonObject["update"] = { "table" : table, "key" : key, "value" : value };
+    jsonObject["update"] = {
+        "table": table,
+        "key": key,
+        "value": value
+    };
     connection.send(JSON.stringify(jsonObject));
 }
 
@@ -234,7 +273,11 @@ function sendDBUpdate(unique_id, table, key, value) {
 function sendDBIncr(unique_id, table, key, value) {
     jsonObject = {};
     jsonObject["dbincr"] = unique_id;
-    jsonObject["incr"] = { "table" : table, "key" : key, "value" : value };
+    jsonObject["incr"] = {
+        "table": table,
+        "key": key,
+        "value": value
+    };
     connection.send(JSON.stringify(jsonObject));
 }
 /**
@@ -247,7 +290,11 @@ function sendDBIncr(unique_id, table, key, value) {
 function sendDBDecr(unique_id, table, key, value) {
     jsonObject = {};
     jsonObject["dbdecr"] = unique_id;
-    jsonObject["decr"] = { "table" : table, "key" : key, "value" : value };
+    jsonObject["decr"] = {
+        "table": table,
+        "key": key,
+        "value": value
+    };
     connection.send(JSON.stringify(jsonObject));
 }
 
@@ -260,7 +307,10 @@ function sendDBDecr(unique_id, table, key, value) {
 function sendDBDelete(unique_id, table, key) {
     jsonObject = {};
     jsonObject["dbdelkey"] = unique_id;
-    jsonObject["delkey"] = { "table" : table, "key" : key };
+    jsonObject["delkey"] = {
+        "table": table,
+        "key": key
+    };
     connection.send(JSON.stringify(jsonObject));
 }
 
@@ -275,7 +325,10 @@ function sendWSEvent(event_id, script, argsString, args) {
     jsonObject = {};
     jsonObject['socket_event'] = event_id;
     jsonObject['script'] = script;
-    jsonObject['args'] = { 'arguments': (argsString ? argsString : ''), 'args': (args ? args : []) };
+    jsonObject['args'] = {
+        'arguments': (argsString ? argsString : ''),
+        'args': (args ? args : [])
+    };
     connection.send(JSON.stringify(jsonObject));
 }
 
@@ -290,7 +343,7 @@ function sendWSEvent(event_id, script, argsString, args) {
  * localeCompare should be used instead.
  */
 function panelStrcmp(a, b) {
-    return ( ( a == b ) ? 0 : ( ( a > b ) ? 1 : -1 ) );
+    return ((a == b) ? 0 : ((a > b) ? 1 : -1));
 }
 
 /**
@@ -300,7 +353,7 @@ function panelStrcmp(a, b) {
  * @return {Boolean}
  */
 function panelMatch(a, b) {
-   return (panelStrcmp(a, b) === 0);
+    return (panelStrcmp(a, b) === 0);
 }
 
 /**
@@ -336,10 +389,9 @@ function panelCheckQuery(obj, query_id) {
  * to be resizable.
  */
 function hideLoadingImage() {
-    setTimeout(function() {
+    setTimeout(function () {
         $("#iframeLoader").hide();
         $("#chat").fadeIn(1000);
-        $(function() { $("#chatsidebar").resizable(); });
     }, 500);
 }
 
@@ -349,10 +401,18 @@ function hideLoadingImage() {
  * page and must be called after generating HTML that has form inputs.
  */
 function handleInputFocus() {
-    $(':input[type="number"]').focusin(function() { setInputFocus(true); });
-    $(':input[type="number"]').focusout(function() { setInputFocus(false); });
-    $(':input[type="text"]').focusin(function() { setInputFocus(true); });
-    $(':input[type="text"]').focusout(function() { setInputFocus(false); });
+    $(':input[type="number"]').focusin(function () {
+        setInputFocus(true);
+    });
+    $(':input[type="number"]').focusout(function () {
+        setInputFocus(false);
+    });
+    $(':input[type="text"]').focusin(function () {
+        setInputFocus(true);
+    });
+    $(':input[type="text"]').focusout(function () {
+        setInputFocus(false);
+    });
 }
 
 /**
@@ -360,8 +420,8 @@ function handleInputFocus() {
  * Stores if a field is in focus or not.
  */
 function setInputFocus(value) {
-   inputFieldInFocus = value;
-} 
+    inputFieldInFocus = value;
+}
 
 /**
  * @function isInputFocus
@@ -379,86 +439,86 @@ function performCurrentPanelRefresh() {
     var active = $("#tabs").tabs("option", "active");
 
     switch (active) {
-         case 0 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.dashboardDoQuery();
-             break;
-         case 1 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.commandsDoQuery();
-             break;
-         case 2 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.moderationDoQuery();
-             break;
-         case 3 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.timeDoQuery();
-             break;
-         case 4 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.pointsDoQuery();
-             break;
-         case 5 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.viewersDoQuery();
-             break;
-         case 6 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.ranksDoQuery();
-             break;
-         case 7 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.greetingsDoQuery();
-             break;
-         case 8 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.donationsDoQuery();
-             break;
-         case 9 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.noticesDoQuery();
-             break;
-         case 10 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.quotesDoQuery();
-             break;
-         case 11 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.keywordsDoQuery();
-             break;
-         case 12 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.pollDoQuery();
-             break;
-         case 13 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.hostraidDoQuery();
-             break;
-         case 14 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.gamblingDoQuery();
-             break;
-         case 15 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.gamesDoQuery();
-             break;
-         case 16 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.queueDoQuery();
-             break;
-         case 17 :
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.twitterDoQuery();
-             break;
-         case 18 : 
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.discordDoQuery();
-             break;
-         case 19 : 
-             newPanelAlert('Refreshing Data', 'success', 1000);
-             $.audioDoQuery();
-             break;
+        case 0:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.dashboardDoQuery();
+            break;
+        case 1:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.commandsDoQuery();
+            break;
+        case 2:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.moderationDoQuery();
+            break;
+        case 3:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.timeDoQuery();
+            break;
+        case 4:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.pointsDoQuery();
+            break;
+        case 5:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.viewersDoQuery();
+            break;
+        case 6:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.ranksDoQuery();
+            break;
+        case 7:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.greetingsDoQuery();
+            break;
+        case 8:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.donationsDoQuery();
+            break;
+        case 9:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.noticesDoQuery();
+            break;
+        case 10:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.quotesDoQuery();
+            break;
+        case 11:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.keywordsDoQuery();
+            break;
+        case 12:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.pollDoQuery();
+            break;
+        case 13:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.hostraidDoQuery();
+            break;
+        case 14:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.gamblingDoQuery();
+            break;
+        case 15:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.gamesDoQuery();
+            break;
+        case 16:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.queueDoQuery();
+            break;
+        case 17:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.twitterDoQuery();
+            break;
+        case 18:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.discordDoQuery();
+            break;
+        case 19:
+            newPanelAlert('Refreshing Data', 'success', 1000);
+            $.audioDoQuery();
+            break;
 
     }
 }

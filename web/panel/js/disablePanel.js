@@ -32,12 +32,11 @@
      */
     function handlePanel(module, divID, isEnabled) {
         if (isEnabled) {
-            $(divID + 'Disabled').hide();
+            $(divID + 'Disabled').show();
             $(divID).show();
         } else {
-            $(divID + 'Disabled').html('Panel disabled due to module being disabled (' + module + ')');
             $(divID).hide();
-            $(divID + 'Disabled').show();
+            $(divID + 'Disabled').hide();
         }
     }
 

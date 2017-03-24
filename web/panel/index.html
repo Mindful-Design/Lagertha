@@ -20,232 +20,398 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
 
-        <title>Lagertha</title>
+<head>
+    <meta charset="utf-8">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="panel/js/jquery-ui/jquery-ui.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="panel/js/footable/footable.standalone.min.css">
+    <title>Lagertha</title>
 
-        <script src="panel/js/jquery-ui/external/jquery/jquery.min.js"></script>
-        <script src="panel/js/jquery-ui/jquery-ui.min.js"></script>
-        <script src="panel/js/flot/jquery.flot.min.js"></script>
-        <script src="panel/js/ion-sound/js/ion.sound.min.js"></script>
-        <script src="panel/js/footable/footable.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="panel/js/jquery-ui/jquery-ui.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="panel/js/footable/footable.standalone.min.css">
 
-        <script type="text/javascript" src="panel/js/reconnectingWS.min.js"></script>
-        <script type="text/javascript" src="panel/js/dateFormat.js"></script>
-        <script type="text/javascript" src="panel/js/panelConfig.js"></script>
-        <script type="text/javascript" src="panel/js/panelUtils.js"></script>
-        <script type="text/javascript" src="panel/js/disablePanel.js"></script>
-        <script type="text/javascript" src="panel/js/games.js"></script>
+    <script src="panel/js/jquery-ui/external/jquery/jquery.min.js"></script>
+    <script src="panel/js/jquery-ui/jquery-ui/jquery-ui.js"></script>
+    <script src="panel/js/flot/jquery.flot.min.js"></script>
+    <script src="panel/js/ion-sound/js/ion.sound.min.js"></script>
+    <script src="panel/js/footable/footable.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="panel/css/style.css">
+    <script type="text/javascript" src="panel/js/reconnectingWS.min.js"></script>
+    <script type="text/javascript" src="panel/js/dateFormat.js"></script>
+    <script type="text/javascript" src="panel/js/panelConfig.js"></script>
+    <script type="text/javascript" src="panel/js/panelUtils.js"></script>
+    <script type="text/javascript" src="panel/js/disablePanel.js"></script>
+    <script type="text/javascript" src="panel/js/games.js"></script>
+    <script type="text/javascript" src="panel/js/bootstrap-notify.js"></script>
 
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-    </head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!--<link rel="stylesheet" type="text/css" href="panel/css/style.css">-->
+    <link rel="stylesheet" type="text/css" href="panel/css/mindfuldesign.css">
+    <link rel="stylesheet" type="text/css" href="panel/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" type="text/css" href="panel/css/animate.min.css">
 
-    <body>
-        <div class="header">
-            <img id="logo" src="panel/images/logo.png"/>
-            <span id="header-right">
-                <i data-toggle="tooltip" data-placement="left" title="Refresh Current Panel Data" class="fa fa-refresh fa-lg" aria-hidden="true" onclick="performCurrentPanelRefresh()"></i>
-            </span>
-            <div id="newPanelAlert" class="alert" style="display:none"></div>
-        </div>
-             
-        <span id="panelLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Lagertha</span>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+</head>
 
-        <div>
-            <table class="panelStatus">
-                <tr style="height: 24px">
-                    <td class="block"> <span id="streamOnline" /> </td>
-                    <td class="block"> <span id="streamUptime" /> </td>
-                    <td class="block"> <span id="timePlayed" /> </td>
-                    <td class="block"> <span id="viewerCount" /> </td>
-                    <td class="block"> <span id="whisperModeStatus" /> </td>
-                    <td class="block"> <span id="meModeStatus" /> </td>
-                    <td class="block"> <span id="commandPauseStatus" /> </td>
-                    <td class="block"> <span id="muteModeStatus" /> </td>
-                    <td class="block"> <span id="multiStatus" /> </td>
-                    <td class="block"> <span id="newVersionAvailable" /> </td>
-                    <td class="block"> <span id="panelStatsStatus" /> </td>
-                </tr>
-            </table>
-        </div>
+<body>
+    <div id="wrapper">
+        <span id="panelLoader"><i style="color: #1DC7EA" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Lagertha</span>
 
         <div id="tabs" style="display:none">
-            <ul>
-                <li> <a href="#dashboard">Dashboard</a> </li>
-                <li> <a href="#commands">Commands</a> </li>
-                <li> <a href="#moderation">Moderation</a> </li>
-                <li> <a href="#time">Time</a> </li>
-                <li> <a href="#points">Points</a> </li>
-                <li> <a href="#viewers">Permissions</a> </li>
-                <li> <a href="#ranks">Ranks</a> </li>
-                <li> <a href="#greetings">Alerts</a> </li>
-                <li> <a href="#donations">Donations</a> </li>
-                <li> <a href="#notices">Notices</a> </li>
-                <li> <a href="#quotes">Quotes</a> </li>
-                <li> <a href="#keywords">Keywords</a> </li>
-                <li> <a href="#poll">Polls</a> </li>
-                <li> <a href="#hostraid">Hosts & Raids</a> </li>
-                <li> <a href="#gambling">Giveaways</a> </li>
-                <li> <a href="#games">Games</a> </li>
-                <li> <a href="#queue">Queue</a> </li>
-                <li> <a href="#twitter">Twitter</a> </li>
-                <li> <a href="#discord">Discord</a> </li>
-                <li> <a href="#audio">Audio</a> </li>
-                <li> <a href="#help">Information</a> </li>
-            </ul>
+            <div class="sidebar" data-color="black" data-image="panel/images/sidebar-1.jpg">
+                <div class="sidebar-wrapper">
+                    <div class="logo">
+                        <a href="http://phantombot.tv" style="padding-top: 0px; padding-bottom: 0px" class="simple-text"><img width="50px" height="40px" src="panel/images/logo.png">
+                        </a>
+                    </div>
+                    <ul class="nav">
+                        <li> <a href="#dashboard"><i class="pe-7s-graph"></i><p>Dashboard</p></a> </li>
+                        <li> <a href="#commands"><i class="pe-7s-plugin"></i><p>Commands</p></a> </li>
+                        <li> <a href="#donations"><i class="pe-7s-piggy"></i><p>Donations</p></a> </li>
+                        <li>
+                            <a id="loyaltyShow"><i class="pe-7s-star"></i>
+                        <p>Loyalty</p></a>
+                            <li id="loyaltyGroup1" style="display:none;"> <a href="#points"><i class="pe-7s-cup"></i><p>Points</p></a> </li>
+                            <li id="loyaltyGroup2" style="display:none;"> <a href="#ranks"><i class="pe-7s-rocket"></i><p>Ranks</p></a> </li>
+                            <li id="loyaltyGroup3" style="display:none;"> <a href="#time"><i class="pe-7s-timer"></i><p>Time</p></a> </li>
+                        </li>
+                        <li>
+                            <a id="adminShow"><i class="pe-7s-config"></i>
+                        <p>Administration</p></a>
+                            <li id="adminGroup1" style="display:none;"> <a href="#moderation"><i class="pe-7s-hammer"></i><p>Moderation</p></a> </li>
+                            <li id="adminGroup2" style="display:none;"> <a href="#viewers"><i class="pe-7s-config"></i><p>Permissions</p></a> </li>
+                        </li>
+                        <li>
+                            <a id="interShow"><i class="pe-7s-science"></i>
+                        <p>Interactions</p></a>
+                            <li id="interGroup1" style="display:none;"> <a href="#greetings"><i class="pe-7s-alarm"></i><p>Alerts</p></a> </li>
+                            <li id="interGroup2" style="display:none;"> <a href="#audio"><i class="pe-7s-music"></i><p>Audio</p></a> </li>
+                            <li id="interGroup3" style="display:none;"> <a href="#keywords"><i class="pe-7s-speaker"></i><p>Keywords</p></a> </li>
+                            <li id="interGroup4" style="display:none;"> <a href="#notices"><i class="pe-7s-like2"></i><p>Notices</p></a> </li>
+                            <li id="interGroup5" style="display:none;"> <a href="#quotes"><i class="pe-7s-look"></i><p>Quotes</p></a> </li>
+                        </li>
 
-            <div role="tabpanel" class="tab-pane active" id="dashboard">
-                <div id="dashboardPanel"></div>
-                <script type="text/javascript" src="panel/js/dashboardPanel.js"></script>
+                        <li>
+                            <a id="utilShow"><i class="pe-7s-tools"></i>
+                        <p>Utilities</p></a>
+                            <li id="utilGroup1" style="display:none;"> <a href="#games"><i class="pe-7s-joy"></i><p>Games</p></a> </li>
+                            <li id="utilGroup2" style="display:none;"> <a href="#gambling"><i class="pe-7s-gift"></i><p>Giveaways</p></a> </li>
+                            <li id="utilGroup3" style="display:none;"> <a href="#hostraid"><i class="pe-7s-like"></i><p>Hosts/Raids</p></a> </li>
+                            <li id="utilGroup4" style="display:none;"> <a href="#poll"><i class="pe-7s-note2"></i><p>Polls</p></a> </li>
+                            <li id="utilGroup5" style="display:none;"> <a href="#queue"><i class="pe-7s-network"></i><p>Queue</p></a> </li>
+                        </li>
+                        <li>
+                            <a id="thirdShow"><i class="pe-7s-share"></i>
+                        <p>Connections</p></a>
+                            <li id="thirdGroup1" style="display:none;"> <a href="#discord"><i class="pe-7s-comment"></i><p>Discord</p></a> </li>
+                            <li id="thirdGroup2" style="display:none;"> <a href="#twitter"><i class="fa fa-twitter" style="color: rgba(0,0,0,0);-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: white;"></i><p>Twitter</p></a> </li>
+
+                        </li>
+                        <li> <a href="#help"><i class="pe-7s-info"></i><p>Information</p></a> </li>
+                    </ul>
+                </div>
+                <div class="sidebar-background" style="background-image: url(panel/images/sidebar-1.jpg)"></div>
             </div>
+            <div class="main-panel">
+                <nav class="navbar navbar-default navbar-fixed" style="height: 62px;">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                            <a class="navbar-brand" href="#"></a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-left">
+                                <li>
+                                    <a>
+                                        <span id="streamOnline" />
+                                        <p class="hidden-lg hidden-md"><span id="streamOnline" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="streamUptime" />
+                                        <p class="hidden-lg hidden-md"><span id="streamUptime" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="timePlayed" />
+                                        <p class="hidden-lg hidden-md"><span id="timePlayed" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="viewerCount" />
+                                        <p class="hidden-lg hidden-md"><span id="viewerCount" /></p>
+                                    </a>
+                                </li>
+                                <li style="background-color: #1dc7ea;padding-bottom: 5px;">
+                                    <a style="color: white;font-weight: bold;">Bot modes:</a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="whisperModeStatus" />
+                                        <p class="hidden-lg hidden-md"><span id="whisperModeStatus" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="meModeStatus" />
+                                        <p class="hidden-lg hidden-md"><span id="meModeStatus" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <span id="commandPauseStatus" />
+                                    <p class="hidden-lg hidden-md"><span id="commandPauseStatus" /></p>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="muteModeStatus" />
+                                        <p class="hidden-lg hidden-md"><span id="muteModeStatus" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="multiStatus" />
+                                        <p class="hidden-lg hidden-md"><span id="multiStatus" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="newVersionAvailable" />
+                                        <p class="hidden-lg hidden-md"><span id="newVersionAvailable" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span id="panelStatsStatus" />
+                                        <p class="hidden-lg hidden-md"><span id="panelStatsStatus" /></p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right" style="margin-right: -30px;">
+                                <li style="background-color: #1dc7ea;padding-bottom: 1px;">
+                                    <a href="#" onclick="performCurrentPanelRefresh()" data-toggle="tooltip" data-placement="bottom" title="Refresh Current Panel Data">
+                                        <i style="color: #fff" class="fa fa-refresh"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
 
-            <div role="tabpanel" class="tab-pane" id="commands">
-                <div id="commandsPanel"></div>
-                <script type="text/javascript" src="panel/js/commandsPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane active" id="dashboard">
+                    <div id="dashboardPanel"></div>
+                    <script type="text/javascript" src="panel/js/dashboardPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="moderation">
-                <div id="moderationPanel"></div>
-                <script type="text/javascript" src="panel/js/moderationPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="commands">
+                    <div id="commandsPanel"></div>
+                    <script type="text/javascript" src="panel/js/commandsPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="time">
-                <div id="timePanel"></div>
-                <script type="text/javascript" src="panel/js/timePanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="moderation">
+                    <div id="moderationPanel"></div>
+                    <script type="text/javascript" src="panel/js/moderationPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="points">
-                <div id="pointsPanel"></div>
-                <script type="text/javascript" src="panel/js/pointsPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="time">
+                    <div id="timePanel"></div>
+                    <script type="text/javascript" src="panel/js/timePanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="viewers">
-                <div id="viewersPanel"></div>
-                <script type="text/javascript" src="panel/js/viewersPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="points">
+                    <div id="pointsPanel"></div>
+                    <script type="text/javascript" src="panel/js/pointsPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="ranks">
-                <div id="ranksPanel"></div>
-                <script type="text/javascript" src="panel/js/ranksPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="viewers">
+                    <div id="viewersPanel"></div>
+                    <script type="text/javascript" src="panel/js/viewersPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="greetings">
-                <div id="greetingsPanel"></div>
-                <script type="text/javascript" src="panel/js/greetingsPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="ranks">
+                    <div id="ranksPanel"></div>
+                    <script type="text/javascript" src="panel/js/ranksPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="donations">
-                <div id="donationsPanel"></div>
-                <script type="text/javascript" src="panel/js/donationsPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="greetings">
+                    <div id="greetingsPanel"></div>
+                    <script type="text/javascript" src="panel/js/greetingsPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="notices">
-                <div id="noticesPanel"></div>
-                <script type="text/javascript" src="panel/js/noticesPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="donations">
+                    <div id="donationsPanel"></div>
+                    <script type="text/javascript" src="panel/js/donationsPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="quotes">
-                <div id="quotesPanel"></div>
-                <script type="text/javascript" src="panel/js/quotesPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="notices">
+                    <div id="noticesPanel"></div>
+                    <script type="text/javascript" src="panel/js/noticesPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="keywords">
-                <div id="keywordsPanel"></div>
-                <script type="text/javascript" src="panel/js/keywordsPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="quotes">
+                    <div id="quotesPanel"></div>
+                    <script type="text/javascript" src="panel/js/quotesPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="poll">
-                <div id="pollPanel"></div>
-                <script type="text/javascript" src="panel/js/pollPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="keywords">
+                    <div id="keywordsPanel"></div>
+                    <script type="text/javascript" src="panel/js/keywordsPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="hostraid">
-                <div id="hostraidPanel"></div>
-                <script type="text/javascript" src="panel/js/hostraidPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="poll">
+                    <div id="pollPanel"></div>
+                    <script type="text/javascript" src="panel/js/pollPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="gambling">
-                <div id="gamblingPanel"></div>
-                <script type="text/javascript" src="panel/js/gamblingPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="hostraid">
+                    <div id="hostraidPanel"></div>
+                    <script type="text/javascript" src="panel/js/hostraidPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="games">
-                <div id="gamesPanel"></div>
-                <script type="text/javascript" src="panel/js/gamesPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="gambling">
+                    <div id="gamblingPanel"></div>
+                    <script type="text/javascript" src="panel/js/gamblingPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="queue">
-                <div id="queuePanel"></div>
-                <script type="text/javascript" src="panel/js/queuePanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="games">
+                    <div id="gamesPanel"></div>
+                    <script type="text/javascript" src="panel/js/gamesPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="twitter">
-                <div id="twitterPanel"></div>
-                <script type="text/javascript" src="panel/js/twitterPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="queue">
+                    <div id="queuePanel"></div>
+                    <script type="text/javascript" src="panel/js/queuePanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="discord">
-                <div id="discordPanel"></div>
-                <script type="text/javascript" src="panel/js/discordPanel.js"></script>
-            </div>
+                <div role="tabpanel" class="tab-pane" id="twitter">
+                    <div id="twitterPanel"></div>
+                    <script type="text/javascript" src="panel/js/twitterPanel.js"></script>
+                </div>
 
-            <!-- Must be the last two -->
+                <div role="tabpanel" class="tab-pane" id="discord">
+                    <div id="discordPanel"></div>
+                    <script type="text/javascript" src="panel/js/discordPanel.js"></script>
+                </div>
 
-            <div role="tabpanel" class="tab-pane" id="audio">
-                <div id="audioPanel"></div>
-                <script type="text/javascript" src="panel/js/audioPanel.js"></script>
-            </div>
+                <!-- Must be the last two -->
 
-            <div role="tabpanel" class="tab-pane" id="help">
-                <div id="helpPanel"></div>
-                <script type="text/javascript" src="panel/js/helpPanel.js"></script>
+                <div role="tabpanel" class="tab-pane" id="audio">
+                    <div id="audioPanel"></div>
+                    <script type="text/javascript" src="panel/js/audioPanel.js"></script>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="help">
+                    <div id="helpPanel"></div>
+                    <script type="text/javascript" src="panel/js/helpPanel.js"></script>
+                </div>
+                <div class="chatContainer" style="position: relative;">
+                    <div class="card ui-widget-content" id="chatsidebar" name="chat">
+                        <div id="chatsidebar-header" class="header">
+                            <div class="button" style="float: left; padding-left: 5px;" onclick="$.toggleTwitchChatRollup()">
+                                <i class="fa fa-bars"></i>
+                            </div>
+                            <i class="fa fa-twitch"></i>
+                        </div>
+                        <!-- <span id="iframeLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Twitch Chat</span> -->
+                        <script>
+                            $("#chatsidebar").append("<iframe id=\"chat\" class=\"content\" frameborder=\"0\" scrolling=\"no\" onload=\"hideLoadingImage()\"" +
+                                "src=\"https://www.twitch.tv/" + getChannelName().toLowerCase() + "/chat?popout=\">");
+                            /*$("#chat").hide(); ** This breaks things in firefox. */
+
+                        </script>
+                    </div>
+                </div>
+                <footer class="footer footerMD">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                               Placeholder
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                               Placeholder
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                               Placeholder
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                               Placeholder
+                            </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p class="copyright pull-right">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+
+                            </script> <a href="https://phantombot.tv">phantombot.tv</a> and <a href="http://bit.ly/MindfulG">Mindful Design</a>
+                        </p>
+                    </div>
+                </footer>
             </div>
         </div>
-
-        <script>
-            $('#tabs').tabs().addClass('ui-tabs-vertical ui-helper-clearfix').fadeIn(1000);
-            TABS_INITIALIZED = true;
-            $("#panelLoader").fadeOut(1000);
-        </script>
-        <script type="text/javascript" src="panel/js/globalPanel.js"></script>
-
-        <div class="ui-widget-content" id="chatsidebar" name="chat">
-            <div id="chatsidebar-header" class="ui-widget-header">
-               <div class="button" style="float: left; padding-left: 5px;" onclick="$.toggleTwitchChatRollup()">
-                   <i class="fa fa-bars"></i>
-               </div>
-               <i class="fa fa-twitch"></i>
-            </div>
-            <!-- <span id="iframeLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Twitch Chat</span> -->
-             <script>
-                $("#chatsidebar").append("<iframe id=\"chat\" frameborder=\"0\" scrolling=\"no\" onload=\"hideLoadingImage()\"" +
-                                         "src=\"https://www.twitch.tv/" + getChannelName().toLowerCase() + "/chat?popout=\">");
-                /*$("#chat").hide(); ** This breaks things in firefox. */
-                $("#chatsidebar").draggable({ iframeFix: true });
-            </script>
-        </div>
-
-        <br>
-        <br>
-        
-    <div id="copyright">
-        Control Panel by:
-        <a href="https://phantombot.tv">phantombot.tv</a> &amp;
-        <a href="http://bit.ly/MindfulG">Mindful Design</a>
     </div>
+    <script>
+        $('#tabs').tabs().addClass('ui-tabs-vertical ui-helper-clearfix').fadeIn(1000);
+        TABS_INITIALIZED = true;
+        $("#panelLoader").fadeOut(1000);
 
-        <script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
-    </body>
+        /* SIDEBAR - Mindful Design */
+        $('#loyaltyShow').click(function() {
+            $('#loyaltyGroup1').toggle('slow', function() {});
+            $('#loyaltyGroup2').toggle('slow', function() {});
+            $('#loyaltyGroup3').toggle('slow', function() {});
+        });
+        $('#adminShow').click(function() {
+            $('#adminGroup1').toggle('slow', function() {});
+            $('#adminGroup2').toggle('slow', function() {});
+        });
+        $('#thirdShow').click(function() {
+            $('#thirdGroup1').toggle('slow', function() {});
+            $('#thirdGroup2').toggle('slow', function() {});
+        });
+        $('#interShow').click(function() {
+            $('#interGroup1').toggle('slow', function() {});
+            $('#interGroup2').toggle('slow', function() {});
+            $('#interGroup3').toggle('slow', function() {});
+            $('#interGroup4').toggle('slow', function() {});
+            $('#interGroup5').toggle('slow', function() {});
+        });
+        $('#utilShow').click(function() {
+            $('#utilGroup1').toggle('slow', function() {});
+            $('#utilGroup2').toggle('slow', function() {});
+            $('#utilGroup3').toggle('slow', function() {});
+            $('#utilGroup4').toggle('slow', function() {});
+            $('#utilGroup5').toggle('slow', function() {});
+        });
+
+    </script>
+    <script type="text/javascript" src="panel/js/globalPanel.js"></script>
+    <script>
+        $('[data-toggle="tooltip"]').tooltip({
+            trigger: 'hover'
+        });
+
+    </script>
+</body>
+
 </html>

@@ -25,7 +25,7 @@
 
 (function() {
 
-    var spinIcon = '<i style="color: #6136b1" class="fa fa-spinner fa-spin" />';
+    var spinIcon = '<i  class="fa fa-spinner fa-spin" />';
 
     /**
      * @function onMessage
@@ -51,9 +51,9 @@
                 html = '<table>';
                 for (idx in msgObject['results']) {
                     keyword = msgObject['results'][idx]['key'];
-                    html += '<tr style="textList">' +
-                    '    <td style="width: 15%">' + (keyword.length > 15 ? keyword.substring(0, 15) + '..' : keyword) + '</td>' +
-                    '    <td style="vertical-align: middle">' +
+                    html += '<tr >' +
+                    '    <td>' + (keyword.length > 15 ? keyword.substring(0, 15) + '..' : keyword) + '</td>' +
+                    '    <td>' +
                     '        <form onkeypress="return event.keyCode != 13">' +
                     '            <input style="width: 88%;" type="text" id="inlineKeywordEdit_' + keyword.replace(/[^a-z1-9]/ig, '_') + '"' +
                     '                   value="' + msgObject['results'][idx]['value'] + '" />' +
@@ -79,9 +79,9 @@
                 for (idx in msgObject['results']) {
                     key = msgObject['results'][idx]['key'];
                     time = msgObject['results'][idx]['value'];
-                    html += '<tr style="textList">' +
-                    '    <td style="width: 15%">' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
-                    '    <td style="vertical-align: middle">' +
+                    html += '<tr >' +
+                    '    <td>' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
+                    '    <td>' +
                     '        <form onkeypress="return event.keyCode != 13">' +
                     '            <input style="width: 88%" type="text" id="editCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
                     '                   value="' + time + '" />' +
@@ -106,9 +106,9 @@
                 for (idx in msgObject['results']) {
                     key = msgObject['results'][idx]['key'];
                     time = msgObject['results'][idx]['value'];
-                    html += '<tr style="textList">' +
-                    '    <td style="width: 15%">' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
-                    '    <td style="vertical-align: middle">' +
+                    html += '<tr >' +
+                    '    <td>' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
+                    '    <td>' +
                     '        <form onkeypress="return event.keyCode != 13">' +
                     '            <input style="width: 88%" type="text" id="editKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
                     '                   value="' + time + '" />' +
@@ -198,7 +198,7 @@
      */
     function deleteKeyCooldown(command) {
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
-        $("#deleteCooldown_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteCooldown_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("keyword_cooldown_delete", "coolkey", command);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     }
@@ -238,7 +238,7 @@
     function updateKeyPrice(command) {
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
         var val = $('#editKeyPrice_' + command.replace(/[^a-z1-9]/ig, '_')).val();
-        $('#editKeyPrice_' + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $('#editKeyPrice_' + command.replace(/[^a-z1-9]/ig, '_')).html("<i  class=\"fa fa-spinner fa-spin\" />");
         if (val > 0) {
             sendDBUpdate("keyword_editprice_" + command, "pricekey", command.toLowerCase(), val);
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
@@ -251,7 +251,7 @@
      */
     function deleteKeyPrice(command) {
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
-        $("#deleteKeyPrice_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteKeyPrice_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("keyword_delcomprice_" + command, "pricekey", command);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     };

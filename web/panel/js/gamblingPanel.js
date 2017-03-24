@@ -163,9 +163,9 @@
                 html = "<table>";
                 for (var idx = 0; idx < raffleList.length; idx++) {
                     username = raffleList[idx]['key'];
-                    html += "<tr class=\"textList\">" +
-                            "    <td style=\"vertical-align: middle; width: 50%\">" + username + "</td>" +
-                            "    <td style=\"vertical-align: middle width: 25%\">" +
+                    html += "<tr >" +
+                            "    <td>" + username + "</td>" +
+                            "    <td>" +
                             "</tr>";
                 }
                 html += "</table>";
@@ -182,10 +182,10 @@
             for (var idx = 0; idx < ticketsList.length; idx++) {
                 username = ticketsList[idx]['key'];
                 tickets = ticketsList[idx]['value'];
-                html += "<tr class=\"textList\">" +
-                        "    <td style=\"vertical-align: middle; width: 50%\">" + username + "</td>" +
-                        "    <td style=\"vertical-align: middle; width: 25%\">" + tickets + "</td>" +
-                        "    <td style=\"vertical-align: middle width: 25%\">" +
+                html += "<tr >" +
+                        "    <td>" + username + "</td>" +
+                        "    <td>" + tickets + "</td>" +
+                        "    <td>" +
                         "</tr>";
                 }
                 html += "</table>";

@@ -26,13 +26,13 @@
 (function() {
 
    var refreshIcon = '<i class="fa fa-refresh" />',
-       spinIcon = '<i style=\"color: #6136b1\" class="fa fa-spinner fa-spin" />',
+       spinIcon = '<i  class="fa fa-spinner fa-spin" />',
        modeIcon = [],
        isDeleting = false,
        settingIcon = [];
 
-       modeIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-       modeIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+       modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+       modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
 
        settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
        settingIcon['true'] = "<i class=\"fa fa-circle\" />";
@@ -83,9 +83,9 @@
                 html = '<table>';
                 for (var idx in msgObject['results']) {
                     id = msgObject['results'][idx]['key'].match(/message_(\d+)/)[1];
-                    html += '<tr style="textList">' +
-                    '    <td style="width: 15%">Notice #' + id + '</td>' +
-                    '    <td style="vertical-align: middle">' +
+                    html += '<tr >' +
+                    '    <td>Notice #' + id + '</td>' +
+                    '    <td>' +
                     '        <form onkeypress="return event.keyCode != 13">' +
                     '            <input style="width: 80%" type="text" id="inlineNoticeEdit_' + id + '"' +
                     '                   value="' + msgObject['results'][idx]['value'] + '" />' +

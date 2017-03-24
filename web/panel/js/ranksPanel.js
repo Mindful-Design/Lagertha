@@ -65,7 +65,7 @@
                 for (idx = 0; idx < ranksData.length; idx++) {
                     hours = ranksData[idx]['key'];
                     rank = ranksData[idx]['value'];
-                    html += "<tr class=\"textList\">" +
+                    html += "<tr >" +
                             "    <td><form onkeypress=\"return event.keyCode != 13\">" +
                             "        <input type=\"text\" id=\"inlineRankHoursEdit_" + hours + "\"" +
                             "               value=\"" + hours + "\" style=\"width: 10%\"/>" +
@@ -95,13 +95,13 @@
                     user = ranksData[idx]['key'];
                     rank = ranksData[idx]['value'];
 
-                    html += "<tr class=\"textList\">" +
-                            "    <td style=\"width: 15px\">" +
+                    html += "<tr >" +
+                            "    <td>" +
                             "        <div id=\"deleteCustomRankIcon_" + user + "\" class=\"button\"" +
                             "             onclick=\"$.deleteCustomRank('" + user + "')\"><i class=\"fa fa-trash\" />" +
                             "        </div>" + 
                             "    </td>" +
-                            "    <td style=\"width: 8em\">" + user + "</td>" +
+                            "    <td>" + user + "</td>" +
                             "    <td><form onkeypress=\"return event.keyCode != 13\">" +
                             "        <input type=\"text\" id=\"inlineRankCustomEdit_" + user + "\"" +
                             "               value=\"" + rank + "\" style=\"width: 80%\" />" +
@@ -196,7 +196,7 @@
      * @param {String} rankKey
      */
     function deleteCustomRank(rankKey) {
-        $("#deleteCustomRankIcon_" + rankKey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteCustomRankIcon_" + rankKey).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("ranks_customDelete", "viewerRanks", rankKey);
         setTimeout(function() { doQuery() }, TIMEOUT_WAIT_TIME);
     }
@@ -235,7 +235,7 @@
      * @param {String} rankKey
      */
     function deleteRank(rankKey) {
-        $("#deleteRank_" + rankKey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteRank_" + rankKey).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("ranks_ranksDelete", "ranksMapping", rankKey);
         setTimeout(function() { doQuery(); sendCommand('rankreloadtable'); }, TIMEOUT_WAIT_TIME);
     }

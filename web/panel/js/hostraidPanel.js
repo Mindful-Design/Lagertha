@@ -26,12 +26,12 @@
 (function() {
 
    var refreshIcon = '<i class="fa fa-refresh" />',
-       spinIcon = '<i style=\"color: #6136b1\" class="fa fa-spinner fa-spin" />',
+       spinIcon = '<i  class="fa fa-spinner fa-spin" />',
        modeIcon = [],
        settingIcon = [];
 
-       modeIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
-       modeIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
+       modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+       modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
 
        settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
        settingIcon['true'] = "<i class=\"fa fa-circle\" />";
@@ -97,9 +97,9 @@
 
                 for (idx = msgObject['results'].length - 1; idx >= 0; idx--) {
                     var hostData = JSON.parse(msgObject['results'][idx]['value']);
-                    html +='<tr style="textList">' +
+                    html +='<tr >' +
                            '  <td>' + hostData['host'] + '</td>' +
-                           '  <td style="float: right">' + $.format.date(parseInt(hostData['time']), "MM.dd.yy HH:mm:ss") + '</td>' +
+                           '  <td>' + $.format.date(parseInt(hostData['time']), "MM.dd.yy HH:mm:ss") + '</td>' +
                            '</tr>';
                 }
                 html += '</table>';
@@ -115,9 +115,9 @@
                 html = '<br><table><tr><th>Channel</th><th style="float: right">Raid Count</th></tr>';
 
                 for (idx in msgObject['results']) {
-                    html += '<tr style="textList">' +
+                    html += '<tr >' +
                             '    <td>' + msgObject['results'][idx]['key'] + '</td>' +
-                            '    <td style="float: right">' + msgObject['results'][idx]['value'] + '</td>' +
+                            '    <td>' + msgObject['results'][idx]['value'] + '</td>' +
                             '</tr>';
                 }
                 html += '</table>';
@@ -133,9 +133,9 @@
                 html = '<br><table><tr><th>Channel</th><th style="float: right">Raid Count</th></tr>';
 
                 for (idx in msgObject['results']) {
-                    html += '<tr style="textList">' +
+                    html += '<tr >' +
                             '    <td>' + msgObject['results'][idx]['key'] + '</td>' +
-                            '    <td style="float: right">' + msgObject['results'][idx]['value'] + '</td>' +
+                            '    <td>' + msgObject['results'][idx]['value'] + '</td>' +
                             '</tr>';
                 }
                 html += '</table>';

@@ -22,16 +22,16 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="viewersAccordion">
-    <h3>Administrators</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Administrators
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserAdmin">Promote to Administrator</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Admin')">Promote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Admin')">Promote</button>
                 <input type="text" class="form-control" id="promoteUserAdmin" placeholder="Username" />
                 <br>
                 <label for="unPromoteUserAdmin">Demote from Administrator</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Admin')">Demote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Admin')">Demote</button>
                 <input type="text" class="form-control" id="unPromoteUserAdmin" placeholder="Username" />
             </div>
             <div>
@@ -40,16 +40,16 @@
         </form>
     </div>
 
-    <h3>Moderators</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Moderators
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserMod">Promote to Moderator</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Mod')">Promote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Mod')">Promote</button>
                 <input type="text" class="form-control" id="promoteUserMod" placeholder="Username" data-toggle="tooltip" title="Make sure to '/mod' the user in your channel too." />
                 <br>
                 <label for="unPromoteUserMod">Demote from Moderator</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Mod')">Demote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Mod')">Demote</button>
                 <input type="text" class="form-control" id="unPromoteUserMod" placeholder="Username" data-toggle="tooltip" title="Make sure to '/unmod' the user in your channel too." />
             </div>
             <div>
@@ -58,18 +58,18 @@
         </form>
     </div>
 
-    <!--<h3>Subscribers</h3>
+    <!--        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Subscribers
     <div>
         <form role="form">
             Can't promote to sub. We get this from Twitch and GameWisp 
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserSub">Promote to Subscriber</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Sub')">Promote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Sub')">Promote</button>
                 <input type="text" class="form-control" id="promoteUserSub" placeholder="Username" 
                 data-toggle="tooltip" title="This will only work if you have a partnered channel, and if the user is subscribed via twitch." />
                 <br>
                 <label for="unPromoteUserSub">Demote from Subscriber</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Sub')">Demote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Sub')">Demote</button>
                 <input type="text" class="form-control" id="unPromoteUserSub" placeholder="Username" data-toggle="tooltip" title="This will probably reset if the user is subscribed to the channel." />
             </div>
             <div>
@@ -78,16 +78,16 @@
         </form>
     </div> -->
 
-    <h3>Donators</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Donators
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserDonator">Promote to Donator</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Donator')">Promote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Donator')">Promote</button>
                 <input type="text" class="form-control" id="promoteUserDonator" placeholder="Username" />
                 <br>
                 <label for="unPromoteUserDonator">Demote from Donator</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Donator')">Demote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Donator')">Demote</button>
                 <input type="text" class="form-control" id="unPromoteUserDonator" placeholder="Username" />
             </div>
             <div>
@@ -98,16 +98,16 @@
 
     <!--
     ** We will only unlock this once we use the Donator and Hoster group.
-    <h3>Hosters</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Hosters
     <div>
        <form role="form">
            <div class="form-group" onkeypress="return event.keyCode != 13">
                <label for="promoteUserHoster">Promote to Hoster</label>
-               <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Hoster')">Promote</button>
+               <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Hoster')">Promote</button>
                <input type="text" class="form-control" id="promoteUserHoster" placeholder="Username" />
                <br>
                <label for="unPromoteUserHoster">Demote from Hoster</label>
-               <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Hoster')">Demote</button>
+               <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Hoster')">Demote</button>
                <input type="text" class="form-control" id="unPromoteUserHoster" placeholder="Username" />
            </div>
        </form>
@@ -115,16 +115,16 @@
     ** We will only unlock this once we use the Donator and Hoster group.
     -->
 
-    <h3>Regulars</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Regulars
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserReg">Promote to Regular</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Reg')">Promote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Reg')">Promote</button>
                 <input type="text" class="form-control" id="promoteUserReg" placeholder="Username" />
                 <br>
                 <label for="unPromoteUserReg">Demote from Regular</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Reg')">Demote</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Reg')">Demote</button>
                 <input type="text" class="form-control" id="unPromoteUserReg" placeholder="Username" />
             </div>
             <div>
@@ -133,12 +133,12 @@
         </form>
     </div>
 
-    <!--<h3>Viewers</h3>
+    <!--        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Viewers
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="fixFollower">Force follow</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.fixFollower()">Update</button>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.fixFollower()">Update</button>
                 <input type="text" class="form-control" id="fixFollower" placeholder="Username" data-toggle="tooltip" title="This will make the heart light up next to the users name." />
             </div>
         <div>

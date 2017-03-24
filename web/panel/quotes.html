@@ -22,15 +22,15 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="quotesAccordion">
-    <h3>Quotes</h3>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Quotes
     <div>
     <div id="_quotesPanelDisabled" />
     <div id="_quotesPanel">
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <button type="button" class="btn btn-danger inline pull-right" onclick="$.delQuoteMsg()">Delete Quote Message</button>
+                <button type="button" class="btn btn-danger btn-fill inline pull-right" onclick="$.delQuoteMsg()">Delete Quote Message</button>
                 <label for="quoteMessage">Set Quote Message</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.setQuoteMessage()">Submit</button>
                 <input type="text" class="form-control" id="quoteMessageInput" placeholder="Message for Quote in Chat"
                        data-toggle="tooltip" title="Tags: (id) (quote) (user) (game) (date)">
@@ -40,14 +40,14 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="addQuote">Add Quote</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <button type="button" class="btn btn-info btn-fill pull-right" 
                         onclick="$.addQuote()">Submit</button>
                 <input type="text" class="form-control" id="addQuoteInput" placeholder="A New Quote">
             </div>
         </form>
         <br>
 
-        <strong>Quotes</strong><br><br>
+        <label>Quotes</label><br><br>
         <div id="quoteList" style="height: 350px; overflow: auto;" />
     </div>
     </div>
