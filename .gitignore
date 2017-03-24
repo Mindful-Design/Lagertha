@@ -3,11 +3,7 @@
 # Unchanged
 /addons/**
 /lib/**
-/scripts/core/**
-/scripts/games/**
-/scripts/handlers/**
-/scripts/lang/**
-/scripts/init.js
+/scripts/**
 /web/alerts/**
 /web/common/**
 /web/playlist/**
