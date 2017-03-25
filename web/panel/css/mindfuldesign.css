@@ -225,6 +225,7 @@ body,
 .wrapper {
     min-height: 100vh;
     position: relative;
+    background-color: rgba(210, 210, 210, 0.52);
 }
 
 a {
@@ -412,6 +413,7 @@ body>.navbar-collapse .nav li.active>a {
     color: #FFFFFF;
     opacity: 1;
     background: rgba(255, 255, 255, 0.23);
+    outline: none;
 }
 
 .sidebar .nav li.separator,
@@ -3646,6 +3648,34 @@ notification-modes {
 .notification-modes .fa {
     top: 4px !important;
     padding-right: 3px;
+}
+
+.ui-state-default {
+    outline: none;
+}
+
+.ui-state-default:focus {
+    outline: none;
+}
+
+
+/* sidebar, submenus */
+
+.groupHeader:hover {
+    cursor: pointer;
+}
+
+.subli {
+    margin-left: 50px;
+}
+
+.subli i {
+    font-size: 22px !important;
+    line-height: 15px !important;
+}
+
+.subli p {
+    line-height: 15px !important;
 }
 
 

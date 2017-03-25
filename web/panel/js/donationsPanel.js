@@ -23,7 +23,7 @@
  * donationsPanel.js
  */
 
-(function() {
+(function () {
 
     var sortType = 'alpha_asc'; //amount, time
 
@@ -42,7 +42,7 @@
 
         if (panelHasQuery(msgObject)) {
             if (panelCheckQuery(msgObject, 'donations_donations')) {
-                var html = '<table>',
+                var html = '<table class="table table-hover table-striped">',
                     donationData = [],
                     donationObject;
 
@@ -84,17 +84,17 @@
                         donationObj = JSON.parse(donationData[idx]['value']);
                         if (donationObj['currency'] !== undefined || donationObj['name'] !== undefined) {
                             html += '<tr >' +
-                                    '    <td>' + donationObj['name'] + '</td>' +
-                                    '    <td>' + $.format.date(parseInt(donationObj['created_at']) * 1e3, 'MM.dd.yy hh:mm:ss') + '</td>' +
-                                    '    <td>' + donationObj['currency'] + ' ' + parseInt(donationObj['amount']).toFixed(2) + '</td>' +
-                                    '</tr>';
+                                '    <td>' + donationObj['name'] + '</td>' +
+                                '    <td>' + $.format.date(parseInt(donationObj['created_at']) * 1e3, 'MM.dd.yy hh:mm:ss') + '</td>' +
+                                '    <td>' + donationObj['currency'] + ' ' + parseInt(donationObj['amount']).toFixed(2) + '</td>' +
+                                '</tr>';
                         } else {
                             if (donationObj['parameters']['username'] !== undefined && donationObj['parameters']['currency'] !== undefined) {
                                 html += '<tr >' +
-                                        '    <td>' + donationObj['parameters']['username'] + '</td>' +
-                                        '    <td>' + $.format.date(new Date(donationObj['created_at']), 'MM.dd.yy hh:mm:ss') + '</td>' +
-                                        '    <td>' + donationObj['parameters']['currency'] + ' ' + parseInt(donationObj['parameters']['amount']).toFixed(2) + '</td>' +
-                                        '</tr>';
+                                    '    <td>' + donationObj['parameters']['username'] + '</td>' +
+                                    '    <td>' + $.format.date(new Date(donationObj['created_at']), 'MM.dd.yy hh:mm:ss') + '</td>' +
+                                    '    <td>' + donationObj['parameters']['currency'] + ' ' + parseInt(donationObj['parameters']['amount']).toFixed(2) + '</td>' +
+                                    '</tr>';
                             }
                         }
                     }
@@ -124,26 +124,31 @@
         var bObj = JSON.parse(b.value);
         return panelStrcmp(aObj.name, bObj.name);
     }
+
     function sortDonationTable_alpha_desc(a, b) {
         var aObj = JSON.parse(a.value);
         var bObj = JSON.parse(b.value);
         return panelStrcmp(bObj.name, aObj.name);
     }
+
     function sortDonationTable_time_asc(a, b) {
         var aObj = JSON.parse(a.value);
         var bObj = JSON.parse(b.value);
         return parseInt(aObj.created_at) - parseInt(bObj.created_at);
     }
+
     function sortDonationTable_time_desc(a, b) {
         var aObj = JSON.parse(a.value);
         var bObj = JSON.parse(b.value);
         return parseInt(bObj.created_at) - parseInt(aObj.created_at);
     }
+
     function sortDonationTable_amount_asc(a, b) {
         var aObj = JSON.parse(a.value);
         var bObj = JSON.parse(b.value);
         return parseInt(aObj.amount) - parseInt(bObj.amount);
     }
+
     function sortDonationTable_amount_desc(a, b) {
         var aObj = JSON.parse(a.value);
         var bObj = JSON.parse(b.value);
@@ -161,7 +166,7 @@
     $('#donationsPanel').load('/panel/donations.html');
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
             if (active == 8) {
@@ -172,7 +177,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 8 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Donations Data', 'success', 1000);
