@@ -210,7 +210,7 @@
     var interval = setInterval(function() {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
-            if (active == 10) {
+            if (active == 12) {
                 doQuery();
                 clearInterval(interval);
             }
@@ -220,7 +220,7 @@
     // Query the DB every 30 seconds for updates.
     setInterval(function() {
         var active = $('#tabs').tabs('option', 'active');
-        if (active == 10 && isConnected && !isInputFocus()) {
+        if (active == 12 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Quotes Data', 'success', 1000);
             doQuery();
         }

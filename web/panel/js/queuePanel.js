@@ -19,48 +19,48 @@
  * @author ScaniaTV
  */
 
-(function() {
+(function () {
 
-	/*
+    /*
      * @function onMessage
      *
      * @param {String} message
      */
     function onMessage(message) {
-    	var msgObject;
+        var msgObject;
 
         try {
             msgObject = JSON.parse(message.data);
         } catch (ex) {
-        	console.error('Failed to parse panel message [queuePanel.js]: ' + ex.message);
+            console.error('Failed to parse panel message [queuePanel.js]: ' + ex.message);
             return;
         }
 
         if (panelHasQuery(msgObject)) {
             if (panelCheckQuery(msgObject, 'queue_list')) {
-            	var keys = msgObject['results'],
-            		html = '<table class="table table-hover table-striped"><tr><th>Username</th><th style="padding-left: 50px;">GamerTag</th><th style="padding-left: 50px;">Position</th><th style="padding-left: 50px;">Join Time</th><th style="float: right;"></td>',
-            		jsonObj = '',
-            		i;
+                var keys = msgObject['results'],
+                    html = '<table class="table table-hover table-striped"><tr><th>Username</th><th style="padding-left: 50px;">GamerTag</th><th style="padding-left: 50px;">Position</th><th style="padding-left: 50px;">Join Time</th><th style="float: right;"></td>',
+                    jsonObj = '',
+                    i;
 
-            	if (keys.length === 0) {
-            		$('#queue-list').html('<i>The queue list is currently empty.</i>');
-            		return;
-            	}
+                if (keys.length === 0) {
+                    $('#queue-list').html('<i>The queue list is currently empty.</i>');
+                    return;
+                }
 
-            	for (i in keys) {
-            		jsonObj = JSON.parse(keys[i]['value']);
+                for (i in keys) {
+                    jsonObj = JSON.parse(keys[i]['value']);
 
-            		html += '<tr>' +
+                    html += '<tr>' +
                         '<td>' + jsonObj.username + '</td>' +
                         '<td>' + (jsonObj.tag === '' ? 'None' : jsonObj.tag.substring(0, 15)) + '</td>' +
                         '<td>' + jsonObj.position + '</td>' +
                         '<td>' + jsonObj.time + '</td>' +
                         '<td><button type="button" id="delete_user_' + jsonObj.username + '" class="btn btn-default btn-xs" onclick="$.runCommand(\'remove\', \'' + [jsonObj.username] + '\')"><i class="fa fa-trash"/></button></td>' +
                         '</tr>';
-            	}
-            	html += '</table>';
-            	$('#queue-list').html(html);
+                }
+                html += '</table>';
+                $('#queue-list').html(html);
             }
         }
     }
@@ -69,8 +69,8 @@
      * @function onMessage
      */
     function doQuery() {
-    	sendDBKeys('queue_list', 'queue');
-    	// sendDBKeys('queue_selected', 'queueSelected');
+        sendDBKeys('queue_list', 'queue');
+        // sendDBKeys('queue_selected', 'queueSelected');
     }
 
     /*
@@ -79,41 +79,43 @@
      * @param {String} command
      */
     function runCommand(command, args) {
-    	if (command == 'clear') {
-    		sendWSEvent('queue', './systems/queueSystem.js', null, ['clear']);
-    	} else if (command == 'close') {
-    		sendWSEvent('queue', './systems/queueSystem.js', null, ['close']);
-    	} else if (command == 'remove') {
-    		$('#delete_user_' + args).html('<i  class="fa fa-spinner fa-spin"/>');
-    		sendWSEvent('queue', './systems/queueSystem.js', null, ['remove', args]);
-    	} else if (command == 'open') {
-    		var title = $('#queue-title').val(),
-    			size = $('#queue-size').val();
+        if (command == 'clear') {
+            sendWSEvent('queue', './systems/queueSystem.js', null, ['clear']);
+        } else if (command == 'close') {
+            sendWSEvent('queue', './systems/queueSystem.js', null, ['close']);
+        } else if (command == 'remove') {
+            $('#delete_user_' + args).html('<i  class="fa fa-spinner fa-spin"/>');
+            sendWSEvent('queue', './systems/queueSystem.js', null, ['remove', args]);
+        } else if (command == 'open') {
+            var title = $('#queue-title').val(),
+                size = $('#queue-size').val();
 
-    		if (title !== undefined && size !== undefined) {
-    			sendWSEvent('queue', './systems/queueSystem.js', null, ['open', size, title]);
-    		}
-    		$('#queue-title').val('');
-    		$('#queue-size').val('0');
-    	} else if (command == 'pick') {
-    		var amount = $('#queue-amount').val();
+            if (title !== undefined && size !== undefined) {
+                sendWSEvent('queue', './systems/queueSystem.js', null, ['open', size, title]);
+            }
+            $('#queue-title').val('');
+            $('#queue-size').val('0');
+        } else if (command == 'pick') {
+            var amount = $('#queue-amount').val();
 
-    		if (amount !== undefined) {
-    			sendWSEvent('queue', './systems/queueSystem.js', null, ['pick', amount]);
-    		}
-    		$('#queue-amount').val('1');
-    	}
-    	setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            if (amount !== undefined) {
+                sendWSEvent('queue', './systems/queueSystem.js', null, ['pick', amount]);
+            }
+            $('#queue-amount').val('1');
+        }
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /* Import the HTML file for this panel. */
     $('#queuePanel').load('/panel/queue.html');
 
     /* Load the DB items for this panel, wait to ensure that we are connected. */
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
-            if (active == 0) {
+            if (active == 17) {
                 doQuery();
                 clearInterval(interval);
             }
@@ -121,9 +123,9 @@
     }, INITIAL_WAIT_TIME);
 
     /* Query the DB every 20 seconds for updates. */
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
-        if (active == 16 && isConnected && !isInputFocus()) {
+        if (active == 17 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Queue Data', 'success', 1000);
             doQuery();
         }

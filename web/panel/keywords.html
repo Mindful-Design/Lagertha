@@ -23,14 +23,13 @@
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="keywordsAccordion">
     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_keywordsPanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Multi-Link</h4>
+                    <h4 class="title">Keywords</h4>
                 </div>
-                <div class="content">Keywords
+                <div class="content">
                     <div>
-                        <div id="_keywordsPanelDisabled" />
                         <div id="_keywordsPanel">
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -40,7 +39,7 @@
                                     <input type="text" class="form-control" id="addKeywordResponseInput" placeholder="Response">
                                 </div>
                             </form>
-                            <div id="keywordsList" style="height: 100px; overflow: auto;" />
+                            <div id="keywordsList" style="max-height: 100px; overflow: auto;" />
                         </div>
                         <br>
 
@@ -52,7 +51,7 @@
                                 <input type="text" class="form-control" id="cooldownKeyInput" placeholder="Seconds" />
                             </div>
                         </form>
-                        <div id="keywordsCooldownList" style="height: 100px; overflow: auto;" />
+                        <div id="keywordsCooldownList" style="max-height: 100px; overflow: auto;" />
                         <br>
 
                         <form role="form">
@@ -63,7 +62,7 @@
                                 <input type="number" min="0" class="form-control" id="priceKeyInput" placeholder="amount" />
                             </div>
                         </form>
-                        <div id="keywordsPriceList" style="height: 100px; overflow: auto;" />
+                        <div id="keywordsPriceList" style="max-height: 100px; overflow: auto;" />
                     </div>
                 </div>
             </div>

@@ -495,7 +495,7 @@
     var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
-            if (active == 4) {
+            if (active == 3) {
                 doQuery();
                 clearInterval(interval);
             }
@@ -505,7 +505,7 @@
     // Query the DB every 30 seconds for updates.
     setInterval(function () {
         var active = $("#tabs").tabs("option", "active");
-        if (active == 4 && isConnected && !isInputFocus()) {
+        if (active == 3 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Points Data', 'success', 1000);
             doLiteQuery();
         }

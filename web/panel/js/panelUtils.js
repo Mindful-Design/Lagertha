@@ -129,25 +129,24 @@ connection.onmessage = function (e) {
     if (e.data.indexOf('dashboard_') !== -1) $.dashboardOnMessage(e);
     if (e.data.indexOf('modules_') !== -1) $.modulesOnMessage(e);
     if (e.data.indexOf('commands_') !== -1) $.commandsOnMessage(e);
-    if (e.data.indexOf('moderation_') !== -1) $.moderationOnMessage(e);
-    if (e.data.indexOf('time_') !== -1) $.timeOnMessage(e);
-    if (e.data.indexOf('points_') !== -1) $.pointsOnMessage(e);
-    if (e.data.indexOf('viewers_') !== -1) $.viewersOnMessage(e);
-    if (e.data.indexOf('ranks_') !== -1) $.ranksOnMessage(e);
-    if (e.data.indexOf('greetings_') !== -1) $.greetingsOnMessage(e);
     if (e.data.indexOf('donations_') !== -1) $.donationsOnMessage(e);
-    if (e.data.indexOf('hostraid_') !== -1) $.hostraidOnMessage(e);
+    if (e.data.indexOf('points_') !== -1) $.pointsOnMessage(e);
+    if (e.data.indexOf('ranks_') !== -1) $.ranksOnMessage(e);
+    if (e.data.indexOf('time_') !== -1) $.timeOnMessage(e);
+    if (e.data.indexOf('moderation_') !== -1) $.moderationOnMessage(e);
+    if (e.data.indexOf('viewers_') !== -1) $.viewersOnMessage(e);
+    if (e.data.indexOf('greetings_') !== -1) $.greetingsOnMessage(e);
+    if (e.data.indexOf('audio_') !== -1) $.audioOnMessage(e);
+    if (e.data.indexOf('keywords_') !== -1) $.keywordsOnMessage(e);
     if (e.data.indexOf('notices_') !== -1) $.noticesOnMessage(e);
     if (e.data.indexOf('quotes_') !== -1) $.quotesOnMessage(e);
-    if (e.data.indexOf('keywords_') !== -1) $.keywordsOnMessage(e);
-    if (e.data.indexOf('poll_') !== -1) $.pollOnMessage(e);
-    if (e.data.indexOf('gambling_') !== -1) $.gamblingOnMessage(e);
     if (e.data.indexOf('games_') !== -1) $.gamesOnMessage(e);
+    if (e.data.indexOf('gambling_') !== -1) $.gamblingOnMessage(e);
+    if (e.data.indexOf('hostraid_') !== -1) $.hostraidOnMessage(e);
+    if (e.data.indexOf('poll_') !== -1) $.pollOnMessage(e);
     if (e.data.indexOf('queue_') !== -1) $.queueOnMessage(e);
-    if (e.data.indexOf('twitter_') !== -1) $.twitterOnMessage(e);
     if (e.data.indexOf('discord_') !== -1) $.discordOnMessage(e);
-
-    if (e.data.indexOf('audio_') !== -1) $.audioOnMessage(e);
+    if (e.data.indexOf('twitter_') !== -1) $.twitterOnMessage(e);
     if (e.data.indexOf('help_') !== -1) $.helpOnMessage(e);
 }
 
@@ -449,51 +448,51 @@ function performCurrentPanelRefresh() {
             break;
         case 2:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.moderationDoQuery();
+            $.donationsDoQuery();
             break;
         case 3:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.timeDoQuery();
+            $.pointsDoQuery();
             break;
         case 4:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.pointsDoQuery();
+            $.ranksDoQuery();
             break;
         case 5:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.viewersDoQuery();
+            $.timeDoQuery();
             break;
         case 6:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.ranksDoQuery();
+            $.moderationDoQuery();
             break;
         case 7:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.greetingsDoQuery();
+            $.viewersDoQuery();
             break;
         case 8:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.donationsDoQuery();
+            $.greetingsDoQuery();
             break;
         case 9:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.noticesDoQuery();
+            $.audioDoQuery();
             break;
         case 10:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.quotesDoQuery();
+            $.keywordsDoQuery();
             break;
         case 11:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.keywordsDoQuery();
+            $.noticesDoQuery();
             break;
         case 12:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.pollDoQuery();
+            $.quotesDoQuery();
             break;
         case 13:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.hostraidDoQuery();
+            $.gamesDoQuery();
             break;
         case 14:
             newPanelAlert('Refreshing Data', 'success', 1000);
@@ -501,15 +500,15 @@ function performCurrentPanelRefresh() {
             break;
         case 15:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.gamesDoQuery();
+            $.hostraidDoQuery();
             break;
         case 16:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.queueDoQuery();
+            $.pollDoQuery();
             break;
         case 17:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.twitterDoQuery();
+            $.queueDoQuery();
             break;
         case 18:
             newPanelAlert('Refreshing Data', 'success', 1000);
@@ -517,8 +516,7 @@ function performCurrentPanelRefresh() {
             break;
         case 19:
             newPanelAlert('Refreshing Data', 'success', 1000);
-            $.audioDoQuery();
+            $.twitterDoQuery();
             break;
-
     }
 }

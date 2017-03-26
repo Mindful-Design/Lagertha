@@ -247,7 +247,7 @@
     var interval = setInterval(function() {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
-            if (active == 6) {
+            if (active == 4) {
                 doQuery();
                 clearInterval(interval);
             }
@@ -257,7 +257,7 @@
     // Query the DB every 30 seconds for updates.
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
-        if (active == 6 && isConnected && !isInputFocus()) {
+        if (active == 4 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Ranks Data', 'success', 1000);
             doQuery();
         }

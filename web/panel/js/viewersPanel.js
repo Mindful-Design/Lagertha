@@ -2,20 +2,20 @@
  * viewersPanel.js
  * Drives the Viewers Panel
  */
-(function() {
+(function () {
 
     var modeIcon = [];
-        modeIcon['false'] = "<i class=\"fa fa-circle-o\" />";
-        modeIcon['true'] = "<i class=\"fa fa-circle\" />";
+    modeIcon['false'] = "<i class=\"fa fa-circle-o\" />";
+    modeIcon['true'] = "<i class=\"fa fa-circle\" />";
 
     var groupMapping = [];
-        groupMapping[0] = "Caster";
-        groupMapping[1] = "Admin";
-        groupMapping[2] = "Moderator";
-        groupMapping[3] = "Subscriber";
-        groupMapping[4] = "Donator";
-        groupMapping[6] = "Regular";
-        groupMapping[7] = "Viewer";
+    groupMapping[0] = "Caster";
+    groupMapping[1] = "Admin";
+    groupMapping[2] = "Moderator";
+    groupMapping[3] = "Subscriber";
+    groupMapping[4] = "Donator";
+    groupMapping[6] = "Regular";
+    groupMapping[7] = "Viewer";
 
     var loadedLastSeen = false,
         loadedGroups = false,
@@ -48,9 +48,11 @@
             hours = 0,
             minutes = 0,
             durationStr = "",
-            pad = function(i) { return (i < 10 ? '0' + i : i) };
+            pad = function (i) {
+                return (i < 10 ? '0' + i : i)
+            };
 
-        if (seconds > 86400) {    // Day: 60 * 60 * 24
+        if (seconds > 86400) { // Day: 60 * 60 * 24
             days = seconds / 86400;
             seconds = seconds % 86400;
             durationStr += pad(Math.floor(days)) + ":";
@@ -58,7 +60,7 @@
             durationStr += "00:";
         }
 
-        if (seconds > 3600) {     // Minutes: 60 * 60
+        if (seconds > 3600) { // Minutes: 60 * 60
             hours = seconds / 3600;
             seconds = seconds % 3600;
             durationStr += pad(Math.floor(hours)) + ":";
@@ -92,7 +94,7 @@
         var msgObject,
             user = "",
             htmlHeader = "";
-            htmlData = [];
+        htmlData = [];
 
         try {
             msgObject = JSON.parse(message.data);
@@ -169,20 +171,20 @@
                         chat: (panelStatsEnabled ? chatData[user] : 0)
                     };
                 }
- 
+
                 htmlHeader = "<table class='CLASS_STRING' data-paging='true' data-paging-size='8'" +
-                             "       data-filtering='true' data-filter-delay='200'" +
-                             "       data-sorting='true'" +
-                             "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>" +
-                             "<thead><tr>" +
-                             "    <th data-breakpoints='xs'>User</th>" +
-                             "    <th data-type='Date'>Last Seen</th>" +
-                             "    <th data-type='Date'>Time in Chat</th>" +
-                             "    <th data-type='number'><i class='fa fa-money' /></th>" +
-                             "    <th data-type='number'><i class='fa fa-comment' /></th>" +
-                             "    <th data-type='number'><i class='fa fa-ban' /></th>" +
-                             "    <th>&hearts;</th>" +
-                             "</tr></thead><tbody>";
+                    "       data-filtering='true' data-filter-delay='200'" +
+                    "       data-sorting='true'" +
+                    "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>" +
+                    "<thead><tr>" +
+                    "    <th data-breakpoints='xs'>User</th>" +
+                    "    <th data-type='Date'>Last Seen</th>" +
+                    "    <th data-type='Date'>Time in Chat</th>" +
+                    "    <th data-type='number'><i class='fa fa-money' /></th>" +
+                    "    <th data-type='number'><i class='fa fa-comment' /></th>" +
+                    "    <th data-type='number'><i class='fa fa-ban' /></th>" +
+                    "    <th>&hearts;</th>" +
+                    "</tr></thead><tbody>";
 
 
                 htmlData["1"] = htmlHeader.replace('CLASS_STRING', 'table_1');
@@ -190,7 +192,7 @@
                 htmlData["3"] = htmlHeader.replace('CLASS_STRING', 'table_3');
                 htmlData["4"] = htmlHeader.replace('CLASS_STRING', 'table_4');
                 htmlData["6"] = htmlHeader.replace('CLASS_STRING', 'table_6');
-                htmlData["7"] = htmlHeader.replace('CLASS_STRING', 'table_7'); 
+                htmlData["7"] = htmlHeader.replace('CLASS_STRING', 'table_7');
 
                 for (var user in viewerData) {
                     htmlData[viewerData[user].group.toString()] +=
@@ -217,7 +219,7 @@
                         htmlData[viewerData[user].group.toString()] +=
                             "    <td>&nbsp;</td>";
                     }
-    
+
                     htmlData[viewerData[user].group.toString()] += "</tr>";
                 }
 
@@ -226,7 +228,7 @@
                 htmlData["3"] += "</tbody></table>";
                 htmlData["4"] += "</tbody></table>";
                 htmlData["6"] += "</tbody></table>";
-                htmlData["7"] += "</tbody></table>";                
+                htmlData["7"] += "</tbody></table>";
 
                 $("#viewersAdminList").html(htmlData["1"]);
                 $('.table_1').footable();
@@ -252,7 +254,7 @@
                 loadedPoints = false;
                 loadedLastSeen = false;
                 loadedTimeout = false;
-                loadedChat = false; 
+                loadedChat = false;
                 loadedFollowed = false;
 
                 lastseenData = [];
@@ -264,7 +266,7 @@
                 followedData = [];
             }
         }
-    } 
+    }
 
     /**
      * @function doQuery
@@ -297,6 +299,7 @@
     function sortUsersTable_alpha_desc(a, b) {
         return panelStrcmp(b, a);
     };
+
     function sortUsersTable_alpha_asc(a, b) {
         return panelStrcmp(a, b);
     };
@@ -304,24 +307,24 @@
     /**
      * @function updateUserPerm
      */
-    function updateUserPerm (perm) {
+    function updateUserPerm(perm) {
         var username = $("#promoteUser" + perm).val();
         if (username.length != 0) {
             if (perm == 'Admin') {
                 sendDBUpdate('user_perm', 'group', username.toLowerCase(), '1');
                 sendCommand('permissionsetuser ' + username.toLowerCase() + ' 1');
             }
-    
+
             if (perm == 'Mod') {
                 sendDBUpdate('user_perm', 'group', username.toLowerCase(), '2');
                 sendCommand('permissionsetuser ' + username.toLowerCase() + ' 2');
             }
-    
+
             if (perm == 'Sub') {
                 sendDBUpdate('user_perm', 'group', username.toLowerCase(), '3');
                 sendCommand('permissionsetuser ' + username.toLowerCase() + ' 3');
             }
-    
+
             if (perm == 'Donator') {
                 sendDBUpdate('user_perm', 'group', username.toLowerCase(), '4');
                 sendCommand('permissionsetuser ' + username.toLowerCase() + ' 4');
@@ -331,7 +334,7 @@
             if (perm == 'Hoster') {
                 sendDBUpdate('user_perm', 'group', username.toLowerCase(), '5');
             }*/
-    
+
             if (perm == 'Reg') {
                 sendDBUpdate('user_perm', 'group', username.toLowerCase(), '6');
                 sendCommand('permissionsetuser ' + username.toLowerCase() + ' 6');
@@ -345,7 +348,7 @@
     /**
      * @function updateUserPerm
      */
-    function demoteUser (perm) {
+    function demoteUser(perm) {
         var username = $("#unPromoteUser" + perm).val();
         if (username.length != 0) {
             sendDBDelete('user_perm', 'group', username.toLowerCase());
@@ -358,7 +361,7 @@
     /**
      * @function fixFollower
      */
-    function fixFollower () {
+    function fixFollower() {
         var username = $("#fixFollower").val();
         if (username.length != 0) {
             sendDBUpdate('user_follows', 'followed', username.toLowerCase(), 'true');
@@ -371,10 +374,10 @@
     $("#viewersPanel").load("/panel/viewers.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
-            if (active == 5) {
+            if (active == 7) {
                 doQuery();
                 clearInterval(interval);
             }
@@ -382,15 +385,15 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-/*
-    setInterval(function() {
-        var active = $("#tabs").tabs("option", "active");
-        if (active == 5 && isConnected && !isInputFocus()) {
-            newPanelAlert('Refreshing Viewers Data', 'success', 1000);
-            doQuery();
-        }
-    }, 3e4);
-*/
+    /*
+        setInterval(function() {
+            var active = $("#tabs").tabs("option", "active");
+            if (active == 5 && isConnected && !isInputFocus()) {
+                newPanelAlert('Refreshing Viewers Data', 'success', 1000);
+                doQuery();
+            }
+        }, 3e4);
+    */
 
     // Export functions - Needed when calling from HTML.
     $.viewersOnMessage = onMessage;

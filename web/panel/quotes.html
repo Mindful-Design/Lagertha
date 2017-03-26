@@ -23,14 +23,13 @@
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="quotesAccordion">
     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_quotesPanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Multi-Link</h4>
+                    <h4 class="title">Quotes</h4>
                 </div>
-                <div class="content">Quotes
+                <div class="content">
                     <div>
-                        <div id="_quotesPanelDisabled" />
                         <div id="_quotesPanel">
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -51,7 +50,7 @@
                             <br>
 
                             <label>Quotes</label><br><br>
-                            <div id="quoteList" style="height: 350px; overflow: auto;" />
+                            <div id="quoteList" style="max-height: 350px; overflow: auto;" />
                         </div>
                     </div>
                 </div>

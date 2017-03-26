@@ -842,7 +842,7 @@
     var interval = setInterval(function() {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
-            if (active == 2) {
+            if (active == 6) {
                 doQuery();
                 clearInterval(interval);
             }
@@ -852,7 +852,7 @@
     // Query the DB every 30 seconds for updates.
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
-        if (active == 2 && isConnected && !isInputFocus()) {
+        if (active == 6 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Moderation Data', 'success', 1000);
             doQuery();
         }

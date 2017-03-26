@@ -34,14 +34,14 @@
     <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
     <div id="twitterAccordion">
         <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+            <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Multi-Link</h4>
+                        <h4 class="title">Polling Options</h4>
                     </div>
-                    <div class="content">Polling Options
+                    <div class="content">
                         <div>
-                            <div id="twitterPollTable" style="height: 120px; overflow: auto;" />
+                            <div id="twitterPollTable" style="max-height: 120px; overflow: auto;" />
                             <small><i>
         Please note that if Poll Home Timeline is enabled then Lagertha will not poll any other data from Twitter.
         The other options are not automatically marked as disabled, but Lagertha will not perform the poll.
@@ -84,14 +84,14 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+            <div class="col-md-4 col-sm-12 col-xs-12" >
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Multi-Link</h4>
+                        <h4 class="title">Posting Options</h4>
                     </div>
-                    <div class="content">Posting Options
+                    <div class="content">
                         <div>
-                            <div id="twitterPostTable" style="height: 100px; overflow: auto;" />
+                            <div id="twitterPostTable" style="max-height: 100px; overflow: auto;" />
 
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">

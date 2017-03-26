@@ -23,14 +23,13 @@
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="gamblingAccordion">
     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_auctionPanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Multi-Link</h4>
+                    <h4 class="title">Auction</h4>
                 </div>
-                <div class="content">Auction
+                <div class="content">
                     <div>
-                        <div id="_auctionPanelDisabled" />
                         <div id="_auctionPanel">
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -50,14 +49,13 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_rafflePanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Multi-Link</h4>
+                    <h4 class="title">Raffle</h4>
                 </div>
-                <div class="content">Raffle
+                <div class="content">
                     <div>
-                        <div id="_rafflePanelDisabled" />
                         <div id="_rafflePanel">
 
                             <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.raffle.repick()">Repick</button>
@@ -353,7 +351,7 @@
 
                             <br><br>
                             <label for="raffleListTable">Raffle Entry List</label>
-                            <div id="raffleListTable" style="height: 200px; overflow: auto;" />
+                            <div id="raffleListTable" style="max-height: 200px; overflow: auto;" />
                             <br>
                             <small><i>Please note that the list does not reset until the next raffle is opened. This is for the ability to pick a new winner.</i></small>
 
@@ -363,14 +361,13 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_trafflePanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Multi-Link</h4>
+                    <h4 class="title">Ticket Raffle</h4>
                 </div>
-                <div class="content">Ticket Raffle
+                <div class="content">
                     <div>
-                        <div id="_trafflePanelDisabled" />
                         <div id="_trafflePanel">
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -416,7 +413,7 @@
                             <br>
                             <br>
                             <label for="traffleListTable">Raffle Entry List</label>
-                            <div id="traffleListTable" style="height: 200px; overflow: auto;" />
+                            <div id="traffleListTable" style="max-height: 200px; overflow: auto;" />
                             <br>
                             <small><i>Please note that the list does not reset until the next raffle is opened. This is for the ability to pick a new winner.</i></small>
                         </div>
