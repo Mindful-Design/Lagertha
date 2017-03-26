@@ -64,7 +64,7 @@
                     quoteDataClean[1] = quoteDataClean[1].replace(/,/g, '%2C').replace(/'/g, '%27');
                     html += '<tr >' +
                             '    <td>' +
-                            '        <div id="deleteQuote_' + id + '" type=\"button\" class=\"btn btn-default btn-xs\"' +
+                            '        <div id="deleteQuote_' + id + '" type=\"button\" class=\"btn btn-info btn-fill btn-xs\"' +
                             '             onclick="$.deleteQuote(\'' + id + '\')"><i class="fa fa-trash" />' +
                             '        </div>' +
                             '    </td>' +
@@ -81,7 +81,7 @@
                             '        <form onkeypress="return event.keyCode != 13">' +
                             '            <input type="text" id="inlineQuoteEdit_user_' + id + '"' +
                             '                   value="' + quoteData[0] + '" />' +
-                            '            <button type="button" class="btn btn-default btn-xs"' +
+                            '            <button type="button" class="btn btn-info btn-fill btn-xs"' +
                             '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'user\')">' +
                             '                <i class="fa fa-pencil" />' +
                             '            </button>' +
@@ -93,7 +93,7 @@
                             '        <form onkeypress="return event.keyCode != 13">' +
                             '            <input type="text" id="inlineQuoteEdit_game_' + id + '"' +
                             '                   value="' + (quoteData.length == 4 ? quoteData[3] : 'Some Game') + '" />' +
-                            '            <button type="button" class="btn btn-default btn-xs"' +
+                            '            <button type="button" class="btn btn-info btn-fill btn-xs"' +
                             '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'game\')">' +
                             '                <i class="fa fa-pencil" />' +
                             '            </button>' +
@@ -107,7 +107,7 @@
                             '        <form onkeypress="return event.keyCode != 13">' +
                             '            <input style="width: 89%" type="text" id="inlineQuoteEdit_quote_' + id + '"' +
                             '                   value="' + quoteData[1] + '" />' +
-                            '            <button type="button" class="btn btn-default btn-xs"' +
+                            '            <button type="button" class="btn btn-info btn-fill btn-xs"' +
                             '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'quote\')">' +
                             '                <i class="fa fa-pencil" />' +
                             '            </button>' +

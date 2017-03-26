@@ -24,7 +24,23 @@
     --md-off-hover: #EE2D20;
     --md-main-bg: rgba(210, 210, 210, 0.52);
     --md-panel-bg: #FFFFFF;
+    --md-form-color: rgba(255, 255, 255, 0);
+    --md-card-header: #333333;
+    --md-font-color: #797575;
 }
+
+
+/*:root {
+    --md-main-color: #edeff0;
+    --md-main-hover: #edeff0;
+    --md-off-color: #2b3942;
+    --md-off-hover: #2b3942;
+    --md-main-bg: #22313a;
+    --md-panel-bg: #2b3942;
+    --md-form-color: rgba(0, 0, 0, 0);
+    --md-card-header: #b4bfc3;
+    --md-font-color: rgba(177, 188, 192, .47);
+}*/
 
 
 /*      light colors         */
@@ -228,6 +244,7 @@ body,
     min-height: 100vh;
     position: relative;
     background-color: var(--md-main-bg);
+    color: var(--md-font-color);
 }
 
 a {
@@ -1274,7 +1291,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .form-control {
-    background-color: #FFFFFF;
+    background-color: var(--md-form-color);
     border: 1px solid #E3E3E3;
     border-radius: 4px;
     color: #565656;
@@ -2483,7 +2500,7 @@ fieldset[disabled] .form-control {
 
 .card .title {
     margin: 0;
-    color: #333333;
+    color: var(--md-card-header);
     font-weight: 300;
 }
 
@@ -3684,6 +3701,11 @@ notification-modes {
     position: absolute;
     width: 100%;
     bottom: 10px;
+}
+
+.footable .pagination>.active>a {
+    background-color: var(--md-main-color);
+    border-color: var(--md-main-color);
 }
 
 

@@ -206,30 +206,45 @@
 
             }
             if (toutGraphData.length > 0 && chatGraphData.length > 0) {
-                $.plot($("#panelStatsGraph"), [
-                    {
-                        data: chatGraphData,
-                        lines: {
-                            show: true
-                        },
-                        color: "#1DC7EA"
+                var ctx = document.getElementById("panelStatsGraph");
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
+                        datasets: [{
+                            label: '# of Votes',
+                            data: [chatGraphData],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
                     },
-                    {
-                        data: toutGraphData,
-                        lines: {
-                            show: true
-                        },
-                        color: "#FF4A55"
-                    }
-                           ], {
-                    xaxis: {
-                        show: false
-                    },
-                    yaxis: {
-                        show: false
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
                     }
                 });
+
             }
+            /*new Chartist.Line('#panelStatsGraph', data);*/
+
 
             if (panelCheckQuery(msgObject, 'dashboard_panelStatsEnabled')) {
                 if (panelMatch(msgObject['results']['enabled'], 'true')) {

@@ -100,8 +100,8 @@
                         '<td>!' + (command.length > 10 ? command.substring(0, 10) + '...' : command) + '</td>' +
                         '<td>' + (response.length > 50 ? response.substring(0, 50) + '...' : response) + '</td>' +
                         '<td>' + cooldown + ' sec ' + '</td>' +
-                        '<td><button type="button" class="btn btn-default btn-xs" onclick="$.openCommandModal(\'' + command + '\', \'' + response + '\', \'' + permission + '\', \'' + cooldown + '\', \'' + channel + '\')"><i class="fa fa-pencil" /> </button>' +
-                        '<button type="button" id="delete_command_' + command.replace(/[^a-z1-9_]/ig, '_') + '" class="btn btn-default btn-xs" onclick="$.updateDiscordCommand(\'' + command + '\', \'true\')"><i class="fa fa-trash" /> </button></td> ' +
+                        '<td><button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.openCommandModal(\'' + command + '\', \'' + response + '\', \'' + permission + '\', \'' + cooldown + '\', \'' + channel + '\')"><i class="fa fa-pencil" /> </button>' +
+                        '<button type="button" id="delete_command_' + command.replace(/[^a-z1-9_]/ig, '_') + '" class="btn btn-info btn-fill btn-xs" onclick="$.updateDiscordCommand(\'' + command + '\', \'true\')"><i class="fa fa-trash" /> </button></td> ' +
                         '</tr>';
                 }
             }

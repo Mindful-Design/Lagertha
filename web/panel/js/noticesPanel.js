@@ -89,8 +89,8 @@
                     '        <form onkeypress="return event.keyCode != 13">' +
                     '            <input style="width: 80%" type="text" id="inlineNoticeEdit_' + id + '"' +
                     '                   value="' + msgObject['results'][idx]['value'] + '" />' +
-                    '              <button type="button" class="btn btn-default btn-xs" onclick="$.updateNotice(\'' + id + '\')"><i class="fa fa-pencil" /> </button> ' +
-                    '              <button type="button" class="btn btn-default btn-xs" id="deleteNotice_' + id + '" onclick="$.deleteNotice(\'' + id + '\')"><i class="fa fa-trash" /> </button>' +
+                    '              <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.updateNotice(\'' + id + '\')"><i class="fa fa-pencil" /> </button> ' +
+                    '              <button type="button" class="btn btn-info btn-fill btn-xs" id="deleteNotice_' + id + '" onclick="$.deleteNotice(\'' + id + '\')"><i class="fa fa-trash" /> </button>' +
                     '             </form>' +
                     '        </form>' +
                     '    </td>' +

@@ -71,9 +71,9 @@
                             "               value=\"" + hours + "\" style=\"width: 10%\"/>" +
                             "        <input type=\"text\" id=\"inlineRankNameEdit_" + hours + "\"" +
                             "               value=\"" + rank + "\" style=\"width: 50%\"/>" +
-                            "        <button type=\"button\" class=\"btn btn-default btn-xs\"" + 
+                            "        <button type=\"button\" class=\"btn btn-info btn-fill btn-xs\"" + 
                             "                onclick=\"$.updateRank('" + hours + "')\"><i class=\"fa fa-pencil\" />" +
-                            "        <button type=\"button\" class=\"btn btn-default btn-xs\" id=\"deleteRank_" + hours + "\"" + 
+                            "        <button type=\"button\" class=\"btn btn-info btn-fill btn-xs\" id=\"deleteRank_" + hours + "\"" + 
                             "                onclick=\"$.deleteRank('" + hours + "')\"><i class=\"fa fa-trash\" />" +
                             "        </button>" +
                             "    </form></td>" +
@@ -105,7 +105,7 @@
                             "    <td><form onkeypress=\"return event.keyCode != 13\">" +
                             "        <input type=\"text\" id=\"inlineRankCustomEdit_" + user + "\"" +
                             "               value=\"" + rank + "\" style=\"width: 80%\" />" +
-                            "        <button type=\"button\" class=\"btn btn-default btn-xs\"" + 
+                            "        <button type=\"button\" class=\"btn btn-info btn-fill btn-xs\"" + 
                             "                onclick=\"$.updateCustomRank('" + user + "')\"><i class=\"fa fa-pencil\" />" +
                             "        </button>" +
                             "    </form></td>" +

@@ -23,7 +23,7 @@
  * audioPanel.js
  * Drives the Audio Panel
  */
-(function() {
+(function () {
 
     /**
      * Sounds Object
@@ -77,7 +77,7 @@
             for (var idx in msgObject['results']) {
                 playlists.push(msgObject['results'][idx]['value']);
             }
-            $.playlists = playlists; 
+            $.playlists = playlists;
         }
 
         if (msgObject['audio_panel_hook'] !== undefined) {
@@ -89,15 +89,15 @@
                 $('#ytplayerBSong').html('<i>There are no blacklisted songs.</i>');
                 return;
             }
-            var html = '<table class='table table-hover table-striped'>';
+            var html = '<table class="table table-hover table-striped">';
             for (var idx in msgObject['results']) {
-                 var name = msgObject['results'][idx]['key'];
+                var name = msgObject['results'][idx]['key'];
                 html += '<tr >' +
-                        '    <td>' + name + '</td>' +
-                        '    <td>' +
-                        '        <button type="button" class="btn btn-default btn-xs" id="deleteBSong_' + name + '" onclick="$.deleteBSong(\'' + name + '\')"><i class="fa fa-trash" /> </button>' +
-                        '    </td>' +
-                        '</tr>';
+                    '    <td>' + name + '</td>' +
+                    '    <td>' +
+                    '        <button type="button" class="btn btn-info btn-fill btn-xs" id="deleteBSong_' + name + '" onclick="$.deleteBSong(\'' + name + '\')"><i class="fa fa-trash" /> </button>' +
+                    '    </td>' +
+                    '</tr>';
             }
             html += '</table>';
             $('#ytplayerBSong').html(html);
@@ -107,7 +107,10 @@
         if (panelCheckQuery(msgObject, 'audio_hook')) {
             sounds = [];
             for (var idx in msgObject['results']) {
-                sounds.push({name: msgObject['results'][idx]['key'], desc: msgObject['results'][idx]['value']});
+                sounds.push({
+                    name: msgObject['results'][idx]['key'],
+                    desc: msgObject['results'][idx]['value']
+                });
             }
 
             if (sounds.length === 0) {
@@ -115,14 +118,14 @@
                 $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"greenPill-sm\">Ready</span>");
             } else {
                 setTimeout(function () {
-                    $(document).ready(function() {
+                    $(document).ready(function () {
                         ion.sound({
                             sounds: sounds,
                             path: "/panel/js/ion-sound/sounds/",
                             preload: true,
                             volume: 1.0,
                             ready_callback: ionSoundLoaded,
-                            ended_callback: clearIonSoundPlaying 
+                            ended_callback: clearIonSoundPlaying
                         });
                     });
                 }, 2000);
@@ -132,7 +135,10 @@
         if (panelCheckQuery(msgObject, 'audio_hook_reload')) {
             sounds = [];
             for (var idx in msgObject['results']) {
-                sounds.push({name: msgObject['results'][idx]['key'], desc: msgObject['results'][idx]['value']});
+                sounds.push({
+                    name: msgObject['results'][idx]['key'],
+                    desc: msgObject['results'][idx]['value']
+                });
             }
 
             if (sounds.length === 0) {
@@ -145,7 +151,7 @@
                     preload: true,
                     volume: 1.0,
                     ready_callback: ionSoundLoaded,
-                    ended_callback: clearIonSoundPlaying 
+                    ended_callback: clearIonSoundPlaying
                 });
             }
             loadAudioPanel();
@@ -168,13 +174,13 @@
             }
             html = '<table>';
             for (var idx in msgObject['results']) {
-                 var name = msgObject['results'][idx]['key'];
+                var name = msgObject['results'][idx]['key'];
                 html += '<tr >' +
-                        '    <td>' + name + '</td>' +
-                        '    <td>' +
-                        '        <button type="button" class="btn btn-default btn-xs" id="deleteUser_' + name + '" onclick="$.deleteUser(\'' + name + '\')"><i class="fa fa-trash" /> </button>' +
-                        '    </td>' +
-                        '</tr>';
+                    '    <td>' + name + '</td>' +
+                    '    <td>' +
+                    '        <button type="button" class="btn btn-info btn-fill btn-xs" id="deleteUser_' + name + '" onclick="$.deleteUser(\'' + name + '\')"><i class="fa fa-trash" /> </button>' +
+                    '    </td>' +
+                    '</tr>';
             }
             html += '</table>';
             $('#ytplayerBUser').html(html);
@@ -213,7 +219,9 @@
     function deleteBSong(song) {
         $("#deleteBSong_" + song).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("audio_bsong_" + song, "ytpBlacklistedSong", song);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     };
 
     /** 
@@ -223,9 +231,13 @@
         var song = $("#songBlacklist").val();
         if (song.length != 0) {
             sendDBUpdate("audio_song_" + song, "ytpBlacklistedSong", song.toLowerCase(), 'true');
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
-        setTimeout(function() { $("#songBlacklist").val(''); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            $("#songBlacklist").val('');
+        }, TIMEOUT_WAIT_TIME);
     };
 
     /** 
@@ -235,7 +247,9 @@
     function deleteUser(user) {
         $("#deleteBUser_" + user).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("audio_user_" + user, "ytpBlacklist", user);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     };
 
     /** 
@@ -245,9 +259,13 @@
         var user = $("#userBlacklist").val();
         if (user.length != 0) {
             sendDBUpdate("audio_user_" + user, "ytpBlacklist", user.toLowerCase(), 'true');
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
-        setTimeout(function() { $("#userBlacklist").val(''); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            $("#userBlacklist").val('');
+        }, TIMEOUT_WAIT_TIME);
     };
 
     /**
@@ -257,8 +275,8 @@
         $("#audioPanelButtons").html('');
         for (var idx in sounds) {
             $("#audioPanelButtons").append("<button type=\"button\" class=\"soundButton\"" +
-                                           "onclick=\"$.playIonSound('" + sounds[idx]['name'] + "');\">" +
-                                           sounds[idx]['desc'] + "</button>");
+                "onclick=\"$.playIonSound('" + sounds[idx]['name'] + "');\">" +
+                sounds[idx]['desc'] + "</button>");
         }
     }
 
@@ -326,7 +344,10 @@
         } else {
             sendDBUpdate('audio_setting', 'ytSettings', 'announceInChat', "true");
         }
-        setTimeout(function() { doQuery(); sendCommand('reloadyt'); }, TIMEOUT_WAIT_TIME * 2);
+        setTimeout(function () {
+            doQuery();
+            sendCommand('reloadyt');
+        }, TIMEOUT_WAIT_TIME * 2);
     }
 
     /**
@@ -337,7 +358,11 @@
         if (value.length > 0) {
             $('#ytpDJNameInput').val('Updating...');
             sendDBUpdate('audio_setting', 'ytSettings', 'playlistDJname', value);
-            setTimeout(function() { doQuery(); $('#ytpDJNameInput').val(''); sendCommand('reloadyt'); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                doQuery();
+                $('#ytpDJNameInput').val('');
+                sendCommand('reloadyt');
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -351,7 +376,9 @@
             $('#ytpMaxReqsInput').attr('placeholder', value);
             sendDBUpdate('audio_setting', 'ytSettings', 'songRequestsMaxParallel', value);
             sendCommand('reloadyt');
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -365,7 +392,9 @@
             $('#ytpMaxLengthInput').attr('placeholder', value);
             sendDBUpdate('audio_setting', 'ytSettings', 'songRequestsMaxSecondsforVideo', value);
             sendCommand('reloadyt');
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -377,7 +406,10 @@
         if (value.length > 0) {
             $('#playlistImput').val('Loading...');
             sendCommand('playlist playlistloadpanel ' + value);
-            setTimeout(function() { doQuery(); $('#playlistImput').val(''); }, TIMEOUT_WAIT_TIME * 4);
+            setTimeout(function () {
+                doQuery();
+                $('#playlistImput').val('');
+            }, TIMEOUT_WAIT_TIME * 4);
         }
     }
 
@@ -385,8 +417,8 @@
      * @function fillYouTubePlayerIframe
      */
     function fillYouTubePlayerIframe() {
-        $('#youTubePlayerIframe').html('<iframe id="youTubePlayer" frameborder="0" scrolling="auto" height="400" width="680"'+
-                                       '        src="' + getProtocol() + url[0] + ':' + (getPanelPort() + 1) + '/ytplayer?start_paused">');
+        $('#youTubePlayerIframe').html('<iframe id="youTubePlayer" frameborder="0" scrolling="auto" height="400" width="680"' +
+            '        src="' + getProtocol() + url[0] + ':' + (getPanelPort() + 1) + '/ytplayer?start_paused">');
     }
 
     /**
@@ -394,7 +426,7 @@
      */
     function launchYouTubePlayer() {
         window.open(getProtocol() + url[0] + ':' + (getPanelPort() + 1) + '/ytplayer', 'PhantomBot YouTube Player',
-                    'menubar=no,resizeable=yes,scrollbars=yes,status=no,toolbar=no,height=700,width=900,location=no' );
+            'menubar=no,resizeable=yes,scrollbars=yes,status=no,toolbar=no,height=700,width=900,location=no');
     }
 
     /**
@@ -403,8 +435,8 @@
     function drawYouTubePlayer() {
         if (YOUTUBE_IFRAME === true) {
             fillYouTubePlayerIframe();
-            $('#youTubeLauncher').html('<button type="button" class="btn btn-primary inline pull-left" onclick="$.toggleYouTubePlayer()">Hide/Show YouTube Player</button>' +
-                                       '<button type="button" class="btn btn-primary inline pull-left" onclick="$.toggleYouTubePlayerPause()">Toggle Pause</button>');
+            $('#youTubeLauncher').html('<button type="button" class="btn btn-info btn-fill inline pull-left" onclick="$.toggleYouTubePlayer()">Hide/Show YouTube Player</button>' +
+                '<button type="button" class="btn btn-info btn-fill inline pull-left" onclick="$.toggleYouTubePlayerPause()">Toggle Pause</button>');
         }
     }
 
@@ -412,7 +444,7 @@
     $("#audioPanel").load("/panel/audio.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (TABS_INITIALIZED) {
             drawYouTubePlayer();
         }
@@ -423,7 +455,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 9 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Audio Data', 'success', 1000);
@@ -432,7 +464,7 @@
     }, 3e4);
 
     // Queue for when multiple sounds are called at once. This will stop multiple sounds from playing at the same time.
-    setInterval(function() {
+    setInterval(function () {
         if (soundQueue.length > 0) {
             for (var i in soundQueue) {
                 if (!isPlaying) {

@@ -280,7 +280,7 @@
                         '        <input type="number" min="0" id="inline_' + key + '"' +
                         '               placeholder="' + value + '" value="' + value + '"' +
                         '               style="width: 8em" />' +
-                        '        <button type="button" class="btn btn-default btn-xs"' +
+                        '        <button type="button" class="btn btn-info btn-fill btn-xs"' +
                         '                onclick="$.updateGWTierData(\'' + key + '\')"><i class="fa fa-pencil" />' +
                         '        </button>' +
                         '    </td>' +

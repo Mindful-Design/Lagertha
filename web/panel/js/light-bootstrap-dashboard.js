@@ -123,8 +123,8 @@ lbd = {
 
              $toggle = $('.navbar-toggle');
 
-             $navbar.find('a').removeClass('btn btn-round btn-default');
-             $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
+             $navbar.find('a').removeClass('btn btn-round btn-info btn-fill');
+             $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-info btn-fill btn-success btn-danger btn-warning btn-neutral');
              $navbar.find('button').addClass('btn-simple btn-block');
 
              $toggle.click(function (){

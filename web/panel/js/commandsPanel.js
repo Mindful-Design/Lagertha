@@ -98,7 +98,7 @@
                         '        <form onkeypress="return event.keyCode != 13">' +
                         '            <input  type="text" id="editCommandCooldown_' + commandName + '"' +
                         '                   value="' + time + '" />' +
-                        '              <button type="button" class="btn btn-default btn-xs" onclick="$.editCooldown(\'' + commandName + '\')"><i class="fa fa-pencil" /> </button> ' +
+                        '              <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.editCooldown(\'' + commandName + '\')"><i class="fa fa-pencil" /> </button> ' +
                         '              <button type="button" class="btn btn-danger btn-xs" id="deleteCooldown_' + commandName + '" onclick="$.deleteCooldown(\'' + commandName + '\')"><i class="fa fa-trash" /> </button>' +
                         '             </form>' +
                         '        </form>' +

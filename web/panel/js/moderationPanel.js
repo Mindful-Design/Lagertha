@@ -115,7 +115,7 @@
 
                         html += "<tr >" +
                             "    <td>" +
-                            "        <div id=\"delete_blackList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-default btn-xs\" " +
+                            "        <div id=\"delete_blackList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-info btn-fill btn-xs\" " +
                             "             onclick=\"$.deleteBlacklist('" + modSetting + "')\"><i class=\"fa fa-trash\" />" +
                             "        </div>" +
                             "    </td>" +
@@ -139,7 +139,7 @@
     
                         html += "<tr >" +
                                 "    <td>" +
-                                "        <div id=\"delete_whiteList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-default btn-xs\"" +
+                                "        <div id=\"delete_whiteList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-info btn-fill btn-xs\"" +
                                 "             onclick=\"$.deleteWhitelist('" + modSetting + "')\"><i class=\"fa fa-trash\" />" +
                                 "        </div>" +
                                 "    </td>" +
