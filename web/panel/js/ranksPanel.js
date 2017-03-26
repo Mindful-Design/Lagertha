@@ -59,7 +59,7 @@
             }
 
             if (panelCheckQuery(msgObject, 'ranks_ranksmapping')) {
-                html = "<br><table><th>&nbsp;&nbsp;&nbsp; Hours &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rank Name</th></tr>";
+                html = "<br><table class='table table-hover table-striped'><th>&nbsp;&nbsp;&nbsp; Hours &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rank Name</th></tr>";
                 ranksData = msgObject['results'];
                 ranksData.sort(sortRanks);
                 for (idx = 0; idx < ranksData.length; idx++) {

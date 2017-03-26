@@ -23,13 +23,13 @@
  * pointsPanel.js
  * Drives the Points Panel
  */
-(function() {
+(function () {
 
     var sortType = 'alpha_asc',
         priceComMods = false,
         modeIcon = [];
-        modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
-        modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
+    modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+    modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
 
     /*
      * onMessage
@@ -37,8 +37,8 @@
      */
     function onMessage(message) {
         var msgObject,
-            groupPointKeys = [ "Caster", "Administrator", "Moderator", "Subscriber", "Donator", "Regular", "Viewer" ];
-            timezone = "GMT"; // Default time zone in Core if none given.
+            groupPointKeys = ["Caster", "Administrator", "Moderator", "Subscriber", "Donator", "Regular", "Viewer"];
+        timezone = "GMT"; // Default time zone in Core if none given.
 
         try {
             msgObject = JSON.parse(message.data);
@@ -54,10 +54,10 @@
                 for (idx in msgObject['results']) {
                     var key = "",
                         value = "";
-    
+
                     key = msgObject['results'][idx]['key'];
                     value = msgObject['results'][idx]['value'];
-    
+
                     if (panelMatch(key, 'onlineGain')) {
                         $("#setPointGainInput_setgain").val(value);
                     } else if (panelMatch(key, 'offlineGain')) {
@@ -72,7 +72,7 @@
                         $("#setPointsNameInput").val(value);
                     } else if (panelMatch(key, 'pointsMessage')) {
                         $("#pointsMessageInput").val(value);
-                    } 
+                    }
                 }
             }
 
@@ -86,28 +86,32 @@
                 $("#userPtsTableTitle").html("User Points Table (Refreshing <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>)");
 
                 pointsTableData.sort(sortPointsTable_alpha_asc);
-                
-                html = "<table class='table' data-paging='true' data-paging-size='8'" +
-                       "       data-filtering='true' data-filter-delay='200'" +
-                       "       data-sorting='true'" +
-                       "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>";
+
+                html = "<table class='table table-hover table-striped' data-paging='true' data-paging-size='8'" +
+                    "       data-filtering='true' data-filter-delay='200'" +
+                    "       data-sorting='true'" +
+                    "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>";
                 html += "<thead><tr>" +
-                        "    <th data-breakpoints='xs'>Username</th>" +
-                        "    <th data-filterable='false' data-type='number'>Points</th>" +
-                        "</tr></thead><tbody>";
+                    "    <th data-breakpoints='xs'>Username</th>" +
+                    "    <th data-filterable='false' data-type='number'>Points</th>" +
+                    "</tr></thead><tbody>";
 
                 for (var idx = 0; idx < pointsTableData.length; idx++) {
                     username = pointsTableData[idx]['key'];
                     points = pointsTableData[idx]['value'];
                     html += "<tr onclick='$.copyUserPoints(\"" + username + "\", \"" + points + "\")' >" +
-                            "    <td>" + username + "</td>" +
-                            "    <td>" + points + "</td>" +
-                            "</tr>";
+                        "    <td>" + username + "</td>" +
+                        "    <td>" + points + "</td>" +
+                        "</tr>";
                 }
                 html += "</tbody></table>";
                 $("#userPointsTable").html(html);
                 $('.table').footable({
-                    'on': { 'postdraw.ft.table': function(e, ft) { $("#userPtsTableTitle").html("User Points Table"); } }
+                    'on': {
+                        'postdraw.ft.table': function (e, ft) {
+                            $("#userPtsTableTitle").html("User Points Table");
+                        }
+                    }
                 });
                 handleInputFocus();
             }
@@ -126,7 +130,7 @@
                     groupPoints = "",
                     groupPointsData = [];
 
-                html = "<table>";
+                html = "<table class='table table-hover table-striped'>";
                 for (var idx = 0; idx < msgObject['results'].length; idx++) {
                     groupName = msgObject['results'][idx]['key'];
                     groupPoints = msgObject['results'][idx]['value'];
@@ -137,18 +141,18 @@
                     groupPoints = groupPointsData[groupName];
 
                     html += "<tr >" +
-                            "    <td>" +
-                            "        <div id=\"clearGroupPoints_" + groupName + "\" class=\"button\"" +
-                            "             onclick=\"$.updateGroupPoints('" + groupName + "', true, true)\"><i class=\"fa fa-trash\" />" +
-                            "        </div>" +
-                            "    <td>" + groupName + "</td>" +
-                            "    <td><form onkeypress=\"return event.keyCode != 13\">" +
-                            "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsEdit_" + groupName + "\"" +
-                            "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
-                            "        <button type=\"button\" class=\"btn btn-default btn-xs\"" +
-                            "               onclick=\"$.updateGroupPoints('" + groupName + "', true, false)\"><i class=\"fa fa-pencil\" />" +
-                            "        </button>" +
-                            "    </form></td>";
+                        "    <td>" +
+                        "        <div id=\"clearGroupPoints_" + groupName + "\" class=\"button\"" +
+                        "             onclick=\"$.updateGroupPoints('" + groupName + "', true, true)\"><i class=\"fa fa-trash\" />" +
+                        "        </div>" +
+                        "    <td>" + groupName + "</td>" +
+                        "    <td><form onkeypress=\"return event.keyCode != 13\">" +
+                        "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsEdit_" + groupName + "\"" +
+                        "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
+                        "        <button type=\"button\" class=\"btn btn-default btn-xs\"" +
+                        "               onclick=\"$.updateGroupPoints('" + groupName + "', true, false)\"><i class=\"fa fa-pencil\" />" +
+                        "        </button>" +
+                        "    </form></td>";
 
                     if (groupPoints === '-1') {
                         html += "<td>><i>Using Global Value</i></td>";
@@ -166,7 +170,7 @@
                     groupPoints = "",
                     groupPointsData = [];
 
-                html = "<table>";
+                html = "<table class='table table-hover table-striped'>";
                 for (var idx = 0; idx < msgObject['results'].length; idx++) {
                     groupName = msgObject['results'][idx]['key'];
                     groupPoints = msgObject['results'][idx]['value'];
@@ -177,18 +181,18 @@
                     groupPoints = groupPointsData[groupName];
 
                     html += "<tr >" +
-                            "    <td>" +
-                            "        <div id=\"clearGroupPointsOffline_" + groupName + "\" class=\"button\"" +
-                            "             onclick=\"$.updateGroupPoints('" + groupName + "', false, true)\"><i class=\"fa fa-trash\" />" +
-                            "        </div>" +
-                            "    <td>>" + groupName + "</td>" +
-                            "    <td><form onkeypress=\"return event.keyCode != 13\">" +
-                            "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsOfflineEdit_" + groupName + "\"" +
-                            "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
-                            "        <button type=\"button\" class=\"btn btn-default btn-xs\"" +
-                            "               onclick=\"$.updateGroupPoints('" + groupName + "', false, false)\"><i class=\"fa fa-pencil\" />" +
-                            "        </button>" +
-                            "    </form></td>";
+                        "    <td>" +
+                        "        <div id=\"clearGroupPointsOffline_" + groupName + "\" class=\"button\"" +
+                        "             onclick=\"$.updateGroupPoints('" + groupName + "', false, true)\"><i class=\"fa fa-trash\" />" +
+                        "        </div>" +
+                        "    <td>>" + groupName + "</td>" +
+                        "    <td><form onkeypress=\"return event.keyCode != 13\">" +
+                        "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsOfflineEdit_" + groupName + "\"" +
+                        "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
+                        "        <button type=\"button\" class=\"btn btn-default btn-xs\"" +
+                        "               onclick=\"$.updateGroupPoints('" + groupName + "', false, false)\"><i class=\"fa fa-pencil\" />" +
+                        "        </button>" +
+                        "    </form></td>";
 
                     if (groupPoints === '-1') {
                         html += "<td><i>Using Global Value</i></td>";
@@ -248,8 +252,12 @@
 
         if (points.length > 0) {
             sendDBUpdate("points_updateGroupPoints", dbtable, group, points);
-            setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { sendCommand('reloadpoints') }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doLiteQuery();
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendCommand('reloadpoints')
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -273,7 +281,9 @@
 
         if (singleName.match(/\s/ig) || pluralName.match(/\s/ig)) {
             $("#setPointsNameInput").val("Your points name cannot contain a space.");
-            setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                doLiteQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
             return;
         }
 
@@ -285,8 +295,12 @@
             sendDBUpdate("points_settings", "pointSettings", "pointNameMultiple", pluralName);
         }
 
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadpoints') }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand('reloadpoints')
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -295,8 +309,12 @@
     function clearPointName() {
         sendDBUpdate("points_settings", "pointSettings", "pointNameMultiple", "points");
         sendDBUpdate("points_settings", "pointSettings", "pointNameSingle", "point");
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadpoints') }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand('reloadpoints')
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -307,7 +325,9 @@
         var value = $("#setPointGainInput_" + action).val();
 
         if (value.length <= 0) {
-            setTimeout(function() { $("#setPointGainInput_" + action).val(''); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                $("#setPointGainInput_" + action).val('');
+            }, TIMEOUT_WAIT_TIME);
             return;
         }
 
@@ -327,8 +347,12 @@
             sendDBUpdate("points_settings", "pointSettings", "offlinePayoutInterval", value);
         }
 
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadpoints') }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand('reloadpoints')
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /*
@@ -340,8 +364,12 @@
         if (value.length > 0) {
             sendDBUpdate("points_settings", "pointSettings", "pointsMessage", value);
         }
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadpoints') }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand('reloadpoints')
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -371,8 +399,12 @@
         }
         $("#adjustUserPointsNameInput").val('');
         $("#adjustUserPointsInput").val('');
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadpoints') }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand('reloadpoints')
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -398,7 +430,9 @@
             }
             $("#giftChatPointsInput").val('');
             sendCommand(command);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -417,7 +451,9 @@
             $("#penaltyUser").val('Error.');
         }
         $("#penaltyUserTime").val('');
-        setTimeout(function () { $("#penaltyUser").val(''); }, TIMEOUT_WAIT_TIME * 10);
+        setTimeout(function () {
+            $("#penaltyUser").val('');
+        }, TIMEOUT_WAIT_TIME * 10);
     }
 
     /**
@@ -428,8 +464,12 @@
         if (val.length != 0) {
             sendDBUpdate("points_toplist", "settings", "topListAmountPoints", val);
         }
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadtop'); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand('reloadtop');
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -443,14 +483,16 @@
             sendDBUpdate("points_modprice", "settings", "pricecomMods", "true");
         }
         sendCommand('reloadinit');
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     // Import the HTML file for this panel.
     $("#pointsPanel").load("/panel/points.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
             if (active == 4) {
@@ -461,7 +503,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $("#tabs").tabs("option", "active");
         if (active == 4 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Points Data', 'success', 1000);

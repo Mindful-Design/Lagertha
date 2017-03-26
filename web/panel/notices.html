@@ -22,80 +22,97 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="noticesAccordion">
-            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Notices & Settings
-    <div>
-    <div id="_noticeConfigPanelDisabled" />
-    <div id="_noticeConfigPanel">
-        <table class="table table-hover table-striped">
-            <tr >
-                <td>Toggle Chat Notices</td>
-                <td><div id="chatNoticeMode" /></td>
-                <td>
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.toggleChatNotice();"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-        </table>
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Multi-Link</h4>
+                </div>
+                <div class="content">Notices & Settings
+                    <div>
+                        <div id="_noticeConfigPanelDisabled" />
+                        <div id="_noticeConfigPanel">
+                            <table class="table table-hover table-striped">
+                                <tr>
+                                    <td>Toggle Chat Notices</td>
+                                    <td>
+                                        <div id="chatNoticeMode" />
+                                    </td>
+                                    <td>
+                                        <div data-toggle="tooltip" title="Toggle" class="button" onclick="$.toggleChatNotice();"><i class="fa fa-refresh" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-        <table class="table table-hover table-striped">
-            <tr >
-                <td>Toggle Offline Chat Notices</td>
-                <td><div id="chatOfflineNoticeMode" /></td>
-                <td>
-                    <div data-toggle="tooltip" title="Toggle" class="button"
-                         onclick="$.toggleChatOfflineNotice();"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-        </table>
-        <br>
+                            <table class="table table-hover table-striped">
+                                <tr>
+                                    <td>Toggle Offline Chat Notices</td>
+                                    <td>
+                                        <div id="chatOfflineNoticeMode" />
+                                    </td>
+                                    <td>
+                                        <div data-toggle="tooltip" title="Toggle" class="button" onclick="$.toggleChatOfflineNotice();"><i class="fa fa-refresh" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br> Set the interval for notices and the required messages before triggering one. Use 0 for required messages if you only want a timer.<br><br>
 
-        Set the interval for notices and the required messages before triggering one. Use 0 for required messages if you only want a timer.<br><br>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="noticeInterval">Timer Interval</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateNoticeInterval('#noticeIntervalInput', 'interval')">Submit</button>
+                                    <input type="number" min="5" class="form-control" id="noticeIntervalInput" placeholder="Minutes" data-toggle="tooltip" title="Set the interval (in minutes) of when a notice gets triggered. Minimum is 5 minutes" />
+                                </div>
+                            </form>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="noticeInterval">Timer Interval</label>
-                <button type="button" class="btn btn-info btn-fill pull-right"
-                        onclick="$.updateNoticeInterval('#noticeIntervalInput', 'interval')">Submit</button>
-                <input type="number" min="5" class="form-control" id="noticeIntervalInput" placeholder="Minutes" 
-                    data-toggle="tooltip" title="Set the interval (in minutes) of when a notice gets triggered. Minimum is 5 minutes" />
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="noticeMsgReq">Required Messages</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateNoticeReq('#noticeReqInput', 'reqmessages')">Submit</button>
+                                    <input type="number" min="0" class="form-control" id="noticeReqInput" placeholder="Number of Messages" data-toggle="tooltip" title="Set the amount of messages required before a notice gets triggered." />
+                                </div>
+                            </form>
+                            <br> Notices are timed chat announcements that are said randomly with the interval you have set. It is a great feature to promote your social media.<br><br>
+
+                            <div id="_noticesPanelDisabled" />
+                            <div id="_noticesPanel">
+                                <form role="form">
+                                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                                        <label for="addNotice">Add New Notice</label>
+                                        <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addNotice()">Submit</button>
+                                        <input type="text" class="form-control" id="addNoticeInput" placeholder="New Notice" data-toggle="tooltip" title="Enter a message, or you can use a command. command:Command_Name" />
+                                    </div>
+                                </form>
+
+                                Current Notices
+                                <div id="noticeList" style="height: 200px; overflow: auto;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="noticeMsgReq">Required Messages</label>
-                <button type="button" class="btn btn-info btn-fill pull-right"
-                        onclick="$.updateNoticeReq('#noticeReqInput', 'reqmessages')">Submit</button>
-                <input type="number" min="0" class="form-control" id="noticeReqInput" placeholder="Number of Messages"
-                    data-toggle="tooltip" title="Set the amount of messages required before a notice gets triggered." />
-            </div>
-        </form>
-        <br>
-
-        Notices are timed chat announcements that are said randomly with the interval you have set. It is a great feature to promote your social media.<br><br>
-
-        <div id="_noticesPanelDisabled" />
-        <div id="_noticesPanel">
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="addNotice">Add New Notice</label>
-                <button type="button" class="btn btn-info btn-fill pull-right"
-                        onclick="$.addNotice()">Submit</button>
-                <input type="text" class="form-control" id="addNoticeInput" placeholder="New Notice"
-                       data-toggle="tooltip" title="Enter a message, or you can use a command. command:Command_Name" />
-            </div>
-        </form>
-
-        Current Notices
-        <div id="noticeList" style="height: 200px; overflow: auto;" />
-    </div>
-    </div>
+        </div>
     </div>
 </div>
 
 <!-- Run the Acordion -->
-<script>$("#noticesAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
-<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
-<script>handleInputFocus();</script>
+<script>
+    $("#noticesAccordion").accordion({
+        clearStyle: true,
+        heightStyle: "panel",
+        icons: null
+    });
+
+</script>
+<script>
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger: 'hover'
+    });
+
+</script>
+<script>
+    handleInputFocus();
+
+</script>

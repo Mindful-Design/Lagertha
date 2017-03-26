@@ -52,7 +52,7 @@
 
         if (panelCheckQuery(msgObject, 'discord_commnads')) {
             var keys = msgObject['results'],
-                html = '<table style="width: 100%"><tr><th>Command</th><th>Response</th><th>Cooldown</th><th style="float: right;"></td>',
+                html = '<table class="table table-hover table-striped"><tr><th>Command</th><th>Response</th><th>Cooldown</th><th style="float: right;"></td>',
                 dataObj = {},
                 permission,
                 cooldown,

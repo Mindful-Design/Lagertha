@@ -21,108 +21,133 @@
 <!-- This is outside of the accordion, so will always be on top of the tab -->
 <div id="_twitterPanelDisabled"><br><br></div>
 <div id="_twitterPanel">
-<div>
-    <form role="form">
-        <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="postTweet">Post a Tweet</label>
-            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.postTweet()">Tweet</button>
-            <input type="text" maxlength="140" class="form-control" id="postTweetInput" placeholder="Tweet Text">
-        </div>
-    </form>
-</div>
-
-<!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
-<div id="twitterAccordion">
-            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Polling Options
     <div>
-        <div id="twitterPollTable" style="height: 120px; overflow: auto;" />
-        <small><i>
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="postTweet">Post a Tweet</label>
+                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.postTweet()">Tweet</button>
+                <input type="text" maxlength="140" class="form-control" id="postTweetInput" placeholder="Tweet Text">
+            </div>
+        </form>
+    </div>
+
+    <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
+    <div id="twitterAccordion">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Multi-Link</h4>
+                    </div>
+                    <div class="content">Polling Options
+                        <div>
+                            <div id="twitterPollTable" style="height: 120px; overflow: auto;" />
+                            <small><i>
         Please note that if Poll Home Timeline is enabled then Lagertha will not poll any other data from Twitter.
         The other options are not automatically marked as disabled, but Lagertha will not perform the poll.
         </i></small>
-        <br><br>
+                            <br><br>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="pollDelayMentionsTweet">Mentions Poll Delay</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_mentions')">Update</button>
-                <input type="number" min="60" class="form-control" id="polldelay_mentionsTweetInput" placeholder="Seconds"
-                       data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
-            </div>
-        </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="pollDelayMentionsTweet">Mentions Poll Delay</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_mentions')">Update</button>
+                                    <input type="number" min="60" class="form-control" id="polldelay_mentionsTweetInput" placeholder="Seconds" data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
+                                </div>
+                            </form>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="pollDelayRetweetsTweet">Retweets Poll Delay</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_retweets')">Update</button>
-                <input type="number" min="60" class="form-control" id="polldelay_retweetsTweetInput" placeholder="Seconds"
-                       data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
-            </div>
-        </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="pollDelayRetweetsTweet">Retweets Poll Delay</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_retweets')">Update</button>
+                                    <input type="number" min="60" class="form-control" id="polldelay_retweetsTweetInput" placeholder="Seconds" data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
+                                </div>
+                            </form>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="pollDelayHomeTweet">Home Timeline Poll Delay</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_hometimeline')">Update</button>
-                <input type="number" min="60" class="form-control" id="polldelay_hometimelineTweetInput" placeholder="Seconds"
-                       data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
-            </div>
-        </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="pollDelayHomeTweet">Home Timeline Poll Delay</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_hometimeline')">Update</button>
+                                    <input type="number" min="60" class="form-control" id="polldelay_hometimelineTweetInput" placeholder="Seconds" data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
+                                </div>
+                            </form>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="pollDelayUserTweet">User Timeline Poll Delay</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_usertimeline')">Update</button>
-                <input type="number" min="15" class="form-control" id="polldelay_usertimelineTweetInput" placeholder="Seconds"
-                       data-toggle="tooltip" title="Poll delay in seconds. Minimum is 15.">
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="pollDelayUserTweet">User Timeline Poll Delay</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('polldelay_usertimeline')">Update</button>
+                                    <input type="number" min="15" class="form-control" id="polldelay_usertimelineTweetInput" placeholder="Seconds" data-toggle="tooltip" title="Poll delay in seconds. Minimum is 15.">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+
+            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Multi-Link</h4>
+                    </div>
+                    <div class="content">Posting Options
+                        <div>
+                            <div id="twitterPostTable" style="height: 100px; overflow: auto;" />
+
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="postOnlineTweet">Stream Online Tweet</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('message_online')">Update</button>
+                                    <input type="text" maxlength="140" class="form-control" id="message_onlineTweetInput" placeholder="Tweet Text" data-toggle="tooltip" title="Tags: (title) (game) (twitchurl)">
+                                </div>
+                            </form>
+
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="postGameChangeTweet">Game Change Tweet</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('message_gamechange')">Update</button>
+                                    <input type="text" maxlength="140" class="form-control" id="message_gamechangeTweetInput" placeholder="Tweet Text" data-toggle="tooltip" title="Tags: (title) (game) (twitchurl)">
+                                </div>
+                            </form>
+
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="postAutoUpdateTweet">Auto-Tweet Stream Status Tweet</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('message_update')">Update</button>
+                                    <input type="text" maxlength="140" class="form-control" id="message_updateTweetInput" placeholder="Tweet Text" data-toggle="tooltip" title="Tags: (title) (game) (twitchurl) (uptime)">
+                                </div>
+                            </form>
+
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="postDelayUpdateTweet">Auto Updates Post Delay</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('postdelay_update')">Update</button>
+                                    <input type="number" min="180" class="form-control" id="postdelay_updateTweetInput" placeholder="Minutes" data-toggle="tooltip" title="Post delay in minutes. Minimum is 180.">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Posting Options
-    <div>
-        <div id="twitterPostTable" style="height: 100px; overflow: auto;" />
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="postOnlineTweet">Stream Online Tweet</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('message_online')">Update</button>
-                <input type="text" maxlength="140" class="form-control" id="message_onlineTweetInput" placeholder="Tweet Text"
-                       data-toggle="tooltip" title="Tags: (title) (game) (twitchurl)">
-            </div>
-        </form>
-    
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="postGameChangeTweet">Game Change Tweet</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('message_gamechange')">Update</button>
-                <input type="text" maxlength="140" class="form-control" id="message_gamechangeTweetInput" placeholder="Tweet Text"
-                       data-toggle="tooltip" title="Tags: (title) (game) (twitchurl)">
-            </div>
-        </form>
-    
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="postAutoUpdateTweet">Auto-Tweet Stream Status Tweet</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('message_update')">Update</button>
-                <input type="text" maxlength="140" class="form-control" id="message_updateTweetInput" placeholder="Tweet Text"
-                       data-toggle="tooltip" title="Tags: (title) (game) (twitchurl) (uptime)">
-            </div>
-        </form>
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="postDelayUpdateTweet">Auto Updates Post Delay</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateDataTwitter('postdelay_update')">Update</button>
-                <input type="number" min="180" class="form-control" id="postdelay_updateTweetInput" placeholder="Minutes"
-                       data-toggle="tooltip" title="Post delay in minutes. Minimum is 180.">
-            </div>
-        </form>
-    </div>
-</div>
 </div>
 
 <!-- Run the Acordion -->
-<script>$("#twitterAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
-<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
-<script>handleInputFocus();</script>
+<script>
+    $("#twitterAccordion").accordion({
+        clearStyle: true,
+        heightStyle: "panel",
+        icons: null
+    });
+
+</script>
+<script>
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger: 'hover'
+    });
+
+</script>
+<script>
+    handleInputFocus();
+
+</script>

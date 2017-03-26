@@ -23,7 +23,7 @@
  * timePanel.js
  * Drives the Time Panel
  */
-(function() {
+(function () {
 
     var timeLevel = "",
         timeLevelWarning = "",
@@ -31,8 +31,8 @@
         modTimePermToggle = "",
         commandName = "",
         modeIcon = [];
-        modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
-        modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
+    modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
+    modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
 
     /*
      * onMessage
@@ -53,7 +53,7 @@
             if (panelCheckQuery(msgObject, 'time_toplist')) {
                 $("#topListAmountTime").attr("placeholder", msgObject['results']['topListAmountTime']).blur();
             }
- 
+
             if (panelCheckQuery(msgObject, 'time_timezone')) {
                 if (msgObject['results']['timezone'] != undefined) {
                     timezone = msgObject['results']['timezone'];
@@ -97,7 +97,7 @@
 
                     key = msgObject['results'][idx]['key'];
                     value = msgObject['results'][idx]['value'];
-    
+
                     if (panelMatch(key, 'timePromoteHours')) {
                         $("#setTimePromotionInput").attr("placeholder", value).blur();
                     }
@@ -110,38 +110,44 @@
                     timeValue = "",
                     hrsValue = "",
                     html = "",
-                    pad = function(i) { return (i < 10 ? '0' + i : i) };
+                    pad = function (i) {
+                        return (i < 10 ? '0' + i : i)
+                    };
 
                 $("#userTimeTableTitle").html("User Time Table (Refreshing <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>)");
                 timeTableData.sort(sortTimeTable_alpha_asc);
-                
-                html  = "<table class='tableTime' data-paging='true' data-paging-size='8'" +
-                        "       data-filtering='true' data-filter-delay='200'" +
-                        "       data-sorting='true'" +
-                        "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>";
+
+                html = "<table class='table table-hover table-striped' data-paging='true' data-paging-size='8'" +
+                    "       data-filtering='true' data-filter-delay='200'" +
+                    "       data-sorting='true'" +
+                    "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>";
                 html += "<thead><tr>" +
-                        "    <th data-breakpoints='xs'>Username</th>" +
-                        "    <th data-filterable='false' data-type='number'>Time (Secs)</th>" +
-                        "    <th data-filterable='false' data-type='number'>Time (Hrs)</th>" +
-                        "</tr></thead><tbody>";
+                    "    <th data-breakpoints='xs'>Username</th>" +
+                    "    <th data-filterable='false' data-type='number'>Time (Secs)</th>" +
+                    "    <th data-filterable='false' data-type='number'>Time (Hrs)</th>" +
+                    "</tr></thead><tbody>";
 
                 for (var idx = 0; idx < timeTableData.length; idx++) {
                     username = timeTableData[idx]['key'];
                     timeValue = timeTableData[idx]['value'];
                     hrsValue = (Math.floor(timeValue / 3600));
-                
-                    html += "<tr onclick='$.copyUserTime(\""+username+"\", \""+timeValue+"\")' >" +
-                            "    <td>" + username + "</td>" +
-                            "    <td>" + timeValue + "</td>" +
-                            "    <td>" + hrsValue + "</td>" +
-                            "</tr>";
+
+                    html += "<tr onclick='$.copyUserTime(\"" + username + "\", \"" + timeValue + "\")' >" +
+                        "    <td>" + username + "</td>" +
+                        "    <td>" + timeValue + "</td>" +
+                        "    <td>" + hrsValue + "</td>" +
+                        "</tr>";
                 }
                 html += "</tbody></table>";
-                
-                setTimeout(function() { 
+
+                setTimeout(function () {
                     $('#userTimeTable').html(html);
                     $('.tableTime').footable({
-                        'on': { 'postdraw.ft.table': function(e, ft) { $("#userTimeTableTitle").html("User Time Table"); } }
+                        'on': {
+                            'postdraw.ft.table': function (e, ft) {
+                                $("#userTimeTableTitle").html("User Time Table");
+                            }
+                        }
                     });
                 }, TIMEOUT_WAIT_TIME);
                 handleInputFocus();
@@ -228,8 +234,12 @@
             }
         }
 
-        setTimeout(function() { sendCommand("updatetimesettings"); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("updatetimesettings");
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -241,7 +251,9 @@
             sendDBUpdate("time_toggles", "timeSettings", "timePromoteHours", newTimePromotion);
             $("#setTimePromtionInput").val('');
             $("#setTimePromotionInput").attr("placeholder", "Submitting").blur();
-            setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doLiteQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -254,7 +266,9 @@
             sendDBUpdate("time_toggles", "settings", "timezone", newTimeZone);
             $("#setTimeZoneInput").val('');
             $("#setTimeZoneInput").attr("placeholder", "Submitting").blur();
-            setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doLiteQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -284,8 +298,10 @@
             }
         }
         $("#adjustUserTimeNameInput").val("Submitting...");
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() {
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
             $("#adjustUserTimeNameInput").val("");
             $("#adjustUserTimeSecsInput").val("");
         }, TIMEOUT_WAIT_TIME);
@@ -299,15 +315,19 @@
         if (val.length != 0) {
             sendDBUpdate("time_toplist", "settings", "topListAmountTime", val);
         }
-        setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadtop'); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doLiteQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand('reloadtop');
+        }, TIMEOUT_WAIT_TIME);
     };
 
     // Import the HTML file for this panel.
     $("#timePanel").load("/panel/time.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
             if (active == 3) {
@@ -318,7 +338,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $("#tabs").tabs("option", "active");
         if (active == 3 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Time Data', 'success', 1000);

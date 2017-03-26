@@ -108,7 +108,7 @@
 
             if (panelCheckQuery(msgObject, 'moderation_blacklist')) {
                 if (msgObject['results'].length > 0) {
-                    html = "<table>";
+                    html = "<table class='table table-hover table-striped'>";
                     for (idx in msgObject['results']) {
                         modSetting = msgObject['results'][idx]['key'];
                         modValue = msgObject['results'][idx]['value'];

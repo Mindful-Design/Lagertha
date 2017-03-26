@@ -39,7 +39,7 @@
         if (panelHasQuery(msgObject)) {
             if (panelCheckQuery(msgObject, 'queue_list')) {
             	var keys = msgObject['results'],
-            		html = '<table style="width: 100%"><tr><th>Username</th><th style="padding-left: 50px;">GamerTag</th><th style="padding-left: 50px;">Position</th><th style="padding-left: 50px;">Join Time</th><th style="float: right;"></td>',
+            		html = '<table class="table table-hover table-striped"><tr><th>Username</th><th style="padding-left: 50px;">GamerTag</th><th style="padding-left: 50px;">Position</th><th style="padding-left: 50px;">Join Time</th><th style="float: right;"></td>',
             		jsonObj = '',
             		i;
 

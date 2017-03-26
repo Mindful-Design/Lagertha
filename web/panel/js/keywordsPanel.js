@@ -48,7 +48,7 @@
                     return;
                 }
 
-                html = '<table>';
+                html = '<table class="table table-hover table-striped">';
                 for (idx in msgObject['results']) {
                     keyword = msgObject['results'][idx]['key'];
                     html += '<tr >' +

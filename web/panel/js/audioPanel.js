@@ -89,7 +89,7 @@
                 $('#ytplayerBSong').html('<i>There are no blacklisted songs.</i>');
                 return;
             }
-            var html = '<table>';
+            var html = '<table class='table table-hover table-striped'>';
             for (var idx in msgObject['results']) {
                  var name = msgObject['results'][idx]['key'];
                 html += '<tr >' +

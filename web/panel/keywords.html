@@ -22,46 +22,65 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="keywordsAccordion">
-            <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">             <div class="card">                 <div class="header">                     <h4 class="title">Multi-Link</h4>                 </div>                 <div class="content">Keywords
-    <div>
-    <div id="_keywordsPanelDisabled" />
-    <div id="_keywordsPanel">
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="addKeyword">Add Keyword</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" 
-                        onclick="$.addKeyword()">Submit</button>
-                <input type="text" class="form-control" id="addKeywordInput" placeholder="A New Keyword">
-                <input type="text" class="form-control" id="addKeywordResponseInput" placeholder="Response">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Multi-Link</h4>
+                </div>
+                <div class="content">Keywords
+                    <div>
+                        <div id="_keywordsPanelDisabled" />
+                        <div id="_keywordsPanel">
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="addKeyword">Add Keyword</label>
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addKeyword()">Submit</button>
+                                    <input type="text" class="form-control" id="addKeywordInput" placeholder="A New Keyword">
+                                    <input type="text" class="form-control" id="addKeywordResponseInput" placeholder="Response">
+                                </div>
+                            </form>
+                            <div id="keywordsList" style="height: 100px; overflow: auto;" />
+                        </div>
+                        <br>
+
+                        <form role="form">
+                            <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <label for="cooldownKey">Keyword cooldown</label>
+                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addKeyCooldown()">Submit</button>
+                                <input type="text" class="form-control" id="cooldownKeyInputCommand" placeholder="Command name" />
+                                <input type="text" class="form-control" id="cooldownKeyInput" placeholder="Seconds" />
+                            </div>
+                        </form>
+                        <div id="keywordsCooldownList" style="height: 100px; overflow: auto;" />
+                        <br>
+
+                        <form role="form">
+                            <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <label for="cooldownKey">Keyword prices</label>
+                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setKeyPrice()">Submit</button>
+                                <input type="text" class="form-control" id="priceKeyInputKey" placeholder="Command name" />
+                                <input type="number" min="0" class="form-control" id="priceKeyInput" placeholder="amount" />
+                            </div>
+                        </form>
+                        <div id="keywordsPriceList" style="height: 100px; overflow: auto;" />
+                    </div>
+                </div>
             </div>
-        </form>
-        <div id="keywordsList" style="height: 100px; overflow: auto;" />
+        </div>
     </div>
-    <br>
-
-    <form role="form">
-        <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="cooldownKey">Keyword cooldown</label>
-            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addKeyCooldown()">Submit</button>
-            <input type="text" class="form-control" id="cooldownKeyInputCommand" placeholder="Command name" />
-            <input type="text" class="form-control" id="cooldownKeyInput" placeholder="Seconds" />
-        </div>
-    </form>
-    <div id="keywordsCooldownList" style="height: 100px; overflow: auto;" />
-    <br>
-
-    <form role="form">
-        <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="cooldownKey">Keyword prices</label>
-            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.setKeyPrice()">Submit</button>
-            <input type="text" class="form-control" id="priceKeyInputKey" placeholder="Command name" />
-            <input type="number" min="0" class="form-control" id="priceKeyInput" placeholder="amount" />
-        </div>
-    </form>
-    <div id="keywordsPriceList" style="height: 100px; overflow: auto;" />
-</div>
 </div>
 
 <!-- Run the Acordion -->
-<script>$("#keywordsAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
-<script>handleInputFocus();</script>
+<script>
+    $("#keywordsAccordion").accordion({
+        clearStyle: true,
+        heightStyle: "panel",
+        icons: null
+    });
+
+</script>
+<script>
+    handleInputFocus();
+
+</script>

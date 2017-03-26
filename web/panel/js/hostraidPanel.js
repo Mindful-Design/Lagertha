@@ -93,7 +93,7 @@
                     return;
                 }
 
-                html = '<table><tr><th>Channel</th><th style="float: right">Date/Time</th></tr>';
+                html = '<table class="table table-hover table-striped"><tr><th>Channel</th><th style="float: right">Date/Time</th></tr>';
 
                 for (idx = msgObject['results'].length - 1; idx >= 0; idx--) {
                     var hostData = JSON.parse(msgObject['results'][idx]['value']);

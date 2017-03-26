@@ -55,7 +55,7 @@
                 foundData = false;
 
             if (panelCheckQuery(msgObject, 'cooldown_cooldowns')) {
-                html = "<table>";
+                html = "<table class='table table-hover table-striped'>";
                 for (idx in msgObject['results']) {
                     command = msgObject['results'][idx]['key'];
                     time = msgObject['results'][idx]['value'];

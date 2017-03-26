@@ -160,7 +160,7 @@
                     html = "",
                     username = "";
 
-                html = "<table>";
+                html = "<table class='table table-hover table-striped'>";
                 for (var idx = 0; idx < raffleList.length; idx++) {
                     username = raffleList[idx]['key'];
                     html += "<tr >" +

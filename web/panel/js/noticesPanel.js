@@ -80,7 +80,7 @@
                     return;
                 }
 
-                html = '<table>';
+                html = '<table class="table table-hover table-striped">';
                 for (var idx in msgObject['results']) {
                     id = msgObject['results'][idx]['key'].match(/message_(\d+)/)[1];
                     html += '<tr >' +

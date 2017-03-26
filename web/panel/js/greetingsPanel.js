@@ -266,9 +266,9 @@
             if (panelCheckQuery(msgObject, 'greetings_gamewispTiers')) {
                 var tier = "",
                     html = "",
-                    songRequestHtml = "<table>",
-                    bonusPointsHtml = "<table>",
-                    subBonusPointsHtml = "<table>";
+                    songRequestHtml = "<table class='table table-hover table-striped'>",
+                    bonusPointsHtml = "<table class='table table-hover table-striped'>",
+                    subBonusPointsHtml = "<table class='table table-hover table-striped'>";
 
                 for (idx in msgObject['results']) {
                     key = msgObject['results'][idx]['key'];

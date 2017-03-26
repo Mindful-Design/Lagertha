@@ -80,7 +80,7 @@
                 optionsData = options.split(',');
                 countsData = counts.split(',');
 
-                html += '<table><tr>';
+                html += '<table class="table table-hover table-striped"><tr>';
                 for (idx in optionsData) {
                     html += '<td>' + optionsData[idx] + '</td>';
                 }

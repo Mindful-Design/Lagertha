@@ -64,8 +64,8 @@
                     pollhtml,
                     posthtml;
 
-                pollhtml = '<table>';
-                posthtml = '<table>';
+                pollhtml = '<table class="table table-hover table-striped">';
+                posthtml = '<table class="table table-hover table-striped">';
            
                 for (idx in msgObject['results']) {
                     setting = msgObject['results'][idx]['key'];

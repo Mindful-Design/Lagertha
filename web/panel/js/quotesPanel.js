@@ -56,7 +56,7 @@
                     return;
                 }
 
-                html = '<table>';
+                html = '<table class="table table-hover table-striped">';
                 for (var idx in msgObject['results']) {
                     id = msgObject['results'][idx]['key'];
                     quoteData = JSON.parse(msgObject['results'][idx]['value']);
