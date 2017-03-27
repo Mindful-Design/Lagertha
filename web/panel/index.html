@@ -33,12 +33,17 @@
 
     <script src="panel/js/jquery-ui/external/jquery/jquery.min.js"></script>
     <script src="panel/js/jquery-ui/jquery-ui/jquery-ui.js"></script>
-    <script src="panel/js/flot/jquery.flot.min.js"></script>
+    <!--<script src="panel/js/flot/jquery.flot.min.js"></script>-->
     <script src="panel/js/ion-sound/js/ion.sound.min.js"></script>
-    <script src="panel/js/footable/footable.min.js"></script>
+    <!--<script src="panel/js/footable/footable.min.js"></script>-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="panel/js/bootstrap-notify.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+    <script src="panel/js/jquery.flot.js"></script>
+    <script src="panel/js/jquery.flot.tooltip.min.js"></script>
+    <script src="https://cdn.rawgit.com/MichaelZinsmaier/CurvedLines/1.1.1/curvedLines.js"></script>
+    <script src="panel/js/jquery.flot.orderBars.js"></script>
+    <script src="panel/js/jquery.flot.resize.js"></script>
+    <script src="panel/js/date.js"></script>
 
     <script type="text/javascript" src="panel/js/reconnectingWS.min.js"></script>
     <script type="text/javascript" src="panel/js/dateFormat.js"></script>
@@ -60,7 +65,13 @@
 
 <body>
     <div id="wrapper">
-        <span id="panelLoader"><i style="color: #1DC7EA" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Lagertha</span>
+        <div id="panelLoader" style="opacity: 0.9;">
+            <div class="preloader preloader--xl preloader--light">
+                <svg viewBox="25 25 50 50">
+                    <circle cx="50" cy="50" r="20"></circle>
+                </svg>
+            </div>
+        </div>
 
         <div id="tabs" style="display:none">
             <div class="sidebar" data-color="black" data-image="panel/images/sidebar-1.jpg">

@@ -166,7 +166,7 @@
                     chatCount = "";
 
                 chatGraphData = [];
-                for (var i = 0, j = 5; i <= 4; i++, j--) {
+                for (var i = 0, j = 10; i <= 9; i++, j--) {
                     var dateObj = new Date();
                     chatDate = $.format.date(Date.now() - (i * 24 * 36e5), "MM.dd.yy");
                     chatKey = "chat_" + chatDate;
@@ -189,7 +189,7 @@
                     modCount = "";
 
                 toutGraphData = [];
-                for (var i = 0, j = 5; i <= 4; i++, j--) {
+                for (var i = 0, j = 10; i <= 9; i++, j--) {
                     var dateObj = new Date();
                     modDate = $.format.date(Date.now() - (i * 24 * 36e5), "MM.dd.yy");
                     modKey = "mod_" + modDate;
@@ -206,44 +206,86 @@
 
             }
             if (toutGraphData.length > 0 && chatGraphData.length > 0) {
-                var ctx = document.getElementById("panelStatsGraph");
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [chatGraphData],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255,99,132,1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
+                var options = {
+                    series: {
+                        shadowSize: 0,
+                        curvedLines: {
+                            apply: true,
+                            active: true,
+                            monotonicFit: true
+                        },
+                        lines: {
+                            show: false,
+                            lineWidth: 0
                         }
+                    },
+                    grid: {
+                        borderWidth: 0,
+                        labelMargin: 10,
+                        hoverable: true,
+                        clickable: true,
+                        mouseActiveRadius: 6
+
+                    },
+                    xaxis: {
+                        tickDecimals: 0,
+                        ticks: false
+                    },
+
+                    yaxis: {
+                        tickDecimals: 0,
+                        ticks: false
+                    },
+
+                    legend: {
+                        show: false
                     }
-                });
+                };
+                $.plot($("#panelStatsGraph"), [
+                    {
+                        data: chatGraphData,
+                        lines: {
+                            show: true,
+                            fill: 0.75
+                        },
+                        curvedLines: {
+                            apply: true
+                        },
+                        label: 'Messages',
+                        stack: true,
+                        color: '#1DC7EA'
+                        }, {
+                        data: toutGraphData,
+                        lines: {
+                            show: true,
+                            fill: 0.98
+                        },
+                        label: 'Timeouts',
+                        stack: true,
+                        color: '#FF4A55'
+                            }
+                        ], options);
+                // Tooltips
+                if ($('.flot-chart')[0]) {
+                    $('.flot-chart').bind('plothover', function (event, pos, item) {
+                        if (item) {
+
+                            var x = item.datapoint[0].toFixed(2);
+                            var y = Math.round(item.datapoint[1].toFixed(2));
+                            var z = Date.today().add(x - 10).day().toString('dddd')
+                            $('.flot-tooltip').html(item.series.label + ' on ' + z + ': ' + y).css({
+                                top: item.pageY + 5,
+                                left: item.pageX + 5
+                            }).show();
+                        } else {
+                            $('.flot-tooltip').hide();
+                        }
+                    });
+
+                    $('<div class="flot-tooltip"></div>').appendTo('body');
+                }
 
             }
-            /*new Chartist.Line('#panelStatsGraph', data);*/
 
 
             if (panelCheckQuery(msgObject, 'dashboard_panelStatsEnabled')) {

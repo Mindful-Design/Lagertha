@@ -24,7 +24,7 @@
     --md-off-hover: #EE2D20;
     --md-main-bg: rgba(210, 210, 210, 0.52);
     --md-panel-bg: #FFFFFF;
-    --md-form-color: rgba(255, 255, 255, 0);
+    --md-form-color: rgba(255, 255, 255, 1);
     --md-card-header: #333333;
     --md-font-color: #797575;
 }
@@ -2050,7 +2050,7 @@ fieldset[disabled] .form-control {
 }
 
 .navbar-default {
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: var(--md-panel-bg);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -3706,6 +3706,191 @@ notification-modes {
 .footable .pagination>.active>a {
     background-color: var(--md-main-color);
     border-color: var(--md-main-color);
+}
+
+html:not(.ismobile) #panelLoader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    background-color: #1e2a31
+}
+
+html:not(.ismobile) #panelLoader .preloader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto
+}
+
+html.ismobile #panelLoader {
+    display: none
+}
+
+.preloader {
+    position: relative;
+    display: inline-block
+}
+
+.preloader>svg {
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+.preloader>svg>circle {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    fill: none;
+    animation: dash 1.5s ease-in-out infinite
+}
+
+.preloader:not(.preloader--xl):not(.preloader--lg):not(.preloader--sm):not(.preloader--xs) {
+    width: 40px
+}
+
+.preloader:before {
+    content: '';
+    display: block;
+    padding-top: 100%
+}
+
+.preloader--xs {
+    width: 20px
+}
+
+.preloader--sm {
+    width: 30px
+}
+
+.preloader--lg {
+    width: 50px
+}
+
+.preloader--xl {
+    width: 60px
+}
+
+.preloader--light circle {
+    stroke: #b4bfc3
+}
+
+.preloader--red circle {
+    stroke: #ef5350
+}
+
+.preloader--blue circle {
+    stroke: #1e88e5
+}
+
+.preloader--green circle {
+    stroke: #4caf50
+}
+
+.preloader--yellow circle {
+    stroke: #ffeb3b
+}
+
+.preloader--bluegray circle {
+    stroke: #607d8b
+}
+
+.preloader--amber circle {
+    stroke: #ffa000
+}
+
+.preloader--teal circle {
+    stroke: #009688
+}
+
+.preloader--pink circle {
+    stroke: #e91e63
+}
+
+.preloader--purple circle {
+    stroke: #9c27b0
+}
+
+.preloader--white circle {
+    stroke: #fff
+}
+
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px
+    }
+}
+
+.flot-tooltip {
+    position: absolute;
+    color: #b4bfc3;
+    display: none;
+    font-size: 12px;
+    padding: 5px 10px;
+    background-color: #1e2a31;
+    z-index: 99999;
+    border-radius: 2px;
+}
+
+app-1.min.css:1 #jqstooltip,
+.flot-tooltip {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
 }
 
 
