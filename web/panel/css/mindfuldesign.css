@@ -3935,6 +3935,9 @@ app-1.min.css:1 #jqstooltip,
         width: 100%;
         left: 0px;
     }
+    .tab-pane {
+        width: 100%;
+    }
     .pull-left {
         display: none;
     }

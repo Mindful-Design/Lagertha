@@ -246,7 +246,7 @@
                         data: chatGraphData,
                         lines: {
                             show: true,
-                            fill: 0.75
+                            fill: 0.85
                         },
                         curvedLines: {
                             apply: true

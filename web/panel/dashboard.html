@@ -69,6 +69,8 @@
                                 <button type="button" class="btn btn-warning btn-fill" onclick="$.chatReconnect()" data-toggle="tooltip" title="Reconnect Lagertha to your Twitch channel. This does not reconnect if the 'Remove' action was performed.">Reconnect</button>
 
                                 <button type="button" class="btn btn-info btn-fill" onclick="$.toggleTwitchChat()">Toggle Chat</button>
+                                <button type="button" class="btn btn-info btn-fill" id="toggleVideo" onclick="toggleTwitchVideo()">Toggle Video</button>
+                                <button type="button" class="btn btn-info btn-fill" onclick="$.refreshVideo()"><i class="fa fa-refresh"></i></button>
                             </div>
 
                         </div>
@@ -77,67 +79,47 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12" id="disableVideo">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Logging Configuration
-                                <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse1"><i class="fa fa-bars"></i></div>
-                            </h4>
+                            <h4 class="title">Video Preview</h4>
                         </div>
-                        <div id="collapse1" class="content panel-collapse collapse">
-                            <div>
-                                <table class="table table-hover table-striped">
-                                    <tr>
-                                        <td>Event logging</td>
-                                        <td>
-                                            <div id="logEvent" style="float:right" />
-                                        </td>
-                                        <td>
-                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
-                                            </div>
-                                            <div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Error logging</td>
-                                        <td>
-                                            <div id="logError" style="float:right" />
-                                        </td>
-                                        <td>
-                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
-                                            </div>
-                                            </div>
-                                            <div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>File & chat logging</td>
-                                        <td>
-                                            <div id="logFile" style="float:right" />
-                                        </td>
-                                        <td>
-                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
-                                            </div>
-                                        </td>
-                                        </div>
-                                    </tr>
-                                </table>
-                                <form role="form">
-                                    <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="logRotate">Number of Days to Keep Logs</label>
-                                        <div class="input-group">
-                                            <input type="number" min="0" class="form-control" id="logRotateInput" placeholder="Days" data-toggle="tooltip" title="Days to keep logs, 0 means do not delete logs.">
-                                            <span class="input-group-btn">
-                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setLogRotate()">Submit</button>
-                                        </span>
-                                        </div>
-                                    </div>
-                                </form>
+                        <div class="content">
+
+                            <div class="ui-widget-content" id="videoPreview" name="video">
+                                <script>
+                                    var options = {
+                                        width: 622,
+                                        height: 350,
+                                        channel: "overwatchpit"
+                                    };
+                                    var player = new Twitch.Player("videoPreview", options);
+                                    player.setVolume(0.5);
+
+                                    window.onload = function() {
+                                        document.getElementById("toggleVideo").onclick = function toggleTwitchVideo() {
+                                            if ($("#disableVideo").is(":visible")) {
+                                                $("#disableVideo").fadeOut(1000);
+                                                player.pause();
+                                            } else {
+                                                $("#disableVideo").fadeIn(1000);
+                                                player.play();
+                                            }
+                                        }
+                                    }
+
+                                    function refreshVideo() {
+                                        document.getElementById("videoPreview").src = "https://player.twitch.tv/?channel=" + getChannelName() + "\"";
+                                    }
+
+                                </script>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12 col-xs-12" id="_shoutoutPanelDisabled">
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12" id="_shoutoutPanelDisabled">
                     <div class="card">
                         <div class="header">
                             <h4 class="title">Shoutout a Streamer</h4>
@@ -266,6 +248,66 @@
                 </div>
             </div>
 
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Logging Configuration
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse1"><i class="fa fa-bars"></i></div>
+                    </h4>
+                </div>
+                <div id="collapse1" class="content panel-collapse collapse">
+                    <div>
+                        <table class="table table-hover table-striped">
+                            <tr>
+                                <td>Event logging</td>
+                                <td>
+                                    <div id="logEvent" style="float:right" />
+                                </td>
+                                <td>
+                                    <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
+                                    </div>
+                                    <div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Error logging</td>
+                                <td>
+                                    <div id="logError" style="float:right" />
+                                </td>
+                                <td>
+                                    <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
+                                    </div>
+                                    </div>
+                                    <div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>File & chat logging</td>
+                                <td>
+                                    <div id="logFile" style="float:right" />
+                                </td>
+                                <td>
+                                    <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
+                                    </div>
+                                </td>
+                                </div>
+                            </tr>
+                        </table>
+                        <form role="form">
+                            <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <label for="logRotate">Number of Days to Keep Logs</label>
+                                <div class="input-group">
+                                    <input type="number" min="0" class="form-control" id="logRotateInput" placeholder="Days" data-toggle="tooltip" title="Days to keep logs, 0 means do not delete logs.">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setLogRotate()">Submit</button>
+                                        </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12" id="_highlightsPanelDisabled">
             <div class="card">
