@@ -745,6 +745,17 @@
         }
     }
 
+
+    function toggleTwitchVideo() {
+        if ($("#disableVideo").is(":visible")) {
+            $("#disableVideo").fadeOut(1000);
+            player.pause();
+        } else {
+            $("#disableVideo").fadeIn(1000);
+            player.play();
+        }
+    }
+
     /**
      * @function queueCMD
      */
@@ -801,6 +812,7 @@
     $.toggleCommand = toggleCommand;
     $.toggleTwitchChat = toggleTwitchChat;
     $.toggleTwitchChatRollup = toggleTwitchChatRollup;
+    $.toggleTwitchVideo = toggleTwitchVideo;
     $.toggleLog = toggleLog;
     $.enableModule = enableModule;
     $.disableModule = disableModule;

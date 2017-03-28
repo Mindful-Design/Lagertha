@@ -69,8 +69,7 @@
                                 <button type="button" class="btn btn-warning btn-fill" onclick="$.chatReconnect()" data-toggle="tooltip" title="Reconnect Lagertha to your Twitch channel. This does not reconnect if the 'Remove' action was performed.">Reconnect</button>
 
                                 <button type="button" class="btn btn-info btn-fill" onclick="$.toggleTwitchChat()">Toggle Chat</button>
-                                <button type="button" class="btn btn-info btn-fill" id="toggleVideo" onclick="toggleTwitchVideo()">Toggle Video</button>
-                                <button type="button" class="btn btn-info btn-fill" onclick="$.refreshVideo()"><i class="fa fa-refresh"></i></button>
+                                <button type="button" class="btn btn-info btn-fill" onclick="$.toggleTwitchVideo()">Toggle Video</button>
                             </div>
 
                         </div>
@@ -85,32 +84,18 @@
                             <h4 class="title">Video Preview</h4>
                         </div>
                         <div class="content">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <div id="videoPreview" class="embed-responsive-item">
 
-                            <div class="ui-widget-content" id="videoPreview" name="video">
+                                </div>
                                 <script>
                                     var options = {
                                         width: 622,
                                         height: 350,
-                                        channel: "overwatchpit"
+                                        channel: getChannelName()
                                     };
                                     var player = new Twitch.Player("videoPreview", options);
                                     player.setVolume(0.5);
-
-                                    window.onload = function() {
-                                        document.getElementById("toggleVideo").onclick = function toggleTwitchVideo() {
-                                            if ($("#disableVideo").is(":visible")) {
-                                                $("#disableVideo").fadeOut(1000);
-                                                player.pause();
-                                            } else {
-                                                $("#disableVideo").fadeIn(1000);
-                                                player.play();
-                                            }
-                                        }
-                                    }
-
-                                    function refreshVideo() {
-                                        document.getElementById("videoPreview").src = "https://player.twitch.tv/?channel=" + getChannelName() + "\"";
-                                    }
 
                                 </script>
                             </div>
@@ -436,8 +421,7 @@
             icons: null
         });
 
-    </script>
-    <script>
+
         $(function() {
             var gameList = $.gamesList;
             $("#gameTitleInput").autocomplete({
@@ -446,14 +430,10 @@
             });
         });
 
-    </script>
-    <script>
         $('[data-toggle="tooltip"]').tooltip({
             trigger: 'hover'
         });
 
-    </script>
-    <script>
         handleInputFocus();
 
     </script>
