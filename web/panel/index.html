@@ -333,23 +333,22 @@
                     <script type="text/javascript" src="panel/js/helpPanel.js"></script>
                 </div>
 
-                <div class="chatContainer" style="position: relative;">
-                    <div class="card ui-widget-content" id="chatsidebar" name="chat">
-                        <div id="chatsidebar-header" class="header">
-                            <div class="button" style="float: left; padding-left: 5px;" onclick="$.toggleTwitchChatRollup()">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <i class="fa fa-twitch"></i>
-                        </div>
-                        <!-- <span id="iframeLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Twitch Chat</span> -->
-                        <script>
-                            $("#chatsidebar").append("<iframe id=\"chat\" class=\"content\" frameborder=\"0\" scrolling=\"no\" onload=\"hideLoadingImage()\"" +
-                                "src=\"https://www.twitch.tv/" + getChannelName().toLowerCase() + "/chat?popout=\">");
-                            /*$("#chat").hide(); ** This breaks things in firefox. */
 
-                        </script>
+                <div class="card ui-widget-content" id="chatsidebar" name="chat">
+                    <div id="chatsidebar-header" class="header">
+                        <div class="button" style="float: left; padding-left: 5px;" onclick="$.toggleTwitchChat()">
+                            <i class="fa fa-bars"></i>
+                        </div>
+                        <i class="fa fa-twitch"></i>
                     </div>
+                    <!-- <span id="iframeLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Twitch Chat</span> -->
+                    <script>
+                        $("#chatsidebar").append("<iframe id=\"chat\" class=\"content\" frameborder=\"0\" scrolling=\"no\" onload=\"hideLoadingImage()\"" +
+                            "src=\"https://www.twitch.tv/" + getChannelName().toLowerCase() + "/chat?popout=\">");
+
+                    </script>
                 </div>
+
 
                 <footer class="footer footerMD">
                     <div class="container-fluid">

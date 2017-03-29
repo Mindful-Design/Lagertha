@@ -718,33 +718,20 @@
     function toggleTwitchChat() {
         if ($("#chatsidebar").is(":visible")) {
             $("#chatsidebar").fadeOut(1000);
+            setTimeout(function fullPage() {
+                $(".tab-pane").css("width", "100%");
+            }, 1000)
+            $(window).resize(function () {
+                $(".tab-pane").css("width", "100%");
+            });
         } else {
             $("#chatsidebar").fadeIn(1000);
+            $(window).resize(function () {
+                $(".tab-pane").css('width', '100%').css('width', '-=300px');
+            });
+            $(".tab-pane").css('width', '100%').css('width', '-=300px');
         }
     }
-
-    /**
-     * @function toggleTwitchChatRollup
-     */
-    function toggleTwitchChatRollup() {
-        if ($("#chat").is(":visible")) {
-            $(function () {
-                $("#chatsidebar").resizable('disable');
-            });
-            chatHeight = $("#chatsidebar").height();
-            $("#chat").fadeOut(1000);
-            setTimeout(function () {
-                $("#chatsidebar").height(20);
-            }, 1000);
-        } else {
-            $("#chatsidebar").height(chatHeight);
-            $("#chat").fadeIn(1000);
-            $(function () {
-                $("#chatsidebar").resizable('enable');
-            });
-        }
-    }
-
 
     function toggleTwitchVideo() {
         if ($("#disableVideo").is(":visible")) {
