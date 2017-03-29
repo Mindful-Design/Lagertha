@@ -46,10 +46,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 Copyright (C) 2017 Mindful Design
 
-This project is licensed under the GPL License - see the [LICENSE.md](LICENSE.md) file for details
-
-Some parts are licensed under the MIT License, courtesy of Creative Tim (Copyright (c) 2017 Creative Tim)
-
 ## Acknowledgments
 
 * Light Bootstrap Dashboard
