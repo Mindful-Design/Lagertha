@@ -26,6 +26,7 @@
     --md-main-bg: rgba(210, 210, 210, 0.52);
     --md-panel-bg: #FFFFFF;
     --md-form-color: rgba(255, 255, 255, 1);
+    --md-form-border: #9a9a9a;
     --md-card-header: #333333;
     --md-font-color: #797575;
 }
@@ -41,6 +42,7 @@
     --md-main-bg: #22313a;
     --md-panel-bg: #2b3942;
     --md-form-color: rgba(0, 0, 0, 0);
+    --md-form-border: #31424b;
     --md-card-header: #b4bfc3;
     --md-font-color: rgba(177, 188, 192, .47);
 }*/
@@ -656,7 +658,7 @@ body>.navbar-collapse[data-color="purple"]:after {
 
 .sidebar,
 .main-panel {
-    overflow: auto;
+    overflow: hidden;
     max-height: 100%;
     height: 100%;
     -webkit-transition-property: top, bottom;
@@ -1312,8 +1314,10 @@ fieldset[disabled] .btn-neutral.active {
 
 .form-control:focus {
     background-color: #FFFFFF;
-    border: 1px solid #AAAAAA;
+    border: 1px solid #3fcfed;
     -webkit-box-shadow: none;
+    border-top: 0;
+    border-left: 0;
     box-shadow: none;
     outline: 0 !important;
     color: #333333;
@@ -3912,7 +3916,7 @@ html.ismobile #panelLoader {
 
 .form-control {
     resize: none;
-    border: 1px solid #31424b;
+    border: 1px solid var(--md-form-border);
     border-radius: 0;
     border-left: 0;
     border-right: 0;

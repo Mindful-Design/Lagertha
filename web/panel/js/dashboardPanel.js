@@ -282,7 +282,6 @@
                         }
                     });
 
-                    $('<div class="flot-tooltip"></div>').appendTo('body');
                 }
 
             }
@@ -733,6 +732,7 @@
         }
     }
 
+
     function toggleTwitchVideo() {
         if ($("#disableVideo").is(":visible")) {
             $("#disableVideo").fadeOut(1000);
@@ -798,7 +798,6 @@
     $.multiLinkTimerOff = multiLinkTimerOff;
     $.toggleCommand = toggleCommand;
     $.toggleTwitchChat = toggleTwitchChat;
-    $.toggleTwitchChatRollup = toggleTwitchChatRollup;
     $.toggleTwitchVideo = toggleTwitchVideo;
     $.toggleLog = toggleLog;
     $.enableModule = enableModule;

@@ -23,6 +23,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Lagertha</title>
 
@@ -333,20 +334,21 @@
                     <script type="text/javascript" src="panel/js/helpPanel.js"></script>
                 </div>
 
-
-                <div class="card ui-widget-content" id="chatsidebar" name="chat">
-                    <div id="chatsidebar-header" class="header">
-                        <div class="button" style="float: left; padding-left: 5px;" onclick="$.toggleTwitchChat()">
-                            <i class="fa fa-bars"></i>
+                <div class="chatContainer">
+                    <div class="card ui-widget-content" id="chatsidebar" name="chat">
+                        <div id="chatsidebar-header" class="header">
+                            <div class="button" style="float: left; padding-left: 5px;" onclick="$.toggleTwitchChat()">
+                                <i class="fa fa-bars"></i>
+                            </div>
+                            <i class="fa fa-twitch"></i>
                         </div>
-                        <i class="fa fa-twitch"></i>
-                    </div>
-                    <!-- <span id="iframeLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Twitch Chat</span> -->
-                    <script>
-                        $("#chatsidebar").append("<iframe id=\"chat\" class=\"content\" frameborder=\"0\" scrolling=\"no\" onload=\"hideLoadingImage()\"" +
-                            "src=\"https://www.twitch.tv/" + getChannelName().toLowerCase() + "/chat?popout=\">");
+                        <!-- <span id="iframeLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading Twitch Chat</span> -->
+                        <script>
+                            $("#chatsidebar").append("<iframe id=\"chat\" class=\"content\" frameborder=\"0\" scrolling=\"no\" onload=\"hideLoadingImage()\"" +
+                                "src=\"https://www.twitch.tv/" + getChannelName().toLowerCase() + "/chat?popout=\">");
 
-                    </script>
+                        </script>
+                    </div>
                 </div>
 
 
@@ -430,6 +432,7 @@
         });
 
     </script>
+    <div class="flot-tooltip"></div>
 </body>
 
 </html>

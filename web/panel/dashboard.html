@@ -85,17 +85,18 @@
                         </div>
                         <div class="content">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <div id="videoPreview" class="embed-responsive-item">
 
-                                </div>
+                                <iframe id="videoPreview" class="embed-responsive-item" src="" height="622" width="350" frameborder="0" scrolling="no" allowfullscreen="true">
+</iframe>
                                 <script>
-                                    var options = {
-                                        width: 622,
-                                        height: 350,
-                                        channel: getChannelName()
-                                    };
-                                    var player = new Twitch.Player("videoPreview", options);
-                                    player.setVolume(0.5);
+                                    document.getElementById("videoPreview").src = 'http://player.twitch.tv/?channel=' + getChannelName() + '&muted=true&autoplay=false';
+                                    /*var options = {
+                                                                                                                                                    width: 622,
+                                                                                                                                                    height: 350,
+                                                                                                                                                    channel: getChannelName()
+                                                                                                                                                };
+                                                                                                                                                var player = new Twitch.Player("videoPreview", options);
+                                                                                                                                                player.setVolume(0.5);*/
 
                                 </script>
                             </div>
@@ -187,7 +188,7 @@
                         </tbody>
                     </table>
 
-                    <div id="panelStatsGraph" class="flot-chart" style="width:622px; height: 250px" />
+                    <div id="panelStatsGraph" class="flot-chart" style="width:100%; height: 250px" />
                     <div class="flot-chart-legend flot-chart-legend--line"></div>
                     <div class="footer">
                         <div class="legend">
@@ -407,7 +408,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 
