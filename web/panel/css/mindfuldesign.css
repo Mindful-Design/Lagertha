@@ -4553,6 +4553,15 @@ output {
     }
 }
 
+@media (min-width: 1921px) {
+    .tab-pane {
+        width: 83%;
+    }
+    #chatsidebar {
+        width: 15%;
+    }
+}
+
 @media (max-width: 991px) {
     .table-responsive {
         width: 100%;
