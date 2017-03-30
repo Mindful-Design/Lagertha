@@ -1,48 +1,138 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Lagertha</title>
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<head>
+    <title>Lagertha</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
 
-    <body>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a target="_blank" href="https://twitter.com/MindfulDesign" id="header-right"><i style="color: white" id="fontawesome" class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+                <li><a target="_blank" href="http://bit.ly/MindfulG" id="header-right"><i data-toggle="tooltip" data-placement="left" title="Homepage" style="color: white" id="fontawesome" class="fa fa-users fa-lg" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="header">
-            <img id="logo" src="logo.png"/>
-            <h1>Lagertha</h1>
 
-            <span>
-                <a target="_blank" href="https://twitter.com/MindfulDesign" id="header-right">
-                    <i style="color: white" id="fontawesome" class="fa fa-twitter fa-lg" aria-hidden="true"></i>
-                </a>
-            </span>
-            <span>
-                <a target="_blank" href="http://bit.ly/MindfulG" id="header-right">
-                    <i data-toggle="tooltip" data-placement="left" title="Homepage" style="color: white" id="fontawesome" class="fa fa-users fa-lg" aria-hidden="true"></i>
-                </a>
-            </span>
+
+    <!-- two layers of Image-->
+    <div class="bg"></div>
+    <div class="lightning flashit"></div>
+
+    <!-- This is just a logo-->
+    <div id="logo">
+        <h1 class="centered">PROJECT<span> LAGERTHA</span></h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <script>
+                var urlInfo = window.location.host.split(":");
+                var url = urlInfo[0];
+                var port = (typeof urlInfo[1] === 'undefined' ? '80' : urlInfo[1]);
+                var protocol = window.location.href.indexOf("https://") == 0 ? "https" : "http";
+                if (port.endsWith("0") && port !== '80') {
+                    port = (parseInt(port) + 5);
+                }
+                document.write('<a target="_blank" href="' + protocol + '://' + urlInfo[0] + ':' + port + '/ytplayer">');
+
+            </script>
+            <div class="panelsD" data-toggle="tooltip" data-placement="right" title="The username and password are found in botlogin.txt, see the paneluser and panelpassword settings.">
+                <span id="middle">
+                    <span id="spacer" />
+                    <i id="fontawesome" class="fa fa-youtube" aria-hidden="true"></i>
+                    <span id="spacer">Launch YouTube Player </span>
+                </span>
+
+                <span class="launcher-lock"><i class="fa fa-lock"></i></span>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <script>
+                var urlInfo = window.location.host.split(":");
+                var url = urlInfo[0];
+                var port = (typeof urlInfo[1] === 'undefined' ? '80' : urlInfo[1]);
+                var protocol = window.location.href.indexOf("https://") == 0 ? "https" : "http";
+                if (port.endsWith("0") && port !== '80') {
+                    port = (parseInt(port) + 5);
+                }
+                document.write('<a target="_blank" style="color: white;" href="' + protocol + '://' + urlInfo[0] + ':' + port + '/panel">');
+
+            </script>
+            <div class="panelsD" data-toggle="tooltip" data-placement="right" title="The username and password are found in botlogin.txt, see the paneluser and panelpassword settings.">
+
+                <span id="middle">
+                    <span id="spacer" />
+                    <i id="fontawesome" class="fa fa-desktop" aria-hidden="true"></i>
+                    <span id="spacer">Launch Control Panel </span>
+                </span>
+
+                <span class="launcher-lock"><i class="fa fa-lock"></i></span>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <script>
+                var urlInfo = window.location.host.split(":");
+                var url = urlInfo[0];
+                var port = (typeof urlInfo[1] === 'undefined' ? '80' : urlInfo[1]);
+                var protocol = window.location.href.indexOf("https://") == 0 ? "https" : "http";
+                if (port.endsWith("0") && port !== '80') {
+                    port = (parseInt(port) + 5);
+                }
+                document.write('<a target="_blank" style="color: white;" href="' + protocol + '://' + urlInfo[0] + ':' + port + '/playlist">');
+
+            </script>
+            <div class="panelsD">
+
+                <span id="middle">
+                    <span id="spacer" />
+                    <i id="fontawesome" class="fa fa-music" aria-hidden="true"></i>
+                    <span id="spacer">Launch YouTube Playlist Viewer</span>
+                </span>
+
+            </div>
+            </a>
         </div>
 
-        <div class="main">
-            
+    </div>
 
-        </div>
+    <div id="copyright">
+        Lagertha - Built upon PhantomBot, a Free, Open Source, Multipurpose Twitch Chat Bot<br>
+        <a href="https://phantombot.tv">phantombot.tv</a>
+    </div>
 
-        <div id="copyright">
-            Lagertha - Built upon PhantomBot, a Free, Open Source, Multipurpose Twitch Chat Bot<br>
-            <a href="https://phantombot.tv">phantombot.tv</a>
-        </div>
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"').tooltip();
+        });
 
-        <script>$(document).ready(function() { $('[data-toggle="tooltip"').tooltip(); });</script>
+    </script>
 
-    </body>
+</body>
+
 </html>

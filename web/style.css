@@ -1,115 +1,5 @@
-#logo {
-    height: 70px;
-    margin-left: 15px;
-    float: left;
-    display: inline-block;
-    margin-top: 17px;
-}
-
-.container {
-    position:relative;
-    padding: 0 0 0 25px;
-}
-
-#container {
-    width: 100%;
-}
-
-.header {
-    font-family: Roboto, Verdana, Arial, sans-serif;
-    background-color: #6441a5;
-    margin-top: -20px;
-    margin-bottom: 20px;
-    max-width: 100%;
-    height: 85px;
-    vertical-align: middle;
-    -webkit-box-shadow: 0px 3px 5px #000;
-    -moz-box-shadow:    0px 3px 5px #000;
-    box-shadow:         0px 3px 5px #000;
-    overflow: hidden;
-}
-
-#header-right {
-    margin-top: 40px;
-    margin-right: 20px;
-    height: 85px;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    float: right;
-}
-
-.main {
-    margin-left: 10px;
-    font-family: Roboto, Verdana, Arial, sans-serif;
-}
-
-.large {
-    font-family: Roboto, Verdana, Arial, sans-serif;
-    font-size: x-large;
-} 
-
-.launcher {
-    font-family: Roboto, Verdana, Arial, sans-serif;
-    font-size: large;
-    margin-bottom: 25px;
-    background-color: rgb(40, 40, 40);
-    height: 80px;
-    width: 500px;
-    line-height: 80px;
-    margin-left: 20px;
-
-    -webkit-box-shadow: 8px 8px 5px #888888;
-    -moz-box-shadow:    8px 8px 5px #888888;
-    box-shadow:         8px 8px 5px #888888;
-} 
-    
-.launcher-lock {
-    font-size: x-small;
-    display: inline-block;
-    vertical-align: top;
-    float: right;
-    line-height: normal;
-    margin-right: 8px;
-    margin-top: 5px;
-}
-
-.small {
-    font-family: Roboto, Verdana, Arial, sans-serif;
-    font-size: small;
-}
-
-
-a {
-    color: #6441a5;
-    text-decoration: none;
-}
-
 body {
-    padding: 0;
-    margin: 0;
-    background-color: rgb(20, 20, 20);
-    color: white;
-}
-
-h1 {
-    font-family: Roboto, Verdana, Arial, sans-serif;
-    color: white;
-    padding-top: 20px;
-    margin-left: 15px;
-    font-size: 26px;
-    font-family: arial;
-    display: inline-block;
-}
-
-table {
-    border: 0px;
-    width: 100%;
-}
-
-option:hover {
-    background-color:#cd201f;
-    cursor: pointer;
+    font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, sans-serif;
 }
 
 #fontawesome {
@@ -127,15 +17,159 @@ option:hover {
 }
 
 #copyright {
-    font-family: Roboto, Verdana, Arial, sans-serif;
-    position: fixed;
+    position: absolute;
     left: 0px;
     bottom: 0px;
     height: 60px;
     width: 100%;
-    background-color: rgb(34, 34, 34);
-    color: grey;
+    color: white;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.navbar-default {
+    background: none;
+    border: none;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('panel/images/the-fog-448100_1920.jpg');
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.lightning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('panel/images/the-fog-448100_1920.jpg');
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: brightness(3);
+    filter: brightness(3);
+    -o-filter: brightness(3);
+    -moz-filter: brightness(3);
+    z-index: -1;
+}
+
+.flashit {
+    -webkit-animation: flash ease-out 7s infinite;
+    -moz-animation: flash ease-out 7s infinite;
+    animation: flash ease-out 7s infinite;
+    animation-delay: 2s;
+}
+
+@-webkit-keyframes flash {
+    from {
+        opacity: 0;
+    }
+    92% {
+        opacity: 0;
+    }
+    93% {
+        opacity: 0.6;
+    }
+    94% {
+        opacity: 0.2;
+    }
+    96% {
+        opacity: 0.9;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes flash {
+    from {
+        opacity: 0;
+    }
+    92% {
+        opacity: 0;
+    }
+    93% {
+        opacity: 0.6;
+    }
+    94% {
+        opacity: 0.2;
+    }
+    96% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.centered {
+    text-align: center;
+}
+
+.panelsD {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    border-left: 6px solid #02c1c1;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    color: #02c1c1;
+    line-height: 1.3;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+}
+
+.panelsD:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.row {
+    padding-top: 150px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#middle {
+    color: white;
+}
+
+.launcher-lock {
+    color: #02c1c1;
+}
+
+h1 {
+    font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+#logo {
+    z-index: 1000;
+    width: 100%;
+    font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 2rem;
+    color: white;
+    position: fixed;
+    top: 50%;
+    font-weight: 900;
+}
+
+#logo span {
+    font-weight: 100;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:200,900|Lato:100,300,900);
+@media screen and (max-width: 630px) {
+    #logo {
+        font-size: 3rem;
+    }
 }
