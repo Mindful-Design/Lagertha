@@ -14,7 +14,7 @@ To use this on your own setup, download the repo and replace your web folders wi
 
 ### Prerequisites
 
-At the moment the redesign runs on **PhantomBot 2.3.5.2**, and as such it needs this version in order to work. I am working on making a version that will follow along with the PhantomBot main branch better.
+At the moment the redesign runs on **PhantomBot 2.3.5.3**, and as such it needs this version in order to work. I am working on making a version that will follow along with the PhantomBot main branch better.
 
 ### Screenshots
 
