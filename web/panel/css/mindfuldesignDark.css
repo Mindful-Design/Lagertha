@@ -17,7 +17,8 @@
 
 /* GLOBAL ATTRIBUTES - Mindful Design */
 
-:root {
+
+/*:root {
     --md-main-color: #1DC7EA;
     --md-main-hover-btn: #42d0ed;
     --md-main-hover: #42d0ed;
@@ -30,14 +31,13 @@
     --md-card-header: #333333;
     --md-font-color: #797575;
     --md-header: #FF4A55;
-}
+}*/
 
-
-/*
 :root {
     --md-main-color: #394650;
     --md-main-hover-btn: #3f4e59;
     --md-main-hover: #edeff0;
+    --md-contrastBlue: #1DC7EA;
     --md-off-color: #FF4A55;
     --md-off-hover: #EE2D20;
     --md-main-bg: #22313a;
@@ -47,7 +47,7 @@
     --md-card-header: #b4bfc3;
     --md-font-color: rgba(177, 188, 192, .47);
     --md-header: none;
-}*/
+}
 
 
 /*      light colors         */
@@ -906,7 +906,7 @@ fieldset[disabled] .btn-success.active {
 
 .btn-info {
     border-color: var(--md-main-color);
-    color: var(--md-main-color);
+    color: var(--md-contrastBlue);
 }
 
 .btn-info:hover,

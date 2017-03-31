@@ -28,15 +28,12 @@
     <title>Lagertha</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="panel/js/jquery-ui/jquery-ui.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="panel/js/footable/footable.standalone.min.css">
 
     <script src="panel/js/jquery-ui/external/jquery/jquery.min.js"></script>
     <script src="panel/js/jquery-ui/jquery-ui/jquery-ui.js"></script>
-    <!--<script src="panel/js/flot/jquery.flot.min.js"></script>-->
     <script src="panel/js/ion-sound/js/ion.sound.min.js"></script>
-    <!--<script src="panel/js/footable/footable.min.js"></script>-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="panel/js/bootstrap-notify.js"></script>
     <script src="panel/js/jquery.flot.js"></script>
@@ -56,10 +53,9 @@
 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <!--<link rel="stylesheet" type="text/css" href="panel/css/style.css">-->
-    <link rel="stylesheet" type="text/css" href="panel/css/mindfuldesign.css">
     <link rel="stylesheet" type="text/css" href="panel/css/pe-icon-7-stroke.css">
     <link rel="stylesheet" type="text/css" href="panel/css/animate.min.css">
+    <link rel="stylesheet" id="themeChange" type="text/css" href="panel/css/mindfuldesign.css">
 
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
@@ -76,56 +72,56 @@
         </div>
 
         <div id="tabs" style="display:none">
-            <div class="sidebar" data-color="black" data-image="panel/images/sidebar-1.jpg">
+            <div class="sidebar" data-color="azure" data-image="panel/images/sidebar-1.jpg">
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="http://phantombot.tv" style="padding-top: 0px; padding-bottom: 0px" class="simple-text"><img width="50px" height="40px" src="panel/images/logo.png">
                         </a>
                     </div>
                     <ul class="nav">
-                        <li> <a href="#dashboard"><i class="pe-7s-graph"></i><p>Dashboard</p></a> </li>
-                        <li> <a href="#commands"><i class="pe-7s-plugin"></i><p>Commands</p></a> </li>
-                        <li> <a href="#donations"><i class="pe-7s-piggy"></i><p>Donations</p></a> </li>
+                        <li> <a class="sidebarButtons" href="#dashboard"><i class="pe-7s-graph"></i><p>Dashboard</p></a> </li>
+                        <li> <a class="sidebarButtons" href="#commands"><i class="pe-7s-plugin"></i><p>Commands</p></a> </li>
+                        <li> <a class="sidebarButtons" href="#donations"><i class="pe-7s-piggy"></i><p>Donations</p></a> </li>
                         <li>
                             <a class="groupHeader" id="loyaltyShow"><i class="pe-7s-star"></i>
                         <p>Loyalty</p></a> </li>
-                        <li id="loyaltyGroup1" class="subli" style="display:none;"> <a href="#points"><i class="pe-7s-cup"></i><p>Points</p></a> </li>
-                        <li id="loyaltyGroup2" class="subli" style="display:none;"> <a href="#ranks"><i class="pe-7s-rocket"></i><p>Ranks</p></a> </li>
-                        <li id="loyaltyGroup3" class="subli" style="display:none;"> <a href="#time"><i class="pe-7s-timer"></i><p>Time</p></a> </li>
+                        <li id="loyaltyGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#points"><i class="pe-7s-cup"></i><p>Points</p></a> </li>
+                        <li id="loyaltyGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#ranks"><i class="pe-7s-rocket"></i><p>Ranks</p></a> </li>
+                        <li id="loyaltyGroup3" class="subli" style="display:none;"> <a class="sidebarButtons" href="#time"><i class="pe-7s-timer"></i><p>Time</p></a> </li>
 
                         <li>
-                            <a class="groupHeader" id="adminShow"><i class="pe-7s-config"></i>
+                            <a class="groupHeader sidebarButtons" id="adminShow"><i class="pe-7s-config"></i>
                         <p>Administration</p></a></li>
-                        <li id="adminGroup1" class="subli" style="display:none;"> <a href="#moderation"><i class="pe-7s-hammer"></i><p>Moderation</p></a> </li>
-                        <li id="adminGroup2" class="subli" style="display:none;"> <a href="#viewers"><i class="pe-7s-config"></i><p>Permissions</p></a> </li>
+                        <li id="adminGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#moderation"><i class="pe-7s-hammer"></i><p>Moderation</p></a> </li>
+                        <li id="adminGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#viewers"><i class="pe-7s-config"></i><p>Permissions</p></a> </li>
 
                         <li>
-                            <a class="groupHeader" id="interShow"><i class="pe-7s-science"></i>
+                            <a class="groupHeader sidebarButtons" id="interShow"><i class="pe-7s-science"></i>
                         <p>Interactions</p></a></li>
-                        <li id="interGroup1" class="subli" style="display:none;"> <a href="#greetings"><i class="pe-7s-alarm"></i><p>Alerts</p></a> </li>
+                        <li id="interGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#greetings"><i class="pe-7s-alarm"></i><p>Alerts</p></a> </li>
                         <li id="interGroup2" class="subli" class="subli" style="display:none;"> <a href="#audio"><i class="pe-7s-music"></i><p>Audio</p></a> </li>
-                        <li id="interGroup3" class="subli" style="display:none;"> <a href="#keywords"><i class="pe-7s-speaker"></i><p>Keywords</p></a> </li>
-                        <li id="interGroup4" class="subli" style="display:none;"> <a href="#notices"><i class="pe-7s-like2"></i><p>Notices</p></a> </li>
-                        <li id="interGroup5" class="subli" style="display:none;"> <a href="#quotes"><i class="pe-7s-look"></i><p>Quotes</p></a> </li>
+                        <li id="interGroup3" class="subli" style="display:none;"> <a class="sidebarButtons" href="#keywords"><i class="pe-7s-speaker"></i><p>Keywords</p></a> </li>
+                        <li id="interGroup4" class="subli" style="display:none;"> <a class="sidebarButtons" href="#notices"><i class="pe-7s-like2"></i><p>Notices</p></a> </li>
+                        <li id="interGroup5" class="subli" style="display:none;"> <a class="sidebarButtons" href="#quotes"><i class="pe-7s-look"></i><p>Quotes</p></a> </li>
 
 
                         <li>
-                            <a class="groupHeader" id="utilShow"><i class="pe-7s-tools"></i>
+                            <a class="groupHeader sidebarButtons" id="utilShow"><i class="pe-7s-tools"></i>
                         <p>Utilities</p></a> </li>
-                        <li id="utilGroup1" class="subli" style="display:none;"> <a href="#games"><i class="pe-7s-joy"></i><p>Games</p></a> </li>
-                        <li id="utilGroup2" class="subli" style="display:none;"> <a href="#gambling"><i class="pe-7s-gift"></i><p>Giveaways</p></a> </li>
-                        <li id="utilGroup3" class="subli" style="display:none;"> <a href="#hostraid"><i class="pe-7s-like"></i><p>Hosts/Raids</p></a> </li>
-                        <li id="utilGroup4" class="subli" style="display:none;"> <a href="#poll"><i class="pe-7s-note2"></i><p>Polls</p></a> </li>
-                        <li id="utilGroup5" class="subli" style="display:none;"> <a href="#queue"><i class="pe-7s-network"></i><p>Queue</p></a> </li>
+                        <li id="utilGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#games"><i class="pe-7s-joy"></i><p>Games</p></a> </li>
+                        <li id="utilGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#gambling"><i class="pe-7s-gift"></i><p>Giveaways</p></a> </li>
+                        <li id="utilGroup3" class="subli" style="display:none;"> <a class="sidebarButtons" href="#hostraid"><i class="pe-7s-like"></i><p>Hosts/Raids</p></a> </li>
+                        <li id="utilGroup4" class="subli" style="display:none;"> <a class="sidebarButtons" href="#poll"><i class="pe-7s-note2"></i><p>Polls</p></a> </li>
+                        <li id="utilGroup5" class="subli" style="display:none;"> <a class="sidebarButtons" href="#queue"><i class="pe-7s-network"></i><p>Queue</p></a> </li>
 
                         <li>
-                            <a class="groupHeader" id="thirdShow"><i class="pe-7s-share"></i>
+                            <a class="groupHeader sidebarButtons" id="thirdShow"><i class="pe-7s-share"></i>
                         <p>Connections</p></a></li>
-                        <li id="thirdGroup1" class="subli" style="display:none;"> <a href="#discord"><i class="pe-7s-comment"></i><p>Discord</p></a> </li>
-                        <li id="thirdGroup2" class="subli" style="display:none;"> <a href="#twitter"><i class="fa fa-twitter" style="color: rgba(0,0,0,0);-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: white;"></i><p>Twitter</p></a> </li>
+                        <li id="thirdGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#discord"><i class="pe-7s-comment"></i><p>Discord</p></a> </li>
+                        <li id="thirdGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#twitter"><i class="fa fa-twitter" style="color: rgba(0,0,0,0);-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: white;"></i><p>Twitter</p></a> </li>
 
 
-                        <li class="active-pro"> <a href="#help"><i class="pe-7s-info"></i><p>Information</p></a> </li>
+                        <li class="active-pro"> <a class="sidebarButtons" href="#help"><i class="pe-7s-info"></i><p>Information</p></a> </li>
                     </ul>
                 </div>
                 <div class="sidebar-background" style="background-image: url(panel/images/sidebar-1.jpg)"></div>
@@ -172,52 +168,64 @@
                                     <a style="color: white;font-weight: bold;">Bot modes:</a>
                                 </li>
                                 <li>
-                                    <a>
+                                    <a class="modes">
+                                        <span id="commandPauseStatus" />
+                                        <p class="hidden-lg hidden-md"><span id="commandPauseStatus" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="modes">
                                         <span id="whisperModeStatus" />
                                         <p class="hidden-lg hidden-md"><span id="whisperModeStatus" /></p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a>
+                                    <a class="modes">
                                         <span id="meModeStatus" />
                                         <p class="hidden-lg hidden-md"><span id="meModeStatus" /></p>
                                     </a>
                                 </li>
                                 <li>
-                                    <span id="commandPauseStatus" />
-                                    <p class="hidden-lg hidden-md"><span id="commandPauseStatus" /></p>
-                                </li>
-                                <li>
-                                    <a>
+                                    <a class="modes">
                                         <span id="muteModeStatus" />
                                         <p class="hidden-lg hidden-md"><span id="muteModeStatus" /></p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a>
-                                        <span id="multiStatus" />
-                                        <p class="hidden-lg hidden-md"><span id="multiStatus" /></p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
+                                    <a class="modes">
                                         <span id="newVersionAvailable" />
                                         <p class="hidden-lg hidden-md"><span id="newVersionAvailable" /></p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a>
+                                    <a class="modes">
+                                        <span id="multiStatus" />
+                                        <p class="hidden-lg hidden-md"><span id="multiStatus" /></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="modes">
                                         <span id="panelStatsStatus" />
                                         <p class="hidden-lg hidden-md"><span id="panelStatsStatus" /></p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" style="margin-right: -30px;">
+                                <li style="margin-right: 10px; margin-left: 10px;">
+                                    <div class="switch">
+                                        <input type="checkbox" onclick="$.switchTheme()" checked>
+                                        <label for="switch3-input">
+                                            <span class="fa fa-sun-o"></span>
+                                            <span class="fa fa-moon-o"></span>
+                                            <div></div>
+                                        </label>
+                                    </div>
+                                </li>
                                 <li>
                                     <a style="font-weight: bold;" data-toggle="tooltip" data-placement="bottom" title="placeholder">Settings
                                     </a>
                                 </li>
-                                <li style="background-color: #1dc7ea;padding-bottom: 1px;">
+                                <li style="background-color: #1dc7ea;padding-bottom: 1px;padding-left: 15px; padding-right: 15px;">
                                     <a href="#" onclick="performCurrentPanelRefresh()" data-toggle="tooltip" data-placement="bottom" title="Refresh Current Panel Data">
                                         <i style="color: #fff" class="fa fa-refresh"></i>
                                     </a>
