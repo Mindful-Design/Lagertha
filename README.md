@@ -14,7 +14,7 @@ To use this on your own setup, download the repo and replace your web folders wi
 
 ### Prerequisites
 
-At the moment the redesign runs on PhantomBot 2.3.5.2, and as such it needs this version in order to work. I am working on making a version that will follow along with the PhantomBot main branch better.
+At the moment the redesign runs on **PhantomBot 2.3.5.2**, and as such it needs this version in order to work. I am working on making a version that will follow along with the PhantomBot main branch better.
 
 ### Screenshots
 
@@ -29,7 +29,7 @@ At the moment the redesign runs on PhantomBot 2.3.5.2, and as such it needs this
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Mindful-Design/Lagertha/tags). 
+I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Mindful-Design/Lagertha/tags). 
 
 ## How can I follow along/contribute?
 
