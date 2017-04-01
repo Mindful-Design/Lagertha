@@ -98,7 +98,7 @@
                         '        <form onkeypress="return event.keyCode != 13">' +
                         '            <input  type="text" id="editCommandCooldown_' + commandName + '"' +
                         '                   value="' + time + '" />' +
-                        '              <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.editCooldown(\'' + commandName + '\')"><i class="fa fa-pencil" /> </button> ' +
+                        '              <button type="button" class="btn btn-default btn-fill btn-xs" onclick="$.editCooldown(\'' + commandName + '\')"><i class="fa fa-pencil" /> </button> ' +
                         '              <button type="button" class="btn btn-danger btn-xs" id="deleteCooldown_' + commandName + '" onclick="$.deleteCooldown(\'' + commandName + '\')"><i class="fa fa-trash" /> </button>' +
                         '             </form>' +
                         '        </form>' +
@@ -156,7 +156,7 @@
                         '           <input type="text" class="form-control" id="editCommand_' + commandNameSafe + '"' +
                         '                   value="' + commandValue + '" />' +
                         '           <span class="input-group-btn">' +
-                        '           <button class="btn btn-info btn-fill btn-xs" type="button" onclick="$.editCustomCommand(\'' + commandName + '\')"><i class="fa fa-pencil" /></button>' +
+                        '           <button class="btn btn-default btn-fill btn-xs" type="button" onclick="$.editCustomCommand(\'' + commandName + '\')"><i class="fa fa-pencil" /></button>' +
                         '           <button class="btn btn-danger btn-fill btn-xs" type="button" id="deleteCommand_' + commandNameSafe + '" onclick="$.deleteCommand(\'' + commandName + '\')""><i class="fa fa-trash" /></button>' +
                         '           </span>' +
                         '           </div>' +
@@ -211,7 +211,7 @@
                         '              <input type="text" class="form-control" id="editCommandPrice_' + commandName + '"' +
                         '                   value="' + commandValue + '" />' +
                         '              <span class="input-group-btn">' +
-                        '              <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.updateCommandPrice(\'' + commandName + '\')"><i class="fa fa-pencil" /> </button> ' +
+                        '              <button type="button" class="btn btn-default btn-fill btn-xs" onclick="$.updateCommandPrice(\'' + commandName + '\')"><i class="fa fa-pencil" /> </button> ' +
                         '              <button type="button" class="btn btn-danger btn-fill btn-xs" id="deleteCommandPrice_' + commandName + '" onclick="$.deleteCommandPrice(\'' + commandName + '\')"><i class="fa fa-trash" /> </button>' +
                         '           </span>' +
                         '           </div>' +
@@ -240,7 +240,7 @@
                         '            <input  type="text" id="editCommandPay_' + commandName + '"' +
                         '                   value="' + commandValue + '" />' +
                         '              <button type="button" class="btn btn-danger btn-fill btn-xs" onclick="$.updateCommandPay(\'' + commandName + '\')"><i class="fa fa-pencil" /> </button> ' +
-                        '              <button type="button" class="btn btn-info btn-fill btn-xs" id="deleteCommandPay_' + commandName + '" onclick="$.deleteCommandPay(\'' + commandName + '\')"><i class="fa fa-trash" /> </button>' +
+                        '              <button type="button" class="btn btn-default btn-fill btn-xs" id="deleteCommandPay_' + commandName + '" onclick="$.deleteCommandPay(\'' + commandName + '\')"><i class="fa fa-trash" /> </button>' +
                         '             </form>' +
                         '        </form>' +
                         '    </td>' +

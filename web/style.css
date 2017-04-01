@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Amethyst';
+    src: url('Amethyst.ttf');
+}
+
 body {
     font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, sans-serif;
 }
@@ -149,13 +154,29 @@ body {
 }
 
 h1 {
-    font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, sans-serif !important;
+    font-family: Amethyst, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 1.8em;
+}
+
+a {
+    color: #02c1c1;
+}
+
+a:hover {
+    color: #00f4f4;
+}
+
+.iconsLink {
+    color: white !important;
+}
+
+.iconsLink:hover {
+    color: #02c1c1 !important;
 }
 
 #logo {
     z-index: 1000;
     width: 100%;
-    font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, sans-serif !important;
     font-size: 2rem;
     color: white;
     position: fixed;

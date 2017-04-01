@@ -70,8 +70,10 @@
                 streamOnline = (panelMatch(msgObject['results']['streamOnline'], 'true'));
                 if (streamOnline) {
                     $('#streamOnline').html('<span data-toggle="tooltip" title="Stream Online" data-placement="bottom" style="padding-right: 10px;"><i style="top: -1px;" class="fa fa-wifi fa-rotate-90 live-blink"></i><span style="color: #FF4A55; font-weight: bold;font-variant: normal;">  live</span></span>');
+                    $('#streamOnline2').html('<i style="padding-bottom: 19px; padding-left: 1px; padding-top: 0px; padding-right: 0px; top: -1px;" class="fa fa-wifi fa-rotate-90 live-blink"></i>');
                 } else {
                     $('#streamOnline').html('<span data-toggle="tooltip" title="Stream Offline" data-placement="bottom" style="padding-right: 10px;"><span style="color: #1DC7EA;font-variant: normal;">offline</span></span>');
+                    $('#streamOnline2').html('<i style="padding-bottom: 19px; padding-left: 1px; padding-top: 0px; padding-right: 0px; color: #1DC7EA; top: -1px;" class="fa fa-wifi fa-rotate-90"></i>');
                 }
             }
 
@@ -90,41 +92,55 @@
 
             if (whisperMode) {
                 $('#whisperModeStatus').html('<span data-toggle="tooltip" data-placement="bottom" title="Whisper Mode" style="padding-right: 10px;"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-user-secret" /></span><sub>whisper mode</sub></span>');
+                $('#whisperModeStatus2').html('<i style="color: #1DC7EA" class="fa fa-user-secret" />');
             } else {
                 $('#whisperModeStatus').html('');
+                $('#whisperModeStatus2').html('');
             }
 
             if (meMode) {
                 $("#meModeStatus").html('<span data-toggle="tooltip" data-placement="bottom" title="Action (/me) Mode" style="padding-right: 10px;"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-hand-paper-o" /></span><sub>action mode</sub></span>');
+                $("#meModeStatus2").html('<i style="padding-left: 18px; color: #1DC7EA" class="fa fa-hand-paper-o" />');
             } else {
                 $("#meModeStatus").html('');
+                $("#meModeStatus2").html('');
             }
             if (!responseMode) {
                 $("#muteModeStatus").html('<span data-toggle="tooltip" data-placement="bottom" title="Mute Mode" style="padding-right: 10px;"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-microphone-slash" /></span><sub>lagertha muted</sub></span>');
+                $("#muteModeStatus2").html('<i style="color: #1DC7EA" class="fa fa-microphone-slash" />');
             } else {
                 $("#muteModeStatus").html('');
+                $("#muteModeStatus2").html('');
             }
 
             if ($.globalPauseMode) {
                 $("#commandPauseStatus").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Commands Paused\" style=\"padding-right: 10px;\"><span class=\"notification-modes hidden-sm hidden-xs\"><i style=\"color: #1DC7EA\" class=\"fa fa-pause-circle-o\" /></span><sub>commands paused</sub></span>");
+                $("#commandPauseStatus2").html("<i style=\"color: #1DC7EA\" class=\"fa fa-pause-circle-o\" />");
             } else {
                 $("#commandPauseStatus").html("");
+                $("#commandPauseStatus2").html("");
             }
 
             if (streamOnline) {
                 if (panelCheckQuery(msgObject, 'global_streamUptime')) {
                     $("#streamUptime").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Uptime\" style=\"padding-right: 10px;\"><span><span class=\"notification hidden-sm hidden-xs\">" + msgObject['results']['streamUptime'] + "</span><sub>uptime</sub></span></span>");
+                    $("#streamUptime2").html(msgObject['results']['streamUptime']);
                 }
                 if (panelCheckQuery(msgObject, 'global_playTime')) {
                     $("#timePlayed").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Time Played\" style=\"padding-right: 10px;\"><span><span class=\"notification hidden-sm hidden-xs\">" + msgObject['results']['playTime'] + "</span><sub>time played</sub></span></span>");
+                    $("#timePlayed2").html(msgObject['results']['playTime']);
                 }
                 if (panelCheckQuery(msgObject, 'global_viewerCount')) {
                     $("#viewerCount").html("<span data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Viewers\" style=\"padding-right: 10px;\"><span><span class=\"notification hidden-sm hidden-xs\">" + msgObject['results']['viewerCount'] + "</span><sub>viewers</sub></span></span>");
+                    $("#viewerCount2").html(msgObject['results']['viewerCount']);
                 }
             } else {
                 $("#streamUptime").html('');
+                $("#streamUptime2").html('');
                 $("#timePlayed").html('');
+                $("#timePlayed2").html('');
                 $("#viewerCount").html('');
+                $("#viewerCount2").html('');
             }
 
             if (panelCheckQuery(msgObject, 'global_dsToggle')) {

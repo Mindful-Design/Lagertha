@@ -43,6 +43,7 @@
     <script src="panel/js/jquery.flot.resize.js"></script>
     <script src="panel/js/date.js"></script>
     <script src="http://player.twitch.tv/js/embed/v1.js"></script>
+    <script src="panel/js/md.js"></script>
 
     <script type="text/javascript" src="panel/js/reconnectingWS.min.js"></script>
     <script type="text/javascript" src="panel/js/dateFormat.js"></script>
@@ -64,7 +65,7 @@
 <body>
     <div id="wrapper">
         <div id="panelLoader" style="opacity: 0.9;">
-            <div class="preloader preloader--xl preloader--light">
+            <div class="preloader preloader--xl preloader--blue">
                 <svg viewBox="25 25 50 50">
                     <circle cx="50" cy="50" r="20"></circle>
                 </svg>
@@ -140,73 +141,62 @@
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-left">
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a>
-                                        <span id="streamOnline" />
-                                        <p class="hidden-lg hidden-md"><span id="streamOnline" /></p>
+                                        <span id="streamOnline"></span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a>
                                         <span id="streamUptime" />
-                                        <p class="hidden-lg hidden-md"><span id="streamUptime" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a>
                                         <span id="timePlayed" />
-                                        <p class="hidden-lg hidden-md"><span id="timePlayed" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a>
                                         <span id="viewerCount" />
-                                        <p class="hidden-lg hidden-md"><span id="viewerCount" /></p>
                                     </a>
                                 </li>
-                                <li style="background-color: #1dc7ea;padding-bottom: 5px;">
+                                <li class="hidden-xs hidden-md" style="background-color: #1dc7ea;padding-bottom: 5px;">
                                     <a style="color: white;font-weight: bold;">Bot modes:</a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a class="modes">
                                         <span id="commandPauseStatus" />
-                                        <p class="hidden-lg hidden-md"><span id="commandPauseStatus" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a class="modes">
                                         <span id="whisperModeStatus" />
-                                        <p class="hidden-lg hidden-md"><span id="whisperModeStatus" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a class="modes">
                                         <span id="meModeStatus" />
-                                        <p class="hidden-lg hidden-md"><span id="meModeStatus" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a class="modes">
                                         <span id="muteModeStatus" />
-                                        <p class="hidden-lg hidden-md"><span id="muteModeStatus" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a class="modes">
                                         <span id="newVersionAvailable" />
-                                        <p class="hidden-lg hidden-md"><span id="newVersionAvailable" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a class="modes">
                                         <span id="multiStatus" />
-                                        <p class="hidden-lg hidden-md"><span id="multiStatus" /></p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a class="modes">
                                         <span id="panelStatsStatus" />
-                                        <p class="hidden-lg hidden-md"><span id="panelStatsStatus" /></p>
                                     </a>
                                 </li>
                             </ul>
@@ -221,11 +211,11 @@
                                         </label>
                                     </div>
                                 </li>
-                                <li>
+                                <li class="hidden-xs hidden-md">
                                     <a style="font-weight: bold;" data-toggle="tooltip" data-placement="bottom" title="placeholder">Settings
                                     </a>
                                 </li>
-                                <li style="background-color: #1dc7ea;padding-bottom: 1px;padding-left: 15px; padding-right: 15px;">
+                                <li style="background-color: #1dc7ea;padding-bottom: 1px;padding-left: 15px; padding-right: 15px;" class="hidden-xs hidden-md">
                                     <a href="#" onclick="performCurrentPanelRefresh()" data-toggle="tooltip" data-placement="bottom" title="Refresh Current Panel Data">
                                         <i style="color: #fff" class="fa fa-refresh"></i>
                                     </a>
@@ -401,6 +391,7 @@
     <script>
         $('#tabs').tabs().addClass('ui-tabs-vertical ui-helper-clearfix').fadeIn(1000);
         TABS_INITIALIZED = true;
+
         $("#panelLoader").fadeOut(1000);
 
         /* SIDEBAR - Mindful Design */

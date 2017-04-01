@@ -177,8 +177,8 @@
                             break;
                         }
                     }
-                    $("#chatDate-" + i).html("<span><i class=\"fa fa-circle text-success\"></i>" + chatDate + "</span>");
-                    $("#chatCount-" + i).html("<spam><i class=\"fa fa-circle text-info\"></i>" + chatCount + "</span>");
+                    $("#chatDate-" + i).html("<span>" + chatDate + "</span>");
+                    $("#chatCount-" + i).html("<spam>" + chatCount + "</span>");
                     chatGraphData.push([j, chatCount]);
                 }
             }
@@ -200,7 +200,7 @@
                             break;
                         }
                     }
-                    $("#modCount-" + i).html("<spam><i class=\"fa fa-circle text-danger\"></i>" + modCount + "</span>");
+                    $("#modCount-" + i).html("<spam>" + modCount + "</span>");
                     toutGraphData.push([j, modCount]);
                 }
 
@@ -310,7 +310,7 @@
                 if (msgObject['results']['lastFollow'] == null) {
                     $("#lastFollow").html("");
                 } else {
-                    $("#lastFollow").html("<spam><i class=\"fa fa-circle text-info\"></i><strong>Latest Follow:</strong> " + msgObject['results']['lastFollow'] + "</spam>");
+                    $("#lastFollow").html("<spam>Latest Follow: " + msgObject['results']['lastFollow'] + "</spam>");
                 }
             }
 
@@ -318,7 +318,7 @@
                 if (msgObject['results']['lastReSub'] == null) {
                     $("#lastReSub").html("");
                 } else {
-                    $("#lastReSub").html("<spam><i class=\"fa fa-circle text-success\"></i><strong>Latest ReSub:</strong> " + msgObject['results']['lastReSub'] + "</spam>");
+                    $("#lastReSub").html("<spam>Latest ReSub: " + msgObject['results']['lastReSub'] + "</spam>");
                 }
             }
 
@@ -326,7 +326,7 @@
                 if (msgObject['results']['lastSub'] == null) {
                     $("#lastSub").html("");
                 } else {
-                    $("#lastSub").html("<spam><i class=\"fa fa-circle text-warning\"></i><strong>Latest Sub:</strong> " + msgObject['results']['lastSub'] + "</spam>");
+                    $("#lastSub").html("<spam>Latest Sub: " + msgObject['results']['lastSub'] + "</spam>");
                 }
             }
 
@@ -334,7 +334,7 @@
                 if (msgObject['results']['lastDonator'] == null) {
                     $("#lastDonator").html("");
                 } else {
-                    $("#lastDonator").html("<spam><i class=\"fa fa-circle text-danger\"></i><strong>Latest Donator:</strong> " + msgObject['results']['lastDonator'] + "</spam>");
+                    $("#lastDonator").html("<spam>Latest Donator: " + msgObject['results']['lastDonator'] + "</spam>");
                 }
             }
 
