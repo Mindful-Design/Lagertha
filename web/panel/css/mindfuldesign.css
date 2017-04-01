@@ -4158,6 +4158,9 @@ output {
 /*          Changes for small display      */
 
 @media (max-width: 991px) {
+    .table-responsive {
+        border: 0px solid #333;
+    }
     .sidebar {
         display: none;
     }
@@ -4189,6 +4192,7 @@ output {
         float: left;
         width: 100%;
         left: 0px;
+        overflow-x: hidden;
     }
     .tab-pane {
         width: 100%;
