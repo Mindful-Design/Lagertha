@@ -40,17 +40,19 @@
                                 <span id="lastDonator" placeholder="-" />
                             </div>
                             <br>
+
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="streamTitle">Stream Title</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="streamTitleInput" placeholder="Stream Title">
                                         <span class="input-group-btn">
-                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setStreamTitle()">Update</button>
-                                        </span>
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setStreamTitle()">Update</button></span>
+
                                     </div>
                                 </div>
                             </form>
+
 
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -85,18 +87,10 @@
                         </div>
                         <div class="content">
                             <div class="embed-responsive embed-responsive-16by9">
-
-                                <iframe id="videoPreview" class="embed-responsive-item" src="" height="622" width="350" frameborder="0" scrolling="no" allowfullscreen="true">
-</iframe>
+                                <iframe id="videoPreview" class="embed-responsive-item" src="" height="622" width="350" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
                                 <script>
                                     document.getElementById("videoPreview").src = 'http://player.twitch.tv/?channel=' + getChannelName() + '&muted=true&autoplay=false';
-                                    /*var options = {
-                                                                                                                                                    width: 622,
-                                                                                                                                                    height: 350,
-                                                                                                                                                    channel: getChannelName()
-                                                                                                                                                };
-                                                                                                                                                var player = new Twitch.Player("videoPreview", options);
-                                                                                                                                                player.setVolume(0.5);*/
+                                    /*var options = {width: 622,height: 350,channel: getChannelName()};var player = new Twitch.Player("videoPreview", options);player.setVolume(0.5);*/
 
                                 </script>
                             </div>
@@ -114,6 +108,7 @@
                             <div>
                                 <div id="_shoutoutPanel">
                                     Shoutout a streamer! Will display their Twitch URL in chat along with game being played, or last played.<br><br>
+
                                     <form role="form">
                                         <div class="form-group" onkeypress="return event.keyCode != 13">
                                             <label for="shoutOut">Twitch Channel to Shoutout</label>
@@ -253,7 +248,6 @@
                                 <td>
                                     <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
                                     </div>
-                                    <div>
                                 </td>
                             </tr>
                             <tr>
@@ -264,8 +258,6 @@
                                 <td>
                                     <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
                                     </div>
-                                    </div>
-                                    <div>
                                 </td>
                             </tr>
                             <tr>
@@ -277,9 +269,9 @@
                                     <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
                                     </div>
                                 </td>
-                                </div>
                             </tr>
                         </table>
+
                         <form role="form">
                             <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="logRotate">Number of Days to Keep Logs</label>
@@ -305,6 +297,7 @@
                         <div id="_highlightsPanel">
                             Make a note of an event in the broadcast to make creating highlights in Twitch easier later.
                             <br><br>
+
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="highlight">Create Highlight</label>
@@ -318,7 +311,7 @@
                             </form>
                             <br>
 
-                            <button type="button" class="btn btn-danger btn-fill pull-right" onclick="$.clearHighlights()">Clear Highlights</button>
+                            <button type="button" class="btn btn-danger btn-fill " onclick="$.clearHighlights()">Clear Highlights</button>
                             <label>Current Highlights</label><br>
                             <span id="showHighlights" />
                         </div>
@@ -364,6 +357,7 @@
                         <div id="_multiLinkPanel">
                             Multi-Link provides a link to share multiple Twitch channels in one UI. Great for races or other competititions. Provide a space delimited list of channels. Set a timer to let chat know on a regular basis that the Multi-Link is on.
                             <br><br>
+
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="multi-link">Multi-Link Channels</label>
@@ -376,6 +370,7 @@
                                 </div>
                             </form>
 
+
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="multi-link">Timer Interval</label>
@@ -387,6 +382,7 @@
                                     </div>
                                 </div>
                             </form>
+
 
                             <form role="form">
                                 <div class="form-group" onkeypress="return event.keyCode != 13">

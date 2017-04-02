@@ -31,13 +31,13 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="promoteUserAdmin">Promote to Administrator</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Admin')">Promote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateUserPerm('Admin')">Promote</button>
                                 <input type="text" class="form-control" id="promoteUserAdmin" placeholder="Username" />
                                 <br>
                                 <label for="unPromoteUserAdmin">Demote from Administrator</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Admin')">Demote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.demoteUser('Admin')">Demote</button>
                                 <input type="text" class="form-control" id="unPromoteUserAdmin" placeholder="Username" />
                             </div>
                             <div>
@@ -57,13 +57,13 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="promoteUserMod">Promote to Moderator</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Mod')">Promote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateUserPerm('Mod')">Promote</button>
                                 <input type="text" class="form-control" id="promoteUserMod" placeholder="Username" data-toggle="tooltip" title="Make sure to '/mod' the user in your channel too." />
                                 <br>
                                 <label for="unPromoteUserMod">Demote from Moderator</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Mod')">Demote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.demoteUser('Mod')">Demote</button>
                                 <input type="text" class="form-control" id="unPromoteUserMod" placeholder="Username" data-toggle="tooltip" title="Make sure to '/unmod' the user in your channel too." />
                             </div>
                             <div>
@@ -81,12 +81,12 @@
             Can't promote to sub. We get this from Twitch and GameWisp 
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserSub">Promote to Subscriber</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Sub')">Promote</button>
+                <button type="button" class="btn btn-info btn-fill " onclick="$.updateUserPerm('Sub')">Promote</button>
                 <input type="text" class="form-control" id="promoteUserSub" placeholder="Username" 
                 data-toggle="tooltip" title="This will only work if you have a partnered channel, and if the user is subscribed via twitch." />
                 <br>
                 <label for="unPromoteUserSub">Demote from Subscriber</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Sub')">Demote</button>
+                <button type="button" class="btn btn-info btn-fill " onclick="$.demoteUser('Sub')">Demote</button>
                 <input type="text" class="form-control" id="unPromoteUserSub" placeholder="Username" data-toggle="tooltip" title="This will probably reset if the user is subscribed to the channel." />
             </div>
             <div>
@@ -103,13 +103,13 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="promoteUserDonator">Promote to Donator</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Donator')">Promote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateUserPerm('Donator')">Promote</button>
                                 <input type="text" class="form-control" id="promoteUserDonator" placeholder="Username" />
                                 <br>
                                 <label for="unPromoteUserDonator">Demote from Donator</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Donator')">Demote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.demoteUser('Donator')">Demote</button>
                                 <input type="text" class="form-control" id="unPromoteUserDonator" placeholder="Username" />
                             </div>
                             <div>
@@ -128,11 +128,11 @@
        <form role="form">
            <div class="form-group" onkeypress="return event.keyCode != 13">
                <label for="promoteUserHoster">Promote to Hoster</label>
-               <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Hoster')">Promote</button>
+               <button type="button" class="btn btn-info btn-fill " onclick="$.updateUserPerm('Hoster')">Promote</button>
                <input type="text" class="form-control" id="promoteUserHoster" placeholder="Username" />
                <br>
                <label for="unPromoteUserHoster">Demote from Hoster</label>
-               <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Hoster')">Demote</button>
+               <button type="button" class="btn btn-info btn-fill " onclick="$.demoteUser('Hoster')">Demote</button>
                <input type="text" class="form-control" id="unPromoteUserHoster" placeholder="Username" />
            </div>
        </form>
@@ -148,13 +148,13 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="promoteUserReg">Promote to Regular</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateUserPerm('Reg')">Promote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateUserPerm('Reg')">Promote</button>
                                 <input type="text" class="form-control" id="promoteUserReg" placeholder="Username" />
                                 <br>
                                 <label for="unPromoteUserReg">Demote from Regular</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.demoteUser('Reg')">Demote</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.demoteUser('Reg')">Demote</button>
                                 <input type="text" class="form-control" id="unPromoteUserReg" placeholder="Username" />
                             </div>
                             <div>
@@ -171,7 +171,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="fixFollower">Force follow</label>
-                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.fixFollower()">Update</button>
+                <button type="button" class="btn btn-info btn-fill " onclick="$.fixFollower()">Update</button>
                 <input type="text" class="form-control" id="fixFollower" placeholder="Username" data-toggle="tooltip" title="This will make the heart light up next to the users name." />
             </div>
         <div>

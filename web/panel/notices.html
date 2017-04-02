@@ -59,17 +59,17 @@
                             <br> Set the interval for notices and the required messages before triggering one. Use 0 for required messages if you only want a timer.<br><br>
 
                             <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
+     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="noticeInterval">Timer Interval</label>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateNoticeInterval('#noticeIntervalInput', 'interval')">Submit</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateNoticeInterval('#noticeIntervalInput', 'interval')">Submit</button>
                                     <input type="number" min="5" class="form-control" id="noticeIntervalInput" placeholder="Minutes" data-toggle="tooltip" title="Set the interval (in minutes) of when a notice gets triggered. Minimum is 5 minutes" />
                                 </div>
                             </form>
 
                             <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
+     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="noticeMsgReq">Required Messages</label>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateNoticeReq('#noticeReqInput', 'reqmessages')">Submit</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateNoticeReq('#noticeReqInput', 'reqmessages')">Submit</button>
                                     <input type="number" min="0" class="form-control" id="noticeReqInput" placeholder="Number of Messages" data-toggle="tooltip" title="Set the amount of messages required before a notice gets triggered." />
                                 </div>
                             </form>
@@ -78,9 +78,9 @@
                             <div id="_noticesPanelDisabled" />
                             <div id="_noticesPanel">
                                 <form role="form">
-                                    <div class="form-group" onkeypress="return event.keyCode != 13">
+         <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                         <label for="addNotice">Add New Notice</label>
-                                        <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addNotice()">Submit</button>
+                                        <button type="button" class="btn btn-info btn-fill " onclick="$.addNotice()">Submit</button>
                                         <input type="text" class="form-control" id="addNoticeInput" placeholder="New Notice" data-toggle="tooltip" title="Enter a message, or you can use a command. command:Command_Name" />
                                     </div>
                                 </form>

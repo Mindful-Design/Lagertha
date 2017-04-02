@@ -22,7 +22,7 @@
     <form role="form">
         <div class="form-group" onkeypress="return event.keyCode != 13">
             <label for="linkPermit">Permit a user</label>
-            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.permitUserCommand()">Permit</button>
+            <button type="button" class="btn btn-info btn-fill " onclick="$.permitUserCommand()">Permit</button>
             <input type="text" class="form-control" id="permitUserInput" placeholder="Username" data-toggle="tooltip" title="Permit a user to post a link." />
         </div>
     </form>
@@ -39,16 +39,16 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="msgCooldownSec">Message cooldown</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#msgCooldownSec', 'msgCooldownSecs')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#msgCooldownSec', 'msgCooldownSecs')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="msgCooldownSec" placeholder="seconds" data-toggle="tooltip" title="Set a cooldown in seconds on the punishment messages." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningResetTime">Warning reset time</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningResetTime', 'warningResetTime')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningResetTime', 'warningResetTime')">Submit</button>
                                 <input type="number" min="10" class="form-control" id="warningResetTime" placeholder="seconds" data-toggle="tooltip" title="Set how long a warning in minutes lasts on a user." />
                             </div>
                         </form>
@@ -171,35 +171,35 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="linksMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#linksMessageInput', 'linksMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#linksMessageInput', 'linksMessage')">Submit</button>
                                 <input type="text" class="form-control" id="linksMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for linking." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="LinkMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#LinkMessageReason', 'LinkMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#LinkMessageReason', 'LinkMessage')">Submit</button>
                                 <input type="text" class="form-control" id="LinkMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="linkPermitTime">Permit duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#linkPermitTimeInput', 'linkPermitTime')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#linkPermitTimeInput', 'linkPermitTime')">Submit</button>
                                 <input type="number" min="0" class="form-control" id="linkPermitTimeInput" placeholder="Loading..." data-toggle="tooltip" title="Set how long in seconds for how long a user is permited." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeLinks">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeLinks', 'warningTimeLinks')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeLinks', 'warningTimeLinks')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeLinks" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when posting a link on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeLinks">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeLinks', 'timeoutTimeLinks')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeLinks', 'timeoutTimeLinks')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeLinks" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when posting a link on their last offence." />
                             </div>
                         </form>
@@ -245,52 +245,52 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="symbolsMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#symbolsMessageInput', 'symbolsMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#symbolsMessageInput', 'symbolsMessage')">Submit</button>
                                 <input type="text" class="form-control" id="symbolsMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for symbols." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="SymbolMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#SymbolMessageReason', 'SymbolMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#SymbolMessageReason', 'SymbolMessage')">Submit</button>
                                 <input type="text" class="form-control" id="SymbolMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="symbolsLimitPercent">Symbol percent</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#symbolsLimitPercentInput', 'symbolsLimitPercent')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#symbolsLimitPercentInput', 'symbolsLimitPercent')">Submit</button>
                                 <input type="number" min="1" max="100" class="form-control" id="symbolsLimitPercentInput" placeholder="Loading..." data-toggle="tooltip" title="Set the percent of symbols allowed in a message." />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="symbolsGroupLimit">Symbols limit</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#symbolsGroupLimitInput', 'symbolsGroupLimit')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#symbolsGroupLimitInput', 'symbolsGroupLimit')">Submit</button>
                                 <input type="number" min="0" class="form-control" id="symbolsGroupLimitInput" placeholder="Loading..." data-toggle="tooltip" title="Set how many grouped symbols are allowed in a message." />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="symbolsTriggerLength">Symbols trigger limit</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#symbolsTriggerLengthInput', 'symbolsTriggerLength')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#symbolsTriggerLengthInput', 'symbolsTriggerLength')">Submit</button>
                                 <input type="number" min="0" class="form-control" id="symbolsTriggerLengthInput" placeholder="Loading..." data-toggle="tooltip" title="Set how many characters needs to be in a message before checking for symbols." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeSymbols">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeSymbols', 'warningTimeSymbols')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeSymbols', 'warningTimeSymbols')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeSymbols" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when over-using symbols on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeSymbols">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeSymbols', 'timeoutTimeSymbols')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeSymbols', 'timeoutTimeSymbols')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeSymbols" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when over-using symbols on their last offence." />
                             </div>
                         </form>
@@ -336,44 +336,44 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="capsMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#capsMessageInput', 'capsMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#capsMessageInput', 'capsMessage')">Submit</button>
                                 <input type="text" class="form-control" id="capsMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for caps." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="CapMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#CapMessageReason', 'CapMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#CapMessageReason', 'CapMessage')">Submit</button>
                                 <input type="text" class="form-control" id="CapMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="capsLimitPercent">Caps percent</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#capsLimitPercentInput', 'capsLimitPercent')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#capsLimitPercentInput', 'capsLimitPercent')">Submit</button>
                                 <input type="number" min="0" max="100" class="form-control" id="capsLimitPercentInput" placeholder="Loading..." data-toggle="tooltip" title="Set the percent of caps allowed in a message." />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="capsTriggerLength">Caps trigger limit</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#capsTriggerLengthInput', 'capsTriggerLength')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#capsTriggerLengthInput', 'capsTriggerLength')">Submit</button>
                                 <input type="number" min="0" class="form-control" id="capsTriggerLengthInput" placeholder="Loading..." data-toggle="tooltip" title="Set the amount of characters needed in a message before checking for caps." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeCaps">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeCaps', 'warningTimeCaps')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeCaps', 'warningTimeCaps')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeCaps" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when over-using caps on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeCaps">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeCaps', 'timeoutTimeCaps')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeCaps', 'timeoutTimeCaps')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeCaps" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when over-using caps on their last offence." />
                             </div>
                         </form>
@@ -418,36 +418,36 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="spamMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#spamMessageInput', 'spamMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#spamMessageInput', 'spamMessage')">Submit</button>
                                 <input type="text" class="form-control" id="spamMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user get punished for spam." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="SpamMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#SpamMessageReason', 'SpamMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#SpamMessageReason', 'SpamMessage')">Submit</button>
                                 <input type="text" class="form-control" id="SpamMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="spamLimit">Spam limit</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#spamLimitInput', 'spamLimit')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#spamLimitInput', 'spamLimit')">Submit</button>
                                 <input type="number" min="2" class="form-control" id="spamLimitInput" placeholder="Loading..." data-toggle="tooltip" title="Set how many repeating characters are allowed in a message." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeSpam">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeSpam', 'warningTimeSpam')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeSpam', 'warningTimeSpam')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeSpam" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out ,in seconds, when spamming on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeSpam">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeSpam', 'timeoutTimeSpam')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeSpam', 'timeoutTimeSpam')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeSpam" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out ,in seconds, when spamming on their last offence." />
                             </div>
                         </form>
@@ -493,29 +493,29 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="fakePurgeMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#fakePurgeMessageInput', 'fakePurgeMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#fakePurgeMessageInput', 'fakePurgeMessage')">Submit</button>
                                 <input type="text" class="form-control" id="fakePurgeMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user get punished for fake purges." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="FakePurgeReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#FakePurgeReason', 'FakePurgeMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#FakePurgeReason', 'FakePurgeMessage')">Submit</button>
                                 <input type="text" class="form-control" id="FakePurgeReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeFakePurge">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeFakePurge', 'warningTimeFakePurge')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeFakePurge', 'warningTimeFakePurge')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeFakePurge" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out ,in seconds, when using a fale purge on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeFakePurge">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeFakePurge', 'timeoutTimeFakePurge')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeFakePurge', 'timeoutTimeFakePurge')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeFakePurge" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out ,in seconds, when using a fale purge on their last offence." />
                             </div>
                         </form>
@@ -561,36 +561,36 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="emotesMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#emotesMessageInput', 'emotesMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#emotesMessageInput', 'emotesMessage')">Submit</button>
                                 <input type="text" class="form-control" id="emotesMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for emotes." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="EmoteMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#EmoteMessageReason', 'EmoteMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#EmoteMessageReason', 'EmoteMessage')">Submit</button>
                                 <input type="text" class="form-control" id="EmoteMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="emotesLimit">Emote limit</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#emotesLimitInput', 'emotesLimit')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#emotesLimitInput', 'emotesLimit')">Submit</button>
                                 <input type="number" min="2" class="form-control" id="emotesLimitInput" placeholder="Loading..." data-toggle="tooltip" title="Set how many emotes are allowed in a message." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeEmotes">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeEmotes', 'warningTimeEmotes')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeEmotes', 'warningTimeEmotes')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeEmotes" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when spamming emotes on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeEmotes">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeEmotes', 'timeoutTimeEmotes')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeEmotes', 'timeoutTimeEmotes')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeEmotes" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when spamming emotes on their second and last offence." />
                             </div>
                         </form>
@@ -636,28 +636,28 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="colorsMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#colorsMessageInput', 'colorsMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#colorsMessageInput', 'colorsMessage')">Submit</button>
                                 <input type="text" class="form-control" id="colorsMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for using /me." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="ColorMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#ColorMessageReason', 'ColorMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#ColorMessageReason', 'ColorMessage')">Submit</button>
                                 <input type="text" class="form-control" id="ColorMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeColors">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeColors', 'warningTimeColors')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeColors', 'warningTimeColors')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeColors" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when using /me on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeColors">Timeout Time Duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeColors', 'timeoutTimeColors')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeColors', 'timeoutTimeColors')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeColors" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when using /me on their last offence." />
                             </div>
                         </form>
@@ -703,36 +703,36 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="longMessageMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#longMessageMessageInput', 'longMessageMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#longMessageMessageInput', 'longMessageMessage')">Submit</button>
                                 <input type="text" class="form-control" id="longMessageMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for posting a long message." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="LongMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#LongMessageReason', 'LongMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#LongMessageReason', 'LongMessage')">Submit</button>
                                 <input type="text" class="form-control" id="LongMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="longMessageLimit">Long message limit</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#longMessageLimitInput', 'longMessageLimit')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#longMessageLimitInput', 'longMessageLimit')">Submit</button>
                                 <input type="number" min="10" max="1400" class="form-control" id="longMessageLimitInput" placeholder="Loading..." data-toggle="tooltip" title="Set the amount of characters allowed in a message." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeLongMsg">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeLongMsg', 'warningTimeLongMsg')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeLongMsg', 'warningTimeLongMsg')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="warningTimeLongMsg" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when posting a long message on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeLongMsg">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeLongMsg', 'timeoutTimeLongMsg')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeLongMsg', 'timeoutTimeLongMsg')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="timeoutTimeLongMsg" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when posting a long message on their last offence." />
                             </div>
                         </form>
@@ -778,43 +778,43 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="spamTrackerMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#spamTrackerMessageInput', 'spamTrackerMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#spamTrackerMessageInput', 'spamTrackerMessage')">Submit</button>
                                 <input type="text" class="form-control" id="spamTrackerMessageInput" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for posting a spamming message." />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="SpamTrackerReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#SpamTrackerReason', 'SpamTracker')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#SpamTrackerReason', 'SpamTracker')">Submit</button>
                                 <input type="text" class="form-control" id="SpamTrackerReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
 
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="spamTrackerLimit">Message limit</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#spamTrackerLimitInput', 'spamTrackerLimit')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#spamTrackerLimitInput', 'spamTrackerLimit')">Submit</button>
                                 <input type="number" min="5" max="1400" class="form-control" id="spamTrackerLimitInput" placeholder="Loading..." data-toggle="tooltip" title="Set the amount of messages allowed in X amount of seconds." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="spamTrackerLimit">Time</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#spamTrackerTimeInput', 'spamTrackerTime')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#spamTrackerTimeInput', 'spamTrackerTime')">Submit</button>
                                 <input type="number" min="10" max="1400" class="form-control" id="spamTrackerTimeInput" placeholder="Loading..." data-toggle="tooltip" title="Set the the amount of time in seconds people can send messages in. Used for the message limit." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="warningTimeSpamTracker">Warning duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#warningTimeSpamTracker', 'warningTimeSpamTracker')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#warningTimeSpamTracker', 'warningTimeSpamTracker')">Submit</button>
                                 <input type="text" min="1" class="form-control" id="warningTimeSpamTracker" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when spamming on their first offence." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="timeoutTimeSpamTracker">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#timeoutTimeSpamTracker', 'timeoutTimeSpamTracker')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#timeoutTimeSpamTracker', 'timeoutTimeSpamTracker')">Submit</button>
                                 <input type="text" min="1" class="form-control" id="timeoutTimeSpamTracker" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out in seconds, when spamming on their last offence." />
                             </div>
                         </form>
@@ -860,28 +860,28 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="addModBlacklist">Phrase</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addModBlacklist()">Blacklist</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.addModBlacklist()">Blacklist</button>
                                 <input type="text" class="form-control" id="addModBlacklistInput" placeholder="Phrase" data-toggle="tooltip" title="Adding a blacklist word or phrase will timeout anyone who uses that phrase in chat." />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="blacklistMessage">Message</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#blacklistMessage', 'blacklistMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#blacklistMessage', 'blacklistMessage')">Submit</button>
                                 <input type="text" class="form-control" id="blacklistMessage" placeholder="Loading..." data-toggle="tooltip" title="Message said in chat when a user is punished for using a blacklisted phrase" />
                             </div>
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="BlacklistMessageReason">Ban Reason</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.banReason('#BlacklistMessageReason', 'BlacklistMessage')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.banReason('#BlacklistMessageReason', 'BlacklistMessage')">Submit</button>
                                 <input type="text" class="form-control" id="BlacklistMessageReason" placeholder="Loading..." data-toggle="tooltip" title="Message sent to your moderators and the user that was punished. And used when silent mode is enabled" />
                             </div>
                         </form>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="blacklistTimeoutTime">Timeout duration</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateRedrawModSetting('#blacklistTimeoutTime', 'blacklistTimeoutTime')">Submit</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateRedrawModSetting('#blacklistTimeoutTime', 'blacklistTimeoutTime')">Submit</button>
                                 <input type="number" min="1" class="form-control" id="blacklistTimeoutTime" placeholder="Loading..." data-toggle="tooltip" title="Set how long a user will get timed out when using a blacklisted phrase." />
                             </div>
                         </form>
@@ -908,9 +908,9 @@
                 <div class="content">
                     <div>
                         <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
+ <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                 <label for="addModWhitelist">URL</label>
-                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.addModWhitelist()">Whitelist</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.addModWhitelist()">Whitelist</button>
                                 <input type="text" class="form-control" id="addModWhitelistInput" placeholder="Link or URL" data-toggle="tooltip" title="Add a url that users will no be punished for saying in chat." />
                             </div>
                         </form>

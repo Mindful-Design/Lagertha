@@ -32,10 +32,10 @@
                     <div>
                         <div id="_pollPanel">
                             <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
+     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="addNotice">Open/Close a Poll</label>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.closePoll()">Close Poll</button>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.openPoll()">Open Poll</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.closePoll()">Close Poll</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.openPoll()">Open Poll</button>
                                     <input type="text" class="form-control" id="pollQuestionInput" placeholder="Poll Question" />
                                     <input type="text" class="form-control" id="pollOptionsInput" placeholder="Option1, Option2, ..." />
                                     <input type="number" min="30" class="form-control" id="pollLengthInput" placeholder="Seconds (optional, default is until closed)" />

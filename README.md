@@ -8,6 +8,10 @@ A UI/UX redesign of the popular Twitch-bot PhantomBot, by [phantombot.tv](https:
 
 If you are interested in what else I have developed, or in the streaming platform I am working on, please don't hesistate to visit [my homepage](http://bit.ly/MindfulG)
 
+## Status
+
+* You can find the status of the project over on [Trello](https://trello.com/b/5kni5emL/mindful-design-public)
+
 ## Getting Started
 
 To use this on your own setup, download the repo and replace your web folders with these. Be mindful (pun intended) of the PhantomBot version requirements.

@@ -142,23 +142,18 @@
 
                     html += "<tr >" +
                         "    <td>" +
-                        "        <div id=\"clearGroupPoints_" + groupName + "\" class=\"button\"" +
-                        "             onclick=\"$.updateGroupPoints('" + groupName + "', true, true)\"><i class=\"fa fa-trash\" />" +
-                        "        </div>" +
+                        "   <button id=\"clearGroupPoints_\" class=\"btn btn-default btn-fill btn-xs\" type=\"button\" onclick=\"$.updateGroupPoints('" + groupName + "', true, true)\"><i class=\"fa fa-trash\" /></button>" +
                         "    <td>" + groupName + "</td>" +
-                        "    <td><form onkeypress=\"return event.keyCode != 13\">" +
-                        "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsEdit_" + groupName + "\"" +
+                        "    <td><form role=\"form\" onkeypress=\"return event.keyCode != 13\">" +
+                        "<div class=\"input-group\">" +
+                        "        <input class=\"form-control\" type=\"number\" min=\"-1\" id=\"inlineGroupPointsEdit_" + groupName + "\"" +
                         "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
-                        "        <button type=\"button\" class=\"btn btn-info btn-fill btn-xs\"" +
+                        "<span class=\"input-group-btn\">" +
+                        "        <button type=\"button\" class=\"btn btn-default btn-fill btn-xs\"" +
                         "               onclick=\"$.updateGroupPoints('" + groupName + "', true, false)\"><i class=\"fa fa-pencil\" />" +
-                        "        </button>" +
-                        "    </form></td>";
-
-                    if (groupPoints === '-1') {
-                        html += "<td>><i>Using Global Value</i></td>";
-                    } else {
-                        html += "<td />";
-                    }
+                        "</button>" + "</span>" +
+                        "</div>" +
+                        "</form></td>";
                     html += "</tr>";
                 }
                 $("#groupPointsTable").html(html);
@@ -182,23 +177,19 @@
 
                     html += "<tr >" +
                         "    <td>" +
-                        "        <div id=\"clearGroupPointsOffline_" + groupName + "\" class=\"button\"" +
-                        "             onclick=\"$.updateGroupPoints('" + groupName + "', false, true)\"><i class=\"fa fa-trash\" />" +
-                        "        </div>" +
-                        "    <td>>" + groupName + "</td>" +
-                        "    <td><form onkeypress=\"return event.keyCode != 13\">" +
-                        "        <input type=\"number\" min=\"-1\" id=\"inlineGroupPointsOfflineEdit_" + groupName + "\"" +
-                        "               value=\"" + groupPoints + "\" style=\"width: 5em\"/>" +
-                        "        <button type=\"button\" class=\"btn btn-info btn-fill btn-xs\"" +
-                        "               onclick=\"$.updateGroupPoints('" + groupName + "', false, false)\"><i class=\"fa fa-pencil\" />" +
-                        "        </button>" +
-                        "    </form></td>";
-
-                    if (groupPoints === '-1') {
-                        html += "<td><i>Using Global Value</i></td>";
-                    } else {
-                        html += "<td />";
-                    }
+                        "<button id=\"clearGroupPointsOffline_\" class=\"btn btn-default btn-fill btn-xs\" type=\"button\" onclick=\"$.updateGroupPoints('" + groupName + "', false, true)\"><i class=\"fa fa-trash\" /></button>" +
+                        "    <td>" + groupName + "</td>" +
+                        "    <td>" +
+                        "    <form role=\"form\" lpformnum=\"9\"  onkeypress=\"return event.keyCode != 13\">" +
+                        "<div class=\"input-group\">" +
+                        "<input type=\"number\" min=\"-1\" class=\"form-control\" id=\"inlineGroupPointsOfflineEdit_" + groupName + "\"" +
+                        "value=\"" + groupPoints + "\" />" +
+                        "<span class=\"input-group-btn\">" +
+                        "<button type=\"button\" class=\"btn btn-default btn-fill btn-xs\"" +
+                        "onclick=\"$.updateGroupPoints('" + groupName + "', false, false)\"><i class=\"fa fa-pencil\" />" +
+                        "</button>" + "</span>" +
+                        "</div>" +
+                        "</form></td>";
                     html += "</tr>";
                 }
                 $("#groupPointsOfflineTable").html(html);

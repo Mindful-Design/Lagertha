@@ -689,6 +689,7 @@ body>.navbar-collapse[data-color="purple"]:after {
     font-size: 13px;
     line-height: 1.42857143;
     border-radius: 2px;
+    margin-top: 4px;
 }
 
 .btn:hover,
@@ -4172,6 +4173,25 @@ output {
 .input-group .form-control:not(:first-child):not(:last-child),
 {
     border-right: 0 none;
+}
+
+input {
+    border-color: rgba(0, 0, 0, 0);
+    color: #b4bfc3;
+    border: 1px solid var(--md-form-border);
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    background-color: transparent;
+}
+
+input:focus {
+    border: 1px solid #3fcfed;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
 }
 
 

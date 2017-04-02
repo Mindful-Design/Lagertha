@@ -32,10 +32,10 @@
                     <div>
                         <div id="_auctionPanel">
                             <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
+     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="auctionOpen">Open/Close an Auction</label>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.auctionClose()">Close Auction</button>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.auctionOpen()">Open Auction</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.auctionClose()">Close Auction</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.auctionOpen()">Open Auction</button>
                                     <input type="number" min="0" class="form-control" id="auctionIncrementInput" placeholder="Increments" />
                                     <input type="number" min="0" class="form-control" id="auctionBetInput" placeholder="Minimum Bet" />
                                     <input type="number" min="0" class="form-control" id="auctionTimerInput" placeholder="Length of Auction in Seconds (optional, default is until closed)" />
@@ -58,11 +58,11 @@
                     <div>
                         <div id="_rafflePanel">
 
-                            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.raffle.repick()">Repick</button>
-                            <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.raffle.end()">Close</button>
+                            <button type="button" class="btn btn-info btn-fill " onclick="$.raffle.repick()">Repick</button>
+                            <button type="button" class="btn btn-info btn-fill " onclick="$.raffle.end()">Close</button>
                             <div class="dropdown">
-                                <button class="btn btn-info btn-fill pull-right dropdown-toggle" type="button" data-toggle="dropdown">Open&nbsp;<span class="caret pull-right" style="margin-top: 8px;"></span></button>
-                                <ul class="dropdown-menu pull-right" style="cursor: pointer; margin-top: 39px; margin-right: 40px;">
+                                <button class="btn btn-info btn-fill  dropdown-toggle" type="button" data-toggle="dropdown">Open&nbsp;<span class="caret " style="margin-top: 8px;"></span></button>
+                                <ul class="dropdown-menu " style="cursor: pointer; margin-top: 39px; margin-right: 40px;">
                                     <li><a data-toggle="modal" data-target="#timeRaffle">Time Raffle</a></li>
                                     <li><a data-toggle="modal" data-target="#pointsRaffle">Points Raffle</a></li>
                                     <li><a data-toggle="modal" data-target="#normalRaffle">Normal Raffle</a></li>
@@ -95,7 +95,7 @@
                                             <lable>Eligibility</lable>&nbsp;
                                             <div class="btn-group">
                                                 <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 48px;  background: #000" data-toggle="dropdown">
-                            Everyone<span class="caret pull-right" style="margin-top: 8px;"></span></button>
+                            Everyone<span class="caret " style="margin-top: 8px;"></span></button>
 
                                                 <ul class="dropdown-menu" style="margin-left: 48px;">
                                                     <li><a style="cursor: pointer; " class="dropdown-shadow" onclick="$.setEligibility('subscribers')">Subscribers</a>
@@ -164,7 +164,7 @@
                                             <lable>Eligibility</lable>&nbsp;
                                             <div class="btn-group">
                                                 <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 48px;  background: #000" data-toggle="dropdown">
-                            Everyone<span class="caret pull-right" style="margin-top: 8px;"></span></button>
+                            Everyone<span class="caret " style="margin-top: 8px;"></span></button>
 
                                                 <ul class="dropdown-menu" style="margin-left: 48px;">
                                                     <li><a style="cursor: pointer; " class="dropdown-shadow" onclick="$.setEligibility('subscribers')">Subscribers</a>
@@ -226,7 +226,7 @@
                                             <lable>Eligibility</lable>&nbsp;
                                             <div class="btn-group">
                                                 <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 48px;  background: #000" data-toggle="dropdown">
-                            Everyone<span class="caret pull-right" style="margin-top: 8px;"></span></button>
+                            Everyone<span class="caret " style="margin-top: 8px;"></span></button>
 
                                                 <ul class="dropdown-menu" style="margin-left: 48px;">
                                                     <li><a style="cursor: pointer; " class="dropdown-shadow" onclick="$.setEligibility('subscribers')">Subscribers</a>
@@ -295,7 +295,7 @@
                                             <lable>Warning Messages</lable>&nbsp;
                                             <div class="btn-group">
                                                 <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 22px;  background: #000" data-toggle="dropdown">
-                            <span id="raffle-message">Disabled</span><span class="caret pull-right" style="margin-top: 8px;"></span></button>
+                            <span id="raffle-message">Disabled</span><span class="caret " style="margin-top: 8px;"></span></button>
 
                                                 <ul class="dropdown-menu" style="margin-left: 22px;">
                                                     <li><a style="cursor: pointer; " class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'raffleMSGToggle', 'true')">Enabled</a>
@@ -310,7 +310,7 @@
                                             <lable>Multiple Repicks</lable>&nbsp;
                                             <div class="btn-group">
                                                 <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 39px;  background: #000" data-toggle="dropdown">
-                            <span id="raffle-repick">No</span><span class="caret pull-right" style="margin-top: 8px;"></span></button>
+                            <span id="raffle-repick">No</span><span class="caret " style="margin-top: 8px;"></span></button>
 
                                                 <ul class="dropdown-menu" style="margin-left: 39px;">
                                                     <li><a style="cursor: pointer; " class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'noRepickSame', 'false')">Yes</a>
@@ -325,7 +325,7 @@
                                             <lable>Whisper Winner</lable>&nbsp;
                                             <div class="btn-group">
                                                 <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 44px;  background: #000" data-toggle="dropdown">
-                            <span id="raffle-whisper-winner">No</span><span class="caret pull-right" style="margin-top: 8px;"></span></button>
+                            <span id="raffle-whisper-winner">No</span><span class="caret " style="margin-top: 8px;"></span></button>
 
                                                 <ul class="dropdown-menu" style="margin-left: 44px;">
                                                     <li><a style="cursor: pointer; " class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'raffleWhisperWinner', 'true')">Yes</a>
@@ -370,11 +370,11 @@
                     <div>
                         <div id="_trafflePanel">
                             <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
+     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="traffleOpen">Open/Close a Ticket Raffle</label>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.traffleRepick()">Repick Winner</button>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.traffleClose()">Close Raffle</button>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.traffleOpen()">Open Raffle</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.traffleRepick()">Repick Winner</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.traffleClose()">Close Raffle</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.traffleOpen()">Open Raffle</button>
                                     <input type="number" min="0" class="form-control" id="traffleMaxInput" placeholder="Max Entries" />
                                     <input type="number" min="0" class="form-control" id="traffleCostInput" placeholder="Cost per Ticket" />
                                 </div>
@@ -392,17 +392,17 @@
                             </form>
 
                             <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
+     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="traffleMsg">Raffle Message</label>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateTRaffleSettings('traffleMsg')">Submit</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateTRaffleSettings('traffleMsg')">Submit</button>
                                     <input type="text" class="form-control" id="traffleMsg" placeholder="Message" data-toggle="tooltip" title="Auto announce message for the raffle. This will only be applied when a new raffle starts. Tag: (entries)" />
                                 </div>
                             </form>
 
                             <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
+     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="traffleTimer">Message Timer (minutes)</label>
-                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="$.updateTRaffleSettings('traffleTimer')">Submit</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateTRaffleSettings('traffleTimer')">Submit</button>
                                     <input type="number" min="0" class="form-control" id="traffleTimer" placeholder="Amount" data-toggle="tooltip" title="Auto announce timer for the raffle. Use 0 to disable it. This will only be applied when a new raffle starts." />
                                 </div>
                             </form>
@@ -447,7 +447,7 @@
 </script>
 <script>
     $(".dropdown-menu li a").click(function() {
-        $(this).parents('.btn-group').find('.dropdown-toggle').html($(this).text() + '</span> <span class="caret pull-right" style="margin-top: 8px;"></span>');
+        $(this).parents('.btn-group').find('.dropdown-toggle').html($(this).text() + '</span> <span class="caret " style="margin-top: 8px;"></span>');
     });
 
 </script>
