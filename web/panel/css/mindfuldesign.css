@@ -4125,6 +4125,10 @@ output {
     padding-bottom: 5px !important;
 }
 
+.button {
+    cursor: pointer;
+}
+
 
 /* Scrollbar */
 

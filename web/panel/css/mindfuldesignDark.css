@@ -3651,7 +3651,7 @@ tooltip {
 }
 
 .fa-spin {
-    color: var(--md-main-color);
+    color: var(--md-contrastColor);
 }
 
 .fa-toggle-on {
@@ -4192,6 +4192,10 @@ input:focus {
     border-left: 0;
     border-right: 0;
     border-top: 0;
+}
+
+.button {
+    cursor: pointer;
 }
 
 

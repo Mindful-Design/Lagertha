@@ -30,8 +30,8 @@
        modeIcon = [],
        settingIcon = [];
 
-       modeIcon['false'] = "<i  class=\"fa fa-circle-o\" />";
-       modeIcon['true'] = "<i  class=\"fa fa-circle\" />";
+       modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
+       modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
 
        settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
        settingIcon['true'] = "<i class=\"fa fa-circle\" />";
