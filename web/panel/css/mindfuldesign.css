@@ -1614,7 +1614,6 @@ fieldset[disabled] .form-control {
 .checkbox input,
 .radio input {
     outline: none !important;
-    display: none;
 }
 
 .checkbox .icons,
@@ -3605,7 +3604,7 @@ fieldset[disabled] .form-control {
 
 #chatsidebar {
     position: fixed;
-    top: 81px;
+    top: 82px;
     bottom: 0;
     right: 6px;
     width: 300px;
@@ -4127,6 +4126,11 @@ output {
 
 .button {
     cursor: pointer;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 

@@ -29,7 +29,7 @@
                     <h4 class="title">Time Configuration</h4>
                 </div>
                 <div class="content">
-                    <div>
+                    <div style="overflow: auto;">
                         <table class="table table-hover table-striped">
                             <tr>
                                 <td>Stream Offline Time Accumulation</td>
@@ -62,28 +62,28 @@
                                 </td>
                             </tr>
                         </table>
+                    </div>
 
-                        <br>
-                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                            <label for="topListAmountTime">Top Time List Amount</label>
-                            <div class="input-group"><input type="number" min="0" class="form-control" id="topListAmountTime" placeholder="Amount" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.topListTime()">Update</button></span></div>
+                    <br>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <label for="topListAmountTime">Top Time List Amount</label>
+                        <div class="input-group"><input type="number" min="0" class="form-control" id="topListAmountTime" placeholder="Amount" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.topListTime()">Update</button></span></div>
 
-                        </div>
+                    </div>
 
-                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                            <label for="setTimePromotion">Hours to Regular Promotion</label>
-                            <div class="input-group"><input type="number" min="0" class="form-control" id="setTimePromotionInput" placeholder="Hours" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.setTimePromotion()">Update</button></span></div>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <label for="setTimePromotion">Hours to Regular Promotion</label>
+                        <div class="input-group"><input type="number" min="0" class="form-control" id="setTimePromotionInput" placeholder="Hours" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.setTimePromotion()">Update</button></span></div>
 
-                        </div>
+                    </div>
 
-                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                            <label for="setTimeZone">Configure Time Zone (see list
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <label for="setTimeZone">Configure Time Zone (see list
                 <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>)
             </label>
-                            <div class="input-group"><input type="text" class="form-control" id="setTimeZoneInput" placeholder="Timezone" />
-                                <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.setTimeZone()">Update</button></span></div>
+                        <div class="input-group"><input type="text" class="form-control" id="setTimeZoneInput" placeholder="Timezone" />
+                            <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.setTimeZone()">Update</button></span></div>
 
-                        </div>
                     </div>
                 </div>
             </div>

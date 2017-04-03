@@ -172,7 +172,7 @@
                     };
                 }
 
-                htmlHeader = "<table class='CLASS_STRING' data-paging='true' data-paging-size='8'" +
+                htmlHeader = "<table class='CLASS_STRING table table-hover table-striped' data-paging='true' data-paging-size='8'" +
                     "       data-filtering='true' data-filter-delay='200'" +
                     "       data-sorting='true'" +
                     "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>" +
@@ -180,10 +180,10 @@
                     "    <th data-breakpoints='xs'>User</th>" +
                     "    <th data-type='Date'>Last Seen</th>" +
                     "    <th data-type='Date'>Time in Chat</th>" +
-                    "    <th data-type='number'><i class='fa fa-money' /></th>" +
-                    "    <th data-type='number'><i class='fa fa-comment' /></th>" +
-                    "    <th data-type='number'><i class='fa fa-ban' /></th>" +
-                    "    <th>&hearts;</th>" +
+                    "    <th data-type='number' data-container='body' data-toggle='tooltip' title='Points'><i class='fa fa-money' /></th>" +
+                    "    <th data-type='number' data-container='body' data-toggle='tooltip' title='Messages'><i class='fa fa-comment' /></th>" +
+                    "    <th data-type='number' data-container='body' data-toggle='tooltip' title='Bans'><i class='fa fa-ban' /></th>" +
+                    "    <th data-toggle='tooltip' data-container='body' title='Promotions'><i class='fa fa-heart' /></th>" +
                     "</tr></thead><tbody>";
 
 
