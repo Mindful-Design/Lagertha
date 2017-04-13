@@ -36,6 +36,9 @@ web/panel - Copy/
 
 web/panel2/
 
-web/panel/images/
+web/panel/images/*
+!web/panel/images/the-fog-448100_1920.jpg
+
+
 
 logs/warning/
