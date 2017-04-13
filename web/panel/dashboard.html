@@ -24,7 +24,7 @@
 <div id="dashboardAccordion">
 
     <div class="row">
-        <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -78,27 +78,9 @@
                     </div>
 
                 </div>
+
             </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12" id="disableVideo">
-                    <div class="card">
-                        <div class="header">
-                            <h4 class="title">Video Preview</h4>
-                        </div>
-                        <div class="content">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe id="videoPreview" class="embed-responsive-item" src="" height="622" width="350" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
-                                <script>
-                                    document.getElementById("videoPreview").src = 'http://player.twitch.tv/?channel=' + getChannelName() + '&muted=true&autoplay=false';
-                                    /*var options = {width: 622,height: 350,channel: getChannelName()};var player = new Twitch.Player("videoPreview", options);player.setVolume(0.5);*/
-
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
                 <div class="col-md-12 col-sm-12 col-xs-12" id="_shoutoutPanelDisabled">
                     <div class="card">
                         <div class="header">
@@ -126,169 +108,194 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <div class="col-md-6 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Chat Configuration and Statistics</h4>
-                    <p class="category">Statistics last 5 days</p>
-                </div>
-                <div class="content table-responsive">
-                    <div class="legend">
-                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('pausecommands')">Command Pause</button>
-                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('togglewhispermode')">Whisper Mode</button>
-                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('toggleme')">Action (/me) Mode</button>
-                        <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('mute')">Mute Mode</button>
-                    </div>
-
-                    <div id="panelStatsEnabled" />
-                    <br>
-                    <div style="overflow: auto;">
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th><i class="fa fa-circle text-info"></i>Chat Count</th>
-                                    <th><i class="fa fa-circle text-danger"></i>Timeouts</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span id="chatDate-0" /></td>
-                                    <td><span id="chatCount-0" /></td>
-                                    <td><span id="modCount-0" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td><span id="chatDate-1" /></td>
-                                    <td><span id="chatCount-1" /></td>
-                                    <td><span id="modCount-1" /></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="chatDate-2" /></td>
-                                    <td><span id="chatCount-2" /></td>
-                                    <td><span id="modCount-2" /></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="chatDate-3" /></td>
-                                    <td><span id="chatCount-3" /></td>
-                                    <td><span id="modCount-3" /></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="chatDate-4" /></td>
-                                    <td><span id="chatCount-4" /></td>
-                                    <td><span id="modCount-4" /></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div id="panelStatsGraph" class="flot-chart" style="width:100%; height: 250px" />
-                    <div class="flot-chart-legend flot-chart-legend--line"></div>
-                    <div class="footer">
-                        <div class="legend">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Twitch Modules
+                                <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse2"><i class="fa fa-bars"></i></div>
+                            </h4>
                         </div>
-                        <hr>
-                        <div class="stats">
-                            <i class="fa fa-history"></i> Updates continuously
+                        <div id="collapse2" class="content panel-collapse collapse">
+                            <div>
+                                <div id="modulesList" style="height: 270px; overflow-x: hidden;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Discord Modules
+                                <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse3"><i class="fa fa-bars"></i></div>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="content panel-collapse collapse">
+                            <div>
+                                <i>These are modules for our discord integration. If you do not have your bot connected to discord the enable buttons will not work and the modules
+            may not show up.</i>
+                                <div id="discordModulesList" style="height: 210px; overflow-x: hidden;" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Logging Configuration
+                                <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse1"><i class="fa fa-bars"></i></div>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="content panel-collapse collapse">
+                            <div>
+                                <table class="table table-hover table-striped">
+                                    <tr>
+                                        <td>Event logging</td>
+                                        <td>
+                                            <div id="logEvent" style="float:right" />
+                                        </td>
+                                        <td>
+                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Error logging</td>
+                                        <td>
+                                            <div id="logError" style="float:right" />
+                                        </td>
+                                        <td>
+                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>File & chat logging</td>
+                                        <td>
+                                            <div id="logFile" style="float:right" />
+                                        </td>
+                                        <td>
+                                            <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <form role="form">
+                                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                                        <label for="logRotate">Number of Days to Keep Logs</label>
+                                        <div class="input-group">
+                                            <input type="number" min="0" class="form-control" id="logRotateInput" placeholder="Days" data-toggle="tooltip" title="Days to keep logs, 0 means do not delete logs.">
+                                            <span class="input-group-btn">
+                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setLogRotate()">Submit</button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-8 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="videoMove col-md-12 col-sm-12 col-xs-12" id="disableVideo">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Video Preview</h4>
+                        </div>
+                        <div class="content">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe id="videoPreview" class="embed-responsive-item" src="" height="622" width="350" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                                <script>
+                                    document.getElementById("videoPreview").src = 'http://player.twitch.tv/?channel=' + getChannelName() + '&muted=true&autoplay=false';
+                                    /*var options = {width: 622,height: 350,channel: getChannelName()};var player = new Twitch.Player("videoPreview", options);player.setVolume(0.5);*/
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Chat Configuration and Statistics</h4>
+                            <p class="category">Statistics last 5 days</p>
+                        </div>
+                        <div class="content table-responsive">
+                            <div class="legend">
+                                <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('pausecommands')">Command Pause</button>
+                                <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('togglewhispermode')">Whisper Mode</button>
+                                <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('toggleme')">Action (/me) Mode</button>
+                                <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('mute')">Mute Mode</button>
+                            </div>
+
+                            <div id="panelStatsEnabled" />
+                            <br>
+                            <div style="overflow: auto;">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th><i class="fa fa-circle text-info"></i>Chat Count</th>
+                                            <th><i class="fa fa-circle text-danger"></i>Timeouts</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span id="chatDate-0" /></td>
+                                            <td><span id="chatCount-0" /></td>
+                                            <td><span id="modCount-0" /></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><span id="chatDate-1" /></td>
+                                            <td><span id="chatCount-1" /></td>
+                                            <td><span id="modCount-1" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span id="chatDate-2" /></td>
+                                            <td><span id="chatCount-2" /></td>
+                                            <td><span id="modCount-2" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span id="chatDate-3" /></td>
+                                            <td><span id="chatCount-3" /></td>
+                                            <td><span id="modCount-3" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span id="chatDate-4" /></td>
+                                            <td><span id="chatCount-4" /></td>
+                                            <td><span id="modCount-4" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="panelStatsGraph" class="flot-chart" style="width:100%; height: 250px" />
+                            <div class="flot-chart-legend flot-chart-legend--line"></div>
+                            <div class="footer">
+                                <div class="legend">
+                                </div>
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa fa-history"></i> Updates continuously
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     </div>
     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Twitch Modules
-                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse2"><i class="fa fa-bars"></i></div>
-                    </h4>
-                </div>
-                <div id="collapse2" class="content panel-collapse collapse">
-                    <div>
-                        <div id="modulesList" style="height: 270px; overflow-x: hidden;" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Discord Modules
-                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse3"><i class="fa fa-bars"></i></div>
-                    </h4>
-                </div>
-                <div id="collapse3" class="content panel-collapse collapse">
-                    <div>
-                        <i>These are modules for our discord integration. If you do not have your bot connected to discord the enable buttons will not work and the modules
-            may not show up.</i>
-                        <div id="discordModulesList" style="height: 210px; overflow-x: hidden;" />
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-4 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Logging Configuration
-                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse1"><i class="fa fa-bars"></i></div>
-                    </h4>
-                </div>
-                <div id="collapse1" class="content panel-collapse collapse">
-                    <div>
-                        <table class="table table-hover table-striped">
-                            <tr>
-                                <td>Event logging</td>
-                                <td>
-                                    <div id="logEvent" style="float:right" />
-                                </td>
-                                <td>
-                                    <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Error logging</td>
-                                <td>
-                                    <div id="logError" style="float:right" />
-                                </td>
-                                <td>
-                                    <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>File & chat logging</td>
-                                <td>
-                                    <div id="logFile" style="float:right" />
-                                </td>
-                                <td>
-                                    <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <form role="form">
-                            <div class="form-group" onkeypress="return event.keyCode != 13">
-                                <label for="logRotate">Number of Days to Keep Logs</label>
-                                <div class="input-group">
-                                    <input type="number" min="0" class="form-control" id="logRotateInput" placeholder="Days" data-toggle="tooltip" title="Days to keep logs, 0 means do not delete logs.">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-info btn-fill" type="button" onclick="$.setLogRotate()">Submit</button>
-                                        </span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="col-md-4 col-sm-12 col-xs-12" id="_highlightsPanelDisabled">
             <div class="card">
                 <div class="header">
@@ -407,31 +414,32 @@
             </div>
         </div>
     </div>
+</div>
 
 
-    <script type="text/javascript" src="panel/js/jqueryui-bootstrap-adapter.js"></script>
-    <!-- Run the Acordion -->
+<script type="text/javascript" src="panel/js/jqueryui-bootstrap-adapter.js"></script>
+<!-- Run the Acordion -->
 
-    <script>
-        $("#dashboardAccordion").accordion({
-            clearStyle: true,
-            heightStyle: "panel",
-            icons: null
+<script>
+    $("#dashboardAccordion").accordion({
+        clearStyle: true,
+        heightStyle: "panel",
+        icons: null
+    });
+
+
+    $(function() {
+        var gameList = $.gamesList;
+        $("#gameTitleInput").autocomplete({
+            source: gameList,
+            minLength: 4
         });
+    });
 
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger: 'hover'
+    });
 
-        $(function() {
-            var gameList = $.gamesList;
-            $("#gameTitleInput").autocomplete({
-                source: gameList,
-                minLength: 4
-            });
-        });
+    handleInputFocus();
 
-        $('[data-toggle="tooltip"]').tooltip({
-            trigger: 'hover'
-        });
-
-        handleInputFocus();
-
-    </script>
+</script>

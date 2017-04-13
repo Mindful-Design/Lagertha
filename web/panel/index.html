@@ -73,10 +73,10 @@
         </div>
 
         <div id="tabs" style="display:none">
-            <div class="sidebar" data-color="azure" data-image="panel/images/sidebar-1.jpg">
+            <div class="sidebar">
                 <div class="sidebar-wrapper">
                     <div class="logo">
-                        <a href="http://phantombot.tv" style="padding-top: 0px; padding-bottom: 0px" class="simple-text"><img width="50px" height="40px" src="panel/images/logo.png">
+                        <a href="http://phantombot.tv" class="simple-text"><img width="200px" height="160px" src="panel/images/logo.png">
                         </a>
                     </div>
                     <ul class="nav">
@@ -125,7 +125,6 @@
                         <li class="active-pro"> <a class="sidebarButtons" href="#help"><i class="pe-7s-info"></i><p>Information</p></a> </li>
                     </ul>
                 </div>
-                <div class="sidebar-background" style="background-image: url(panel/images/sidebar-1.jpg)"></div>
             </div>
             <div class="main-panel">
                 <nav class="navbar navbar-default navbar-fixed" style="height: 62px;">
@@ -212,7 +211,7 @@
                                     </div>
                                 </li>
                                 <li class="hidden-xs hidden-md">
-                                    <a style="font-weight: bold;" data-toggle="tooltip" data-placement="bottom" title="placeholder">Settings
+                                    <a style="font-weight: bold;" data-toggle="tooltip" data-placement="bottom" title="placeholder" id="settings">Settings
                                     </a>
                                 </li>
                                 <li style="background-color: #1dc7ea;padding-bottom: 1px;padding-left: 15px; padding-right: 15px;" class="hidden-xs hidden-md">
@@ -422,6 +421,27 @@
             $('#utilGroup4').toggle('slow', function() {});
             $('#utilGroup5').toggle('slow', function() {});
         });
+
+        /*$(document).ready(function() {
+            var settingsVideo = false;
+            $("#settings").click(function() {
+                if (!settingsVideo) {
+                    $("#disableVideo").animate({
+                        left: "80px"
+                    });
+                    settingsVideo = true;
+                } else {
+                    $("#disableVideo").animate({
+                        left: "0px"
+                    });
+                    settingsVideo = false;
+                }
+            });
+            $('#settings').click(function() {
+                $('#disableVideo').toggleClass('videoMove col-md-12 col-sm-12 col-xs-12');
+                $('#disableVideo').toggleClass('videoMove col-md-8 col-sm-8 col-xs-12');
+            });
+        }); */
 
     </script>
     <script type="text/javascript" src="panel/js/globalPanel.js"></script>

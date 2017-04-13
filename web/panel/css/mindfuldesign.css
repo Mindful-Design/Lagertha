@@ -484,7 +484,7 @@ body>.navbar-collapse .nav .caret {
 .sidebar .logo,
 body>.navbar-collapse .logo {
     padding: 10px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 0px solid rgba(255, 255, 255, 0.2);
 }
 
 .sidebar .logo p,
@@ -542,23 +542,11 @@ body>.navbar-collapse:before {
 
 .sidebar:before,
 body>.navbar-collapse:before {
-    opacity: .33;
-    background: #000000;
+    background-color: var(--md-main-color);
 }
 
 .sidebar:after,
-body>.navbar-collapse:after {
-    background: #787878;
-    background: -moz-linear-gradient(top, #787878 0%, #343434 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #787878), color-stop(100%, #343434));
-    background: -webkit-linear-gradient(top, #787878 0%, #343434 100%);
-    background: -o-linear-gradient(top, #787878 0%, #343434 100%);
-    background: -ms-linear-gradient(top, #787878 0%, #343434 100%);
-    background: linear-gradient(to bottom, #787878 0%, #343434 100%);
-    background-size: 150% 150%;
-    z-index: 3;
-    opacity: 1;
-}
+body>.navbar-collapse:after {}
 
 .sidebar[data-image]:after,
 .sidebar.has-image:after,
