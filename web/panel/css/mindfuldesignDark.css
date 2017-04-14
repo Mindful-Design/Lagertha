@@ -49,6 +49,7 @@
     --md-font-off: rgba(177, 188, 192, .47);
     --md-header: none;
     --md-universalGray: #d9dee0;
+    --md-universalGrayhover: #cbd2d5;
     --md-sidebarBG: #1e2a31;
 }
 
@@ -681,7 +682,7 @@ body>.navbar-collapse[data-color="purple"]:after {
 .open>.btn.dropdown-toggle {
     background-color: transparent;
     color: #777777;
-    border-color: #777777;
+    border-color: var(--md-universalGrayhover);
 }
 
 .btn.disabled,
@@ -724,12 +725,12 @@ fieldset[disabled] .btn.active {
 .btn.btn-fill:active,
 .btn.btn-fill.active,
 .open>.btn.btn-fill.dropdown-toggle {
-    background-color: #777777;
-    color: #FFFFFF;
+    background-color: var(--md-universalGrayhover);
+    color: var(--md-main-bg);
 }
 
 .btn.btn-fill .caret {
-    border-top-color: #FFFFFF;
+    border-top-color: var(--md-universalGrayhover);
 }
 
 .btn .caret {
@@ -1265,25 +1266,25 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .form-control::-moz-placeholder {
-    color: #DDDDDD;
+    color: rgba(177, 188, 192, .47);
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .form-control:-moz-placeholder {
-    color: #DDDDDD;
+    color: rgba(177, 188, 192, .47);
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #DDDDDD;
+    color: rgba(177, 188, 192, .47);
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .form-control:-ms-input-placeholder {
-    color: #DDDDDD;
+    color: rgba(177, 188, 192, .47);
     opacity: 1;
     filter: alpha(opacity=100);
 }
@@ -1301,13 +1302,13 @@ fieldset[disabled] .btn-neutral.active {
 
 .form-control:focus {
     background-color: var(--md-main-panel);
-    border: 1px solid #3fcfed;
+    border: 1px solid var(--md-contrastBlue);
     -webkit-box-shadow: none;
     border-top: 0;
     border-left: 0;
     box-shadow: none;
     outline: 0 !important;
-    color: rgba(177, 188, 192, .47);
+    color: var(--md-universalGray);
 }
 
 .has-success .form-control,
@@ -2035,6 +2036,7 @@ fieldset[disabled] .form-control {
 [class*="navbar-ct"] .btn-default.btn-fill.active,
 [class*="navbar-ct"] .open .dropdown-toggle.btn-fill.btn-default {
     border-color: var(--md-universalGray);
+    background-color: var(--md-universalGrayhover);
     opacity: 1;
     filter: alpha(opacity=100);
 }
@@ -3572,10 +3574,13 @@ fieldset[disabled] .form-control {
     padding-left: 10px;
     border-top-width: 10px;
     padding-top: 20px;
+    min-height: calc(100% - 62px);
+    margin-bottom: -62px;
+    padding-bottom: 62px;
 }
 
 #chatsidebar-header {
-    color: #1fb1d1;
+    color: var(--md-contrastBlue);
     margin: 0;
     text-align: right;
     background: none;
@@ -3609,6 +3614,7 @@ sub {
 
 tooltip {
     z-index: 4;
+    background-color: #1e2a31;
 }
 
 .modal-dialog {
@@ -4185,11 +4191,41 @@ input:focus {
     flex-wrap: wrap;
 }
 
+.label-md {
+    float: right;
+    margin-top: 4px;
+    font-size: 13px;
+    padding: 7px 12px;
+    font-weight: normal;
+    line-height: 1.42857143;
+}
+
+.soundButton {
+    margin-right: 3px;
+}
+
+.centerText {
+    padding: 9px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.centerText {
+    color: var(--md-font-color);
+    background-color: #22313a;
+    font: bold 58px "Roboto";
+}
+
+.quoteBG {
+    background-color: #2b3942 !important;
+}
+
 
 /* Scrollbar */
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 
@@ -4227,7 +4263,7 @@ input:focus {
     }
     .statusGrid {
         columns: 4;
-        padding-left: 0px;
+        padding-left: 10px;
         list-style-type: none;
         font-size: 13px !important;
         text-align: center;
@@ -4314,7 +4350,7 @@ input:focus {
         left: auto;
         z-index: 1032;
         visibility: visible;
-        background-color: #999;
+        background-color: var(--md-sidebarBG);
         overflow-y: visible;
         border-top: none;
         text-align: left;
@@ -4343,7 +4379,6 @@ input:focus {
         height: 100%;
         width: 100%;
         position: absolute;
-        background-color: #282828;
         display: block;
         content: "";
         z-index: 1;

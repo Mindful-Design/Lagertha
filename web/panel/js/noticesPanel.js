@@ -23,19 +23,19 @@
  * noticesPanel.js
  */
 
-(function() {
+(function () {
 
-   var refreshIcon = '<i class="fa fa-refresh" />',
-       spinIcon = '<i  class="fa fa-spinner fa-spin" />',
-       modeIcon = [],
-       isDeleting = false,
-       settingIcon = [];
+    var refreshIcon = '<i class="fa fa-refresh" />',
+        spinIcon = '<i  class="fa fa-spinner fa-spin" />',
+        modeIcon = [],
+        isDeleting = false,
+        settingIcon = [];
 
-       modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
-       modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
+    modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
+    modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
 
-       settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
-       settingIcon['true'] = "<i class=\"fa fa-circle\" />";
+    settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
+    settingIcon['true'] = "<i class=\"fa fa-circle\" />";
 
     var noticeOnlineToggle = false,
         noticeOfflineToggle = false;
@@ -48,7 +48,7 @@
             html = '',
             id = '';
 
-        try { 
+        try {
             msgObject = JSON.parse(message.data);
         } catch (ex) {
             return;
@@ -83,18 +83,23 @@
                 html = '<table class="table table-hover table-striped">';
                 for (var idx in msgObject['results']) {
                     id = msgObject['results'][idx]['key'].match(/message_(\d+)/)[1];
-                    html += '<tr >' +
-                    '    <td>Notice #' + id + '</td>' +
-                    '    <td>' +
-                    '        <form onkeypress="return event.keyCode != 13">' +
-                    '            <input style="width: 80%" type="text" id="inlineNoticeEdit_' + id + '"' +
-                    '                   value="' + msgObject['results'][idx]['value'] + '" />' +
-                    '              <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.updateNotice(\'' + id + '\')"><i class="fa fa-pencil" /> </button> ' +
-                    '              <button type="button" class="btn btn-info btn-fill btn-xs" id="deleteNotice_' + id + '" onclick="$.deleteNotice(\'' + id + '\')"><i class="fa fa-trash" /> </button>' +
-                    '             </form>' +
-                    '        </form>' +
-                    '    </td>' +
-                    '</tr>';
+                    html += '<tr>' +
+                        '<td>Notice #' + id + '</td>' +
+                        '<td>' +
+                        '<form role="form" onkeypress="return event.keyCode != 13">' +
+                        '<div class="form-group form-group-table">' +
+                        '<div class="input-group">' +
+                        '<input class="form-control" type="text" id="inlineNoticeEdit_' + id + '"' +
+                        'value="' + msgObject['results'][idx]['value'] + '" />' +
+                        '<span class="input-group-btn">' +
+                        '<button type="button" class="btn btn-default btn-fill btn-xs" onclick="$.updateNotice(\'' + id + '\')"><i class="fa fa-pencil" /> </button> ' +
+                        '<button type="button" class="btn btn-default btn-fill btn-xs" id="deleteNotice_' + id + '" onclick="$.deleteNotice(\'' + id + '\')"><i class="fa fa-trash" /> </button>' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>' +
+                        '</td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#noticeList').html(html);
@@ -121,8 +126,12 @@
         } else {
             sendDBUpdate('notices_settings', 'noticeSettings', 'noticetoggle', 'true');
         }
-        setTimeout(function() { sendCommand("reloadnotice"); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadnotice");
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -135,8 +144,12 @@
         } else {
             sendDBUpdate('notices_settings', 'noticeSettings', 'noticeOfflineToggle', 'true');
         }
-        setTimeout(function() { sendCommand("reloadnotice"); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadnotice");
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -148,9 +161,13 @@
             sendDBUpdate("noticeIntervalInput", "noticeSettings", tableKey, newValue);
             $(tagId).val('')
             $(tagId).attr("placeholder", newValue).blur();
-            setTimeout(function() { sendCommand("reloadnotice"); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendCommand("reloadnotice");
+            }, TIMEOUT_WAIT_TIME);
         }
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -162,9 +179,13 @@
             sendDBUpdate("noticeReqInput", "noticeSettings", tableKey, newValue);
             $(tagId).val('')
             $(tagId).attr("placeholder", newValue).blur();
-            setTimeout(function() { sendCommand("reloadnotice"); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendCommand("reloadnotice");
+            }, TIMEOUT_WAIT_TIME);
         }
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -176,7 +197,9 @@
             value = value.replace(/%22/g, '\'\'');
             sendCommand('notice addsilent ' + value);
             $('#addNoticeInput').val('');
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);    
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -189,8 +212,11 @@
         sendCommand('notice removesilent ' + id);
 
         if (!isDeleting) { // Added this or the list goes crazy on the panel.
-            isDeleting = true; 
-            setTimeout(function() { doQuery(); isDeleting = false; }, TIMEOUT_WAIT_TIME * 4); 
+            isDeleting = true;
+            setTimeout(function () {
+                doQuery();
+                isDeleting = false;
+            }, TIMEOUT_WAIT_TIME * 4);
         }
     }
 
@@ -203,15 +229,17 @@
         if (value.length > 0) {
             $('#inlineNoticeEdit_' + id).val(value).blur();
             sendCommand('notice editsilent ' + id + ' ' + value);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
-    
+
     // Import the HTML file for this panel.
     $("#noticesPanel").load("/panel/notices.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
             if (active == 11) {
@@ -222,14 +250,14 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 11 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Notices Data', 'success', 1000);
             doQuery();
         }
     }, 3e4);
-    
+
     // Export to HTML
     $.noticesOnMessage = onMessage;
     $.noticesDoQuery = doQuery;

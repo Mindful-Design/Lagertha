@@ -136,11 +136,11 @@
                 }
             } else {
                 $("#streamUptime").html('');
-                $("#streamUptime2").html('');
+                $("#streamUptime2").html('-');
                 $("#timePlayed").html('');
-                $("#timePlayed2").html('');
+                $("#timePlayed2").html('-');
                 $("#viewerCount").html('');
-                $("#viewerCount2").html('');
+                $("#viewerCount2").html('-');
             }
 
             if (panelCheckQuery(msgObject, 'global_dsToggle')) {

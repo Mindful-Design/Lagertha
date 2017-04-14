@@ -116,7 +116,10 @@ lbd = {
                 '<li><span id="commandPauseStatus2"></span></li></ul>' +
                 ul_content +
                 '</ul>' +
-                '</div>';
+                '</div>' +
+                "<script>" +
+                "$('#loyaltyShow').click(function () {$('#loyaltyGroup1').toggle('slow', function () {});$('#loyaltyGroup2').toggle('slow', function () {});$('#loyaltyGroup3').toggle('slow', function () {});});$('#adminShow').click(function () {$('#adminGroup1').toggle('slow', function () {});$('#adminGroup2').toggle('slow', function () {});});$('#thirdShow').click(function () {$('#thirdGroup1').toggle('slow', function () {});$('#thirdGroup2').toggle('slow', function () {});});$('#interShow').click(function () {$('#interGroup1').toggle('slow', function () {});$('#interGroup2').toggle('slow', function () {});$('#interGroup3').toggle('slow', function () {});$('#interGroup4').toggle('slow', function () {});$('#interGroup5').toggle('slow', function () {});});$('#utilShow').click(function () {$('#utilGroup1').toggle('slow', function () {});$('#utilGroup2').toggle('slow', function () {});$('#utilGroup3').toggle('slow', function () {});$('#utilGroup4').toggle('slow', function () {});$('#utilGroup5').toggle('slow', function () {});});" +
+                "</script>";
 
             navbar_content = logo_content + ul_content;
 

@@ -23,7 +23,7 @@
  * keywordsPanel.js
  */
 
-(function() {
+(function () {
 
     var spinIcon = '<i  class="fa fa-spinner fa-spin" />';
 
@@ -52,17 +52,23 @@
                 for (idx in msgObject['results']) {
                     keyword = msgObject['results'][idx]['key'];
                     html += '<tr >' +
-                    '    <td>' + (keyword.length > 15 ? keyword.substring(0, 15) + '..' : keyword) + '</td>' +
-                    '    <td>' +
-                    '        <form onkeypress="return event.keyCode != 13">' +
-                    '            <input style="width: 88%;" type="text" id="inlineKeywordEdit_' + keyword.replace(/[^a-z1-9]/ig, '_') + '"' +
-                    '                   value="' + msgObject['results'][idx]['value'] + '" />' +
-                    '              <button style="float: right;" type="button" class="btn btn-info btn-fill btn-xs" id="deleteKeyword_' + keyword.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyword(\'' + keyword.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-trash" /> </button>' +
-                    '              <button style="float: right;" type="button" class="btn btn-info btn-fill btn-xs" onclick="$.updateKeyword(\'' + keyword.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
-                    '             </form>' +
-                    '        </form>' +
-                    '    </td>' +
-                    '</tr>';
+                        '    <td>' + (keyword.length > 15 ? keyword.substring(0, 15) + '..' : keyword) + '</td>' +
+                        '    <td>' +
+                        '        <form role="form" lpformnum="9" onkeypress="return event.keyCode != 13">' +
+                        '<div class="form-group form-group-table">' +
+                        '<div class="input-group">' +
+                        '            <input type="text" class="form-control"  id="inlineKeywordEdit_' + keyword.replace(/[^a-z1-9]/ig, '_') + '"' +
+                        '                   value="' + msgObject['results'][idx]['value'] + '" />' +
+                        '<span class="input-group-btn">' +
+                        '              <button  type="button" class="btn btn-default btn-fill  btn-xs" id="deleteKeyword_' + keyword.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyword(\'' + keyword.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-trash" /> </button>' +
+                        '              <button  type="button" class="btn btn-default btn-fill  btn-xs" onclick="$.updateKeyword(\'' + keyword.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '             </form>' +
+                        '        </form>' +
+                        '    </td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#keywordsList').html(html);
@@ -75,22 +81,28 @@
                     return;
                 }
 
-                html = '<table>';
+                html = '<table class="table table-hover table-striped">';
                 for (idx in msgObject['results']) {
                     key = msgObject['results'][idx]['key'];
                     time = msgObject['results'][idx]['value'];
                     html += '<tr >' +
-                    '    <td>' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
-                    '    <td>' +
-                    '        <form onkeypress="return event.keyCode != 13">' +
-                    '            <input style="width: 88%" type="text" id="editCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
-                    '                   value="' + time + '" />' +
-                    '              <button style="float: right;" type="button" class="btn btn-info btn-fill btn-xs" id="deleteCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyCooldown(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-trash" /> </button>' +
-                    '              <button style="float: right;" type="button" class="btn btn-info btn-fill btn-xs" onclick="$.editKeyCooldown(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
-                    '             </form>' +
-                    '        </form>' +
-                    '    </td>' +
-                    '</tr>';
+                        '<td>' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
+                        '<td>' +
+                        '<form role="form" onkeypress="return event.keyCode != 13">' +
+                        '<div class="form-group form-group-table">' +
+                        '<div class="input-group">' +
+                        '            <input type="text" class="form-control" id="editCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
+                        '                   value="' + time + '" />' +
+                        '<span class="input-group-btn">' +
+                        '              <button  type="button" class="btn btn-default btn-fill  btn-xs" id="deleteCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyCooldown(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-trash" /> </button>' +
+                        '              <button  type="button" class="btn btn-default btn-fill  btn-xs" onclick="$.editKeyCooldown(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>' +
+                        '</form>' +
+                        '</td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#keywordsCooldownList').html(html);
@@ -102,22 +114,28 @@
                     return;
                 }
 
-                html = '<table>';
+                html = '<table class="table table-hover table-striped">';
                 for (idx in msgObject['results']) {
                     key = msgObject['results'][idx]['key'];
                     time = msgObject['results'][idx]['value'];
                     html += '<tr >' +
-                    '    <td>' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
-                    '    <td>' +
-                    '        <form onkeypress="return event.keyCode != 13">' +
-                    '            <input style="width: 88%" type="text" id="editKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
-                    '                   value="' + time + '" />' +
-                    '              <button style="float: right;" type="button" class="btn btn-info btn-fill btn-xs" id="deleteKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyPrice(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-trash" /> </button>' +
-                    '              <button style="float: right;" type="button" class="btn btn-info btn-fill btn-xs" onclick="$.updateKeyPrice(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
-                    '             </form>' +
-                    '        </form>' +
-                    '    </td>' +
-                    '</tr>';
+                        '    <td>' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
+                        '    <td>' +
+                        '<form onkeypress="return event.keyCode != 13">' +
+                        '<div class="form-group form-group-table">' +
+                        '<div class="input-group">' +
+                        '            <input type="text" class="form-control" id="editKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
+                        '                   value="' + time + '" />' +
+                        '<span class="input-group-btn">' +
+                        '<button  type="button" class="btn btn-default btn-fill  btn-xs" id="deleteKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyPrice(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-trash" /> </button>' +
+                        '<button  type="button" class="btn btn-default btn-fill  btn-xs" onclick="$.updateKeyPrice(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>' +
+                        '</form>' +
+                        '</td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#keywordsPriceList').html(html);
@@ -145,7 +163,7 @@
             $('#addKeywordInput').val('Submitting...');
             $('#addKeywordResponseInput').val('');
             sendDBUpdate('keywords_addkeyword', 'keywords', keyword, response);
-            setTimeout(function() {
+            setTimeout(function () {
                 $('#addKeywordInput').val('');
                 $('#addKeywordResponseInput').val('');
                 doQuery();
@@ -164,7 +182,9 @@
         sendDBDelete('keywords_delkeyword', 'keywords', keyword);
         sendDBDelete('keywords_delkeyword', 'coolkey', keyword);
         sendDBDelete('keywords_delkeyword', 'pricekey', keyword);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -176,7 +196,9 @@
         var value = $('#inlineKeywordEdit_' + keyword.replace(/[^a-z1-9]/ig, '_')).val();
         if (value.length > 0) {
             sendDBUpdate('keywords_editkeyword', 'keywords', keyword, value);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -189,7 +211,9 @@
         var value = $('#editCooldown_' + command.replace(/[^a-z1-9]/ig, '_')).val();
         if (value > 0) {
             sendDBUpdate("keyword_cooldown_edit", "coolkey", command.toLowerCase(), value);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     };
     /**
@@ -200,7 +224,9 @@
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
         $("#deleteCooldown_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("keyword_cooldown_delete", "coolkey", command);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
     /**
      * @function addKeyCooldown
@@ -208,13 +234,18 @@
     function addKeyCooldown() {
         var input = $("#cooldownKeyInput").val();
         var command = $("#cooldownKeyInputCommand").val();
-        
+
         if (input.length > 0 && command.length != 0) {
             sendDBUpdate("keyword_cooldown_add", "coolkey", String(command.toLowerCase()), String(input));
             $("#cooldownKeyInput").val("Submitted");
             $("#cooldownKeyInputCommand").val("Submitted");
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { $("#cooldownKeyInputCommand").val(""); $("#cooldownKeyInput").val(""); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                $("#cooldownKeyInputCommand").val("");
+                $("#cooldownKeyInput").val("");
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -229,7 +260,9 @@
             sendDBUpdate("keywordprice", "pricekey", com.toLowerCase(), price);
             $("#priceKeyInput").val("");
             $("#priceKeyInputKey").val("");
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     };
     /**
@@ -241,7 +274,9 @@
         $('#editKeyPrice_' + command.replace(/[^a-z1-9]/ig, '_')).html("<i  class=\"fa fa-spinner fa-spin\" />");
         if (val > 0) {
             sendDBUpdate("keyword_editprice_" + command, "pricekey", command.toLowerCase(), val);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     };
 
@@ -253,14 +288,16 @@
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
         $("#deleteKeyPrice_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("keyword_delcomprice_" + command, "pricekey", command);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     };
 
     // Import the HTML file for this panel.
     $("#keywordsPanel").load("/panel/keywords.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
             if (active == 10) {
@@ -271,7 +308,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 10 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Keyword Data', 'success', 1000);

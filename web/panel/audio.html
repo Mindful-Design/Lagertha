@@ -23,60 +23,70 @@
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="audioAccordion">
     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12" id="_audioPanelDisabled">
+        <div class="col-md-6 col-sm-12 col-xs-12" id="_audioPanelDisabled">
             <div class="card">
                 <div class="header">
                     <h4 class="title">Audio Panel</h4>
                 </div>
                 <div class="content">
+                    <div class="form-group">
+                        <label for="loadingAH">Load Audio Hooks</label>
+                        <div class="input-group">
+                            <button type="button" class="btn btn-info btn-fill" onclick="$.reloadAudioHooks()">Reload Audio Hooks</button>
 
-                    <span id="ionSoundLoaded"><span style="float: right" class="redPill-sm">Initalizing</span></span>
-                    <span id="reloadSounds" style="float: right; margin-right: 10px" class="bluePill-sm" onclick="$.reloadAudioHooks()">Reload Audio Hooks</span>
 
+                            <span id="ionSoundLoaded" class="input-group-btn"><span style="float: right" class="label label-warning label-md">Initalizing...</span></span>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div id="ionSoundPlaying"><i class="fa fa-volume-up fa-3x" /></div>
+                    <script>
+                        $("#ionSoundPlaying").hide();
+
+                    </script>
                     <div>
-                        <div id="_audioPanel">
+                        <div class="form-group">
+                            <label for="AHavailable">Audio Hooks available</label>
+                            <div id="_audioPanel">
 
-                            <div>
-                                <table class="table table-hover table-striped">
-                                    <tr style="background: transparent">
-                                        <td>
-                                            <div id="audioPanelButtons">
-                                        </td>
-                                        <td>
-                                            <div id="ionSoundPlaying"><i class="fa fa-volume-up fa-3x" /></div>
-                                        </td>
-                                        <script>
-                                            $("#ionSoundPlaying").hide();
+                                <div>
+                                    <table class="table table-hover table-striped">
+                                        <tr style="background: transparent">
+                                            <td>
+                                                <div id="audioPanelButtons" class="input-group"></div>
+                                            </td>
 
-                                        </script>
-                                    </tr>
-                                </table>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-4 col-sm-12 col-xs-12" id="_youtubePlayerPanelDisabled">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">YouTube Player</h4>
-                    </div>
-                    <div class="content">
-                        <div>
-                            
-                            <div id="_youtubePlayerPanel">
 
-                                <span id="youTubeLauncher">
-            <button type="button" class="btn btn-info btn-fill pull-left" onclick="$.launchYouTubePlayer()">Launch YouTube Player</button>
+        <div class="col-md-6 col-sm-12 col-xs-12" id="_youtubePlayerPanelDisabled">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">YouTube Player</h4>
+                </div>
+                <div class="content">
+                    <div>
+
+                        <div id="_youtubePlayerPanel">
+
+                            <span id="youTubeLauncher">
+            <button type="button" class="btn btn-info btn-fill " onclick="$.launchYouTubePlayer()">Launch YouTube Player</button>
         </span>
-                                <button type="button" class="btn btn-info btn-fill pull-left" onclick="$.toggleYouTubePlayerRequests()">Toggle Song Requests</button>
-                                <button type="button" class="btn btn-info btn-fill pull-left" onclick="$.toggleYouTubePlayerNotify()">Toggle Chat Notification</button>
-                                <br><br><br>
+                            <button type="button" class="btn btn-info btn-fill " onclick="$.toggleYouTubePlayerRequests()">Toggle Song Requests</button>
+                            <button type="button" class="btn btn-info btn-fill " onclick="$.toggleYouTubePlayerNotify()">Toggle Chat Notification</button>
+                            <br><br><br>
 
+                            <form role="form">
                                 <form role="form">
-         <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <div class="form-group" onkeypress="return event.keyCode != 13">
                                         <label for="playlistName">Load Playlist</label>
                                         <button type="button" class="btn btn-info btn-fill " onclick="$.loadYtplaylist()">Load</button>
                                         <input type="text" class="form-control" id="playlistImput" placeholder="Playlist Name" />
@@ -84,62 +94,67 @@
                                 </form>
 
                                 <form role="form">
-         <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="ytpDJName">Set Playlist DJ Name</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerDJName()">Submit</button>
-                                        <input type="text" class="form-control" id="ytpDJNameInput" placeholder="DJ Name">
-                                    </div>
-                                </form>
+                                    <form role="form">
+                                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                                            <label for="ytpDJName">Set Playlist DJ Name</label>
+                                            <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerDJName()">Submit</button>
+                                            <input type="text" class="form-control" id="ytpDJNameInput" placeholder="DJ Name">
+                                        </div>
+                                    </form>
 
-                                <form role="form">
-         <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="ytpMaxRequests">Set Max Parallel Requests</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxReqs()">Submit</button>
-                                        <input type="number" min="1" class="form-control" id="ytpMaxReqsInput" placeholder="Request Count">
-                                    </div>
-                                </form>
+                                    <form role="form">
+                                        <form role="form">
+                                            <div class="form-group" onkeypress="return event.keyCode != 13">
+                                                <label for="ytpMaxRequests">Set Max Parallel Requests</label>
+                                                <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxReqs()">Submit</button>
+                                                <input type="number" min="1" class="form-control" id="ytpMaxReqsInput" placeholder="Request Count">
+                                            </div>
+                                        </form>
 
-                                <form role="form">
-         <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="addKeyword">Set Max Video Length (Seconds)</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxLength()">Submit</button>
-                                        <input type="number" min="1" class="form-control" id="ytpMaxLengthInput" placeholder="Request Count">
-                                    </div>
-                                </form>
+                                        <form role="form">
+                                            <form role="form">
+                                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                                    <label for="addKeyword">Set Max Video Length (Seconds)</label>
+                                                    <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxLength()">Submit</button>
+                                                    <input type="number" min="1" class="form-control" id="ytpMaxLengthInput" placeholder="Request Count">
+                                                </div>
+                                            </form>
 
-                                <form role="form">
-         <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="blacklistedSongs">Blacklist a Song</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.blacklistSong()">Blacklist</button>
-                                        <input type="text" class="form-control" id="songBlacklist" placeholder="Song Name or Keyword">
-                                    </div>
-                                    <div id="ytplayerBSong" style="max-height: 100px; overflow: auto;" />
-                                    <br>
-                                </form>
+                                            <form role="form">
+                                                <form role="form">
+                                                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                                                        <label for="blacklistedSongs">Blacklist a Song</label>
+                                                        <button type="button" class="btn btn-info btn-fill " onclick="$.blacklistSong()">Blacklist</button>
+                                                        <input type="text" class="form-control" id="songBlacklist" placeholder="Song Name or Keyword">
+                                                    </div>
+                                                    <div id="ytplayerBSong" style="max-height: 100px; overflow: auto;" />
+                                                    <br>
+                                                </form>
 
-                                <form role="form">
-         <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="blacklistedusers">Blacklist a Username</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.blacklistUser()">Blacklist</button>
-                                        <input type="text" class="form-control" id="userBlacklist" placeholder="Username">
-                                    </div>
-                                    <div id="ytplayerBUser" style="max-height: 100px; overflow: auto;" />
-                                </form>
+                                                <form role="form">
+                                                    <form role="form">
+                                                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                                                            <label for="blacklistedusers">Blacklist a Username</label>
+                                                            <button type="button" class="btn btn-info btn-fill " onclick="$.blacklistUser()">Blacklist</button>
+                                                            <input type="text" class="form-control" id="userBlacklist" placeholder="Username">
+                                                        </div>
+                                                        <div id="ytplayerBUser" style="max-height: 100px; overflow: auto;" />
+                                                    </form>
 
-                                <div id="youTubePlayerIframe" />
-                                <script>
-                                    $('#youTubePlayerIframe').hide();
+                                                    <div id="youTubePlayerIframe" />
+                                                    <script>
+                                                        $('#youTubePlayerIframe').hide();
 
-                                </script>
-                            </div>
+                                                    </script>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
+
     </div>
+</div>
+</div>
 </div>
 <!-- Run the Acordion -->
 <script>

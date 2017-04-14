@@ -686,7 +686,7 @@ body>.navbar-collapse[data-color="purple"]:after {
 .open>.btn.dropdown-toggle {
     background-color: transparent;
     color: #777777;
-    border-color: #777777;
+    border-color: var(--md-main-hover-btn);
 }
 
 .btn.disabled,
@@ -729,12 +729,12 @@ fieldset[disabled] .btn.active {
 .btn.btn-fill:active,
 .btn.btn-fill.active,
 .open>.btn.btn-fill.dropdown-toggle {
-    background-color: #777777;
+    background-color: var(--md-main-hover-btn);
     color: #FFFFFF;
 }
 
 .btn.btn-fill .caret {
-    border-top-color: #FFFFFF;
+    border-top-color: var(--md-main-hover-btn);
 }
 
 .btn .caret {
@@ -954,7 +954,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-info.btn-fill .caret {
-    border-top-color: #FFFFFF;
+    border-top-color: var(--md-main-hover-btn);
 }
 
 .btn-info .caret {
@@ -1310,6 +1310,7 @@ fieldset[disabled] .btn-neutral.active {
     -webkit-box-shadow: none;
     border-top: 0;
     border-left: 0;
+    border-right: 0;
     box-shadow: none;
     outline: 0 !important;
     color: #333333;
@@ -3569,6 +3570,9 @@ fieldset[disabled] .form-control {
     padding-left: 10px;
     border-top-width: 10px;
     padding-top: 20px;
+    min-height: calc(100% - 62px);
+    margin-bottom: -62px;
+    padding-bottom: 62px;
 }
 
 #chatsidebar-header {
@@ -3606,6 +3610,7 @@ sub {
 
 tooltip {
     z-index: 4;
+    background-color: #1e2a31 !important;
 }
 
 .modal-dialog {
@@ -4121,11 +4126,35 @@ output {
     flex-wrap: wrap;
 }
 
+.label-md {
+    float: right;
+    margin-top: 4px;
+    font-size: 13px;
+    padding: 7px 12px;
+    font-weight: normal;
+    line-height: 1.42857143;
+}
+
+.soundButton {
+    margin-right: 3px;
+}
+
+.centerText {
+    font: bold 58px "Roboto";
+    color: #394650;
+    background-color: #f9f9f9;
+}
+
+.quoteBG {
+    background-color: var(--md-panel-bg) !important;
+}
+
 
 /* Scrollbar */
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 
@@ -4163,7 +4192,7 @@ output {
     }
     .statusGrid {
         columns: 4;
-        padding-left: 0px;
+        padding-left: 10px;
         list-style-type: none;
         font-size: 13px !important;
         text-align: center;
@@ -4279,7 +4308,6 @@ output {
         height: 100%;
         width: 100%;
         position: absolute;
-        background-color: #282828;
         display: block;
         content: "";
         z-index: 1;

@@ -115,7 +115,7 @@
 
             if (sounds.length === 0) {
                 $('#audioPanelButtons').html('No sounds configured, please click Reload Audio Hooks if sounds are installed.');
-                $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"greenPill-sm\">Ready</span>");
+                $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"label label-success label-md\">Ready</span>");
             } else {
                 setTimeout(function () {
                     $(document).ready(function () {
@@ -143,7 +143,7 @@
 
             if (sounds.length === 0) {
                 $('#audioPanelButtons').html('No sounds configured, please click Reload Audio Hooks if sounds are installed.');
-                $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"greenPill-sm\">Ready</span>");
+                $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"label label-success label-md\">Ready</span>");
             } else {
                 ion.sound({
                     sounds: sounds,
@@ -274,7 +274,7 @@
     function loadAudioPanel() {
         $("#audioPanelButtons").html('');
         for (var idx in sounds) {
-            $("#audioPanelButtons").append("<button type=\"button\" class=\"soundButton\"" +
+            $("#audioPanelButtons").append("<button type=\"button\" class=\"soundButton btn btn-info btn-fill\"" +
                 "onclick=\"$.playIonSound('" + sounds[idx]['name'] + "');\">" +
                 sounds[idx]['desc'] + "</button>");
         }
@@ -284,7 +284,7 @@
      * @function ionSoundLoaded
      */
     function ionSoundLoaded() {
-        $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"greenPill-sm\">Ready</span>");
+        $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"label label-success label-md\">Ready</span>");
         loadAudioPanel();
     }
 
@@ -435,8 +435,8 @@
     function drawYouTubePlayer() {
         if (YOUTUBE_IFRAME === true) {
             fillYouTubePlayerIframe();
-            $('#youTubeLauncher').html('<button type="button" class="btn btn-info btn-fill inline pull-left" onclick="$.toggleYouTubePlayer()">Hide/Show YouTube Player</button>' +
-                '<button type="button" class="btn btn-info btn-fill inline pull-left" onclick="$.toggleYouTubePlayerPause()">Toggle Pause</button>');
+            $('#youTubeLauncher').html('<button type="button" class="btn btn-info btn-fill inline " onclick="$.toggleYouTubePlayer()">Hide/Show YouTube Player</button>' +
+                '<button type="button" class="btn btn-info btn-fill inline " onclick="$.toggleYouTubePlayerPause()">Toggle Pause</button>');
         }
     }
 

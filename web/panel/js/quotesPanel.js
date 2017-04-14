@@ -23,7 +23,7 @@
  * quotesPanel.js
  */
 
-(function() {
+(function () {
 
     var spinIcon = '<i  class="fa fa-spinner fa-spin" />',
         isDeleting = false;
@@ -62,58 +62,76 @@
                     quoteData = JSON.parse(msgObject['results'][idx]['value']);
                     quoteDataClean = JSON.parse(msgObject['results'][idx]['value']);
                     quoteDataClean[1] = quoteDataClean[1].replace(/,/g, '%2C').replace(/'/g, '%27');
-                    html += '<tr >' +
-                            '    <td>' +
-                            '        <div id="deleteQuote_' + id + '" type=\"button\" class=\"btn btn-info btn-fill btn-xs\"' +
-                            '             onclick="$.deleteQuote(\'' + id + '\')"><i class="fa fa-trash" />' +
-                            '        </div>' +
-                            '    </td>' +
+                    html += '<tr class="quoteBG">' +
+                        '<td class="centerText" rowspan="2">' + id + '</td>' +
+                        '    <td class="col-xs-1">' +
+                        '        <div id="deleteQuote_' + id + '" type=\"button\" class=\"btn btn-danger btn-fill  btn-xs\"' +
+                        '             onclick="$.deleteQuote(\'' + id + '\')"><i class="fa fa-trash" />' +
+                        '        </div>' +
+                        '    </td>' +
 
-                            // ID and Date
-                            '    <td>ID: ' + id + '</td>' +
-                            '    <td>' + 
-                            '        Date: ' + $.format.date(parseInt(quoteData[2]), 'MM.dd.yy') +
-                            '    </td>' +
+                        // Date                        
+                        '    <td class="col-xs-2">' +
+                        '        Date: ' + $.format.date(parseInt(quoteData[2]), 'MM.dd.yy') +
+                        '    </td>' +
 
 
-                            // User
-                            '    <td>' +
-                            '        <form onkeypress="return event.keyCode != 13">' +
-                            '            <input type="text" id="inlineQuoteEdit_user_' + id + '"' +
-                            '                   value="' + quoteData[0] + '" />' +
-                            '            <button type="button" class="btn btn-info btn-fill btn-xs"' +
-                            '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'user\')">' +
-                            '                <i class="fa fa-pencil" />' +
-                            '            </button>' +
-                            '        </form>' +
-                            '    </td>' +
+                        // User
+                        '    <td class="col-xs-4">' +
+                        '        <form role="form" onkeypress="return event.keyCode != 13">' +
+                        '<div class="form-group form-group-table">' +
+                        '<div class="input-group">' +
+                        '            <input type="text" class="form-control" id="inlineQuoteEdit_user_' + id + '"' +
+                        '                   value="' + quoteData[0] + '" />' +
+                        '<span class="input-group-btn">' +
+                        '            <button type="button" class="btn btn-default btn-fill  btn-xs"' +
+                        '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'user\')">' +
+                        '                <i class="fa fa-pencil" />' +
+                        '            </button>' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>' +
+                        '</td>' +
 
-                            // Game
-                            '    <td>' +
-                            '        <form onkeypress="return event.keyCode != 13">' +
-                            '            <input type="text" id="inlineQuoteEdit_game_' + id + '"' +
-                            '                   value="' + (quoteData.length == 4 ? quoteData[3] : 'Some Game') + '" />' +
-                            '            <button type="button" class="btn btn-info btn-fill btn-xs"' +
-                            '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'game\')">' +
-                            '                <i class="fa fa-pencil" />' +
-                            '            </button>' +
-                            '        </form>' +
-                            '    </td>' +
-                            '</tr>' +
+                        // Game
+                        '    <td class="col-xs-4">' +
+                        '        <form role="form" onkeypress="return event.keyCode != 13">' +
+                        '<div class="form-group form-group-table">' +
+                        '<div class="input-group">' +
+                        '            <input type="text" class="form-control" id="inlineQuoteEdit_game_' + id + '"' +
+                        '                   value="' + (quoteData.length == 4 ? quoteData[3] : 'Some Game') + '" />' +
+                        '<span class="input-group-btn">' +
+                        '            <button type="button" class="btn btn-default btn-fill  btn-xs"' +
+                        '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'game\')">' +
+                        '                <i class="fa fa-pencil" />' +
+                        '            </button>' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>' +
+                        '</td>' +
+                        '</tr>' +
 
-                            // Quote
-                            '<tr >' +
-                            '    <td>' +
-                            '        <form onkeypress="return event.keyCode != 13">' +
-                            '            <input style="width: 89%" type="text" id="inlineQuoteEdit_quote_' + id + '"' +
-                            '                   value="' + quoteData[1] + '" />' +
-                            '            <button type="button" class="btn btn-info btn-fill btn-xs"' +
-                            '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'quote\')">' +
-                            '                <i class="fa fa-pencil" />' +
-                            '            </button>' +
-                            '        </form>' +
-                            '    </td>' +
-                            '</tr>';
+                        // Quote
+                        '<tr class="quoteBG">' +
+                        '    <td colspan="5">' +
+                        '        <form role="form" onkeypress="return event.keyCode != 13">' +
+                        '<div class="form-group form-group-table">' +
+                        '<div style="width: 100%" class="input-group">' +
+                        '            <input  type="text" class="form-control" id="inlineQuoteEdit_quote_' + id + '"' +
+                        '                   value="' + quoteData[1] + '" />' +
+                        '<span class="input-group-btn">' +
+                        '            <button type="button" class="btn btn-default btn-fill  btn-xs"' +
+                        '                    onclick="$.updateQuote(\'' + id + '\', \'' + quoteDataClean + '\', \'quote\')">' +
+                        '                <i class="fa fa-pencil" />' +
+                        '            </button>' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>' +
+                        '</td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#quoteList').html(html);
@@ -121,7 +139,7 @@
             }
         }
     }
- 
+
     /**
      * @function doQuery
      */
@@ -138,7 +156,9 @@
         if (value.length > 0) {
             $('#quoteMessageInput').val('Updating...');
             sendDBUpdate('quotes_quotemessage', 'settings', 'quoteMessage', value);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -152,7 +172,10 @@
 
         if (!isDeleting) {
             isDeleting = true;
-            setTimeout(function() { doQuery(); isDeleting = false; }, TIMEOUT_WAIT_TIME * 4);
+            setTimeout(function () {
+                doQuery();
+                isDeleting = false;
+            }, TIMEOUT_WAIT_TIME * 4);
         }
     }
 
@@ -178,7 +201,9 @@
                 quoteArray[0] = value;
             }
             sendDBUpdate('quotes_update', 'quotes', id, JSON.stringify(quoteArray));
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -190,7 +215,10 @@
         if (value.length > 0) {
             $('#addQuoteInput').val('Adding...').blur();
             sendCommand('addquotesilent ' + value);
-            setTimeout(function() { doQuery(); $('#addQuoteInput').val(''); }, TIMEOUT_WAIT_TIME * 2);
+            setTimeout(function () {
+                doQuery();
+                $('#addQuoteInput').val('');
+            }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -200,14 +228,16 @@
     function delQuoteMsg() {
         sendDBDelete('quotes_quotemessage', 'settings', 'quoteMessage');
         $('#quoteMessageInput').val('');
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 4);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME * 4);
     }
-    
+
     // Import the HTML file for this panel.
     $("#quotesPanel").load("/panel/quotes.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
             if (active == 12) {
@@ -218,7 +248,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 12 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Quotes Data', 'success', 1000);

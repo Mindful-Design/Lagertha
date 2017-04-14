@@ -213,27 +213,54 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-6 col-sm-12 col-xs-12" id="_viewCommandAliasesPanelDisabled">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Aliases</h4>
-                </div>
-                <div class="content">
-                    <form role="form">
-                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                            <label for="addCustomCommand">Add an alias</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="aliasCommandInputAlias" placeholder="Default command name" />
-                                <input type="text" class="form-control" id="aliasCommandInput" placeholder="Alias name" />
-                                <span class="input-group-btn input-group-btn-n">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12" id="_viewCommandAliasesPanelDisabled">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Aliases</h4>
+                        </div>
+                        <div class="content">
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="addCustomCommand">Add an alias</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="aliasCommandInputAlias" placeholder="Default command name" />
+                                        <input type="text" class="form-control" id="aliasCommandInput" placeholder="Alias name" />
+                                        <span class="input-group-btn input-group-btn-n">
                                         <button type="button" class="btn btn-info btn-fill" onclick="$.aliasCommand()">Submit</button>
                                         </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="_viewCommandAliasesPanel">
+                                <div id="aliasCommandsList" style="max-height: 200px; overflow: auto;" />
                             </div>
                         </div>
-                    </form>
-                    <div id="_viewCommandAliasesPanel">
-                        <div id="aliasCommandsList" style="max-height: 200px; overflow: auto;" />
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12" id="_commandPayPanelDisabled">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Payment</h4>
+                        </div>
+                        <div class="content" id="_commandPayPanel">
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="setCommandPay">Add a new payment</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="setCommandPayInputCommand" placeholder="Command name" />
+                                        <input type="text" class="form-control" id="setCommandPayInput" placeholder="Payment" />
+                                        <span class="input-group-btn input-group-btn-n">
+                                        <button type="button" class="btn btn-info btn-fill " onclick="$.setCommandPay()">Submit</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <label>Current Command Payments</label><br><br>
+                            <div id="payCommandsList" style="max-height: 200px; overflow: auto;" />
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -243,74 +270,28 @@
         <div class="col-md-6 col-sm-12 col-xs-12" id="_commandPricesPanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Cost</h4>
+                    <h4 class="title">Cost
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapseCost"><i class="fa fa-bars"></i></div>
+                    </h4>
                 </div>
-                <div class="content" id="_commandPricesPanel">
-                    <form role="form">
-                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                            <label for="setCommandPrice">Add a new price</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="setCommandPriceInputCommand" placeholder="Command name" />
-                                <input type="text" class="form-control" id="setCommandPriceInput" placeholder="Price" />
-                                <span class="input-group-btn input-group-btn-n">
+                <div id="collapseCost" class="content panel-collapse collapse">
+                    <div id="_commandPricesPanel">
+                        <form role="form">
+                            <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <label for="setCommandPrice">Add a new price</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="setCommandPriceInputCommand" placeholder="Command name" />
+                                    <input type="text" class="form-control" id="setCommandPriceInput" placeholder="Price" />
+                                    <span class="input-group-btn input-group-btn-n">
                                         <button type="button" class="btn btn-info btn-fill " onclick="$.setCommandPrice()">Submit</button>
                                         </span>
-                            </div>
-                        </div>
-                    </form>
-
-                    <label>Current Command Prices</label><br><br>
-                    <div id="priceCommandsList" style="max-height: 200px; overflow: auto;" />
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-12 col-xs-12" id="_commandPayPanelDisabled">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Payment</h4>
-                </div>
-                <div class="content" id="_commandPayPanel">
-                    <form role="form">
-                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                            <label for="setCommandPay">Add a new payment</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="setCommandPayInputCommand" placeholder="Command name" />
-                                <input type="text" class="form-control" id="setCommandPayInput" placeholder="Payment" />
-                                <span class="input-group-btn input-group-btn-n">
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.setCommandPay()">Submit</button>
-                                        </span>
-                            </div>
-                        </div>
-                    </form>
-                    <label>Current Command Payments</label><br><br>
-                    <div id="payCommandsList" style="max-height: 200px; overflow: auto;" />
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Permissions</h4>
-                </div>
-                <div class="content">
-                    <table class="table table-hover table-striped">
-                        <tr>
-                            <td>No permission warning message</td>
-                            <td>
-                                <div id="permcomMsg" style="float:right" />
-                            </td>
-                            <td>
-                                <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.togglePermcomMsg();"><i class="fa fa-refresh" />
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <br>
-                    <div id="_commandPermissionPanelDisabled" />
-                    <div id="_commandPermissionPanel">
-                        <div id="permCommandsList" style="max-height: 300px; overflow: auto;" />
+                            </div>
+                        </form>
+
+                        <label>Current Command Prices</label><br><br>
+                        <div id="priceCommandsList" style="max-height: 200px; overflow: auto;" />
+
                     </div>
                 </div>
             </div>
@@ -319,9 +300,44 @@
         <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Cooldown</h4>
+                    <h4 class="title">Permissions
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapsePerm"><i class="fa fa-bars"></i></div>
+                    </h4>
                 </div>
-                <div class="content">
+                <div id="collapsePerm" class="content panel-collapse collapse">
+
+
+                    <div class="content">
+                        <table class="table table-hover table-striped">
+                            <tr>
+                                <td>No permission warning message</td>
+                                <td>
+                                    <div id="permcomMsg" style="float:right" />
+                                </td>
+                                <td>
+                                    <div data-toggle="tooltip" style="float:right" title="Toggle" class="button" onclick="$.togglePermcomMsg();"><i class="fa fa-refresh" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <div id="_commandPermissionPanelDisabled" />
+                        <div id="_commandPermissionPanel">
+                            <div id="permCommandsList" style="max-height: 300px; overflow: auto;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Cooldown
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapseCool"><i class="fa fa-bars"></i></div>
+                    </h4>
+                </div>
+                <div id="collapseCool" class="content panel-collapse collapse">
                     <table class="table table-hover table-striped">
                         <tr>
                             <td>Global cooldown</td>

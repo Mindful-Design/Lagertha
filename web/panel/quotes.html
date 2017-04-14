@@ -23,34 +23,42 @@
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="quotesAccordion">
     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12" id="_quotesPanelDisabled">
+        <div class="col-md-12 col-sm-12 col-xs-12" id="_quotesPanelDisabled">
+
             <div class="card">
                 <div class="header">
                     <h4 class="title">Quotes</h4>
                 </div>
                 <div class="content">
-                    <div>
-                        <div id="_quotesPanel">
-                            <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                                    <button type="button" class="btn btn-danger btn-fill inline " onclick="$.delQuoteMsg()">Delete Quote Message</button>
-                                    <label for="quoteMessage">Set Quote Message</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.setQuoteMessage()">Submit</button>
-                                    <input type="text" class="form-control" id="quoteMessageInput" placeholder="Message for Quote in Chat" data-toggle="tooltip" title="Tags: (id) (quote) (user) (game) (date)">
-                                </div>
-                            </form>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div>
+                                <div id="_quotesPanel">
+                                    <form role="form">
+                                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                                            <button type="button" class="btn btn-danger btn-fill inline " onclick="$.delQuoteMsg()">Delete Quote Message</button><br><br>
+                                            <label for="quoteMessage">Set Quote Message</label>
+                                            <button type="button" class="btn btn-info btn-fill " onclick="$.setQuoteMessage()">Submit</button>
+                                            <input type="text" class="form-control" id="quoteMessageInput" placeholder="Message for Quote in Chat" data-toggle="tooltip" title="Tags: (id) (quote) (user) (game) (date)">
+                                        </div>
+                                    </form>
 
-                            <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
-                                    <label for="addQuote">Add Quote</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.addQuote()">Submit</button>
-                                    <input type="text" class="form-control" id="addQuoteInput" placeholder="A New Quote">
-                                </div>
-                            </form>
-                            <br>
+                                    <form role="form">
+                                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                                            <label for="addQuote">Add Quote</label>
+                                            <button type="button" class="btn btn-info btn-fill " onclick="$.addQuote()">Submit</button>
+                                            <input type="text" class="form-control" id="addQuoteInput" placeholder="A New Quote">
+                                        </div>
+                                    </form>
 
-                            <label>Quotes</label><br><br>
-                            <div id="quoteList" style="max-height: 350px; overflow: auto;" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <label>Quotes</label>
+                            <div id="quoteList" />
                         </div>
                     </div>
                 </div>
