@@ -11,19 +11,8 @@ If you are interested in what else I have developed, or in the streaming platfor
 ## Status
 
 * You can find the status of the project over on [Trello](https://trello.com/b/5kni5emL/mindful-design-public)
-<<<<<<< HEAD
 
 [![Build Status](https://travis-ci.org/Mindful-Design/Lagertha.svg?branch=master)](https://travis-ci.org/Mindful-Design/Lagertha)
-=======
->>>>>>> parent of 014c76a... -
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-[![Build Status](https://travis-ci.org/Mindful-Design/Lagertha.svg?branch=master)](https://travis-ci.org/Mindful-Design/Lagertha)
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 ## Getting Started
 
