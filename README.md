@@ -12,6 +12,8 @@ If you are interested in what else I have developed, or in the streaming platfor
 
 * You can find the status of the project over on [Trello](https://trello.com/b/5kni5emL/mindful-design-public)
 
+[![Build Status](https://travis-ci.org/Mindful-Design/Lagertha.svg?branch=master)](https://travis-ci.org/Mindful-Design/Lagertha)
+
 ## Getting Started
 
 To use this on your own setup, download the repo and replace your web folders with these. Be mindful (pun intended) of the PhantomBot version requirements.
