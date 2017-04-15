@@ -17,8 +17,11 @@ If you are interested in what else I have developed, or in the streaming platfor
 =======
 >>>>>>> parent of 014c76a... -
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 [![Build Status](https://travis-ci.org/Mindful-Design/Lagertha.svg?branch=master)](https://travis-ci.org/Mindful-Design/Lagertha)
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
