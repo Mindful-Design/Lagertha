@@ -4212,12 +4212,21 @@ input:focus {
 
 .centerText {
     color: var(--md-font-color);
-    background-color: #22313a;
+    background-color: var(--md-panel-bg);
     font: bold 58px "Roboto";
 }
 
 .quoteBG {
     background-color: #2b3942 !important;
+}
+
+.quoteRow {
+    border-top-width: 1px;
+    border-style: solid;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: #31424b;
+    border-bottom: 0px;
 }
 
 

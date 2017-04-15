@@ -31,13 +31,39 @@
         meMode = false,
         pauseMode = false;
 
-
+    /*
+     * @function well... these are some new additions from Mindful Design ;D
+     */
 
     function switchTheme() {
         if ($("#themeChange").attr('href') === "panel/css/mindfuldesign.css") {
             $("#themeChange").attr("href", "panel/css/mindfuldesignDark.css");
         } else {
             $("#themeChange").attr("href", "panel/css/mindfuldesign.css")
+        }
+    }
+
+    function liveStream() {
+        if ($("#hideShow").is(":visible")) {
+            $("#hideShow").fadeOut(1000);
+            $("#hideShow3").fadeOut(1000);
+            $("#hideShow4").fadeOut(1000);
+            setTimeout(function largeVideo() {
+                $("#hideShow2").attr('class', 'col-md-12 col-sm-12 col-xs-12');
+            }, 1000)
+        }
+    }
+
+    function preStream() {
+        if ($("#hideShow").is(":hidden")) {
+            $("#hideShow2").attr('class', 'col-md-8 col-sm-12 col-xs-12');
+            $("#hideShow2").css("margin-left", "33.33333333%");
+            setTimeout(function smallVideo() {
+                $("#hideShow2").css("margin-left", "0%");
+                $("#hideShow").fadeIn(1000);
+                $("#hideShow3").fadeIn(2000);
+                $("#hideShow4").fadeIn(3000);
+            }, 1000)
         }
     }
 
@@ -214,4 +240,6 @@
     $.globalDoQuery = doQuery;
     $.globalPauseMode = pauseMode;
     $.switchTheme = switchTheme;
+    $.liveStream = liveStream;
+    $.preStream = preStream;
 })();

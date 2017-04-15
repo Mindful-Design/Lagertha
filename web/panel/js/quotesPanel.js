@@ -62,7 +62,7 @@
                     quoteData = JSON.parse(msgObject['results'][idx]['value']);
                     quoteDataClean = JSON.parse(msgObject['results'][idx]['value']);
                     quoteDataClean[1] = quoteDataClean[1].replace(/,/g, '%2C').replace(/'/g, '%27');
-                    html += '<tr class="quoteBG">' +
+                    html += '<tr class="quoteBG quoteRow">' +
                         '<td class="centerText" rowspan="2">' + id + '</td>' +
                         '    <td class="col-xs-1">' +
                         '        <div id="deleteQuote_' + id + '" type=\"button\" class=\"btn btn-danger btn-fill  btn-xs\"' +

@@ -210,9 +210,20 @@
                                         </label>
                                     </div>
                                 </li>
-                                <li class="hidden-xs hidden-sm hidden-md">
-                                    <a style="font-weight: bold;" data-toggle="tooltip" data-placement="bottom" title="placeholder" id="settings">Settings
+                                <li class="dropdown hidden-xs hidden-sm hidden-md">
+                                    <a style="font-weight: bold;" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Settings<b class="caret"></b>
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" onclick="$.preStream()"><i class="fa fa-th"></i> Pre-stream layout</a></li>
+                                        <li><a href="#" onclick="$.liveStream()"><i class="fa fa-th-large"></i> Live stream</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Placeholder</a></li>
+                                        <li><a href="#">Placeholder</a></li>
+                                        <li><a href="#">Placeholder</a></li>
+                                        <li class="divider"></li>
+                                        <li><a target="_blank" href="https://community.phantombot.tv/category/12/technical-support">Support</a></li>
+                                    </ul>
+
                                 </li>
                                 <li style="background-color: #1dc7ea;padding-bottom: 1px;padding-left: 15px; padding-right: 15px;" class="hidden-xs hidden-sm hidden-md">
                                     <a href="#" onclick="performCurrentPanelRefresh()" data-toggle="tooltip" data-placement="bottom" title="Refresh Current Panel Data">
@@ -421,27 +432,6 @@
             $('#utilGroup4').toggle('slow', function() {});
             $('#utilGroup5').toggle('slow', function() {});
         });
-
-        /*$(document).ready(function() {
-            var settingsVideo = false;
-            $("#settings").click(function() {
-                if (!settingsVideo) {
-                    $("#disableVideo").animate({
-                        left: "80px"
-                    });
-                    settingsVideo = true;
-                } else {
-                    $("#disableVideo").animate({
-                        left: "0px"
-                    });
-                    settingsVideo = false;
-                }
-            });
-            $('#settings').click(function() {
-                $('#disableVideo').toggleClass('videoMove col-md-12 col-sm-12 col-xs-12');
-                $('#disableVideo').toggleClass('videoMove col-md-8 col-sm-8 col-xs-12');
-            });
-        }); */
 
     </script>
     <script type="text/javascript" src="panel/js/globalPanel.js"></script>

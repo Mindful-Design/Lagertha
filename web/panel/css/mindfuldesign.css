@@ -4149,6 +4149,8 @@ output {
     background-color: var(--md-panel-bg) !important;
 }
 
+.quoteRow {}
+
 
 /* Scrollbar */
 
