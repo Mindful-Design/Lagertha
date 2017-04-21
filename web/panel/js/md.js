@@ -39,7 +39,7 @@ $(document).ready(function () {
         localStorage.executedToday = today;
 
         $.ajax({
-            url: "https://api.twitch.tv/kraken/channels/lindgrenmax",
+            url: urlTwitch,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Client-ID", clientID);
             },
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
     setInterval(function () {
         $.ajax({
-            url: "https://api.twitch.tv/kraken/channels/lindgrenmax",
+            url: urlTwitch,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Client-ID", clientID);
             },
