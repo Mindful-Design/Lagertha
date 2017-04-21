@@ -20,15 +20,17 @@ To use this on your own setup, download the repo and replace your web folders wi
 
 To make use of some features, you need to create a file called **mdkeys.js** and place it in the /web/panel/js folder. In this file you input:
 
-```Your Twitch api url
+Your Twitch api url
+
 Your [Twitch client ID](https://blog.twitch.tv/client-id-required-for-kraken-api-calls-afbb8e95f843)
-```
 
 Sample-file:
 
+```
 var clientID = 'xawdadawd2r52a522ad2ad24a24a2';
 var urlTwitch = "https://api.twitch.tv/kraken/channels/mindfuldesign";
 
+```
 
 ### Prerequisites
 
