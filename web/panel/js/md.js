@@ -23,6 +23,85 @@ var fixedTop = false;
 var navbar_initialized = false;
 
 $(document).ready(function () {
+
+    /* sidebar... */
+
+    var dailyFollow = 0;
+    var dailyViews = 0;
+    var timedFollow = 0;
+    var timedViews = 0;
+
+    /* checks daily */
+
+    function runOncePerDay() {
+        var today = new Date().toLocaleDateString();
+        if (localStorage.executedToday == today) return;
+        localStorage.executedToday = today;
+
+        $.ajax({
+            url: "https://api.twitch.tv/kraken/channels/lindgrenmax",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Client-ID", clientID);
+            },
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json',
+            processData: false,
+            success: function (data) {
+                var dailyFollow2 = data;
+                dailyFollow = dailyFollow2.followers;
+                dailyViews = dailyFollow2.views;
+                localStorage.setItem('dailyFollow', dailyFollow);
+                localStorage.setItem('dailyViews', dailyViews);
+            },
+            error: function () {
+                console.log("Cannot get data");
+            }
+        });
+    }
+
+    runOncePerDay();
+
+    /* checks at 1min intervals */
+
+    setInterval(function () {
+        $.ajax({
+            url: "https://api.twitch.tv/kraken/channels/lindgrenmax",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Client-ID", clientID);
+            },
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json',
+            processData: false,
+            success: function (data) {
+                var timedFollow2 = data;
+                timedFollow = timedFollow2.followers;
+                timedViews = timedFollow2.views;
+                dailyFollow = localStorage.getItem('dailyFollow');
+                dailyViews = localStorage.getItem('dailyViews');
+                document.getElementById("todaysF").innerHTML = parseInt(timedFollow) - parseInt(dailyFollow);
+                document.getElementById("todaysV").innerHTML = parseInt(timedViews) - parseInt(dailyViews);
+                document.getElementById("followsTotal").innerHTML = parseInt(timedFollow);
+            },
+            error: function () {
+                console.log("Cannot get data");
+            }
+        });
+    }, 60000);
+
+    /* sets followgoal */
+    $('#followGoalInput').on("input", function () {
+        var numberChosen = this.value;
+        $('#followGoalChosen').text(numberChosen);
+        localStorage.setItem('numberChosen', numberChosen);
+        numberChosenInt = parseInt(numberChosen);
+        var parsing1 = parseInt($('#followsTotal').text())
+        var parsing2 = numberChosenInt;
+        var percentageFG = (parsing1 / parsing2) * 100;
+        $('.progress-bar').css('width', percentageFG + '%').attr('aria-valuenow', percentageFG);
+    });
+
     window_width = $(window).width();
 
     // check if there is an image set for the sidebar's background

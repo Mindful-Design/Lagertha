@@ -423,7 +423,7 @@ body>.navbar-collapse .nav {
 .sidebar .nav li>a,
 body>.navbar-collapse .nav li>a {
     color: #FFFFFF;
-    margin: 5px 15px;
+    margin: 5px 0px;
     opacity: .86;
     border-radius: 4px;
     display: block;
@@ -461,7 +461,7 @@ body>.navbar-collapse .nav p {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    margin-left: 45px;
+    margin-left: 10px;
 }
 
 .sidebar .nav i,
@@ -4000,7 +4000,7 @@ output {
 /* Background unchecked */
 
 .switch label {
-    background: #1DC7EA;
+    background: var(--md-main-color);
     border-radius: 2px;
     display: block;
     height: 100%;
@@ -4092,7 +4092,7 @@ output {
 }
 
 .switch span.fa-sun-o {
-    color: #1DC7EA;
+    color: var(--md-main-color);
     left: 15%;
     top: 25%;
     font-weight: bold;
@@ -4115,6 +4115,7 @@ output {
 .sidebarButtons {
     padding-top: 5px !important;
     padding-bottom: 5px !important;
+    padding-left: 25px !important;
 }
 
 .button {
@@ -4149,7 +4150,28 @@ output {
     background-color: var(--md-panel-bg) !important;
 }
 
-.quoteRow {}
+.statsWell {
+    color: var(--md-font-off);
+}
+
+.progress {
+    background-color: #fff;
+}
+
+.progress-bar-info {
+    background-color: #5bc0de;
+}
+
+.progress-bar {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    background-color: #394650;
+}
+
+.lightColour {
+    color: #000;
+}
 
 
 /* Scrollbar */

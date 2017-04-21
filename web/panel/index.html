@@ -43,6 +43,7 @@
     <script src="panel/js/jquery.flot.resize.js"></script>
     <script src="panel/js/date.js"></script>
     <script src="http://player.twitch.tv/js/embed/v1.js"></script>
+    <script src="panel/js/mdkeys.js"></script>
     <script src="panel/js/md.js"></script>
 
     <script type="text/javascript" src="panel/js/reconnectingWS.min.js"></script>
@@ -75,57 +76,165 @@
         <div id="tabs" style="display:none">
             <div class="sidebar">
                 <div class="sidebar-wrapper">
-                    <div class="logo">
-                        <a href="http://phantombot.tv" class="simple-text"><img width="200px" height="160px" src="panel/images/logo.png">
+                    <div id="logoID" class="logo statsWell">
+                        <a href="https://github.com/Mindful-Design/Lagertha" class="simple-text"><img width="200px" height="160px" src="panel/images/logo.png">
                         </a>
+                        <div class="row hidden-xs hidden-sm" style="margin-bottom: 15px;text-align: center;">
+                            <div class="col-md-4" style="font-weight: bold;    font-size: x-small;">
+                                <div id="subsV" style="font-size: xx-large;color: white">-</div>Subscribers</div>
+                            <div class="col-md-4" style="font-weight: bold;font-size: x-small;">
+                                <div id="todaysF" style="font-size: xx-large;color: white">-</div>Follows</div>
+                            <div class="col-md-4" style="font-size: x-small;font-weight: bold;">
+                                <div id="todaysV" style="font-size: xx-large;color: white">-</div>Views</div>
+                        </div>
+                        <div class="progress" style="margin-bottom: 2px;height: 5px;">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100" style="width: 96%;">
+                            </div>
+                        </div>
+                        <div class="row" style="font-size: 11px;">
+                            <div class="col-md-4">
+                                <span style="cursor:pointer;" data-toggle="modal" data-target="#followGoal"><span data-toggle="tooltip" title="Set your follow goal here">Follow goal</span></span>
+                                <div id="followGoal" class="modal fade" role="dialog" style="display: none;">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content lightColour">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                                <h4 class="modal-title">Follow goal</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form lpformnum="1" _lpchecked="1">
+                                                    <div class="input-group" style="width: 100%;">
+                                                        <label for="followGoal">Set your follow goal:</label>
+                                                        <input id="followGoalInput" type="text" class="form-control" name="followGoalInput" placeholder="1600">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4" style="text-align:right;"><span id="followsTotal">-</span>/<span id="followGoalChosen">500</span></div>
+                        </div>
                     </div>
+
+
                     <ul class="nav">
                         <li> <a class="sidebarButtons" href="#dashboard"><i class="pe-7s-graph"></i><p>Dashboard</p></a> </li>
                         <li> <a class="sidebarButtons" href="#commands"><i class="pe-7s-plugin"></i><p>Commands</p></a> </li>
                         <li> <a class="sidebarButtons" href="#donations"><i class="pe-7s-piggy"></i><p>Donations</p></a> </li>
                         <li>
                             <a class="groupHeader sidebarButtons" id="loyaltyShow"><i class="pe-7s-star"></i>
-                        <p>Loyalty</p></a> </li>
-                        <li id="loyaltyGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#points"><i class="pe-7s-cup"></i><p>Points</p></a> </li>
-                        <li id="loyaltyGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#ranks"><i class="pe-7s-rocket"></i><p>Ranks</p></a> </li>
-                        <li id="loyaltyGroup3" class="subli" style="display:none;"> <a class="sidebarButtons" href="#time"><i class="pe-7s-timer"></i><p>Time</p></a> </li>
+                        <p>Loyalty<b class="caret"></b></p></a> </li>
+                        <li id="loyaltyGroup1" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#points">
+                                <p>Points</p>
+                            </a>
+                        </li>
+                        <li id="loyaltyGroup2" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#ranks">
+                                <p>Ranks</p>
+                            </a>
+                        </li>
+                        <li id="loyaltyGroup3" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#time">
+                                <p>Time</p>
+                            </a>
+                        </li>
 
                         <li>
                             <a class="groupHeader sidebarButtons" id="adminShow"><i class="pe-7s-config"></i>
-                        <p>Administration</p></a></li>
-                        <li id="adminGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#moderation"><i class="pe-7s-hammer"></i><p>Moderation</p></a> </li>
-                        <li id="adminGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#viewers"><i class="pe-7s-config"></i><p>Permissions</p></a> </li>
+                        <p>Administration<b class="caret"></b></p></a></li>
+                        <li id="adminGroup1" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#moderation">
+                                <p>Moderation</p>
+                            </a>
+                        </li>
+                        <li id="adminGroup2" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#viewers">
+                                <p>Permissions</p>
+                            </a>
+                        </li>
 
                         <li>
                             <a class="groupHeader sidebarButtons" id="interShow"><i class="pe-7s-science"></i>
-                        <p>Interactions</p></a></li>
-                        <li id="interGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#greetings"><i class="pe-7s-alarm"></i><p>Alerts</p></a> </li>
-                        <li id="interGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#audio"><i class="pe-7s-music"></i><p>Audio</p></a> </li>
-                        <li id="interGroup3" class="subli" style="display:none;"> <a class="sidebarButtons" href="#keywords"><i class="pe-7s-speaker"></i><p>Keywords</p></a> </li>
-                        <li id="interGroup4" class="subli" style="display:none;"> <a class="sidebarButtons" href="#notices"><i class="pe-7s-like2"></i><p>Notices</p></a> </li>
-                        <li id="interGroup5" class="subli" style="display:none;"> <a class="sidebarButtons" href="#quotes"><i class="pe-7s-look"></i><p>Quotes</p></a> </li>
+                        <p>Interactions<b class="caret"></b></p></a></li>
+                        <li id="interGroup1" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#greetings">
+                                <p>Alerts</p>
+                            </a>
+                        </li>
+                        <li id="interGroup2" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#audio">
+                                <p>Audio</p>
+                            </a>
+                        </li>
+                        <li id="interGroup3" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#keywords">
+                                <p>Keywords</p>
+                            </a>
+                        </li>
+                        <li id="interGroup4" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#notices">
+                                <p>Notices</p>
+                            </a>
+                        </li>
+                        <li id="interGroup5" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#quotes">
+                                <p>Quotes</p>
+                            </a>
+                        </li>
 
 
                         <li>
                             <a class="groupHeader sidebarButtons" id="utilShow"><i class="pe-7s-tools"></i>
-                        <p>Utilities</p></a> </li>
-                        <li id="utilGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#games"><i class="pe-7s-joy"></i><p>Games</p></a> </li>
-                        <li id="utilGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#gambling"><i class="pe-7s-gift"></i><p>Giveaways</p></a> </li>
-                        <li id="utilGroup3" class="subli" style="display:none;"> <a class="sidebarButtons" href="#hostraid"><i class="pe-7s-like"></i><p>Hosts/Raids</p></a> </li>
-                        <li id="utilGroup4" class="subli" style="display:none;"> <a class="sidebarButtons" href="#poll"><i class="pe-7s-note2"></i><p>Polls</p></a> </li>
-                        <li id="utilGroup5" class="subli" style="display:none;"> <a class="sidebarButtons" href="#queue"><i class="pe-7s-network"></i><p>Queue</p></a> </li>
+                        <p>Utilities<b class="caret"></b></p></a> </li>
+                        <li id="utilGroup1" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#games">
+                                <p>Games</p>
+                            </a>
+                        </li>
+                        <li id="utilGroup2" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#gambling">
+                                <p>Giveaways</p>
+                            </a>
+                        </li>
+                        <li id="utilGroup3" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#hostraid">
+                                <p>Hosts/Raids</p>
+                            </a>
+                        </li>
+                        <li id="utilGroup4" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#poll">
+                                <p>Polls</p>
+                            </a>
+                        </li>
+                        <li id="utilGroup5" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#queue">
+                                <p>Queue</p>
+                            </a>
+                        </li>
 
                         <li>
                             <a class="groupHeader sidebarButtons" id="thirdShow"><i class="pe-7s-share"></i>
-                        <p>Connections</p></a></li>
-                        <li id="thirdGroup1" class="subli" style="display:none;"> <a class="sidebarButtons" href="#discord"><i class="pe-7s-comment"></i><p>Discord</p></a> </li>
-                        <li id="thirdGroup2" class="subli" style="display:none;"> <a class="sidebarButtons" href="#twitter"><i class="fa fa-twitter" style="color: rgba(0,0,0,0);-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: white;"></i><p>Twitter</p></a> </li>
+                        <p>Connections<b class="caret"></b></p></a></li>
+                        <li id="thirdGroup1" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#discord">
+                                <p>Discord</p>
+                            </a>
+                        </li>
+                        <li id="thirdGroup2" class="subli" style="display:none;">
+                            <a class="sidebarButtons" href="#twitter">
+                                <p>Twitter</p>
+                            </a>
+                        </li>
 
 
                         <li class="active-pro"> <a class="sidebarButtons" href="#help"><i class="pe-7s-info"></i><p>Information</p></a> </li>
                     </ul>
                 </div>
             </div>
+
             <div class="main-panel">
                 <nav class="navbar navbar-default navbar-fixed" style="height: 62px;">
                     <div class="container-fluid">
@@ -432,6 +541,16 @@
             $('#utilGroup4').toggle('slow', function() {});
             $('#utilGroup5').toggle('slow', function() {});
         });
+
+        /* keep follow goal on page reload */
+        if (performance.navigation.type == 1) {
+            $('#followGoalChosen').text(localStorage.getItem('numberChosen'));
+            numberChosenInt = parseInt(localStorage.getItem('numberChosen'));
+            var parsing1 = parseInt($('#followsTotal').text())
+            var parsing2 = numberChosenInt;
+            var percentageFG = (parsing1 / parsing2) * 100;
+            $('.progress-bar').css('width', percentageFG + '%').attr('aria-valuenow', percentageFG);
+        }
 
     </script>
     <script type="text/javascript" src="panel/js/globalPanel.js"></script>

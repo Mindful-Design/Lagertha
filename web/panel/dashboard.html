@@ -223,10 +223,12 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Chat Configuration and Statistics</h4>
+                            <h4 class="title">Chat Configuration and Statistics
+                                <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse5"><i class="fa fa-bars"></i></div>
+                            </h4>
                             <p class="category">Statistics last 5 days</p>
                         </div>
-                        <div class="content table-responsive">
+                        <div id="collapse5" class="content panel-collapse collapse table-responsive">
                             <div class="legend">
                                 <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('pausecommands')">Command Pause</button>
                                 <button type="button" class="btn btn-info btn-fill pull-center" onclick="$.toggleCommand('togglewhispermode')">Whisper Mode</button>

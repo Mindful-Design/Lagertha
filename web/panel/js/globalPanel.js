@@ -125,7 +125,7 @@
             }
 
             if (meMode) {
-                $("#meModeStatus").html('<span data-toggle="tooltip" data-placement="bottom" title="Action (/me) Mode" style="padding-right: 10px;"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-hand-paper-o" /></span><sub>action mode</sub></span>');
+                $("#meModeStatus").html('<span data-toggle="tooltip" data-placement="bottom" title="Action (/me) Mode" style="padding-right: 10px;"><span class="notification-modes hidden-sm hidden-xs"><i style="color: #1DC7EA" class="fa fa-hand-paper-o" /></span><sub> action mode</sub></span>');
                 $("#meModeStatus2").html('<i style="padding-left: 18px; color: #1DC7EA" class="fa fa-hand-paper-o" />');
             } else {
                 $("#meModeStatus").html('');

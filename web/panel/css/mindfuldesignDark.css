@@ -465,7 +465,7 @@ body>.navbar-collapse .nav p {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    margin-left: 45px;
+    margin-left: 10px;
 }
 
 .sidebar .nav i,
@@ -4090,7 +4090,7 @@ output {
 }
 
 .switch span.fa-moon-o {
-    color: #394650;
+    color: var(--md-main-color);
     left: 25%;
     top: 25%;
     font-size: 16px;
@@ -4108,7 +4108,7 @@ output {
 /* Checked States */
 
 .switch input:checked~label {
-    background: #394650;
+    background: var(--md-main-color);
     transition: background-color .2s;
 }
 
@@ -4214,6 +4214,14 @@ input:focus {
     color: var(--md-font-color);
     background-color: var(--md-panel-bg);
     font: bold 58px "Roboto";
+}
+
+.statsWell {
+    color: var(--md-font-off);
+}
+
+.progress {
+    background-color: #394650;
 }
 
 .quoteBG {
