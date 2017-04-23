@@ -22,8 +22,8 @@
     var iconToggle = [],
         i;
 
-    iconToggle['false'] = "<i  class=\"fa fa-circle-o\" />";
-    iconToggle['true'] = "<i  class=\"fa fa-circle\" />";
+    iconToggle['false'] = "<i  class=\"fa fa-circle text-warning\" />";
+    iconToggle['true'] = "<i  class=\"fa fa-circle text-success\" />";
 
     /*
      * @function onMessage

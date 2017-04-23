@@ -33,8 +33,8 @@
        modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
        modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
 
-       settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
-       settingIcon['true'] = "<i class=\"fa fa-circle\" />";
+       settingIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
+       settingIcon['true'] = "<i class=\"fa fa-circle text-success\" />";
 
     var hostHistory = false;
 

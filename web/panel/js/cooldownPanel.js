@@ -26,8 +26,8 @@
 (function () {
 
     var toggleIcon = [];
-    toggleIcon['false'] = "<i class=\"fa fa-circle-o\" />";
-    toggleIcon['true'] = "<i class=\"fa fa-circle\" />";
+    toggleIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
+    toggleIcon['true'] = "<i class=\"fa fa-circle text-success\" />";
 
 
     /*

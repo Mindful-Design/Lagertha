@@ -353,10 +353,10 @@ body>.navbar-collapse .sidebar-wrapper {
     position: relative;
     max-height: calc(100vh - 75px);
     min-height: 100%;
-    overflow: auto;
     width: 260px;
+    overflow-x: hidden;
+    overflow-y: auto;
     z-index: 4;
-    padding-bottom: 100px;
     background-color: var(--md-sidebarBG);
 }
 
@@ -681,7 +681,7 @@ body>.navbar-collapse[data-color="purple"]:after {
 .btn.active,
 .open>.btn.dropdown-toggle {
     background-color: transparent;
-    color: #777777;
+    color: var(--md-main-hover);
     border-color: var(--md-universalGrayhover);
 }
 
@@ -1197,6 +1197,7 @@ fieldset[disabled] .btn-neutral.active {
     border: 0;
     font-size: 16px;
     padding: 8px 16px;
+    color: var(--md-card-header);
 }
 
 .btn-simple.btn-icon {
@@ -2619,11 +2620,10 @@ fieldset[disabled] .form-control {
     height: 124px;
     border: 5px solid #FFFFFF;
     position: relative;
-    margin-bottom: 15px;
 }
 
 .card-user .avatar.border-gray {
-    border-color: #EEEEEE;
+    border: none;
 }
 
 .card-user .title {
@@ -4845,6 +4845,8 @@ input:focus {
     }
     .navbar-collapse.collapse {
         height: 100% !important;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     .navbar-collapse.collapse.in {
         display: block;

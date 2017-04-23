@@ -27,8 +27,8 @@
     var spamTrackerLimit = 0;
 
     var modSettingIcon = [];
-        modSettingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
-        modSettingIcon['true'] = "<i class=\"fa fa-circle\" />";
+        modSettingIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
+        modSettingIcon['true'] = "<i class=\"fa fa-circle text-success\" />";
 
     var modSettingMap = [];
         modSettingMap['symbolsToggle'] = "Symbols Protection";
