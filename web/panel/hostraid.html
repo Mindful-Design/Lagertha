@@ -32,10 +32,10 @@
                     <div>
                         <div id="_hostChannelPanel">
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="hostChannel">Host Channel</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.hostChannel()">Submit</button>
-                                    <input type="text" class="form-control" id="hostChannelInput" placeholder="Twitch Channel">
+                                    <div class="input-group"><input type="text" class="form-control" id="hostChannelInput" placeholder="Twitch Channel"><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.hostChannel()">Submit</button></span></div>
+
                                 </div>
                             </form>
                         </div>
@@ -43,18 +43,18 @@
                         <div id="_raidChannelPanelDisabled" />
                         <div id="_raidChannelPanel">
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="raidChannel">Raid Channel</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.raidChannel()">Submit</button>
-                                    <input type="text" class="form-control" id="raidChannelInput" placeholder="Twitch Channel">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="raidChannelInput" placeholder="Twitch Channel"><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.raidChannel()">Submit</button></span></div>
                                 </div>
                             </form>
 
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="raiderChannel">Announce Incoming Raid</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.raiderChannel()">Submit</button>
-                                    <input type="text" class="form-control" id="raiderChannelInput" placeholder="Twitch Channel">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="raiderChannelInput" placeholder="Twitch Channel"><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.raiderChannel()">Submit</button></span></div>
                                 </div>
                             </form>
                         </div>
@@ -102,44 +102,41 @@
                                 </tr>
                             </table>
                             <br>
-
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="hostAnnounce">Host Message</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateHostAnnounce()">Submit</button>
-                                    <input type="text" class="form-control" id="hostAnnounceInput" placeholder="Host Message" data-toggle="tooltip" title="Tags: (name) (viewers) (reward)" />
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="hostAnnounceInput" placeholder="Host Message" data-toggle="tooltip" title="Tags: (name) (viewers) (reward)" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateHostAnnounce()">Submit</button></span></div>
                                 </div>
                             </form>
-
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="hostAutoAnnounce">Auto-Host Message</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateAutoHostAnnounce()">Submit</button>
-                                    <input type="text" class="form-control" id="hostAutoAnnounceInput" placeholder="Auto-Host Message" data-toggle="tooltip" title="Tags: (name) (viewers) (reward)" />
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="hostAutoAnnounceInput" placeholder="Auto-Host Message" data-toggle="tooltip" title="Tags: (name) (viewers) (reward)" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateAutoHostAnnounce()">Submit</button></span></div>
                                 </div>
                             </form>
-
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="hostReward">Host Reward</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateHostReward()">Submit</button>
-                                    <input type="number" min="0" class="form-control" id="hostRewardInput" placeholder="Points" />
+                                    <div class="input-group">
+                                        <input type="number" min="0" class="form-control" id="hostRewardInput" placeholder="Points" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateHostReward()">Submit</button></span></div>
                                 </div>
                             </form>
 
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="autoHostReward">Auto Host Reward</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateAutoHostReward()">Submit</button>
-                                    <input type="number" min="0" class="form-control" id="autoHostRewardInput" placeholder="Points" />
+                                    <div class="input-group">
+                                        <input type="number" min="0" class="form-control" id="autoHostRewardInput" placeholder="Points" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateAutoHostReward()">Submit</button></span></div>
                                 </div>
                             </form>
 
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="hostMinViewers">Minimum Viewers for Host Reward</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateHostMinViewers()">Submit</button>
-                                    <input type="number" min="0" class="form-control" id="hostMinViewersInput" placeholder="Points" />
+                                    <div class="input-group">
+                                        <input type="number" min="0" class="form-control" id="hostMinViewersInput" placeholder="Points" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateHostMinViewers()">Submit</button></span></div>
                                 </div>
                                 <small><b>Warning:</b> Twitch does not always provide viewer counts if the channel hosting you has stopped streaming which may result in providing no reward to a broadcaster that stops streaming prior to hosting you.</small>
                             </form>
@@ -193,10 +190,10 @@
                     <div>
                         <div id="_raidMsgPanel">
                             <form role="form">
-     <form role="form">                                 <div class="form-group" onkeypress="return event.keyCode != 13">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
                                     <label for="raidMessage">Raid Message</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.updateRaidMessage()">Submit</button>
-                                    <input type="text" class="form-control" id="raidMessageInput" placeholder="Raid Message" />
+                                    <div class="input-group"><input type="text" class="form-control" id="raidMessageInput" placeholder="Raid Message" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateRaidMessage()">Submit</button></span></div>
+
                                 </div>
                             </form>
                         </div>

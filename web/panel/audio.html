@@ -84,68 +84,70 @@
                             <button type="button" class="btn btn-info btn-fill " onclick="$.toggleYouTubePlayerNotify()">Toggle Chat Notification</button>
                             <br><br><br>
 
+
                             <form role="form">
-                                <form role="form">
-                                    <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="playlistName">Load Playlist</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.loadYtplaylist()">Load</button>
-                                        <input type="text" class="form-control" id="playlistImput" placeholder="Playlist Name" />
-                                    </div>
-                                </form>
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="playlistName">Load Playlist</label>
+                                    <div class="input-group"><input type="text" class="form-control" id="playlistImput" placeholder="Playlist Name" />
+                                        <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.loadYtplaylist()">Load</button>
+                                    </span></div>
+                                </div>
+                            </form>
 
-                                <form role="form">
-                                    <form role="form">
-                                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                                            <label for="ytpDJName">Set Playlist DJ Name</label>
-                                            <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerDJName()">Submit</button>
-                                            <input type="text" class="form-control" id="ytpDJNameInput" placeholder="DJ Name">
-                                        </div>
-                                    </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="ytpDJName">Set Playlist DJ Name</label>
+                                    <div class="input-group"><input type="text" class="form-control" id="ytpDJNameInput" placeholder="DJ Name">
+                                        <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerDJName()">Submit</button>
+                                    </span></div>
+                                </div>
+                            </form>
 
-                                    <form role="form">
-                                        <form role="form">
-                                            <div class="form-group" onkeypress="return event.keyCode != 13">
-                                                <label for="ytpMaxRequests">Set Max Parallel Requests</label>
-                                                <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxReqs()">Submit</button>
-                                                <input type="number" min="1" class="form-control" id="ytpMaxReqsInput" placeholder="Request Count">
-                                            </div>
-                                        </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="ytpMaxRequests">Set Max Parallel Requests</label>
+                                    <div class="input-group"><input type="number" min="1" class="form-control" id="ytpMaxReqsInput" placeholder="Request Count">
+                                        <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxReqs()">Submit</button>
+                                    </span></div>
+                                </div>
+                            </form>
 
-                                        <form role="form">
-                                            <form role="form">
-                                                <div class="form-group" onkeypress="return event.keyCode != 13">
-                                                    <label for="addKeyword">Set Max Video Length (Seconds)</label>
-                                                    <button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxLength()">Submit</button>
-                                                    <input type="number" min="1" class="form-control" id="ytpMaxLengthInput" placeholder="Request Count">
-                                                </div>
-                                            </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="addKeyword">Set Max Video Length (Seconds)</label>
+                                    <div class="input-group"><input type="number" min="1" class="form-control" id="ytpMaxLengthInput" placeholder="Request Count">
+                                        <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.setYouTubePlayerMaxLength()">Submit</button>
+                                    </span></div>
+                                </div>
+                            </form>
 
-                                            <form role="form">
-                                                <form role="form">
-                                                    <div class="form-group" onkeypress="return event.keyCode != 13">
-                                                        <label for="blacklistedSongs">Blacklist a Song</label>
-                                                        <button type="button" class="btn btn-info btn-fill " onclick="$.blacklistSong()">Blacklist</button>
-                                                        <input type="text" class="form-control" id="songBlacklist" placeholder="Song Name or Keyword">
-                                                    </div>
-                                                    <div id="ytplayerBSong" style="max-height: 100px; overflow: auto;" />
-                                                    <br>
-                                                </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="blacklistedSongs">Blacklist a Song</label>
+                                    <div class="input-group"><input type="text" class="form-control" id="songBlacklist" placeholder="Song Name or Keyword">
+                                        <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.blacklistSong()">Blacklist</button>
+                                    </span></div>
+                                </div>
+                                <div id="ytplayerBSong" style="max-height: 100px; overflow: auto;" />
+                                <br>
+                            </form>
 
-                                                <form role="form">
-                                                    <form role="form">
-                                                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                                                            <label for="blacklistedusers">Blacklist a Username</label>
-                                                            <button type="button" class="btn btn-info btn-fill " onclick="$.blacklistUser()">Blacklist</button>
-                                                            <input type="text" class="form-control" id="userBlacklist" placeholder="Username">
-                                                        </div>
-                                                        <div id="ytplayerBUser" style="max-height: 100px; overflow: auto;" />
-                                                    </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="blacklistedusers">Blacklist a Username</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="userBlacklist" placeholder="Username">
+                                        <span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.blacklistUser()">Blacklist</button>
+                                    </span></div>
+                                </div>
+                                <div id="ytplayerBUser" style="max-height: 100px; overflow: auto;" />
+                            </form>
 
-                                                    <div id="youTubePlayerIframe" />
-                                                    <script>
-                                                        $('#youTubePlayerIframe').hide();
+                            <div id="youTubePlayerIframe" />
+                            <script>
+                                $('#youTubePlayerIframe').hide();
 
-                                                    </script>
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -153,8 +155,6 @@
         </div>
 
     </div>
-</div>
-</div>
 </div>
 <!-- Run the Acordion -->
 <script>

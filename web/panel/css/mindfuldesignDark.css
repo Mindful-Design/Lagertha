@@ -2523,7 +2523,7 @@ fieldset[disabled] .form-control {
 
 .card .description {
     font-size: 14px;
-    color: #333;
+    color: var(--md-font-color);
 }
 
 .card .footer {
@@ -2553,6 +2553,7 @@ fieldset[disabled] .form-control {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .card .author i {
@@ -3693,12 +3694,19 @@ notification-modes {
 
 /* sidebar, submenus */
 
+.master {
+    float: left;
+    width: 260px;
+}
+
 .groupHeader:hover {
     cursor: pointer;
 }
 
 .subli {
     margin-left: 50px;
+    float: left;
+    width: 260px;
 }
 
 .subli i {
@@ -3708,12 +3716,6 @@ notification-modes {
 
 .subli p {
     line-height: 15px !important;
-}
-
-.sidebar .nav>li.active-pro {
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
 }
 
 .footable .pagination>.active>a {
@@ -4237,6 +4239,35 @@ input:focus {
     border-bottom: 0px;
 }
 
+.slotEntriesLeft {
+    width: 50%;
+    vertical-align: top;
+    float: left;
+    display: inline-block;
+}
+
+.slotEntriesRight {
+    width: 50%;
+    vertical-align: top;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+@media (max-width: 1300px) {
+    .slotEntriesLeft {
+        width: 100%;
+        vertical-align: initial;
+        display: block;
+    }
+    .slotEntriesRight {
+        width: 100%;
+        vertical-align: initial;
+        float: none;
+        padding-left: 0px;
+        display: block;
+    }
+}
+
 
 /* Scrollbar */
 
@@ -4272,6 +4303,18 @@ input:focus {
 /*          Changes for small display      */
 
 @media (max-width: 991px) {
+    .slotEntriesLeft {
+        width: 50%;
+        vertical-align: top;
+        float: left;
+        display: inline-block;
+    }
+    .slotEntriesRight {
+        width: 50%;
+        vertical-align: top;
+        padding-left: 10px;
+        display: inline-block;
+    }
     .table-responsive {
         border: 0px solid #333;
     }

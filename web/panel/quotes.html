@@ -38,16 +38,18 @@
                                         <div class="form-group" onkeypress="return event.keyCode != 13">
                                             <button type="button" class="btn btn-danger btn-fill inline " onclick="$.delQuoteMsg()">Delete Quote Message</button><br><br>
                                             <label for="quoteMessage">Set Quote Message</label>
-                                            <button type="button" class="btn btn-info btn-fill " onclick="$.setQuoteMessage()">Submit</button>
-                                            <input type="text" class="form-control" id="quoteMessageInput" placeholder="Message for Quote in Chat" data-toggle="tooltip" title="Tags: (id) (quote) (user) (game) (date)">
+                                            <div class="input-group"><input type="text" class="form-control" id="quoteMessageInput" placeholder="Message for Quote in Chat" data-toggle="tooltip" title="Tags: (id) (quote) (user) (game) (date)"><span class="input-group-btn">
+                                            <button type="button" class="btn btn-info btn-fill " onclick="$.setQuoteMessage()">Submit</button></span></div>
+
                                         </div>
                                     </form>
 
                                     <form role="form">
                                         <div class="form-group" onkeypress="return event.keyCode != 13">
                                             <label for="addQuote">Add Quote</label>
-                                            <button type="button" class="btn btn-info btn-fill " onclick="$.addQuote()">Submit</button>
-                                            <input type="text" class="form-control" id="addQuoteInput" placeholder="A New Quote">
+                                            <div class="input-group"><input type="text" class="form-control" id="addQuoteInput" placeholder="A New Quote"><span class="input-group-btn">
+                                            <button type="button" class="btn btn-info btn-fill " onclick="$.addQuote()">Submit</button></span></div>
+
                                         </div>
                                     </form>
 

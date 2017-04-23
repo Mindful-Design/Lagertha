@@ -301,9 +301,11 @@
         <div class="col-md-4 col-sm-12 col-xs-12" id="_highlightsPanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Highlights</h4>
+                    <h4 class="title">Highlights
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse6"><i class="fa fa-bars"></i></div>
+                    </h4>
                 </div>
-                <div class="content">
+                <div id="collapse6" class="content panel-collapse collapse">
                     <div>
                         <div id="_highlightsPanel">
                             Make a note of an event in the broadcast to make creating highlights in Twitch easier later.
@@ -333,22 +335,24 @@
         <div class="col-md-4 col-sm-12 col-xs-12" id="_deathCtrPanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Death Counter</h4>
+                    <h4 class="title">Death Counter
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse7"><i class="fa fa-bars"></i></div>
+                    </h4>
                 </div>
-                <div class="content">
+                <div id="collapse7" class="content panel-collapse collapse">
                     <div>
                         <div id="_deathCtrPanel">
                             <table class="table table-hover table-striped">
                                 <tr style="vertical-align: middle">
                                     <td>Deaths: <span id="deathCounterValue">Fetching Game...</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-fill" onclick="$.adjustDeathCounter('add')"><i class="fa fa-plus fa-1x" /></button>
+                                        <button type="button" class="btn btn-default btn-fill" onclick="$.adjustDeathCounter('add')"><i class="fa fa-plus fa-1x" /></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-fill" onclick="$.adjustDeathCounter('sub')"><i class="fa fa-minus fa-1x" /></button>
+                                        <button type="button" class="btn btn-default btn-fill" onclick="$.adjustDeathCounter('sub')"><i class="fa fa-minus fa-1x" /></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-fill" onclick="$.adjustDeathCounter('reset')"><i class="fa fa-eraser fa-1x" /></button>
+                                        <button type="button" class="btn btn-default btn-fill" onclick="$.adjustDeathCounter('reset')"><i class="fa fa-eraser fa-1x" /></button>
                                     </td>
                                 </tr>
                             </table>
@@ -360,9 +364,11 @@
         <div class="col-md-4 col-sm-12 col-xs-12" id="_multiLinkPanelDisabled">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Multi-Link</h4>
+                    <h4 class="title">Multi-Link
+                        <div class="btn btn-info btn-xs" data-toggle="collapse" href="#collapse8"><i class="fa fa-bars"></i></div>
+                    </h4>
                 </div>
-                <div class="content">
+                <div id="collapse8" class="content panel-collapse collapse">
 
                     <div>
                         <div id="_multiLinkPanel">

@@ -32,18 +32,17 @@
                     <div>
                         <div id="_auctionPanel">
                             <form role="form">
-                                <form role="form">
-                                    <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="auctionOpen">Open/Close an Auction</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.auctionClose()">Close Auction</button>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.auctionOpen()">Open Auction</button>
-                                        <input type="number" min="0" class="form-control" id="auctionIncrementInput" placeholder="Increments" />
-                                        <input type="number" min="0" class="form-control" id="auctionBetInput" placeholder="Minimum Bet" />
-                                        <input type="number" min="0" class="form-control" id="auctionTimerInput" placeholder="Length of Auction in Seconds (optional, default is until closed)" />
-                                    </div>
-                                </form>
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="auctionOpen">Open/Close an Auction</label>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.auctionClose()">Close Auction</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.auctionOpen()">Open Auction</button>
+                                    <input type="number" min="0" class="form-control" id="auctionIncrementInput" placeholder="Increments" />
+                                    <input type="number" min="0" class="form-control" id="auctionBetInput" placeholder="Minimum Bet" />
+                                    <input type="number" min="0" class="form-control" id="auctionTimerInput" placeholder="Length of Auction in Seconds (optional, default is until closed)" />
+                                </div>
+                            </form>
 
-                                <div id="auctionResults" />
+                            <div id="auctionResults" />
                         </div>
                     </div>
                 </div>
@@ -59,16 +58,17 @@
                     <div>
                         <div id="_rafflePanel">
 
-                            <button type="button" class="btn btn-info btn-fill " onclick="$.raffle.repick()">Repick</button>
-                            <button type="button" class="btn btn-info btn-fill " onclick="$.raffle.end()">Close</button>
+                            <div class="legend"><button type="button" class="btn btn-info btn-fill " onclick="$.raffle.repick()">Repick</button>
+                                <button type="button" class="btn btn-info btn-fill " onclick="$.raffle.end()">Close</button></div>
                             <div class="dropdown">
-                                <button class="btn btn-info btn-fill  dropdown-toggle" type="button" data-toggle="dropdown">Open&nbsp;<span class="caret " style="margin-top: 8px;"></span></button>
+                                <button class="btn btn-info btn-fill  dropdown-toggle" type="button" data-toggle="dropdown">Open <b class="caret"></b></button>
                                 <ul class="dropdown-menu " style="cursor: pointer; margin-top: 39px; margin-right: 40px;">
                                     <li><a data-toggle="modal" data-target="#timeRaffle">Time Raffle</a></li>
                                     <li><a data-toggle="modal" data-target="#pointsRaffle">Points Raffle</a></li>
                                     <li><a data-toggle="modal" data-target="#normalRaffle">Normal Raffle</a></li>
                                 </ul>
                             </div>
+
 
                             <div id="pointsRaffle" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
@@ -371,55 +371,51 @@
                     <div>
                         <div id="_trafflePanel">
                             <form role="form">
-                                <form role="form">
-                                    <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="traffleOpen">Open/Close a Ticket Raffle</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.traffleRepick()">Repick Winner</button>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.traffleClose()">Close Raffle</button>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.traffleOpen()">Open Raffle</button>
-                                        <input type="number" min="0" class="form-control" id="traffleMaxInput" placeholder="Max Entries" />
-                                        <input type="number" min="0" class="form-control" id="traffleCostInput" placeholder="Cost per Ticket" />
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="traffleOpen">Open/Close a Ticket Raffle</label>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.traffleRepick()">Repick Winner</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.traffleClose()">Close Raffle</button>
+                                    <button type="button" class="btn btn-info btn-fill " onclick="$.traffleOpen()">Open Raffle</button>
+                                    <input type="number" min="0" class="form-control" id="traffleMaxInput" placeholder="Max Entries" />
+                                    <input type="number" min="0" class="form-control" id="traffleCostInput" placeholder="Cost per Ticket" />
+                                </div>
+                                <div class="checkbox">
+                                    <label>
                     <input type="checkbox" id="traffleFollowerInput" value="-followers">Followers Only
                 </label>
-                                    </div>
+                                </div>
 
-                                    <div class="checkbox">
-                                        <label>
+                                <div class="checkbox">
+                                    <label>
                     <input type="checkbox" id="traffleEnterMsg" onclick="$.toggleTRaffleMsg()">Warning Messages
                 </label>
-                                    </div>
-                                </form>
+                                </div>
+                            </form>
 
-                                <form role="form">
-                                    <form role="form">
-                                        <div class="form-group" onkeypress="return event.keyCode != 13">
-                                            <label for="traffleMsg">Raffle Message</label>
-                                            <button type="button" class="btn btn-info btn-fill " onclick="$.updateTRaffleSettings('traffleMsg')">Submit</button>
-                                            <input type="text" class="form-control" id="traffleMsg" placeholder="Message" data-toggle="tooltip" title="Auto announce message for the raffle. This will only be applied when a new raffle starts. Tag: (entries)" />
-                                        </div>
-                                    </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="traffleMsg">Raffle Message</label>
+                                    <div class="input-group"><input type="text" class="form-control" id="traffleMsg" placeholder="Message" data-toggle="tooltip" title="Auto announce message for the raffle. This will only be applied when a new raffle starts. Tag: (entries)" /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateTRaffleSettings('traffleMsg')">Submit</button></span></div>
 
-                                    <form role="form">
-                                        <form role="form">
-                                            <div class="form-group" onkeypress="return event.keyCode != 13">
-                                                <label for="traffleTimer">Message Timer (minutes)</label>
-                                                <button type="button" class="btn btn-info btn-fill " onclick="$.updateTRaffleSettings('traffleTimer')">Submit</button>
-                                                <input type="number" min="0" class="form-control" id="traffleTimer" placeholder="Amount" data-toggle="tooltip" title="Auto announce timer for the raffle. Use 0 to disable it. This will only be applied when a new raffle starts." />
-                                            </div>
-                                        </form>
+                                </div>
+                            </form>
+                            <form role="form">
+                                <div class="form-group" onkeypress="return event.keyCode != 13">
+                                    <label for="traffleTimer">Message Timer (minutes)</label>
+                                    <div class="input-group"><input type="number" min="0" class="form-control" id="traffleTimer" placeholder="Amount" data-toggle="tooltip" title="Auto announce timer for the raffle. Use 0 to disable it. This will only be applied when a new raffle starts." /><span class="input-group-btn"><button type="button" class="btn btn-info btn-fill " onclick="$.updateTRaffleSettings('traffleTimer')">Submit</button></span></div>
 
-                                        <div id="traffleResults" />
-                                        <br>
-                                        <td>Total Entries: <span id="traffleentries">0</span></td>
-                                        <br>
-                                        <br>
-                                        <label for="traffleListTable">Raffle Entry List</label>
-                                        <div id="traffleListTable" style="max-height: 200px; overflow: auto;" />
-                                        <br>
-                                        <small><i>Please note that the list does not reset until the next raffle is opened. This is for the ability to pick a new winner.</i></small>
+                                </div>
+                            </form>
+
+                            <div id="traffleResults" />
+                            <br>
+                            <td>Total Entries: <span id="traffleentries">0</span></td>
+                            <br>
+                            <br>
+                            <label for="traffleListTable">Raffle Entry List</label>
+                            <div id="traffleListTable" style="max-height: 200px; overflow: auto;" />
+                            <br>
+                            <small><i>Please note that the list does not reset until the next raffle is opened. This is for the ability to pick a new winner.</i></small>
                         </div>
                     </div>
                 </div>
