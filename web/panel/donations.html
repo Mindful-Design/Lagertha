@@ -16,61 +16,8 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  
  @author IllusionaryOne
--->
-
-<!-- This is outside of the accordion, so will always be on top of the tab -->
-
-<!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
-<div id="donationsAccordion">
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12" id="_donationsPanelDisabled">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Donations</h4>
-                </div>
-                <div class="content">
-                    <div id="_donationsPanel">
-                        <label>Donations Table</label>
-                        <div class="group-btn">
-                            <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('amount_desc')">
-                            <i class="fa fa-money" /><i class="fa fa-arrow-down" />
-                        </button>
-                            <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('amount_asc')">
-                            <i class="fa fa-money" /><i class="fa fa-arrow-up" />
-                        </button>
-
-                            <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('time_desc')">
-                            <i class="fa fa-clock-o" /><i class="fa fa-arrow-down" />
-                        </button>
-                            <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('time_asc')">
-                            <i class="fa fa-clock-o" /><i class="fa fa-arrow-up" />
-                        </button>
-
-                            <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('alpha_desc')">
-                            <i class="fa fa-user" /><i class="fa fa-arrow-down" />
-                        </button>
-                            <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('alpha_asc')"><i class="fa fa-user" /><i class="fa fa-arrow-up" /></button>
-                        </div>
-                        <br>
-                        <br>
-                    </div>
-                    <div id="donationsTable" style="max-height: 300px; overflow: auto" />
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Run the Acordion -->
-<script>
-    $("#donationsAccordion").accordion({
+--><!-- This is outside of the accordion, so will always be on top of the tab --><!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  --><div id="donationsAccordion"><div class="row"><div class="col-md-12 col-sm-12 col-xs-12" id="_donationsPanelDisabled"><div class="card"><div class="header"><h4 class="title">Donations</h4></div><div class="content"><div id="_donationsPanel"><label>Donations Table</label><div class="group-btn"><button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('amount_desc')"><i class="fa fa-money"/><i class="fa fa-arrow-down"/></button> <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('amount_asc')"><i class="fa fa-money"/><i class="fa fa-arrow-up"/></button> <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('time_desc')"><i class="fa fa-clock-o"/><i class="fa fa-arrow-down"/></button> <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('time_asc')"><i class="fa fa-clock-o"/><i class="fa fa-arrow-up"/></button> <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('alpha_desc')"><i class="fa fa-user"/><i class="fa fa-arrow-down"/></button> <button type="button" class="btn btn-info btn-fill btn-xs" onclick="$.setDonationSort('alpha_asc')"><i class="fa fa-user"/><i class="fa fa-arrow-up"/></button></div><br><br></div><div id="donationsTable" style="max-height: 300px; overflow: auto"/></div></div></div></div></div><!-- Run the Acordion --><script>$("#donationsAccordion").accordion({
         clearStyle: true,
         heightStyle: "panel",
         icons: null
-    });
-
-</script>
-<script>
-    handleInputFocus();
-
-</script>
+    });</script><script>handleInputFocus();</script>

@@ -264,6 +264,9 @@
                 chatData = [];
                 timeoutData = [];
                 followedData = [];
+                viewerData = [];
+                usernameData = [];
+                htmlData = [];
             }
         }
     }

@@ -16,75 +16,8 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  
  @author IllusionaryOne
--->
-
-<!-- This is outside of the accordion, so will always be on top of the tab -->
-
-<!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
-<div id="keywordsAccordion">
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12" id="_keywordsPanelDisabled">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Keywords</h4>
-                </div>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div id="_keywordsPanel">
-                                <form role="form">
-                                    <div class="form-group" onkeypress="return event.keyCode != 13">
-                                        <label for="addKeyword">Add Keyword</label>
-                                        <button type="button" class="btn btn-info btn-fill " onclick="$.addKeyword()">Submit</button>
-                                        <input type="text" class="form-control" id="addKeywordInput" placeholder="A New Keyword">
-                                        <input type="text" class="form-control" id="addKeywordResponseInput" placeholder="Response">
-                                    </div>
-                                </form>
-                                <div id="keywordsList" style="max-height: 200px; overflow: auto;" />
-                            </div>
-                            <br>
-
-                            <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
-                                    <label for="cooldownKey">Keyword cooldown</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.addKeyCooldown()">Submit</button>
-                                    <input type="text" class="form-control" id="cooldownKeyInputCommand" placeholder="Command name" />
-                                    <input type="text" class="form-control" id="cooldownKeyInput" placeholder="Seconds" />
-                                </div>
-                            </form>
-                            <div id="keywordsCooldownList" style="max-height: 200px; overflow: auto;" />
-                            <br>
-
-                            <form role="form">
-                                <div class="form-group" onkeypress="return event.keyCode != 13">
-                                    <label for="cooldownKey">Keyword prices</label>
-                                    <button type="button" class="btn btn-info btn-fill " onclick="$.setKeyPrice()">Submit</button>
-                                    <input type="text" class="form-control" id="priceKeyInputKey" placeholder="Command name" />
-                                    <input type="number" min="0" class="form-control" id="priceKeyInput" placeholder="amount" />
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <label>Keyword price list</label>
-                            <div id="keywordsPriceList" style="max-height: 200px; overflow: auto;" /></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Run the Acordion -->
-<script>
-    $("#keywordsAccordion").accordion({
+--><!-- This is outside of the accordion, so will always be on top of the tab --><!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  --><div id="keywordsAccordion"><div class="row"><div class="col-md-12 col-sm-12 col-xs-12" id="_keywordsPanelDisabled"><div class="card"><div class="header"><h4 class="title">Keywords</h4></div><div class="content"><div class="row"><div class="col-md-6 col-sm-12 col-xs-12"><div id="_keywordsPanel"><form role="form"><div class="form-group" onkeypress="return event.keyCode != 13"><label for="addKeyword">Add Keyword</label><button type="button" class="btn btn-info btn-fill" onclick="$.addKeywordnew()">Submit</button> <input type="text" class="form-control" id="addKeywordInput" placeholder="A New Keyword"> <input type="text" class="form-control" id="addKeywordResponseInput" placeholder="Response"></div></form><div id="keywordsList" style="max-height: 200px; overflow: auto"/></div><br><form role="form"><div class="form-group" onkeypress="return event.keyCode != 13"><label for="cooldownKey">Keyword cooldown</label><button type="button" class="btn btn-info btn-fill" onclick="$.addKeyCooldown()">Submit</button> <input type="text" class="form-control" id="cooldownKeyInputCommand" placeholder="Command name"/> <input type="text" class="form-control" id="cooldownKeyInput" placeholder="Seconds"/></div></form><div id="keywordsCooldownList" style="max-height: 200px; overflow: auto"/><br><form role="form"><div class="form-group" onkeypress="return event.keyCode != 13"><label for="cooldownKey">Keyword prices</label><button type="button" class="btn btn-info btn-fill" onclick="$.setKeyPrice()">Submit</button> <input type="text" class="form-control" id="priceKeyInputKey" placeholder="Command name"/> <input type="number" min="0" class="form-control" id="priceKeyInput" placeholder="amount"/></div></form></div><div class="col-md-6 col-sm-12 col-xs-12"><label>Keyword price list</label><div id="keywordsPriceList" style="max-height: 200px; overflow: auto"/></div></div></div></div></div></div></div><!-- Run the Acordion --><script>$("#keywordsAccordion").accordion({
         clearStyle: true,
         heightStyle: "panel",
         icons: null
-    });
-
-</script>
-<script>
-    handleInputFocus();
-
-</script>
+    });</script><script>handleInputFocus();</script>

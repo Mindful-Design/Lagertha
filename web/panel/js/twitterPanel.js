@@ -32,7 +32,7 @@
     modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
     modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
 
-    settingIcon['false'] = "<i class=\"fa fa-circle-o\" />";
+    settingIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
     settingIcon['true'] = "<i class=\"fa fa-circle\" />";
 
     settingMap['poll_mentions'] = "Poll Mentions";

@@ -28,8 +28,8 @@
     var refreshIcon = '<i class="fa fa-refresh" />',
         spinIcon = '<i  class="fa fa-spinner fa-spin" />',
         settingIcon = [];
-    settingIcon['false'] = '<i  class="fa fa-circle-o" />';
-    settingIcon['true'] = '<i  class="fa fa-circle" />';
+    settingIcon['false'] = '<i  class="fa fa-circle text-warning" />';
+    settingIcon['true'] = '<i  class="fa fa-circle text-success"/>';
 
     var greetingToggle = false,
         followerToggle = false,
@@ -247,15 +247,8 @@
                         bitsToggle = value;
                         $('#bitsToggle').html(settingIcon[value]);
                     }
-                    if (panelMatch(key, 'rewardMultToggle')) {
-                        bitsRewardMultToggle = value;
-                        $('#bitsRewardMultToggle').html(settingIcon[value]);
-                    }
                     if (panelMatch(key, 'message')) {
                         $('#bitsMessage').val(value);
-                    }
-                    if (panelMatch(key, 'reward')) {
-                        $('#bitsReward').val(value);
                     }
                     if (panelMatch(key, 'minimum')) {
                         $('#bitsMinimum').val(value);

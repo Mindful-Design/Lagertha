@@ -36,10 +36,10 @@
      */
 
     function switchTheme() {
-        if ($("#themeChange").attr('href') === "panel/css/mindfuldesign.css") {
-            $("#themeChange").attr("href", "panel/css/mindfuldesignDark.css");
+        if ($("#themeChange").attr('href') === "panel/css/mindfuldesign.min.css") {
+            $("#themeChange").attr("href", "panel/css/mindfuldesignDark.min.css");
         } else {
-            $("#themeChange").attr("href", "panel/css/mindfuldesign.css")
+            $("#themeChange").attr("href", "panel/css/mindfuldesign.min.css")
         }
     }
 

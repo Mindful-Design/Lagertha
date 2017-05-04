@@ -23,54 +23,54 @@
  * moderationPanel.js
  * Drives the Moderation Panel
  */
-(function() {
+(function () {
     var spamTrackerLimit = 0;
 
     var modSettingIcon = [];
-        modSettingIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
-        modSettingIcon['true'] = "<i class=\"fa fa-circle text-success\" />";
+    modSettingIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
+    modSettingIcon['true'] = "<i class=\"fa fa-circle text-success\" />";
 
     var modSettingMap = [];
-        modSettingMap['symbolsToggle'] = "Symbols Protection";
-        modSettingMap['capsToggle'] = "Caps Protection";
-        modSettingMap['spamToggle'] = "Spam Protection";
-        modSettingMap['emotesToggle'] = "Emotes Protection";
-        modSettingMap['colorsToggle'] = "Color (/me) Protection";
-        modSettingMap['linksToggle'] = "Links Protection";
-        modSettingMap['longMessageToggle'] = "Long Message Protection";
-        modSettingMap['spamTrackerToggle'] = "Spam Tracker Protection";
-        modSettingMap['fakePurgeToggle'] = "Fake Purge Protection";
+    modSettingMap['symbolsToggle'] = "Symbols Protection";
+    modSettingMap['capsToggle'] = "Caps Protection";
+    modSettingMap['spamToggle'] = "Spam Protection";
+    modSettingMap['emotesToggle'] = "Emotes Protection";
+    modSettingMap['colorsToggle'] = "Color (/me) Protection";
+    modSettingMap['linksToggle'] = "Links Protection";
+    modSettingMap['longMessageToggle'] = "Long Message Protection";
+    modSettingMap['spamTrackerToggle'] = "Spam Tracker Protection";
+    modSettingMap['fakePurgeToggle'] = "Fake Purge Protection";
 
-        modSettingMap['subscribersModerateLinks'] = "Subscriber " + modSettingMap['linksToggle'];
-        modSettingMap['subscribersModerateCaps'] = "Subscriber " + modSettingMap['capsToggle'];
-        modSettingMap['subscribersModerateSymbols'] = "Subscriber " + modSettingMap['symbolsToggle'];
-        modSettingMap['subscribersModerateSpam'] = "Subscriber " +  modSettingMap['spamToggle'];
-        modSettingMap['subscribersModerateEmotes'] = "Subscriber " + modSettingMap['emotesToggle'];
-        modSettingMap['subscribersModerateColors'] = "Subscriber " + modSettingMap['colorsToggle'];
-        modSettingMap['subscribersModerateLongMsg'] = "Subscriber " + modSettingMap['longMessageToggle'];
-        modSettingMap['subscribersModerateSpamTracker'] = "Subscriber " + modSettingMap['spamTrackerToggle'];
-        modSettingMap['subscribersModerateFakePurge'] = "Subscriber " + modSettingMap['fakePurgeToggle'];
+    modSettingMap['subscribersModerateLinks'] = "Subscriber " + modSettingMap['linksToggle'];
+    modSettingMap['subscribersModerateCaps'] = "Subscriber " + modSettingMap['capsToggle'];
+    modSettingMap['subscribersModerateSymbols'] = "Subscriber " + modSettingMap['symbolsToggle'];
+    modSettingMap['subscribersModerateSpam'] = "Subscriber " + modSettingMap['spamToggle'];
+    modSettingMap['subscribersModerateEmotes'] = "Subscriber " + modSettingMap['emotesToggle'];
+    modSettingMap['subscribersModerateColors'] = "Subscriber " + modSettingMap['colorsToggle'];
+    modSettingMap['subscribersModerateLongMsg'] = "Subscriber " + modSettingMap['longMessageToggle'];
+    modSettingMap['subscribersModerateSpamTracker'] = "Subscriber " + modSettingMap['spamTrackerToggle'];
+    modSettingMap['subscribersModerateFakePurge'] = "Subscriber " + modSettingMap['fakePurgeToggle'];
 
-        modSettingMap['regularsModerateLinks'] = "Regulars " + modSettingMap['linksToggle'];
-        modSettingMap['regularsModerateCaps'] = "Regulars " + modSettingMap['capsToggle'];
-        modSettingMap['regularsModerateSymbols'] = "Regulars " + modSettingMap['symbolsToggle'];
-        modSettingMap['regularsModerateSpam'] = "Regulars " + modSettingMap['spamToggle'];
-        modSettingMap['regularsModerateEmotes'] = "Regulars " + modSettingMap['emotesToggle'];
-        modSettingMap['regularsModerateColors'] = "Regulars " + modSettingMap['colorsToggle'];
-        modSettingMap['regularsModerateLongMsg'] = "Regulars " + modSettingMap['longMessageToggle'];
-        modSettingMap['regularsModerateSpamTracker'] = "Regulars " + modSettingMap['spamTrackerToggle'];
-        modSettingMap['regularsModerateFakePurge'] = "Regulars " + modSettingMap['fakePurgeToggle'];
+    modSettingMap['regularsModerateLinks'] = "Regulars " + modSettingMap['linksToggle'];
+    modSettingMap['regularsModerateCaps'] = "Regulars " + modSettingMap['capsToggle'];
+    modSettingMap['regularsModerateSymbols'] = "Regulars " + modSettingMap['symbolsToggle'];
+    modSettingMap['regularsModerateSpam'] = "Regulars " + modSettingMap['spamToggle'];
+    modSettingMap['regularsModerateEmotes'] = "Regulars " + modSettingMap['emotesToggle'];
+    modSettingMap['regularsModerateColors'] = "Regulars " + modSettingMap['colorsToggle'];
+    modSettingMap['regularsModerateLongMsg'] = "Regulars " + modSettingMap['longMessageToggle'];
+    modSettingMap['regularsModerateSpamTracker'] = "Regulars " + modSettingMap['spamTrackerToggle'];
+    modSettingMap['regularsModerateFakePurge'] = "Regulars " + modSettingMap['fakePurgeToggle'];
 
-        modSettingMap['silentTimeoutLinks'] = "Silent Timeout on " + modSettingMap['linksToggle'];
-        modSettingMap['silentTimeoutCaps'] = "Silent Timeout on " + modSettingMap['capsToggle'];
-        modSettingMap['silentTimeoutSymbols'] = "Silent Timeout on " + modSettingMap['symbolsToggle'];
-        modSettingMap['silentTimeoutSpam'] = "Silent Timeout on " + modSettingMap['spamToggle'];
-        modSettingMap['silentTimeoutEmotes'] = "Silent Timeout on " + modSettingMap['emotesToggle'];
-        modSettingMap['silentTimeoutColors'] = "Silent Timeout on " + modSettingMap['colorsToggle'];
-        modSettingMap['silentTimeoutLongMsg'] = "Silent Timeout on " + modSettingMap['longMessageToggle'];
-        modSettingMap['silentTimeoutSpamTracker'] = "Silent Timeout on " + modSettingMap['spamTrackerToggle'];
-        modSettingMap['silentTimeoutFakePurge'] = "Silent Timeout on " + modSettingMap['fakePurgeToggle'];
-        modSettingMap['silentTimeoutBlacklist'] = "Silent Timeout on Blacklist";
+    modSettingMap['silentTimeoutLinks'] = "Silent Timeout on " + modSettingMap['linksToggle'];
+    modSettingMap['silentTimeoutCaps'] = "Silent Timeout on " + modSettingMap['capsToggle'];
+    modSettingMap['silentTimeoutSymbols'] = "Silent Timeout on " + modSettingMap['symbolsToggle'];
+    modSettingMap['silentTimeoutSpam'] = "Silent Timeout on " + modSettingMap['spamToggle'];
+    modSettingMap['silentTimeoutEmotes'] = "Silent Timeout on " + modSettingMap['emotesToggle'];
+    modSettingMap['silentTimeoutColors'] = "Silent Timeout on " + modSettingMap['colorsToggle'];
+    modSettingMap['silentTimeoutLongMsg'] = "Silent Timeout on " + modSettingMap['longMessageToggle'];
+    modSettingMap['silentTimeoutSpamTracker'] = "Silent Timeout on " + modSettingMap['spamTrackerToggle'];
+    modSettingMap['silentTimeoutFakePurge'] = "Silent Timeout on " + modSettingMap['fakePurgeToggle'];
+    modSettingMap['silentTimeoutBlacklist'] = "Silent Timeout on Blacklist";
 
     /**
      * Not used at this time.
@@ -121,7 +121,7 @@
                             "    </td>" +
                             "    <td>" + modSetting + "</td>" +
                             "</tr>";
-                    
+
                     }
                     html += "</table>";
                 } else {
@@ -136,15 +136,15 @@
                     for (idx in msgObject['results']) {
                         modSetting = msgObject['results'][idx]['key'];
                         modValue = msgObject['results'][idx]['value'];
-    
+
                         html += "<tr >" +
-                                "    <td>" +
-                                "        <div id=\"delete_whiteList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-info btn-fill btn-xs\"" +
-                                "             onclick=\"$.deleteWhitelist('" + modSetting + "')\"><i class=\"fa fa-trash\" />" +
-                                "        </div>" +
-                                "    </td>" +
-                                "    <td>" + modSetting + "</td>" +
-                                "</tr>";
+                            "    <td>" +
+                            "        <div id=\"delete_whiteList_" + modSetting.replace(/[^a-z1-9]/ig, '_') + "\" type=\"button\" class=\"btn btn-info btn-fill btn-xs\"" +
+                            "             onclick=\"$.deleteWhitelist('" + modSetting + "')\"><i class=\"fa fa-trash\" />" +
+                            "        </div>" +
+                            "    </td>" +
+                            "    <td>" + modSetting + "</td>" +
+                            "</tr>";
                     }
                     html += "</table>";
                 } else {
@@ -163,27 +163,27 @@
                     modValue = msgObject['results'][idx]['value'];
 
                     switch (modSetting) {
-                        case 'linksMessage' :
-                        case 'linkPermitTime' :
-                        case 'symbolsMessage' :
-                        case 'symbolsLimitPercent' :
-                        case 'symbolsGroupLimit' :
-                        case 'symbolsTriggerLength' :
-                        case 'capsMessage' :
-                        case 'capsLimitPercent' :
-                        case 'capsTriggerLength' :
-                        case 'spamMessage' :
-                        case 'spamLimit' :
-                        case 'emotesMessage' :
-                        case 'emotesLimit' :
-                        case 'longMessageMessage' :
-                        case 'longMessageLimit' :
-                        case 'colorsMessage' :
-                        case 'spamTrackerMessage' :
-                        case 'spamTrackerLimit' :
-                        case 'spamTrackerTime' :
-                        case 'fakePurgeToggle' :
-                        case 'fakePurgeMessage' :
+                        case 'linksMessage':
+                        case 'linkPermitTime':
+                        case 'symbolsMessage':
+                        case 'symbolsLimitPercent':
+                        case 'symbolsGroupLimit':
+                        case 'symbolsTriggerLength':
+                        case 'capsMessage':
+                        case 'capsLimitPercent':
+                        case 'capsTriggerLength':
+                        case 'spamMessage':
+                        case 'spamLimit':
+                        case 'emotesMessage':
+                        case 'emotesLimit':
+                        case 'longMessageMessage':
+                        case 'longMessageLimit':
+                        case 'colorsMessage':
+                        case 'spamTrackerMessage':
+                        case 'spamTrackerLimit':
+                        case 'spamTrackerTime':
+                        case 'fakePurgeToggle':
+                        case 'fakePurgeMessage':
                             $("#" + modSetting + "Input").val(modValue);
                             break;
                     }
@@ -393,38 +393,38 @@
                             $('#toggleRegularFakePurge').attr('checked', 'checked');
                         }
                     }
-                
+
                     if (panelMatch(modSetting, 'regularsModerateCaps')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleRegularCaps').attr('checked', 'checked');
                         }
                     }
-                
+
                     if (panelMatch(modSetting, 'regularsModerateSymbols')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleRegularSymbols').attr('checked', 'checked');
                         }
                     }
-                    
+
                     if (panelMatch(modSetting, 'regularsModerateSpam')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleRegularSpam').attr('checked', 'checked');
                         }
                     }
-                    
+
                     if (panelMatch(modSetting, 'regularsModerateColors')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleRegularColors').attr('checked', 'checked');
                         }
                     }
-                    
+
                     if (panelMatch(modSetting, 'regularsModerateLongMsg')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleRegularLongMsg').attr('checked', 'checked');
                         }
                     }
 
-                     if (panelMatch(modSetting, 'regularsModerateSpamTracker')) {
+                    if (panelMatch(modSetting, 'regularsModerateSpamTracker')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleRegularSpamTracker').attr('checked', 'checked');
                         }
@@ -441,31 +441,31 @@
                             $('#toggleSubscriberFakePurge').attr('checked', 'checked');
                         }
                     }
-                
+
                     if (panelMatch(modSetting, 'subscribersModerateCaps')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleSubscriberCaps').attr('checked', 'checked');
                         }
                     }
-                
+
                     if (panelMatch(modSetting, 'subscribersModerateSymbols')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleSubscriberSymbols').attr('checked', 'checked');
                         }
                     }
-                    
+
                     if (panelMatch(modSetting, 'subscribersModerateSpam')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleSubscriberSpam').attr('checked', 'checked');
                         }
                     }
-                    
+
                     if (panelMatch(modSetting, 'subscribersModerateColors')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleSubscriberColors').attr('checked', 'checked');
                         }
                     }
-                    
+
                     if (panelMatch(modSetting, 'subscribersModerateLongMsg')) {
                         if (panelMatch(modValue, 'false')) {
                             $('#toggleSubscriberLongMsg').attr('checked', 'checked');
@@ -553,9 +553,15 @@
         if (value.length > 0) {
             sendDBUpdate("moderation_addBlacklist", "blackList", value.toLowerCase(), 'true');
             $("#addModBlacklistInput").val("Submitted");
-            setTimeout(function() { $("#addModBlacklistInput").val(""); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                $("#addModBlacklistInput").val("");
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendCommand("reloadmod");
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -567,9 +573,15 @@
         if (value.length > 0) {
             sendDBUpdate("moderation_addWhitelist", "whiteList", value.toLowerCase(), 'true');
             $("#addModWhitelistInput").val("Submitted");
-            setTimeout(function() { $("#addModWhitelistInput").val(""); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                $("#addModWhitelistInput").val("");
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendCommand("reloadmod");
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -583,8 +595,12 @@
         $("#delete_blackList_" + newkey).html("<i  class=\"fa fa-spinner fa-spin\" />");
 
         sendDBDelete("commands_delblacklist_" + key, "blackList", key);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -595,8 +611,12 @@
         var newkey = key.replace(/[^a-z1-9]/ig, '_');
         $("#delete_whiteList_" + newkey).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("commands_delwhitelist_" + newkey, "whiteList", key);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -606,23 +626,25 @@
     function toggleModeration(group, type) {
         var modDbKeys = [];
         if (group.indexOf('viewers') === 0) {
-            modDbKeys = [ "linksToggle", "capsToggle", "spamToggle", "symbolsToggle", "emotesToggle", "longMessageToggle", "colorsToggle", "spamTrackerToggle", "fakePurgeToggle" ];
+            modDbKeys = ["linksToggle", "capsToggle", "spamToggle", "symbolsToggle", "emotesToggle", "longMessageToggle", "colorsToggle", "spamTrackerToggle", "fakePurgeToggle"];
         }
 
         if (group.indexOf('subscribers') === 0) {
-            modDbKeys = [ "subscribersModerateLinks", "subscribersModerateCaps", "subscribersModerateSymbols", "subscribersModerateSpam",
-                          "subscribersModerateEmotes", "subscribersModerateColors", "subscribersModerateLongMsg", "subscribersModerateSpamTacker", "subscribersModerateFakePurge" ];
+            modDbKeys = ["subscribersModerateLinks", "subscribersModerateCaps", "subscribersModerateSymbols", "subscribersModerateSpam",
+                          "subscribersModerateEmotes", "subscribersModerateColors", "subscribersModerateLongMsg", "subscribersModerateSpamTacker", "subscribersModerateFakePurge"];
         }
 
         if (group.indexOf('regulars') === 0) {
-            modDbKeys = [ "regularsModerateLinks", "regularsModerateCaps", "regularsModerateSymbols", "regularsModerateSpam",
-                          "regularsModerateEmotes", "regularsModerateColors", "regularsModerateLongMsg", "regularsModerateSpamTacker", "regularsModerateFakePurge" ];
+            modDbKeys = ["regularsModerateLinks", "regularsModerateCaps", "regularsModerateSymbols", "regularsModerateSpam",
+                          "regularsModerateEmotes", "regularsModerateColors", "regularsModerateLongMsg", "regularsModerateSpamTacker", "regularsModerateFakePurge"];
         }
 
         for (key in modDbKeys) {
             sendDBUpdate("moderation_toggleAll_" + group, "chatModerator", modDbKeys[key], type.toString());
         }
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -699,15 +721,27 @@
             toggleModeration('regulars', 'false');
             toggleModeration('viewers', 'false');
 
-            if (!disableSubs) { sendDBUpdate("moderation_linksOnly", "chatModerator", "subscribersModerateLinks", "true"); }
-            if (!disableRegs) { sendDBUpdate("moderation_linksOnly", "chatModerator", "regularsModerateLinks", "true"); }
-            if (!disableViewers) { sendDBUpdate("moderation_linksOnly", "chatModerator", "linksToggle", "true"); }
+            if (!disableSubs) {
+                sendDBUpdate("moderation_linksOnly", "chatModerator", "subscribersModerateLinks", "true");
+            }
+            if (!disableRegs) {
+                sendDBUpdate("moderation_linksOnly", "chatModerator", "regularsModerateLinks", "true");
+            }
+            if (!disableViewers) {
+                sendDBUpdate("moderation_linksOnly", "chatModerator", "linksToggle", "true");
+            }
         }
 
         $("#quickModerationUpdate").html("<br><span class=\"purplePill\">&nbsp;Please wait, updating settings...&nbsp;</span>");
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { $("#quickModerationUpdate").html(""); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            $("#quickModerationUpdate").html("");
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -716,7 +750,9 @@
     function permitUserCommand() {
         sendCommand("permit " + $("#permitUserInput").val());
         $("#permitUserInput").val("Submitted");
-        setTimeout(function() { $("#permitUserInput").val(""); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            $("#permitUserInput").val("");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -727,10 +763,12 @@
     function updateModSetting(tableKey, newValue) {
         $("#modSetting_" + tableKey).html("<i  class=\"fa fa-spinner fa-spin\" />");
         sendDBUpdate("moderation_updateSetting_" + tableKey, "chatModerator", tableKey, newValue);
-        setTimeout(function() {
+        setTimeout(function () {
             $("#modSetting_" + tableKey).html("<strong><font >" + modSettingIcon[newValue] + "</font></strong>");
         }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -744,18 +782,25 @@
         if (tableKey == 'msgCooldownSecs') {
             if (newValue >= 45) {
                 sendDBUpdate("moderation_updateSetting_" + tableKey, "chatModerator", tableKey, newValue);
-                setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-                setTimeout(function() { $(tagId).val(''); }, TIMEOUT_WAIT_TIME * 2);
-                setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+                setTimeout(function () {
+                    doQuery();
+                }, TIMEOUT_WAIT_TIME);
+                setTimeout(function () {
+                    $(tagId).val('');
+                }, TIMEOUT_WAIT_TIME * 2);
+                setTimeout(function () {
+                    sendCommand("reloadmod");
+                }, TIMEOUT_WAIT_TIME);
             }
             return;
         }
 
         if (newValue.length > 0 && ((typeof newValue === 'number' && newValue > 1) || (typeof newValue === 'string'))) {
             sendDBUpdate("moderation_updateSetting_" + tableKey, "chatModerator", tableKey, newValue);
-            $(tagId).val('');
-            $(tagId).attr("placeholder", newValue);
-            setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+            $(tagId).val(newValue);
+            setTimeout(function () {
+                sendCommand("reloadmod");
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -771,7 +816,9 @@
         } else {
             sendDBUpdate("moderation_chatmod", "chatModerator", "regularsModerate" + val, 'true');
         }
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -786,7 +833,9 @@
         } else {
             sendDBUpdate("moderation_chatmod", "chatModerator", "subscribersModerate" + val, 'true');
         }
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -801,7 +850,9 @@
         } else {
             sendDBUpdate("moderation_chatmod", "chatModerator", "silentTimeout" + val, 'false');
         }
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -817,7 +868,9 @@
         } else {
             sendDBUpdate("moderation_chatmod", "chatModerator", id, 'false');
         }
-        setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            sendCommand("reloadmod");
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -830,8 +883,12 @@
 
         if (value.length != 0) {
             sendDBUpdate("moderation_chatmod_reason", "chatModerator", 'silent' + table, value);
-            setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                sendCommand("reloadmod");
+            }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -839,7 +896,7 @@
     $("#moderationPanel").load("/panel/moderation.html");
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
             if (active == 6) {
@@ -850,7 +907,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $("#tabs").tabs("option", "active");
         if (active == 6 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Moderation Data', 'success', 1000);

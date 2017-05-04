@@ -11,7 +11,6 @@
 /web/panel/js/flot/**
 /web/panel/js/footable/**
 /web/panel/js/ion-sound/**
-/web/panel/js/jquery-ui/**
 /launch.bat
 /launch.osx.sh
 /launch.sh
@@ -32,9 +31,6 @@ logs/core/
 
 logs/core-debug/
 
-web/panel - Copy/
-
-web/panel2/
 
 web/panel/images/*
 !web/panel/images/the-fog-448100_1920.jpg
@@ -47,3 +43,46 @@ web/panel/images/*
 logs/warning/
 
 web/panel/js/mdkeys\.js
+
+/web/panel/js/dashboardpanel.js
+web/panel/js/commandspanel.js
+web/panel/js/donationspanel.js
+web/panel/js/pointspanel.js
+web/panel/js/rankspanel.js
+web/panel/js/timepanel.js
+web/panel/js/moderationpanel.js
+web/panel/js/viewerspanel.js
+web/panel/js/greetingspanel.js
+web/panel/js/audiopanel.js
+web/panel/js/keywordspanel.js
+web/panel/js/noticespanel.js
+web/panel/js/quotespanel.js
+web/panel/js/gamespanel.js
+web/panel/js/gamblingpanel.js
+web/panel/js/hostraidpanel.js
+web/panel/js/pollpanel.js
+web/panel/js/queuepanel.js
+web/panel/js/discordpanel.js
+web/panel/js/twitterpanel.js
+web/panel/js/helppanel.js		
+logs/error/
+
+web/panel/js/mdkeys\.min\.js
+
+web/panel/js/jquery-ui/images/
+
+web/panel/js/jquery-ui/jquery-ui/images/
+
+web/panel/js/panelConfig\.min\.js
+
+config/\.placeholder
+
+logs/chat/
+
+logs/moderation/
+
+logs/private-messages/
+
+logs/pointSystem/
+
+config/

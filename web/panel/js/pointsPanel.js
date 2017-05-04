@@ -72,6 +72,8 @@
                         $("#setPointsNameInput").val(value);
                     } else if (panelMatch(key, 'pointsMessage')) {
                         $("#pointsMessageInput").val(value);
+                    } else if (panelMatch(key, 'activeBonus')) {
+                        $("#setPointGainInput_setactivebonus").val(value);
                     }
                 }
             }
@@ -338,6 +340,10 @@
             sendDBUpdate("points_settings", "pointSettings", "offlinePayoutInterval", value);
         }
 
+        if (action == "setactivebonus") {
+            sendDBUpdate("points_settings", "pointSettings", "activeBonus", value);
+
+        }
         setTimeout(function () {
             doLiteQuery();
         }, TIMEOUT_WAIT_TIME);

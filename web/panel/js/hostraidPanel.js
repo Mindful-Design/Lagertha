@@ -23,18 +23,18 @@
  * hostraidPanel.js
  */
 
-(function() {
+(function () {
 
-   var refreshIcon = '<i class="fa fa-refresh" />',
-       spinIcon = '<i  class="fa fa-spinner fa-spin" />',
-       modeIcon = [],
-       settingIcon = [];
+    var refreshIcon = '<i class="fa fa-refresh" />',
+        spinIcon = '<i  class="fa fa-spinner fa-spin" />',
+        modeIcon = [],
+        settingIcon = [];
 
-       modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
-       modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
+    modeIcon['false'] = "<i class=\"fa fa-circle text-warning\"/>";
+    modeIcon['true'] = "<i class=\"fa fa-circle text-success\"/>";
 
-       settingIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
-       settingIcon['true'] = "<i class=\"fa fa-circle text-success\" />";
+    settingIcon['false'] = "<i class=\"fa fa-circle text-warning\" />";
+    settingIcon['true'] = "<i class=\"fa fa-circle text-success\" />";
 
     var hostHistory = false;
 
@@ -64,6 +64,9 @@
                     }
                     if (panelMatch(msgObject['results'][idx]['key'], 'hostMinViewerCount')) {
                         $('#hostMinViewersInput').val(msgObject['results'][idx]['value']).blur();
+                    }
+                    if (panelMatch(msgObject['results'][idx]['key'], 'hostMinCount')) {
+                        $('#hostMinViewersAlertInput').val(msgObject['results'][idx]['value']).blur();
                     }
                     if (panelMatch(msgObject['results'][idx]['key'], 'hostMessage')) {
                         $('#hostAnnounceInput').val(msgObject['results'][idx]['value']).blur();
@@ -97,10 +100,10 @@
 
                 for (idx = msgObject['results'].length - 1; idx >= 0; idx--) {
                     var hostData = JSON.parse(msgObject['results'][idx]['value']);
-                    html +='<tr >' +
-                           '  <td>' + hostData['host'] + '</td>' +
-                           '  <td>' + $.format.date(parseInt(hostData['time']), "MM.dd.yy HH:mm:ss") + '</td>' +
-                           '</tr>';
+                    html += '<tr >' +
+                        '  <td>' + hostData['host'] + '</td>' +
+                        '  <td>' + $.format.date(parseInt(hostData['time']), "MM.dd.yy HH:mm:ss") + '</td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#hostHistoryList').html(html);
@@ -116,9 +119,9 @@
 
                 for (idx in msgObject['results']) {
                     html += '<tr >' +
-                            '    <td>' + msgObject['results'][idx]['key'] + '</td>' +
-                            '    <td>' + msgObject['results'][idx]['value'] + '</td>' +
-                            '</tr>';
+                        '    <td>' + msgObject['results'][idx]['key'] + '</td>' +
+                        '    <td>' + msgObject['results'][idx]['value'] + '</td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#incomingRaidList').html(html);
@@ -134,9 +137,9 @@
 
                 for (idx in msgObject['results']) {
                     html += '<tr >' +
-                            '    <td>' + msgObject['results'][idx]['key'] + '</td>' +
-                            '    <td>' + msgObject['results'][idx]['value'] + '</td>' +
-                            '</tr>';
+                        '    <td>' + msgObject['results'][idx]['key'] + '</td>' +
+                        '    <td>' + msgObject['results'][idx]['value'] + '</td>' +
+                        '</tr>';
                 }
                 html += '</table>';
                 $('#outgoingRaidList').html(html);
@@ -150,7 +153,7 @@
     function doQuery() {
         sendDBKeys('hostraid_hosthistory', 'hosthistory');
         sendDBKeys('hostraid_settings', 'settings');
-        sendDBKeys('hostraid_inraids', 'incommingRaids'); 
+        sendDBKeys('hostraid_inraids', 'incommingRaids');
         sendDBKeys('hostraid_outraids', 'outgoingRaids');
     }
 
@@ -193,10 +196,12 @@
     function updateHostAnnounce() {
         var value = $('#hostAnnounceInput').val();
         if (value.length > 0) {
+            console.log(value);
             sendDBUpdate('hostraid_settings', 'settings', 'hostMessage', value);
             sendCommand('reloadhost');
-            $('#hostAnnounceInput').attr('placeholder', 'Updating...').blur();
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -208,8 +213,9 @@
         if (value.length > 0) {
             sendDBUpdate('hostraid_settings', 'settings', 'autoHostMessage', value);
             sendCommand('reloadhost');
-            $('#hostAutoAnnounceInput').attr('placeholder', 'Updating...').blur();
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -221,8 +227,9 @@
         if (value.length > 0) {
             sendDBUpdate('hostraid_settings', 'settings', 'hostReward', value);
             sendCommand('reloadhost');
-            $('#hostRewardInput').attr('placeholder', value).blur();
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -234,8 +241,9 @@
         if (value.length > 0) {
             sendDBUpdate('hostraid_settings', 'settings', 'autoHostReward', value);
             sendCommand('reloadhost');
-            $('#autoHostRewardInput').attr('placeholder', value).blur();
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -247,11 +255,24 @@
         if (value.length > 0) {
             sendDBUpdate('hostraid_settings', 'settings', 'hostMinViewerCount', value);
             sendCommand('reloadhost');
-            $('#hostMinViewersInput').attr('placeholder', value).blur();
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
-
+    /** 
+     * @function updateHostMinViewers
+     */
+    function hostMinViewersAlert() {
+        var value = $('#hostMinViewersAlertInput').val();
+        if (value.length > 0) {
+            sendDBUpdate('hostraid_settings', 'settings', 'hostMinCount', value);
+            sendCommand('reloadhost');
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
+        }
+    }
 
     /**
      * @function changeHostHistory
@@ -264,7 +285,9 @@
             sendDBUpdate('hostraid_settings', 'settings', 'hostHistory', 'true');
         }
         sendCommand('reloadhost');
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+        }, TIMEOUT_WAIT_TIME);
     }
 
     /** 
@@ -274,8 +297,9 @@
         var value = $('#raidMessageInput').val();
         if (value.length > 0) {
             sendDBUpdate('hostraid_settings', 'settings', 'raidMessage', value);
-            $('#raidMessageInput').attr('placeholder', 'Updating...').blur();
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+            setTimeout(function () {
+                doQuery();
+            }, TIMEOUT_WAIT_TIME);
         }
     }
 
@@ -285,14 +309,17 @@
     function toggle(table, key, value) {
         $('#' + key).html(spinIcon);
         sendDBUpdate('hostraid_settings', table, key, value);
-        setTimeout(function() { doQuery(); sendCommand('reloadhost'); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function () {
+            doQuery();
+            sendCommand('reloadhost');
+        }, TIMEOUT_WAIT_TIME);
     }
 
     // Import the HTML file for this panel.
     $('#hostraidPanel').load('/panel/hostraid.html');
 
     // Load the DB items for this panel, wait to ensure that we are connected.
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
             var active = $('#tabs').tabs('option', 'active');
             if (active == 15) {
@@ -303,7 +330,7 @@
     }, INITIAL_WAIT_TIME);
 
     // Query the DB every 30 seconds for updates.
-    setInterval(function() {
+    setInterval(function () {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 15 && isConnected && !isInputFocus()) {
             newPanelAlert('Refreshing Hosts/Raids Data', 'success', 1000);
@@ -325,4 +352,5 @@
     $.changeHostHistory = changeHostHistory;
     $.updateRaidMessage = updateRaidMessage;
     $.toggle = toggle;
+    $.hostMinViewersAlert = hostMinViewersAlert;
 })();

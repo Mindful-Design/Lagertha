@@ -91,6 +91,7 @@ $(document).ready(function () {
     }, 60000);
 
     /* sets followgoal */
+
     $('#followGoalInput').on("input", function () {
         var numberChosen = this.value;
         $('#followGoalChosen').text(numberChosen);
@@ -101,6 +102,13 @@ $(document).ready(function () {
         var percentageFG = (parsing1 / parsing2) * 100;
         $('.progress-bar').css('width', percentageFG + '%').attr('aria-valuenow', percentageFG);
     });
+
+    $(window).unload(function () {
+        var parsing1 = parseInt($('#followsTotal').text())
+        var parsing2 = numberChosenInt;
+        var percentageFG = (parsing1 / parsing2) * 100;
+        $('.progress-bar').css('width', percentageFG + '%').attr('aria-valuenow', percentageFG);
+    })
 
     window_width = $(window).width();
 

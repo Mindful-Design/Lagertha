@@ -16,50 +16,7 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  
  @author IllusionaryOne
--->
-
-<!-- This is outside of the accordion, so will always be on top of the tab -->
-
-<!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
-<div id="loggingAccordion">
-    <div class="col-md-4 col-sm-12 col-xs-12">
-        <div class="card">
-            <div class="header">
-                <h4 class="title">Enable/Disable Logging</h4>
-            </div>
-            <div class="content">
-                <div>
-                    <table class="table table-hover table-striped">
-                        <tr>
-                            <td>Logging</td>
-                            <td>
-                                <div id="loggingMode" />
-                            </td>
-                            <td>
-                                <div data-toggle="tooltip" title="Enable" class="button" onclick="$.changeLoggingStatus('enable');"><i class="fa fa-circle" />
-                                </div>
-                            </td>
-                            <td>
-                                <div data-toggle="tooltip" title="Disable" class="button" onclick="$.changeLoggingStatus('disable');"><i class="fa fa-circle-o" />
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Run the Accordion -->
-<script>
-    $("#loggingAccordion").accordion({
+--><!-- This is outside of the accordion, so will always be on top of the tab --><!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  --><div id="loggingAccordion"><div class="col-md-4 col-sm-12 col-xs-12"><div class="card"><div class="header"><h4 class="title">Enable/Disable Logging</h4></div><div class="content"><div><table class="table table-hover table-striped"><tr><td>Logging</td><td><div id="loggingMode"/></td><td><div data-toggle="tooltip" title="Enable" class="button" onclick="$.changeLoggingStatus('enable');"><i class="fa fa-circle text-success"/></div></td><td><div data-toggle="tooltip" title="Disable" class="button" onclick="$.changeLoggingStatus('disable');"><i class="fa fa-circle-o"/></div></td></tr></table></div></div></div></div></div><!-- Run the Accordion --><script>$("#loggingAccordion").accordion({
         clearStyle: true,
         heightStyle: "panel"
-    });
-
-</script>
-<script>
-    handleInputFocus();
-
-</script>
+    });</script><script>handleInputFocus();</script>
