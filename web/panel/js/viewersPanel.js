@@ -269,6 +269,24 @@
                 htmlData = [];
             }
         }
+
+
+    }
+    function showTable1() {
+        $("#viewersAdminList").html("Refreshing Data <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>");
+        var keys = msgObject['results'],
+            i;
+
+        for (i in keys) {
+            if (keys[i]['value'] == '1') {
+
+                var tr = "<tr>";
+                var td2 = "<td>" + lol[i]["key"] + "</td>";
+                var td3 = "<td>" + lol[i]["value"] + "</td></tr>";
+                $("#command").append(tr + td2 + td3);
+                // user is admin.
+            }
+        }
     }
 
     /**
@@ -379,13 +397,15 @@
     // Load the DB items for this panel, wait to ensure that we are connected.
     var interval = setInterval(function () {
         if (isConnected && TABS_INITIALIZED) {
-            var active = $("#tabs").tabs("option", "active");
+            var active = $("#tabs").tabs("option", "false");
             if (active == 7) {
                 doQuery();
                 clearInterval(interval);
             }
         }
     }, INITIAL_WAIT_TIME);
+
+
 
     // Query the DB every 30 seconds for updates.
     /*
@@ -399,6 +419,8 @@
     */
 
     // Export functions - Needed when calling from HTML.
+    $.showTable1 = showTable1;
+    $.showTable2 = showTable2;
     $.viewersOnMessage = onMessage;
     $.viewersDoQuery = doQuery;
     $.updateUserPerm = updateUserPerm;

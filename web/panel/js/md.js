@@ -100,6 +100,7 @@ $(document).ready(function () {
         var parsing1 = parseInt($('#followsTotal').text())
         var parsing2 = numberChosenInt;
         var percentageFG = (parsing1 / parsing2) * 100;
+        localStorage.setItem('percentageFGs', percentageFGs);
         $('.progress-bar').css('width', percentageFG + '%').attr('aria-valuenow', percentageFG);
     });
 

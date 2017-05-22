@@ -310,7 +310,7 @@
                 if (msgObject['results']['lastFollow'] == null) {
                     $("#lastFollow").html("");
                 } else {
-                    $("#lastFollow").html("<spam>Latest Follow: " + msgObject['results']['lastFollow'] + "</spam>");
+                    $("#lastFollow").html("<spam>Latest Follow: " + msgObject['results']['lastFollow'] + " </spam>");
                 }
             }
 
@@ -318,7 +318,7 @@
                 if (msgObject['results']['lastReSub'] == null) {
                     $("#lastReSub").html("");
                 } else {
-                    $("#lastReSub").html("<spam>Latest ReSub: " + msgObject['results']['lastReSub'] + "</spam>");
+                    $("#lastReSub").html("<spam>Latest ReSub: " + msgObject['results']['lastReSub'] + " </spam>");
                 }
             }
 
@@ -326,7 +326,7 @@
                 if (msgObject['results']['lastSub'] == null) {
                     $("#lastSub").html("");
                 } else {
-                    $("#lastSub").html("<spam>Latest Sub: " + msgObject['results']['lastSub'] + "</spam>");
+                    $("#lastSub").html("<spam>Latest Sub: " + msgObject['results']['lastSub'] + " </spam>");
                 }
             }
 
@@ -334,7 +334,7 @@
                 if (msgObject['results']['lastDonator'] == null) {
                     $("#lastDonator").html("");
                 } else {
-                    $("#lastDonator").html("<spam>Latest Donator: " + msgObject['results']['lastDonator'] + "</spam>");
+                    $("#lastDonator").html("<spam>Latest Donator: " + msgObject['results']['lastDonator'] + " </spam>");
                 }
             }
 

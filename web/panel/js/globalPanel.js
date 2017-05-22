@@ -35,14 +35,6 @@
      * @function well... these are some new additions from Mindful Design ;D
      */
 
-    function switchTheme() {
-        if ($("#themeChange").attr('href') === "panel/css/mindfuldesign.min.css") {
-            $("#themeChange").attr("href", "panel/css/mindfuldesignDark.min.css");
-        } else {
-            $("#themeChange").attr("href", "panel/css/mindfuldesign.min.css")
-        }
-    }
-
     function liveStream() {
         if ($("#hideShow").is(":visible")) {
             $("#hideShow").fadeOut(1000);
@@ -239,7 +231,6 @@
     $.globalOnMessage = onMessage;
     $.globalDoQuery = doQuery;
     $.globalPauseMode = pauseMode;
-    $.switchTheme = switchTheme;
     $.liveStream = liveStream;
     $.preStream = preStream;
 })();

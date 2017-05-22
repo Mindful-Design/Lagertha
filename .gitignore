@@ -86,3 +86,5 @@ logs/private-messages/
 logs/pointSystem/
 
 config/
+
+web/Thumbs\.db

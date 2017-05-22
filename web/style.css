@@ -25,7 +25,6 @@ body {
     position: absolute;
     left: 0px;
     bottom: 0px;
-    height: 60px;
     width: 100%;
     color: white;
     text-align: center;
@@ -189,8 +188,22 @@ a:hover {
 }
 
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:200,900|Lato:100,300,900);
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 768px) {
     #logo {
-        font-size: 3rem;
+        font-size: 2rem;
+    }
+    .navbar-nav>li {
+        float: left;
+    }
+    nav>li {
+        position: relative;
+        display: block;
+    }
+    .navbar-right {
+        float: right!important;
+        margin-right: -15px;
+    }
+    .row {
+        padding-top: 75px;
     }
 }
