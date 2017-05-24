@@ -29,7 +29,14 @@ index e69de29..5d7aa91 100644
 +  - "**.php"
 +  - "**.py"
 +  - "**.rb"
-+exclude_paths: []
+exclude_paths:
+- "**/bootstrap.css"
+- "**/bootstrap.css.map"
+- "**/bootstrap-*.css.map"
+- "**/bootstrap.js"
+- "**/bootstrap-*.js"
+- "**/jquery.js"
+- "**/jquery-ui.js"
 diff --git a/.csslintrc b/.csslintrc
 index e69de29..aacba95 100644
 --- a/.csslintrc
