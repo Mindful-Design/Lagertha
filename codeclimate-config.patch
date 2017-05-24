@@ -37,6 +37,8 @@ exclude_paths:
 - "**/bootstrap-*.js"
 - "**/jquery.js"
 - "**/jquery-ui.js"
+- "web/panel/js/jquery-ui/external/jquery/jquery.js"
+- "web/panel/js/jquery-ui/jquery-ui.js"
 diff --git a/.csslintrc b/.csslintrc
 index e69de29..aacba95 100644
 --- a/.csslintrc
