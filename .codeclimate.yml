@@ -1,29 +1,25 @@
-engines:
-  rubocop:
+--- 
+engines: 
+  brakeman: 
     enabled: true
-    #checks:
-    #	Rubocop/Metrics/ClassLength:
-    #  	enabled: false
-  brakeman:
-   	enabled: true
-    #exclude_fingerprints:
-    #- 08c185b3f764f262539a1f76997d3a89
-  eslint:
+  csslint: 
     enabled: true
-  csslint:
+  duplication: 
+    config: ~
     enabled: true
-  duplication:
-  	enabled: true
-    config:
-    	languages:
+    languages: 
       - javascript
-ratings:
-  paths:
-  - app/**
-  - lib/**
-  - "**.rb"
-  - "**.go"
-exclude_paths:
-- web/panel/js/jquery-ui
-- web/panel/js/flot
-- web/panel/js/ion-sound
+  eslint: 
+    enabled: true
+  rubocop: 
+    enabled: true
+exclude_paths: 
+  - web/panel/js/jquery-ui
+  - web/panel/js/flot
+  - web/panel/js/ion-sound
+ratings: 
+  paths: 
+    - app/**
+    - lib/**
+    - "**.rb"
+    - "**.go"
