@@ -6,11 +6,13 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby:
       - javascript:
   eslint: 
     enabled: true
+ratings:
+  paths:
+      - "/"
 exclude_paths: 
-  - web/panel/js/jquery-ui
-  - web/panel/js/flot
-  - web/panel/js/ion-sound
+  - "web/panel/js/jquery-ui"
+  - "web/panel/js/flot"
+  - "web/panel/js/ion-sound"
