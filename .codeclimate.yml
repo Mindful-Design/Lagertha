@@ -1,7 +1,5 @@
 --- 
-engines: 
-  brakeman: 
-    enabled: true
+engines:
   csslint: 
     enabled: true
   duplication: 
@@ -10,8 +8,6 @@ engines:
     languages: 
       - javascript
   eslint: 
-    enabled: true
-  rubocop: 
     enabled: true
 exclude_paths: 
   - web/panel/js/jquery-ui
