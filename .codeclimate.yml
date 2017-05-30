@@ -1,4 +1,15 @@
 --- 
+engines: 
+  csslint: 
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby:
+      - javascript:
+  eslint: 
+    enabled: true
 exclude_paths: 
   - web/panel/js/jquery-ui
   - web/panel/js/flot
