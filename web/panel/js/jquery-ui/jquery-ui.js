@@ -6148,7 +6148,6 @@
                 case keyCode.UP:
                     toFocus = this.headers[(currentIndex - 1 + length) % length];
                     break;
-                case keyCode.SPACE:
                 case keyCode.ENTER:
                     this._eventHandler(event);
                     break;
