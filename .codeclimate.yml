@@ -13,6 +13,5 @@ ratings:
   paths:
       - "web/"
 exclude_paths: 
+  - "web/panel/js/jquery"
   - "web/panel/js/jquery-ui"
-  - "web/panel/js/flot"
-  - "web/panel/js/ion-sound"
