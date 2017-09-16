@@ -15,3 +15,5 @@ ratings:
 exclude_paths: 
   - "web/panel/js/jquery"
   - "web/panel/js/jquery-ui"
+  - "web/playlist/js/jquery"
+  - "web/ytplayer/js/jquery-ui"
