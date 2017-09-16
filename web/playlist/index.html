@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lagertha YouTube Player Playlist Viewer</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/playlist/js/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="/playlist/js/jquery-ui/external/jquery/jquery.min.js"></script>
+    <script src="/playlist/js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/playlist/js/playerConfig.js"></script>
+    <script type="text/javascript" src="/playlist/js/ytPlaylist.js"></script>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/playlist/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="header">
+        <div id="newAlert" class="alert" style="display:none"></div>
+    </div>
+    <div id="logo">
+        <h1 class="centered">PROJECT<span> LAGERTHA</span></h1>
+    </div>
+    <div class="bg"></div>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" class="iconsLink" href="http://twitter.com/_MindfulDesign" id="header-right"><i  id="fontawesome" class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" class="iconsLink" href="http://bit.ly/MindfulG" id="header-right"><i data-toggle="tooltip" data-placement="left" title="Homepage"  id="fontawesome" class="fa fa-users fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="panelsD">
+                    <div id="currentsong">
+                        <div id="songTableTitle" class="panelheader">Currently Playing</div>
+                        <table class="table" id="currentSongTable"> </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="panelsD">
+                    <div id="songlist">
+                        <div id="songTableTitle" class="panelheader">Song Request Queue</div>
+                        <table class="table" id="songTable"> </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="panelsD">
+                    <div id="playlist">
+                        <div id="playlistTableTitle" class="panelheader">Current Playlist</div>
+                        <table class="table" id="playlistTable"> </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            Lagertha - Built upon PhantomBot, a Free, Open Source, Multipurpose Twitch Chat Bot<br>
+            <a href="https://phantombot.tv">phantombot.tv</a> | <a href="http://bit.ly/MindfulG">MindfulDesign</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

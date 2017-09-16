@@ -1,0 +1,300 @@
+@font-face {
+    font-family: 'Amethyst';
+    src: url('Amethyst.ttf');
+}
+
+body {
+    font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, sans-serif;
+}
+
+#fontawesome {
+    width: 30px;
+}
+
+#spacer {
+    margin-left: 15px;
+}
+
+#middle {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+#copyright {
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.navbar-default {
+    background: none;
+    border: none;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/ytplayer/images/the-fog-448100_1920.jpg');
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.centered {
+    text-align: center;
+}
+
+.panelheader {
+    font-size: 20px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.panelsD {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    border-left: 6px solid #02c1c1;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    color: #02c1c1;
+    line-height: 1.3;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+}
+
+.panelsD:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.row {
+    padding-top: 150px;
+}
+
+#middle {
+    color: white;
+}
+
+.launcher-lock {
+    color: #02c1c1;
+}
+
+h1 {
+    font-family: Amethyst, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 1.8em;
+}
+
+a {
+    color: #02c1c1;
+}
+
+a:hover {
+    color: #00f4f4;
+}
+
+.iconsLink {
+    color: white !important;
+}
+
+.iconsLink:hover {
+    color: #02c1c1 !important;
+}
+
+#logo {
+    z-index: 0;
+    width: 100%;
+    font-size: 2rem;
+    color: white;
+    position: fixed;
+    top: 50%;
+    font-weight: 900;
+}
+
+#logo span {
+    font-weight: 100;
+}
+
+#newSongAlert {
+    z-index: 0;
+    width: 100%;
+    position: fixed;
+    top: 5%;
+}
+
+#currentSong {
+    color: white;
+}
+
+#audiowrap {
+    margin: 0 auto;
+}
+
+#plwrap {
+    margin: 0 auto;
+}
+
+#tracks {
+    position: relative;
+    text-align: center;
+}
+
+#nowPlay {
+    display: inline;
+}
+
+.right {
+    float: right;
+}
+
+.left {}
+
+#npTitle {
+    margin: 0;
+    text-align: right;
+}
+
+#plList {
+    margin: 0;
+}
+
+#plList li {
+    background-color: #231F20;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    padding: 21px 0;
+}
+
+#plList li:hover {
+    background-color: #262223;
+}
+
+.plItem {
+    position: relative;
+}
+
+.plTitle {
+    left: 50px;
+    overflow: hidden;
+    position: absolute;
+    right: 65px;
+    text-overflow: ellipsis;
+    top: 0;
+    white-space: nowrap;
+}
+
+.plNum {
+    padding-left: 21px;
+    width: 25px;
+}
+
+.plLength {
+    padding-left: 21px;
+    position: absolute;
+    right: 21px;
+    top: 0;
+}
+
+.plSel,
+.plSel:hover {
+    background-color: #262223!important;
+    cursor: default!important;
+}
+
+a[id^="btn"] {
+    color: #C8C7C8;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0;
+    padding: 21px 27px;
+    text-decoration: none;
+}
+
+a[id^="btn"]:last-child {
+    margin-left: -4px;
+}
+
+a[id^="btn"]:hover,
+a[id^="btn"]:active {
+    background-color: rgba(38, 34, 35, 0.4);
+}
+
+a[id^="btn"]::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+#songProgressBar {
+    width: 100%;
+    border: 0;
+    height: 5px;
+    background: #394650;
+    outline: none;
+}
+
+.ui-slider-handle {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: white !important;
+    border: 0 !important;
+    height: 8px !important;
+    width: 8px !important;
+    outline: none !important;
+    cursor: pointer !important;
+    top: -1px !important;
+    margin-left: 0em !important;
+}
+
+.ui-slider-handle:hover,
+#range .ui-slider-handle:focus {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.ui-slider-range {
+    background: #5bc0de;
+}
+
+th {
+    font-weight: normal;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:200,900|Lato:100,300,900);
+@media screen and (max-width: 768px) {
+    #logo {
+        font-size: 2rem;
+    }
+    .navbar-nav>li {
+        float: left;
+    }
+    nav>li {
+        position: relative;
+        display: block;
+    }
+    .navbar-right {
+        float: right!important;
+        margin-right: -15px;
+    }
+    .row {
+        padding-top: 75px;
+    }
+}

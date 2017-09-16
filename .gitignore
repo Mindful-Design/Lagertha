@@ -6,8 +6,6 @@
 /scripts/**
 /web/alerts/**
 /web/common/**
-/web/playlist/**
-/web/ytplayer/**
 /web/panel/js/flot/**
 /web/panel/js/footable/**
 /web/panel/js/ion-sound/**
@@ -88,3 +86,15 @@ logs/pointSystem/
 config/
 
 web/Thumbs\.db
+
+web/playlist/js/playerConfig\.js
+
+web/ytplayer/js/playerConfig\.min\.js
+
+web/ytplayer/js/playerConfig\.js
+
+web/ytplayer/images/Thumbs\.db
+
+web/playlist/images/Thumbs\.db
+
+web/playlist/js/playerConfig\.min\.js
