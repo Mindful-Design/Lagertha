@@ -12,7 +12,7 @@ If you are interested in what else I have developed, or in the streaming platfor
 
 * You can find the status of the project over on [Trello](https://trello.com/b/5kni5emL/mindful-design-public)
 
-[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/Mindful-Design/Lagertha)
+[![GitHub release](https://img.shields.io/github/release/Mindful-Design/Lagertha.svg)](https://github.com/Mindful-Design/Lagertha)
 [![Code Climate](https://codeclimate.com/github/Mindful-Design/Lagertha/badges/gpa.svg)](https://codeclimate.com/github/Mindful-Design/Lagertha)
 
 ## Getting Started
@@ -35,7 +35,7 @@ var clientID = 'xawdadawd2r52a522ad2ad24a24a2';
 
 ### Prerequisites
 
-At the moment the redesign runs on **PhantomBot 2.3.5.3**, and as such it needs this version in order to work. I am working on making a version that will follow along with the PhantomBot main branch better.
+At the moment the redesign runs on **PhantomBot v2.3.9**, and as such it needs this version in order to work. I am working on making a version that will follow along with the PhantomBot main branch better.
 
 ## Screenshots
 
